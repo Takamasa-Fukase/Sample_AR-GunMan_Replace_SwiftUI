@@ -31,6 +31,7 @@
 		BCFB7AAA2CF9FA4A0018649D /* startWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A992CF9FA490018649D /* startWhistle.mp3 */; };
 		BCFB7AAB2CF9FA4A0018649D /* westernPistolShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */; };
 		BCFB7AAC2CF9FA4A0018649D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9D2CF9FA4A0018649D /* art.scnassets */; };
+		BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		BCFB7A992CF9FA490018649D /* startWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startWhistle.mp3; sourceTree = "<group>"; };
 		BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = westernPistolShoot.mp3; sourceTree = "<group>"; };
 		BCFB7A9D2CF9FA4A0018649D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				BCFB7A612CF9F6240018649D /* ContentView.swift */,
 				BCFB7A892CF9F70E0018649D /* TopView.swift */,
 				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
+				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A9D2CF9FA4A0018649D /* art.scnassets */,
 				BCFB7A9C2CF9FA490018649D /* Resources */,
@@ -192,6 +195,14 @@
 				BCFB7A9B2CF9FA490018649D /* mp3 */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BCFB7AAD2CF9FD360018649D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
 				BCFB7A8C2CF9FA0F0018649D /* GameView.swift in Sources */,
+				BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */,
 				BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
