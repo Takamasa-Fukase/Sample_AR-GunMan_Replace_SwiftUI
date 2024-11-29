@@ -14,6 +14,7 @@
 		BCFB7A712CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A702CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUITests.swift */; };
 		BCFB7A7B2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A7A2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITests.swift */; };
 		BCFB7A7D2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A7C2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift */; };
+		BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A892CF9F70E0018649D /* TopView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		BCFB7A762CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A7A2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		BCFB7A7C2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BCFB7A892CF9F70E0018649D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */,
 				BCFB7A612CF9F6240018649D /* ContentView.swift */,
+				BCFB7A892CF9F70E0018649D /* TopView.swift */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A652CF9F6250018649D /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */,
+				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
 				BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
