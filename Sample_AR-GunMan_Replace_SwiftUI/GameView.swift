@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct GameView: View {
-    @State var timeCount: Double = 30.00
-    @State var bulletsCount: Int = 7
-    @State var isReloading = false
+    @StateObject var viewModel = GameViewModel()
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                Text(timeCount.timeCountText)
+                Text(viewModel.timeCount.timeCountText)
                     .font(.system(size: 32))
                     .frame(width: 120, height: 60, alignment: .center)
                     .foregroundStyle(Color(.systemBackground))
@@ -44,7 +42,7 @@ struct GameView: View {
 
             
             HStack(alignment: .bottom, spacing: 0) {
-                Image("pistol_bullets_\(bulletsCount)")
+                Image("pistol_bullets_\(viewModel.bulletsCount)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 180, height: 80, alignment: .bottom)
