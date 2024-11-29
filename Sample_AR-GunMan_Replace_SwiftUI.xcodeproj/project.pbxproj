@@ -56,6 +56,8 @@
 		BCFB7AEF2CFA07370018649D /* WeaponDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AE92CFA07370018649D /* WeaponDetailData.swift */; };
 		BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */; };
 		BCFB7AF12CFA07370018649D /* WeaponObjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AEB2CFA07370018649D /* WeaponObjectData.swift */; };
+		BCFB7AF72CFA09130018649D /* RepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AF32CFA09120018649D /* RepositoryFactory.swift */; };
+		BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AF42CFA09120018649D /* UseCaseFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		BCFB7AE92CFA07370018649D /* WeaponDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponDetailData.swift; sourceTree = "<group>"; };
 		BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponListItem.swift; sourceTree = "<group>"; };
 		BCFB7AEB2CFA07370018649D /* WeaponObjectData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponObjectData.swift; sourceTree = "<group>"; };
+		BCFB7AF32CFA09120018649D /* RepositoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryFactory.swift; sourceTree = "<group>"; };
+		BCFB7AF42CFA09120018649D /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
 				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
 				BCFB7AE32CFA070A0018649D /* SoundPlayer.swift */,
+				BCFB7AF52CFA09120018649D /* Factories */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7ACF2CFA05C90018649D /* Data */,
 				BCFB7AC82CFA05C80018649D /* Domain */,
@@ -341,6 +346,15 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
+		BCFB7AF52CFA09120018649D /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7AF32CFA09120018649D /* RepositoryFactory.swift */,
+				BCFB7AF42CFA09120018649D /* UseCaseFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -486,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFB7AF72CFA09130018649D /* RepositoryFactory.swift in Sources */,
 				BCFB7AD42CFA05C90018649D /* TutorialUseCase.swift in Sources */,
 				BCFB7AED2CFA07370018649D /* LoadedWeaponObjectData.swift in Sources */,
 				BCFB7AD62CFA05C90018649D /* WeaponActionExecuteUseCase.swift in Sources */,
@@ -500,6 +515,7 @@
 				BCFB7AD72CFA05C90018649D /* WeaponResourceGetUseCase.swift in Sources */,
 				BCFB7ADD2CFA05C90018649D /* WeaponDataSource.swift in Sources */,
 				BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */,
+				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
 				BCFB7AD52CFA05C90018649D /* UseCaseProvider.swift in Sources */,
 				BCFB7AE52CFA070A0018649D /* SoundPlayer.swift in Sources */,

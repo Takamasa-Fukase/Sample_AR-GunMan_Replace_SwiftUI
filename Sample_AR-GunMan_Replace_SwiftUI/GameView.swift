@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject var viewModel = GameViewModel()
+    @StateObject private var viewModel = GameViewModel(
+        weaponResourceGetUseCase: UseCaseFactory.create(),
+        weaponActionExecuteUseCase: UseCaseFactory.create()
+    )
     
     var body: some View {
         VStack(spacing: 0) {
@@ -42,7 +45,7 @@ struct GameView: View {
 
             
             HStack(alignment: .bottom, spacing: 0) {
-                Image("pistol_bullets_\(viewModel.bulletsCount)")
+                Image("pistol_bullets_\(viewModel.currentWeaponData?.state.bulletsCount ?? 0)")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 180, height: 80, alignment: .bottom)
@@ -51,10 +54,10 @@ struct GameView: View {
                 
                 VStack(spacing: 16) {
                     button(title: "Fire") {
-                        
+                        viewModel.fireWeapon()
                     }
                     button(title: "Reload") {
-                        
+                        viewModel.reloadWeapon()
                     }
                 }
             }
