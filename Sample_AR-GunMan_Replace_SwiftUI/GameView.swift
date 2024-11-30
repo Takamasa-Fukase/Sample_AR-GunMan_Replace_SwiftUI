@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct GameView: View {
-    @StateObject private var viewModel = GameViewModel(
-        weaponResourceGetUseCase: UseCaseFactory.create(),
-        weaponActionExecuteUseCase: UseCaseFactory.create()
-    )
+    @StateObject private var viewModel: GameViewModel
+    
+    init(viewModel: GameViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -83,5 +84,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView()
+    PresentationFactory.createGameView()
 }
