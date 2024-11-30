@@ -1,5 +1,5 @@
 //
-//  WeaponDetailData.swift
+//  CurrentWeaponData.swift
 //  WeaponFiringSimulator
 //
 //  Created by ウルトラ深瀬 on 14/11/24.

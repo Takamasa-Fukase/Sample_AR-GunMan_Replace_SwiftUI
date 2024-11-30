@@ -42,10 +42,9 @@ struct GameView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 100)
                 .foregroundStyle(.red)
-
             
             HStack(alignment: .bottom, spacing: 0) {
-                Image("pistol_bullets_\(viewModel.currentWeaponData?.state.bulletsCount ?? 0)")
+                Image(viewModel.currentWeaponData?.bulletsCountImageName() ?? "")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 180, height: 80, alignment: .bottom)
