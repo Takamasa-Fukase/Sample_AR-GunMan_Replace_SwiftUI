@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		01BB575855E061FA747DD295E1BE5BDD /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSPagerView; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA63DCB1F58F17F365AB3A887DDEF56 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		1D20917481C129BD31786C0800A5E4A5 /* FSPageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPageControl.swift; path = Sources/FSPageControl.swift; sourceTree = "<group>"; };
 		29E04DDD2FA7921049CF0A8F500F3CB8 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		90DD6963E60469DEA4735B27343EC468 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests"; path = Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9620C112F0330566F4B89C4B962D2FEC /* FSPageViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPageViewLayout.swift; path = Sources/FSPageViewLayout.swift; sourceTree = "<group>"; };
 		9A6D3F7D2D8E16EE7198DAB27EFBB112 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F1B75D1E72A503A09B4822231D72BB0 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h"; sourceTree = "<group>"; };
 		A104F1430BC64CA6D28ECFE3C7579EC1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A6811869AFF208C8E94C4EFFF071D742 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h"; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 				BD61E8F7E5A3F9C223CB3A8D35FA74BA /* FSPageViewTransformer.swift */,
 				5B99539154F62E2C331C075575C13260 /* Support Files */,
 			);
-			name = FSPagerView;
 			path = FSPagerView;
 			sourceTree = "<group>";
 		};
@@ -232,7 +231,7 @@
 		23BE3169A8F603F8E6D7248885718D9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */,
+				0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView.framework */,
 				82DBA6C7B972FE974356AABBA76E0C79 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */,
 				68A0CB284B1D7A0405AA3724842B7A94 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */,
 				90DD6963E60469DEA4735B27343EC468 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */,
@@ -376,7 +375,7 @@
 			);
 			name = FSPagerView;
 			productName = FSPagerView;
-			productReference = 0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */;
+			productReference = 0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F936D3D6F4871CC6CA63DD52F23DB346 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */ = {
@@ -416,8 +415,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 23BE3169A8F603F8E6D7248885718D9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -768,7 +765,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/FSPagerView/FSPagerView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -885,7 +882,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/FSPagerView/FSPagerView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
