@@ -23,9 +23,10 @@ final class GameViewModel: ObservableObject {
     // MARK: ViewへのOutput（イベント通知）
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
     let playSound = PassthroughSubject<SoundType, Never>()
-    
+        
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
+    private var score: Double = 0.0
     
     init(
         weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface,
@@ -58,6 +59,19 @@ final class GameViewModel: ObservableObject {
     
     func weaponChangeButtonTapped() {
         
+    }
+    
+    func targetHit() {
+        //ランキングがバラけるように、加算する得点自体に90%~100%の間の乱数を掛ける
+        let randomlyAdjustedHitPoint = Double(currentWeaponData?.spec.targetHitPoint ?? 0) * Double.random(in: 0.9...1)
+        // 100を超えない様に更新する
+        score = min(score + randomlyAdjustedHitPoint, 100.0)
+        
+        playSound.send(.headShot)
+        
+        if let targetHitSound = currentWeaponData?.resources.targetHitSound {
+            playSound.send(targetHitSound)
+        }
     }
     
     // MARK: Privateメソッド

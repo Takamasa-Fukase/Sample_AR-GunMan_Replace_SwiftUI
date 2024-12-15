@@ -16,6 +16,9 @@ struct GameView: View {
         viewModel: GameViewModel
     ) {
         self.arController = arController
+        self.arController.targetHit = {
+            viewModel.targetHit()
+        }
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
