@@ -10,7 +10,6 @@ import SwiftUI
 struct GameView: View {
     private var arController: GameARControllerInterface
     @StateObject private var viewModel: GameViewModel
-    @State private var isWeaponSelectViewPresented = false
     
     init(
         arController: GameARControllerInterface,
@@ -43,7 +42,8 @@ struct GameView: View {
                     Spacer()
                     
                     Button {
-                        //TODO: 武器選択画面を表示
+                        // 武器選択画面を表示
+                        viewModel.weaponChangeButtonTapped()
                         
                     } label: {
                         Image("weapon_change")
@@ -99,6 +99,11 @@ struct GameView: View {
         }
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
+        }
+        .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
+            WeaponSelectView(weaponSelected: { weaponId in
+                viewModel.weaponSelected(weaponId: weaponId)
+            })
         }
     }
     

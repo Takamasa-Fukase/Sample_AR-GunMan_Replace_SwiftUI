@@ -8,18 +8,13 @@
 import UIKit
 import FSPagerView
 
-protocol WeaponSelectDelegate: AnyObject {
-    func weaponSelected(weaponId: Int)
-}
-
 class WeaponSelectViewController: UIViewController {
-    private weak var delegate: WeaponSelectDelegate?
+    var weaponSelected: ((Int) -> Void)?
     private var weaponListItems: [WeaponListItem] = []
     
     @IBOutlet weak var pagerView: FSPagerView!
     
-    init(delegate: WeaponSelectDelegate) {
-        self.delegate = delegate
+    init() {
         super.init(nibName: WeaponSelectViewController.className, bundle: nil)
     }
     
@@ -52,7 +47,7 @@ class WeaponSelectViewController: UIViewController {
 extension WeaponSelectViewController: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         let weaponId = weaponListItems[index].weaponId
-        delegate?.weaponSelected(weaponId: weaponId)
+        weaponSelected?(weaponId)
         dismiss(animated: true)
     }
 }

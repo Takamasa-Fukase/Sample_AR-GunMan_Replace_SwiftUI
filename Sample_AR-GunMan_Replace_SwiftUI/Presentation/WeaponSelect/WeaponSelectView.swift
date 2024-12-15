@@ -5,4 +5,18 @@
 //  Created by ウルトラ深瀬 on 15/12/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct WeaponSelectView: UIViewControllerRepresentable {
+    var weaponSelected: ((Int) -> Void)?
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let weaponSelectVC = WeaponSelectViewController()
+        weaponSelectVC.weaponSelected = { weaponId in
+            weaponSelected?(weaponId)
+        }
+        return weaponSelectVC
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+}

@@ -19,6 +19,7 @@ final class GameViewModel: ObservableObject {
     // MARK: ViewへのOutput（表示するデータ）
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
+    @Published var isWeaponSelectViewPresented = false
     
     // MARK: ViewへのOutput（イベント通知）
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
@@ -34,15 +35,19 @@ final class GameViewModel: ObservableObject {
     ) {
         self.weaponResourceGetUseCase = weaponResourceGetUseCase
         self.weaponActionExecuteUseCase = weaponActionExecuteUseCase
-        
-        getDefaultWeaponDetail()
     }
     
     // MARK: ViewからのInput
     func onViewAppear() {
+        do {
+            let selectedWeaponData = try weaponResourceGetUseCase.getDefaultWeaponDetail()
+            showSelectedWeapon(selectedWeaponData)
+            
+        } catch {
+            print("defaultWeaponGetUseCase error: \(error)")
+        }
+        
         arControllerInputEvent.send(.runSceneSession)
-        guard let currentWeaponData = currentWeaponData else { return }
-        arControllerInputEvent.send(.showWeaponObject(currentWeaponData.extractWeaponObjectData()))
     }
     
     func onViewDisappear() {
@@ -58,7 +63,20 @@ final class GameViewModel: ObservableObject {
     }
     
     func weaponChangeButtonTapped() {
-        
+        isWeaponSelectViewPresented = true
+    }
+    
+    func weaponSelected(weaponId: Int) {
+        do {
+            let selectedWeaponData = try weaponResourceGetUseCase.getWeaponDetail(of: weaponId)
+            showSelectedWeapon(selectedWeaponData)
+            
+            // 武器選択画面を閉じる
+            isWeaponSelectViewPresented = false
+            
+        } catch {
+            print("WeaponDetailGetRequest error: \(error)")
+        }
     }
     
     func targetHit() {
@@ -75,13 +93,15 @@ final class GameViewModel: ObservableObject {
     }
     
     // MARK: Privateメソッド
-    private func getDefaultWeaponDetail() {
-        do {
-            currentWeaponData = try self.weaponResourceGetUseCase.getDefaultWeaponDetail()
-            
-        } catch {
-            print("defaultWeaponGetUseCase error: \(error)")
-        }
+    private func showSelectedWeapon(_ selectedWeaponData: CurrentWeaponData) {
+        self.currentWeaponData = selectedWeaponData
+        
+        guard let currentWeaponData = self.currentWeaponData else { return }
+        arControllerInputEvent.send(.showWeaponObject(currentWeaponData.extractWeaponObjectData()))
+        
+//        if isCheckedTutorialCompletedFlag {
+        playSound.send(currentWeaponData.resources.showingSound)
+//        }
     }
     
     private func fireWeapon() {
