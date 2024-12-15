@@ -8,7 +8,17 @@
 import Foundation
 import Combine
 
-final class GameViewModel: ObservableObject {
+protocol GameViewModelInterface: ObservableObject {
+    var timeCount: Double { get set }
+    var currentWeaponData: CurrentWeaponData? { get set }
+    var weaponFireRenderingRequest: PassthroughSubject<Void, Never> { get }
+    var weaponShowingRequest: PassthroughSubject<WeaponObjectData, Never> { get }
+    func onViewAppear()
+    func fireWeapon()
+    func reloadWeapon()
+}
+
+final class GameViewModel {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
@@ -33,7 +43,9 @@ final class GameViewModel: ObservableObject {
             print("defaultWeaponGetUseCase error: \(error)")
         }
     }
-    
+}
+
+extension GameViewModel: GameViewModelInterface {
     func onViewAppear() {
         guard let currentWeaponData = currentWeaponData else { return }
         weaponShowingRequest.send(currentWeaponData.extractWeaponObjectData())
