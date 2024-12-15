@@ -24,6 +24,7 @@ struct GameView<ViewModel: GameViewModelInterface>: View {
             // ARコンテンツ部分
             GameARViewContainer(arController: arController)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
             
             // SwiftUIViewコンテンツ部分
             VStack(spacing: 0) {
