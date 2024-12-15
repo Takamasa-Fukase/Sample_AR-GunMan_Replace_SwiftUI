@@ -169,6 +169,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCE325542D0F15B0001B3955 /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7A892CF9F70E0018649D /* TopView.swift */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		BCE325552D0F15B6001B3955 /* WeaponSelect */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeaponSelect;
+			sourceTree = "<group>";
+		};
+		BCE325562D0F15BF001B3955 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
+				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
+				BCE3254C2D0E8172001B3955 /* GameARView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		BCFB7A532CF9F6240018649D = {
 			isa = PBXGroup;
 			children = (
@@ -369,11 +394,10 @@
 			isa = PBXGroup;
 			children = (
 				BCFB7A612CF9F6240018649D /* ContentView.swift */,
-				BCFB7A892CF9F70E0018649D /* TopView.swift */,
-				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
-				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
-				BCE3254C2D0E8172001B3955 /* GameARView.swift */,
 				BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */,
+				BCE325542D0F15B0001B3955 /* Top */,
+				BCE325562D0F15BF001B3955 /* Game */,
+				BCE325552D0F15B6001B3955 /* WeaponSelect */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

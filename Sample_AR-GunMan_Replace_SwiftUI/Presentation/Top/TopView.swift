@@ -21,6 +21,7 @@ struct TopView: View {
                     
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
                 // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
                 AVCaptureDevice.requestAccess(for: .video) { _ in }
