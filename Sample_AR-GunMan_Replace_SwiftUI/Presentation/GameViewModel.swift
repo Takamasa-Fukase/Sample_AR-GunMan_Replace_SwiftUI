@@ -12,7 +12,9 @@ final class GameViewModel: ObservableObject {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
+    // TODO: 値を外側から流せないように外部に公開するプロパティはPublisherなどにする（Observableみたいに）
     let weaponFireRenderingRequest = PassthroughSubject<Void, Never>()
+    let weaponShowingRequest = CurrentValueSubject<WeaponObjectData?, Never>(nil)
     
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
@@ -31,6 +33,18 @@ final class GameViewModel: ObservableObject {
             print("defaultWeaponGetUseCase error: \(error)")
         }
     }
+    
+    func viewDidInit() {
+        print("viewDidInitでsendします")
+        guard let currentWeaponData = currentWeaponData else { return }
+        weaponShowingRequest.send(currentWeaponData.extractWeaponObjectData())
+    }
+    
+//    func viewDidAppear() {
+//        print("viewDidAppearでsendします")
+//        guard let currentWeaponData = currentWeaponData else { return }
+//        weaponShowingRequest.send(currentWeaponData.extractWeaponObjectData())
+//    }
     
     func fireWeapon() {
         weaponActionExecuteUseCase.fireWeapon(

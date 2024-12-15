@@ -16,10 +16,7 @@ struct GameARViewContainer: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> some UIView {
-        let sceneView = arController.initSceneViewAndEject(with: .zero)
-        // TODO: setupを呼び出す箇所を後で要検討
-        arController.setup(targetCount: 50)
-        return sceneView
+        return arController.getSceneView()
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {}
@@ -27,7 +24,7 @@ struct GameARViewContainer: UIViewRepresentable {
 
 protocol GameARControllerInterface {
     var targetHit: (() -> Void)? { get set }
-    func initSceneViewAndEject(with frame: CGRect) -> UIView
+    func getSceneView() -> UIView
     func setup(targetCount: Int)
     func runSession()
     func pauseSession()
@@ -38,10 +35,17 @@ protocol GameARControllerInterface {
 
 final class GameARController: NSObject {
     var targetHit: (() -> Void)?
-    private var sceneView: ARSCNView!
+    private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
     private let originalBulletNode = SceneNodeUtil.originalBulletNode()
     private var currentWeaponId: Int = 0
+    
+    init(frame: CGRect) {
+        // MEMO: 予めframeを渡して初期化することで、モーダル出現アニメーションの途中時点から既に正しい比率でSceneオブジェクトを表示した状態で一緒にアニメーションさせられるので遷移の見た目が綺麗になる（遷移前に予め表示予定領域のframeが確定している場合）
+        sceneView = ARSCNView(frame: frame)
+        super.init()
+        setup(targetCount: 50)
+    }
     
     private func showTargetsToRandomPositions(count: Int) {
         let originalTargetNode = SceneNodeUtil.originalTargetNode()
@@ -92,14 +96,11 @@ final class GameARController: NSObject {
 }
 
 extension GameARController: GameARControllerInterface {
-    func initSceneViewAndEject(with frame: CGRect) -> UIView {
-        print("GameARController initSceneViewAndEject")
-        sceneView = ARSCNView(frame: frame)
+    func getSceneView() -> UIView {
         return sceneView
     }
     
     func setup(targetCount: Int) {
-        print("GameARController setup targetCount: \(targetCount)")
         sceneView.scene = SCNScene()
         sceneView.autoenablesDefaultLighting = true
         sceneView.delegate = self
@@ -156,7 +157,6 @@ extension GameARController: GameARControllerInterface {
     }
     
     func renderWeaponFiring() {
-        print("GameARController renderWeaponFiring")
         // 弾の発射アニメーションを描画
         let clonedBulletNode = originalBulletNode.clone()
         clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)

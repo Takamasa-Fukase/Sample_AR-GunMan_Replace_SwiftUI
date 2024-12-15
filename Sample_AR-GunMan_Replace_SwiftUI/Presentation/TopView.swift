@@ -12,20 +12,22 @@ struct TopView: View {
     @State private var isGameViewPresented = false
     
     var body: some View {
-        VStack(spacing: 16) {
-            button(title: "Start") {
-                isGameViewPresented = true
+        GeometryReader { geometry in
+            VStack(spacing: 16) {
+                button(title: "Start") {
+                    isGameViewPresented = true
+                }
+                button(title: "HowToPlay") {
+                    
+                }
             }
-            button(title: "HowToPlay") {
-                
+            .onAppear {
+                // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
+                AVCaptureDevice.requestAccess(for: .video) { _ in }
             }
-        }
-        .onAppear {
-            // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
-            AVCaptureDevice.requestAccess(for: .video) { _ in }
-        }
-        .sheet(isPresented: $isGameViewPresented) {
-            PresentationFactory.createGameView()
+            .sheet(isPresented: $isGameViewPresented) {
+                PresentationFactory.createGameView(frame: geometry.frame(in: .global))
+            }
         }
     }
     

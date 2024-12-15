@@ -8,12 +8,13 @@
 import SwiftUI
 
 final class PresentationFactory {
-    static func createGameView() -> GameView {
+    static func createGameView(frame: CGRect) -> GameView {
+        let arController = GameARController(frame: frame)
         let viewModel = GameViewModel(
             weaponResourceGetUseCase: UseCaseFactory.create(),
             weaponActionExecuteUseCase: UseCaseFactory.create()
         )
-        return GameView(viewModel: viewModel)
+        return GameView(arController: arController, viewModel: viewModel)
     }
     
     // MARK: Private Methods

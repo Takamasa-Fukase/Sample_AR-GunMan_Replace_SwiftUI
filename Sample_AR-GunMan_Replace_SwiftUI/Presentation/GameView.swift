@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct GameView: View {
-    private let arController = GameARController()
+    private var arController: GameARControllerInterface
     @StateObject private var viewModel: GameViewModel
     
-    init(viewModel: GameViewModel) {
+    init(
+        arController: GameARControllerInterface,
+        viewModel: GameViewModel
+    ) {
         print("GameView init")
+        self.arController = arController
         self._viewModel = StateObject(wrappedValue: viewModel)
+        viewModel.viewDidInit()
     }
     
     var body: some View {
@@ -75,12 +80,15 @@ struct GameView: View {
         // landscapeだと左右のSafeAreaが考慮されずに謎の伸びが発生してレイアウトがおかしくなっているのでpaddingを+1して暫定対応している
         .padding([.leading, .trailing], 1)
         .onReceive(viewModel.weaponFireRenderingRequest) { _ in
-            print("onReceive(viewModel.weaponFireRenderingRequest)")
             arController.renderWeaponFiring()
         }
+        .onReceive(viewModel.weaponShowingRequest) { weaponObjectData in
+            guard let weaponObjectData = weaponObjectData else { return }
+            arController.showWeaponObject(objectData: weaponObjectData)
+        }
         .onAppear {
+            print("onAppear")
             arController.runSession()
-            arController.showWeaponObject(objectData: <#T##WeaponObjectData#>)
         }
         .onDisappear {
             arController.pauseSession()
@@ -104,5 +112,5 @@ struct GameView: View {
 }
 
 #Preview {
-    PresentationFactory.createGameView()
+    PresentationFactory.createGameView(frame: .zero)
 }
