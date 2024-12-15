@@ -30,6 +30,12 @@ class WeaponSelectViewController: UIViewController {
         weaponListItems = UseCaseProvider.makeWeaponResourceGetUseCase().getWeaponListItems()
         pagerView.reloadData()
     }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        
+        pagerView.itemSize = CGSize(width: view.frame.width * 0.5, height: view.frame.height * 0.8)
+    }
 
     private func setupFSPagerView() {
         pagerView.delegate = self
@@ -48,7 +54,6 @@ extension WeaponSelectViewController: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         let weaponId = weaponListItems[index].weaponId
         weaponSelected?(weaponId)
-//        dismiss(animated: true)
     }
 }
 
