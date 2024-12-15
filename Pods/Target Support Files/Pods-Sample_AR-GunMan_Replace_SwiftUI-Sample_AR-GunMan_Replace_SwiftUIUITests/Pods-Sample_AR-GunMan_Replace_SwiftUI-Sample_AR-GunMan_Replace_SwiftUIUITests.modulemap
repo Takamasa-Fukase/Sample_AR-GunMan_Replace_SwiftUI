@@ -1,0 +1,6 @@
+framework module Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests {
+  umbrella header "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7C0DA9E81CB0F805C19489 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework */; };
+		B43470AD20B0569B779EE7D0 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */; };
+		BA663FF8FEFA4C1253172AD0 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446B7296F9F55517A56CE20 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework */; };
 		BCE3254D2D0E8172001B3955 /* GameARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254C2D0E8172001B3955 /* GameARView.swift */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCE325522D0EA45B001B3955 /* SceneNodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */; };
@@ -84,6 +87,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05C89C0F9E8B1CB79C99ABC2 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B1FAE55546FCEF0A338A3F /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		76BE8E238DD4ECEE48714798 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		91F90C41112BAAF05C640DD1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		A446B7296F9F55517A56CE20 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7C0DA9E81CB0F805C19489 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_AR_GunMan_Replace_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE3254C2D0E8172001B3955 /* GameARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameARView.swift; sourceTree = "<group>"; };
 		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneNodeUtil.swift; sourceTree = "<group>"; };
@@ -144,6 +154,8 @@
 		BCFB7AF42CFA09120018649D /* UseCaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
 		BCFB7AF92CFABE670018649D /* PresentationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationFactory.swift; sourceTree = "<group>"; };
 		BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		EC64B239A8FF50D412E15E14 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8F83A5FA1150770175ECC64 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43470AD20B0569B779EE7D0 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,12 +179,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA663FF8FEFA4C1253172AD0 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		419F0BB0909C22876023204C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91F90C41112BAAF05C640DD1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */,
+				05C89C0F9E8B1CB79C99ABC2 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */,
+				63B1FAE55546FCEF0A338A3F /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */,
+				F8F83A5FA1150770175ECC64 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */,
+				EC64B239A8FF50D412E15E14 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */,
+				76BE8E238DD4ECEE48714798 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4F7DAF408D5E5427CC7AE061 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE7C0DA9E81CB0F805C19489 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework */,
+				A446B7296F9F55517A56CE20 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework */,
+				3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCE325542D0F15B0001B3955 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +251,8 @@
 				BCFB7A6F2CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUITests */,
 				BCFB7A792CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUIUITests */,
 				BCFB7A5D2CF9F6240018649D /* Products */,
+				419F0BB0909C22876023204C /* Pods */,
+				4F7DAF408D5E5427CC7AE061 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -420,9 +461,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCFB7A802CF9F6260018649D /* Build configuration list for PBXNativeTarget "Sample_AR-GunMan_Replace_SwiftUI" */;
 			buildPhases = (
+				19AEB904DCCACAFD114627FF /* [CP] Check Pods Manifest.lock */,
 				BCFB7A582CF9F6240018649D /* Sources */,
 				BCFB7A592CF9F6240018649D /* Frameworks */,
 				BCFB7A5A2CF9F6240018649D /* Resources */,
+				9A1FADFF7EF98FFB7265036E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -437,6 +480,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCFB7A832CF9F6260018649D /* Build configuration list for PBXNativeTarget "Sample_AR-GunMan_Replace_SwiftUITests" */;
 			buildPhases = (
+				ACD0A9E9069B0C6300D5183C /* [CP] Check Pods Manifest.lock */,
 				BCFB7A682CF9F6260018649D /* Sources */,
 				BCFB7A692CF9F6260018649D /* Frameworks */,
 				BCFB7A6A2CF9F6260018649D /* Resources */,
@@ -455,9 +499,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCFB7A862CF9F6260018649D /* Build configuration list for PBXNativeTarget "Sample_AR-GunMan_Replace_SwiftUIUITests" */;
 			buildPhases = (
+				828DCDF21CFDABD3EAB3C305 /* [CP] Check Pods Manifest.lock */,
 				BCFB7A722CF9F6260018649D /* Sources */,
 				BCFB7A732CF9F6260018649D /* Frameworks */,
 				BCFB7A742CF9F6260018649D /* Resources */,
+				82803D7808CA4F8FFC44A646 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -552,6 +598,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19AEB904DCCACAFD114627FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sample_AR-GunMan_Replace_SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82803D7808CA4F8FFC44A646 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		828DCDF21CFDABD3EAB3C305 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A1FADFF7EF98FFB7265036E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD0A9E9069B0C6300D5183C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sample_AR-GunMan_Replace_SwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCFB7A582CF9F6240018649D /* Sources */ = {
@@ -752,6 +901,7 @@
 		};
 		BCFB7A812CF9F6260018649D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91F90C41112BAAF05C640DD1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -782,6 +932,7 @@
 		};
 		BCFB7A822CF9F6260018649D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05C89C0F9E8B1CB79C99ABC2 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -812,6 +963,7 @@
 		};
 		BCFB7A842CF9F6260018649D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC64B239A8FF50D412E15E14 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -832,6 +984,7 @@
 		};
 		BCFB7A852CF9F6260018649D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76BE8E238DD4ECEE48714798 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -852,6 +1005,7 @@
 		};
 		BCFB7A872CF9F6260018649D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63B1FAE55546FCEF0A338A3F /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -870,6 +1024,7 @@
 		};
 		BCFB7A882CF9F6260018649D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F83A5FA1150770175ECC64 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

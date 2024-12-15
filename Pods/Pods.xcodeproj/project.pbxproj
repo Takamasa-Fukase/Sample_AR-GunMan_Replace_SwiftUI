@@ -1,0 +1,1022 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00A78E258F094D26D88C96DA5BB0108B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		09B4A757BFF5FC36C6213EE831D87A48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		22245854C951211FBE3DEB36CF1DA28A /* FSPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D20917481C129BD31786C0800A5E4A5 /* FSPageControl.swift */; };
+		2AC1B3B1899F1D6EFDAA0992812D9A29 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1270DC4235AFD6F32AAA9FA48095590 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m */; };
+		3E37EE523E2CC6D53FF011CFC2F12837 /* FSPagerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 883B498B63505BC557AB391BF282C8EF /* FSPagerView-dummy.m */; };
+		48A3B8C608168EA5B876EDAF394FBED8 /* FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD6CDD416CDD62E164451B4E18CF7A0 /* FSPagerView.swift */; };
+		50F84ADE44B808175DBDE09F55163F6E /* FSPagerViewObjcCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = C06835C7510750D7D8C6B0781317C0AA /* FSPagerViewObjcCompat.m */; };
+		6248A9110E677CF5A79AFB896475E497 /* FSPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2F113F60774AE19D8129AA504CFF62 /* FSPagerViewCell.swift */; };
+		64440A2499C590398B959F4D3B2B1813 /* FSPageViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD61E8F7E5A3F9C223CB3A8D35FA74BA /* FSPageViewTransformer.swift */; };
+		68DCF6D2A91B5F7F698CBA0671CD2CA0 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD7F70AACB32BDFC161D08979530720 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94D75983CDF97DAC55BB2D02727C3D0C /* FSPagerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F83B1F343C53DB55E4DD551557F9B0 /* FSPagerCollectionView.swift */; };
+		9FEF4F44FA713A360AE73BFB25FA2F05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		A56360F7C8B1B367A8A39BB247B08F85 /* FSPagerViewObjcCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DE77834550077BF8D096E05313230C3 /* FSPagerViewObjcCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1BFAC5E719C5EC1800BA9A0D221585F /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F1B75D1E72A503A09B4822231D72BB0 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B39B8AD0954DF0039922ECDCDC759113 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		C997764C46CEABA9D7F41DC6F5096658 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A6811869AFF208C8E94C4EFFF071D742 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9D788E5970F66CE1952D073BED95D37 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C657CCCF36DB74B7030C0F4CB8781EA0 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m */; };
+		E09F166B2CBF840488A62BE3FF02BA57 /* FSPageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9620C112F0330566F4B89C4B962D2FEC /* FSPageViewLayout.swift */; };
+		E3CE5B547281F0EF1235D0E577A146B0 /* FSPagerViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B6D47324B150431591FA0B0FF57AE /* FSPagerViewLayoutAttributes.swift */; };
+		F3FCE93D6DFB540DC3C40A402E68E4D2 /* FSPagerView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8A7EA2E88F1E59A16CEBBE8E70EBD9 /* FSPagerView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F95691C425C575A5EEAA83DEC3B029B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		FD1028B3911983A05CBD4DD6B0FCE864 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC58EBB9026C58E6BA3E7372B718F29 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40EDBD443B5BC105E3AC6E5CB4FD41C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4F8239FB329387A8476B964D92D92E7;
+			remoteInfo = FSPagerView;
+		};
+		4E195BB138970C369A8CCE412610F206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4F8239FB329387A8476B964D92D92E7;
+			remoteInfo = FSPagerView;
+		};
+		729DBACF2127991CBD993AA19E6B6715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFC0B2B6202BB140832953F8780A4635;
+			remoteInfo = "Pods-Sample_AR-GunMan_Replace_SwiftUI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01BB575855E061FA747DD295E1BE5BDD /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSPagerView; path = FSPagerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FA63DCB1F58F17F365AB3A887DDEF56 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		1D20917481C129BD31786C0800A5E4A5 /* FSPageControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPageControl.swift; path = Sources/FSPageControl.swift; sourceTree = "<group>"; };
+		29E04DDD2FA7921049CF0A8F500F3CB8 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2CC58EBB9026C58E6BA3E7372B718F29 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m"; sourceTree = "<group>"; };
+		30A95D890B2E1EC48DB3F05594FABD46 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks.sh"; sourceTree = "<group>"; };
+		31219F28FFE49D2347F7F1C4F307C610 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3BD7F70AACB32BDFC161D08979530720 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h"; sourceTree = "<group>"; };
+		4DE77834550077BF8D096E05313230C3 /* FSPagerViewObjcCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSPagerViewObjcCompat.h; path = Sources/FSPagerViewObjcCompat.h; sourceTree = "<group>"; };
+		54C1376B42F87045871183577E717BE7 /* FSPagerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSPagerView.modulemap; sourceTree = "<group>"; };
+		5C4B95D67FD3A0B2ED2100C6B8ACDDF8 /* FSPagerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSPagerView-prefix.pch"; sourceTree = "<group>"; };
+		605D0A3E66328D49B6FE3813D84C341A /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6646049A809F6A4B2EFA5873156A1CCB /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		68A0CB284B1D7A0405AA3724842B7A94 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests"; path = Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3006CB9D4554E07D9C1EA6A1D12D94 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests.modulemap"; sourceTree = "<group>"; };
+		7427AD5699EF9000679565D8D4D14E78 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-Info.plist"; sourceTree = "<group>"; };
+		755B6D47324B150431591FA0B0FF57AE /* FSPagerViewLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPagerViewLayoutAttributes.swift; path = Sources/FSPagerViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		7B6B68EF3E040091CD65A52FEC89FF47 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-Info.plist"; sourceTree = "<group>"; };
+		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		82DBA6C7B972FE974356AABBA76E0C79 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sample_AR-GunMan_Replace_SwiftUI"; path = Pods_Sample_AR_GunMan_Replace_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883B498B63505BC557AB391BF282C8EF /* FSPagerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSPagerView-dummy.m"; sourceTree = "<group>"; };
+		90DD6963E60469DEA4735B27343EC468 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests"; path = Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9620C112F0330566F4B89C4B962D2FEC /* FSPageViewLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPageViewLayout.swift; path = Sources/FSPageViewLayout.swift; sourceTree = "<group>"; };
+		9A6D3F7D2D8E16EE7198DAB27EFBB112 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F1B75D1E72A503A09B4822231D72BB0 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h"; sourceTree = "<group>"; };
+		A104F1430BC64CA6D28ECFE3C7579EC1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A6811869AFF208C8E94C4EFFF071D742 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h"; sourceTree = "<group>"; };
+		AAD6CDD416CDD62E164451B4E18CF7A0 /* FSPagerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPagerView.swift; path = Sources/FSPagerView.swift; sourceTree = "<group>"; };
+		B2BBF3F4370BB1AE30414D4984652F02 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.plist"; sourceTree = "<group>"; };
+		B4F83B1F343C53DB55E4DD551557F9B0 /* FSPagerCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPagerCollectionView.swift; path = Sources/FSPagerCollectionView.swift; sourceTree = "<group>"; };
+		BADFB2B8336440F752885A6A954F7A61 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BD61E8F7E5A3F9C223CB3A8D35FA74BA /* FSPageViewTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPageViewTransformer.swift; path = Sources/FSPageViewTransformer.swift; sourceTree = "<group>"; };
+		BE8A7EA2E88F1E59A16CEBBE8E70EBD9 /* FSPagerView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSPagerView-umbrella.h"; sourceTree = "<group>"; };
+		BF672925CD54B2CEAC84B651DD28BCE7 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks.sh"; sourceTree = "<group>"; };
+		C06835C7510750D7D8C6B0781317C0AA /* FSPagerViewObjcCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSPagerViewObjcCompat.m; path = Sources/FSPagerViewObjcCompat.m; sourceTree = "<group>"; };
+		C657CCCF36DB74B7030C0F4CB8781EA0 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m"; sourceTree = "<group>"; };
+		D4AE4C192C341357CB36E58C69D61810 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI.modulemap"; sourceTree = "<group>"; };
+		DA2E30637D593DB2E1F1EFB8CC488114 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.modulemap"; sourceTree = "<group>"; };
+		E1270DC4235AFD6F32AAA9FA48095590 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m"; sourceTree = "<group>"; };
+		E391CF202417D67A9DA8C2D7575CC6CB /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Info.plist"; sourceTree = "<group>"; };
+		E817F4D29D20E42F7071756A831DFA88 /* FSPagerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSPagerView-Info.plist"; sourceTree = "<group>"; };
+		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		ED2F113F60774AE19D8129AA504CFF62 /* FSPagerViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSPagerViewCell.swift; path = Sources/FSPagerViewCell.swift; sourceTree = "<group>"; };
+		EEE68582D06093A1C75A4D7FBF4EA533 /* FSPagerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSPagerView.debug.xcconfig; sourceTree = "<group>"; };
+		EF4E090F0487E94548BE9A2C19D0295F /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		F939DD32A1D593BF543C03C115A544D6 /* FSPagerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSPagerView.release.xcconfig; sourceTree = "<group>"; };
+		F9F03989C6B5D128FB50E06B007CBFC6 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55BC7F140AA5FD673A4C7659AC556612 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09B4A757BFF5FC36C6213EE831D87A48 /* Foundation.framework in Frameworks */,
+				9FEF4F44FA713A360AE73BFB25FA2F05 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		816B8C40D3931D90C6D25B528F030283 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A78E258F094D26D88C96DA5BB0108B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32A434560C7DBE0E9C61923EF98A025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39B8AD0954DF0039922ECDCDC759113 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2C0E256545C49E41205752E34C7426B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F95691C425C575A5EEAA83DEC3B029B7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0518FBF3F913B373AE0E48A5CEBC0202 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D4AE4C192C341357CB36E58C69D61810 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.modulemap */,
+				29E04DDD2FA7921049CF0A8F500F3CB8 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.markdown */,
+				B2BBF3F4370BB1AE30414D4984652F02 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-acknowledgements.plist */,
+				E1270DC4235AFD6F32AAA9FA48095590 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m */,
+				BF672925CD54B2CEAC84B651DD28BCE7 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-frameworks.sh */,
+				E391CF202417D67A9DA8C2D7575CC6CB /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Info.plist */,
+				A6811869AFF208C8E94C4EFFF071D742 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h */,
+				EF4E090F0487E94548BE9A2C19D0295F /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */,
+				0FA63DCB1F58F17F365AB3A887DDEF56 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUI";
+			path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI";
+			sourceTree = "<group>";
+		};
+		0CFB37C49ECD64DAB9F57673811063E8 /* FSPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				1D20917481C129BD31786C0800A5E4A5 /* FSPageControl.swift */,
+				B4F83B1F343C53DB55E4DD551557F9B0 /* FSPagerCollectionView.swift */,
+				AAD6CDD416CDD62E164451B4E18CF7A0 /* FSPagerView.swift */,
+				ED2F113F60774AE19D8129AA504CFF62 /* FSPagerViewCell.swift */,
+				755B6D47324B150431591FA0B0FF57AE /* FSPagerViewLayoutAttributes.swift */,
+				4DE77834550077BF8D096E05313230C3 /* FSPagerViewObjcCompat.h */,
+				C06835C7510750D7D8C6B0781317C0AA /* FSPagerViewObjcCompat.m */,
+				9620C112F0330566F4B89C4B962D2FEC /* FSPageViewLayout.swift */,
+				BD61E8F7E5A3F9C223CB3A8D35FA74BA /* FSPageViewTransformer.swift */,
+				5B99539154F62E2C331C075575C13260 /* Support Files */,
+			);
+			name = FSPagerView;
+			path = FSPagerView;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DE6440B6853131A80C53DDA34375AAB /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1973798F923B8BA1BD9A09E4C34D8B40 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6C3006CB9D4554E07D9C1EA6A1D12D94 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.modulemap */,
+				F9F03989C6B5D128FB50E06B007CBFC6 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.markdown */,
+				BADFB2B8336440F752885A6A954F7A61 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-acknowledgements.plist */,
+				2CC58EBB9026C58E6BA3E7372B718F29 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m */,
+				7427AD5699EF9000679565D8D4D14E78 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-Info.plist */,
+				9F1B75D1E72A503A09B4822231D72BB0 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h */,
+				6646049A809F6A4B2EFA5873156A1CCB /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */,
+				605D0A3E66328D49B6FE3813D84C341A /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests";
+			path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests";
+			sourceTree = "<group>";
+		};
+		1DE6440B6853131A80C53DDA34375AAB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */,
+				ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		20DF1A177BF7E192870373F063728C7C /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA2E30637D593DB2E1F1EFB8CC488114 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.modulemap */,
+				9A6D3F7D2D8E16EE7198DAB27EFBB112 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.markdown */,
+				A104F1430BC64CA6D28ECFE3C7579EC1 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-acknowledgements.plist */,
+				C657CCCF36DB74B7030C0F4CB8781EA0 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m */,
+				30A95D890B2E1EC48DB3F05594FABD46 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-frameworks.sh */,
+				7B6B68EF3E040091CD65A52FEC89FF47 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-Info.plist */,
+				3BD7F70AACB32BDFC161D08979530720 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h */,
+				01BB575855E061FA747DD295E1BE5BDD /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */,
+				31219F28FFE49D2347F7F1C4F307C610 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests";
+			path = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests";
+			sourceTree = "<group>";
+		};
+		23BE3169A8F603F8E6D7248885718D9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */,
+				82DBA6C7B972FE974356AABBA76E0C79 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */,
+				68A0CB284B1D7A0405AA3724842B7A94 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */,
+				90DD6963E60469DEA4735B27343EC468 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B99539154F62E2C331C075575C13260 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				54C1376B42F87045871183577E717BE7 /* FSPagerView.modulemap */,
+				883B498B63505BC557AB391BF282C8EF /* FSPagerView-dummy.m */,
+				E817F4D29D20E42F7071756A831DFA88 /* FSPagerView-Info.plist */,
+				5C4B95D67FD3A0B2ED2100C6B8ACDDF8 /* FSPagerView-prefix.pch */,
+				BE8A7EA2E88F1E59A16CEBBE8E70EBD9 /* FSPagerView-umbrella.h */,
+				EEE68582D06093A1C75A4D7FBF4EA533 /* FSPagerView.debug.xcconfig */,
+				F939DD32A1D593BF543C03C115A544D6 /* FSPagerView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FSPagerView";
+			sourceTree = "<group>";
+		};
+		5DE3D0F0B06A6B1366B094D3727C370C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CFB37C49ECD64DAB9F57673811063E8 /* FSPagerView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6FC43C49DC825CE776C9C6B4D6C7329B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0518FBF3F913B373AE0E48A5CEBC0202 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */,
+				20DF1A177BF7E192870373F063728C7C /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */,
+				1973798F923B8BA1BD9A09E4C34D8B40 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				5DE3D0F0B06A6B1366B094D3727C370C /* Pods */,
+				23BE3169A8F603F8E6D7248885718D9D /* Products */,
+				6FC43C49DC825CE776C9C6B4D6C7329B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6F69775DBE8D857F91CF3504E16090B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68DCF6D2A91B5F7F698CBA0671CD2CA0 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70A63FF8C5B6ED4E4CF3413C3EC49202 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BFAC5E719C5EC1800BA9A0D221585F /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBE046CD240EA82D74BC5960C58DE39E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C997764C46CEABA9D7F41DC6F5096658 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE821CA294F8AFDD09186BFC86ADFB92 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3FCE93D6DFB540DC3C40A402E68E4D2 /* FSPagerView-umbrella.h in Headers */,
+				A56360F7C8B1B367A8A39BB247B08F85 /* FSPagerViewObjcCompat.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		80FC2BDBE3FD02D9C00E3ED9A4D00389 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 078C29E1B26238507A804042DDEF4F45 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUITests" */;
+			buildPhases = (
+				70A63FF8C5B6ED4E4CF3413C3EC49202 /* Headers */,
+				025AAEF837FD3909BC1AD9232ADF6437 /* Sources */,
+				C32A434560C7DBE0E9C61923EF98A025 /* Frameworks */,
+				317C1085767EA0E0E9A73238A9DE4B1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A11E6BCAC5F877B4857B8090769D988 /* PBXTargetDependency */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUITests";
+			productName = Pods_Sample_AR_GunMan_Replace_SwiftUITests;
+			productReference = 90DD6963E60469DEA4735B27343EC468 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+		CFC0B2B6202BB140832953F8780A4635 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99B3017DFE65ABFC06CBFABD0170CA5 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUI" */;
+			buildPhases = (
+				CBE046CD240EA82D74BC5960C58DE39E /* Headers */,
+				F232E966621A45485F84335DA34D0065 /* Sources */,
+				F2C0E256545C49E41205752E34C7426B /* Frameworks */,
+				938E317ED016287130BA64DE1E32331E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E32623F1C48E6D040274D934C5656B18 /* PBXTargetDependency */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUI";
+			productName = Pods_Sample_AR_GunMan_Replace_SwiftUI;
+			productReference = 82DBA6C7B972FE974356AABBA76E0C79 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4F8239FB329387A8476B964D92D92E7 /* FSPagerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1117B96C9D1393FE4520290C53CEE790 /* Build configuration list for PBXNativeTarget "FSPagerView" */;
+			buildPhases = (
+				CE821CA294F8AFDD09186BFC86ADFB92 /* Headers */,
+				A955B7A21B16AAC24B0F53BD746A2C59 /* Sources */,
+				55BC7F140AA5FD673A4C7659AC556612 /* Frameworks */,
+				A169D808D946E03736485449B7002E82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FSPagerView;
+			productName = FSPagerView;
+			productReference = 0F47FB5E28EE8C8342B1776D813D1A4C /* FSPagerView */;
+			productType = "com.apple.product-type.framework";
+		};
+		F936D3D6F4871CC6CA63DD52F23DB346 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0FBD663FF75F1386B25622A4B9BFA23 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests" */;
+			buildPhases = (
+				6F69775DBE8D857F91CF3504E16090B9 /* Headers */,
+				B73843616BB46EDC7528CD0FDBE8417F /* Sources */,
+				816B8C40D3931D90C6D25B528F030283 /* Frameworks */,
+				1B06699197E0F6582465615BB3FEC0A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FFB4D4827C64DB235DC8659BEB66128 /* PBXTargetDependency */,
+			);
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests";
+			productName = Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests;
+			productReference = 68A0CB284B1D7A0405AA3724842B7A94 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 23BE3169A8F603F8E6D7248885718D9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4F8239FB329387A8476B964D92D92E7 /* FSPagerView */,
+				CFC0B2B6202BB140832953F8780A4635 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */,
+				F936D3D6F4871CC6CA63DD52F23DB346 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests */,
+				80FC2BDBE3FD02D9C00E3ED9A4D00389 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1B06699197E0F6582465615BB3FEC0A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		317C1085767EA0E0E9A73238A9DE4B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		938E317ED016287130BA64DE1E32331E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A169D808D946E03736485449B7002E82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		025AAEF837FD3909BC1AD9232ADF6437 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1028B3911983A05CBD4DD6B0FCE864 /* Pods-Sample_AR-GunMan_Replace_SwiftUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A955B7A21B16AAC24B0F53BD746A2C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22245854C951211FBE3DEB36CF1DA28A /* FSPageControl.swift in Sources */,
+				94D75983CDF97DAC55BB2D02727C3D0C /* FSPagerCollectionView.swift in Sources */,
+				48A3B8C608168EA5B876EDAF394FBED8 /* FSPagerView.swift in Sources */,
+				3E37EE523E2CC6D53FF011CFC2F12837 /* FSPagerView-dummy.m in Sources */,
+				6248A9110E677CF5A79AFB896475E497 /* FSPagerViewCell.swift in Sources */,
+				E3CE5B547281F0EF1235D0E577A146B0 /* FSPagerViewLayoutAttributes.swift in Sources */,
+				50F84ADE44B808175DBDE09F55163F6E /* FSPagerViewObjcCompat.m in Sources */,
+				E09F166B2CBF840488A62BE3FF02BA57 /* FSPageViewLayout.swift in Sources */,
+				64440A2499C590398B959F4D3B2B1813 /* FSPageViewTransformer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B73843616BB46EDC7528CD0FDBE8417F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D788E5970F66CE1952D073BED95D37 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F232E966621A45485F84335DA34D0065 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AC1B3B1899F1D6EFDAA0992812D9A29 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0FFB4D4827C64DB235DC8659BEB66128 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FSPagerView;
+			target = D4F8239FB329387A8476B964D92D92E7 /* FSPagerView */;
+			targetProxy = 4E195BB138970C369A8CCE412610F206 /* PBXContainerItemProxy */;
+		};
+		1A11E6BCAC5F877B4857B8090769D988 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Sample_AR-GunMan_Replace_SwiftUI";
+			target = CFC0B2B6202BB140832953F8780A4635 /* Pods-Sample_AR-GunMan_Replace_SwiftUI */;
+			targetProxy = 729DBACF2127991CBD993AA19E6B6715 /* PBXContainerItemProxy */;
+		};
+		E32623F1C48E6D040274D934C5656B18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FSPagerView;
+			target = D4F8239FB329387A8476B964D92D92E7 /* FSPagerView */;
+			targetProxy = 40EDBD443B5BC105E3AC6E5CB4FD41C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		02D8B1BD92CA982AC9CBAE5C229F50CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6646049A809F6A4B2EFA5873156A1CCB /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0667E45262DCD59918D8D38B30C2F20E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 605D0A3E66328D49B6FE3813D84C341A /* Pods-Sample_AR-GunMan_Replace_SwiftUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUITests/Pods-Sample_AR-GunMan_Replace_SwiftUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0994DC79951E637825A2DD6FDAE663CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31219F28FFE49D2347F7F1C4F307C610 /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		18C70A4F1744865F1CEEA9F1B67DDAD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01BB575855E061FA747DD295E1BE5BDD /* Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests/Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		39F5B7CD9D2655A0D1F7D42E37920E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		439F2D7E6A645B4AAE21FBB2ACE46CD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEE68582D06093A1C75A4D7FBF4EA533 /* FSPagerView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FSPagerView/FSPagerView-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/FSPagerView/FSPagerView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FSPagerView/FSPagerView.modulemap";
+				PRODUCT_MODULE_NAME = FSPagerView;
+				PRODUCT_NAME = FSPagerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		55E846DB6E3574EF718031200BD859D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FA63DCB1F58F17F365AB3A887DDEF56 /* Pods-Sample_AR-GunMan_Replace_SwiftUI.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58FD2332A070CCCB993C7CF2AA0FFB08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF4E090F0487E94548BE9A2C19D0295F /* Pods-Sample_AR-GunMan_Replace_SwiftUI.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample_AR-GunMan_Replace_SwiftUI/Pods-Sample_AR-GunMan_Replace_SwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C127F5A266634E3D6654E364955D5C08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F939DD32A1D593BF543C03C115A544D6 /* FSPagerView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FSPagerView/FSPagerView-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/FSPagerView/FSPagerView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FSPagerView/FSPagerView.modulemap";
+				PRODUCT_MODULE_NAME = FSPagerView;
+				PRODUCT_NAME = FSPagerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C873D3C071BDDC046D6E8F63C69C2591 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		078C29E1B26238507A804042DDEF4F45 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02D8B1BD92CA982AC9CBAE5C229F50CC /* Debug */,
+				0667E45262DCD59918D8D38B30C2F20E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1117B96C9D1393FE4520290C53CEE790 /* Build configuration list for PBXNativeTarget "FSPagerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				439F2D7E6A645B4AAE21FBB2ACE46CD3 /* Debug */,
+				C127F5A266634E3D6654E364955D5C08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39F5B7CD9D2655A0D1F7D42E37920E8B /* Debug */,
+				C873D3C071BDDC046D6E8F63C69C2591 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A99B3017DFE65ABFC06CBFABD0170CA5 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58FD2332A070CCCB993C7CF2AA0FFB08 /* Debug */,
+				55E846DB6E3574EF718031200BD859D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0FBD663FF75F1386B25622A4B9BFA23 /* Build configuration list for PBXNativeTarget "Pods-Sample_AR-GunMan_Replace_SwiftUI-Sample_AR-GunMan_Replace_SwiftUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18C70A4F1744865F1CEEA9F1B67DDAD9 /* Debug */,
+				0994DC79951E637825A2DD6FDAE663CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
