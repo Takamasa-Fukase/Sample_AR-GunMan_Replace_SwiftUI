@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import Combine
 
 final class GameViewModel: ObservableObject {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
+    
+    let weaponFireRenderingRequest = PassthroughSubject<Void, Never>()
     
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
@@ -37,6 +40,8 @@ final class GameViewModel: ObservableObject {
             onFired: { response in
                 currentWeaponData?.state.bulletsCount = response.bulletsCount
 //                view?.renderWeaponFiring()
+                weaponFireRenderingRequest.send(Void())
+                
 //                view?.playSound(type: currentWeaponData?.resources.firingSound ?? .pistolShoot)
 //                view?.showBulletsCountImage(name: currentWeaponData?.bulletsCountImageName() ?? "")
                 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCE3254D2D0E8172001B3955 /* GameARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254C2D0E8172001B3955 /* GameARView.swift */; };
+		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
+		BCE325522D0EA45B001B3955 /* SceneNodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */; };
+		BCE325532D0EA45B001B3955 /* SceneAnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A612CF9F6240018649D /* ContentView.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
@@ -79,6 +83,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BCE3254C2D0E8172001B3955 /* GameARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameARView.swift; sourceTree = "<group>"; };
+		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
+		BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneNodeUtil.swift; sourceTree = "<group>"; };
+		BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneAnimationUtil.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
 		BCFB7A612CF9F6240018649D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -185,15 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */,
-				BCFB7A612CF9F6240018649D /* ContentView.swift */,
-				BCFB7A892CF9F70E0018649D /* TopView.swift */,
-				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
-				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
-				BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */,
 				BCFB7AF52CFA09120018649D /* Factories */,
-				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7ACF2CFA05C90018649D /* Data */,
 				BCFB7AC82CFA05C80018649D /* Domain */,
+				BCFB7AFD2CFAC17D0018649D /* Presentation */,
+				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A9D2CF9FA4A0018649D /* art.scnassets */,
@@ -332,6 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */,
+				BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */,
+				BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */,
+				BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -356,6 +363,19 @@
 				BCFB7AF42CFA09120018649D /* UseCaseFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		BCFB7AFD2CFAC17D0018649D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7A612CF9F6240018649D /* ContentView.swift */,
+				BCFB7A892CF9F70E0018649D /* TopView.swift */,
+				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
+				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
+				BCE3254C2D0E8172001B3955 /* GameARView.swift */,
+				BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,7 +525,9 @@
 			files = (
 				BCFB7AF72CFA09130018649D /* RepositoryFactory.swift in Sources */,
 				BCFB7AD42CFA05C90018649D /* TutorialUseCase.swift in Sources */,
+				BCE3254D2D0E8172001B3955 /* GameARView.swift in Sources */,
 				BCFB7AFC2CFABF280018649D /* SoundPlayer.swift in Sources */,
+				BCE325522D0EA45B001B3955 /* SceneNodeUtil.swift in Sources */,
 				BCFB7AED2CFA07370018649D /* LoadedWeaponObjectData.swift in Sources */,
 				BCFB7AD62CFA05C90018649D /* WeaponActionExecuteUseCase.swift in Sources */,
 				BCFB7AD22CFA05C90018649D /* WeaponRepositoryInterface.swift in Sources */,
@@ -523,10 +545,12 @@
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
 				BCFB7AD52CFA05C90018649D /* UseCaseProvider.swift in Sources */,
+				BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */,
 				BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
 				BCFB7AD12CFA05C90018649D /* TutorialRepositoryInterface.swift in Sources */,
 				BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */,
+				BCE325532D0EA45B001B3955 /* SceneAnimationUtil.swift in Sources */,
 				BCFB7ADF2CFA063D0018649D /* UserDefaults+Extension.swift in Sources */,
 				BCFB7A8C2CF9FA0F0018649D /* GameView.swift in Sources */,
 				BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */,
@@ -701,6 +725,7 @@
 				DEVELOPMENT_TEAM = 37MFDT4LMQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ゲーム画面でARコンテンツを表示する為に使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -730,6 +755,7 @@
 				DEVELOPMENT_TEAM = 37MFDT4LMQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "ゲーム画面でARコンテンツを表示する為に使用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
