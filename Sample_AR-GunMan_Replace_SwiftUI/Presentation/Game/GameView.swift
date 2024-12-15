@@ -10,6 +10,7 @@ import SwiftUI
 struct GameView: View {
     private var arController: GameARControllerInterface
     @StateObject private var viewModel: GameViewModel
+    @State private var isWeaponSelectViewPresented = false
     
     init(
         arController: GameARControllerInterface,
