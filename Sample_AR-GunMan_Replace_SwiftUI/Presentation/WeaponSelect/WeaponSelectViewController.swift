@@ -48,7 +48,7 @@ extension WeaponSelectViewController: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         let weaponId = weaponListItems[index].weaponId
         weaponSelected?(weaponId)
-        dismiss(animated: true)
+//        dismiss(animated: true)
     }
 }
 
