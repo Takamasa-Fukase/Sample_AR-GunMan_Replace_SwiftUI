@@ -81,17 +81,17 @@ struct GameView: View {
         .onDisappear {
             viewModel.onViewDisappear()
         }
-        .onReceive(viewModel.weaponFiringRenderRequest) { _ in
-            arController.renderWeaponFiring()
-        }
-        .onReceive(viewModel.weaponObjectShowRequest) { weaponObjectData in
-            arController.showWeaponObject(objectData: weaponObjectData)
-        }
-        .onReceive(viewModel.sceneSessionRunRequest) { _ in
-            arController.runSession()
-        }
-        .onReceive(viewModel.sceneSessionPauseRequest) { _ in
-            arController.pauseSession()
+        .onReceive(viewModel.arControllerInputEvent) { eventType in
+            switch eventType {
+            case .runSceneSession:
+                arController.runSession()
+            case .pauseSceneSession:
+                arController.pauseSession()
+            case .renderWeaponFiring:
+                arController.renderWeaponFiring()
+            case .showWeaponObject(let weaponObjectData):
+                arController.showWeaponObject(objectData: weaponObjectData)
+            }
         }
     }
     

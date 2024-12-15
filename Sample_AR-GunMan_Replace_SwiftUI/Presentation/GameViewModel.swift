@@ -9,15 +9,20 @@ import Foundation
 import Combine
 
 final class GameViewModel: ObservableObject {
+    enum ARControllerInputEventType {
+        case runSceneSession
+        case pauseSceneSession
+        case renderWeaponFiring
+        case showWeaponObject(_ weaponObjectData: WeaponObjectData)
+    }
+    
     // MARK: ViewへのOutput（表示するデータ）
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
     // MARK: ViewへのOutput（イベント通知）
-    let sceneSessionRunRequest = PassthroughSubject<Void, Never>()
-    let sceneSessionPauseRequest = PassthroughSubject<Void, Never>()
-    let weaponFiringRenderRequest = PassthroughSubject<Void, Never>()
-    let weaponObjectShowRequest = PassthroughSubject<WeaponObjectData, Never>()
+    let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
+    let playSound = PassthroughSubject<SoundType, Never>()
     
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
@@ -34,13 +39,13 @@ final class GameViewModel: ObservableObject {
     
     // MARK: ViewからのInput
     func onViewAppear() {
-        sceneSessionRunRequest.send(Void())
+        arControllerInputEvent.send(.runSceneSession)
         guard let currentWeaponData = currentWeaponData else { return }
-        weaponObjectShowRequest.send(currentWeaponData.extractWeaponObjectData())
+        arControllerInputEvent.send(.showWeaponObject(currentWeaponData.extractWeaponObjectData()))
     }
     
     func onViewDisappear() {
-        sceneSessionPauseRequest.send(Void())
+        arControllerInputEvent.send(.pauseSceneSession)
     }
     
     func fireButtonTapped() {
@@ -72,8 +77,7 @@ final class GameViewModel: ObservableObject {
             reloadType: currentWeaponData?.spec.reloadType ?? .manual,
             onFired: { response in
                 currentWeaponData?.state.bulletsCount = response.bulletsCount
-//                view?.renderWeaponFiring()
-                weaponFiringRenderRequest.send(Void())
+                arControllerInputEvent.send(.renderWeaponFiring)
                 
 //                view?.playSound(type: currentWeaponData?.resources.firingSound ?? .pistolShoot)
 //                view?.showBulletsCountImage(name: currentWeaponData?.bulletsCountImageName() ?? "")
