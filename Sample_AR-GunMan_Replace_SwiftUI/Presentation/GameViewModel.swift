@@ -9,17 +9,17 @@ import Foundation
 import Combine
 
 protocol GameViewModelInterface: ObservableObject {
-    // ViewへのOutput（表示するデータ）
+    // MARK: ViewへのOutput（表示するデータ）
     var timeCount: Double { get set }
     var currentWeaponData: CurrentWeaponData? { get set }
     
-    // ViewへのOutput（イベント通知）
+    // MARK: ViewへのOutput（イベント通知）
     var sceneSessionRunRequest: PassthroughSubject<Void, Never> { get }
     var sceneSessionPauseRequest: PassthroughSubject<Void, Never> { get }
     var weaponFiringRenderRequest: PassthroughSubject<Void, Never> { get }
     var weaponObjectShowRequest: PassthroughSubject<WeaponObjectData, Never> { get }
     
-    // ViewからのInput
+    // MARK: ViewからのInput
     func onViewAppear()
     func onViewDisappear()
     func fireButtonTapped()
@@ -27,7 +27,7 @@ protocol GameViewModelInterface: ObservableObject {
     func weaponChangeButtonTapped()
 }
 
-final class GameViewModel {
+final class GameViewModel: GameViewModelInterface {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
@@ -46,6 +46,33 @@ final class GameViewModel {
         self.weaponResourceGetUseCase = weaponResourceGetUseCase
         self.weaponActionExecuteUseCase = weaponActionExecuteUseCase
         
+        getDefaultWeaponDetail()
+    }
+    
+    func onViewAppear() {
+        sceneSessionRunRequest.send(Void())
+        guard let currentWeaponData = currentWeaponData else { return }
+        weaponObjectShowRequest.send(currentWeaponData.extractWeaponObjectData())
+    }
+    
+    func onViewDisappear() {
+        sceneSessionPauseRequest.send(Void())
+    }
+    
+    func fireButtonTapped() {
+        fireWeapon()
+    }
+    
+    func reloadButtonTapped() {
+        reloadWeapon()
+    }
+    
+    func weaponChangeButtonTapped() {
+        
+    }
+    
+    // MARK: Private Methods
+    private func getDefaultWeaponDetail() {
         do {
             currentWeaponData = try self.weaponResourceGetUseCase.getDefaultWeaponDetail()
             
@@ -94,29 +121,5 @@ final class GameViewModel {
                 self?.currentWeaponData?.state.isReloading = response.isReloading
 //                self?.view?.showBulletsCountImage(name: self?.currentWeaponData?.bulletsCountImageName() ?? "")
             })
-    }
-}
-
-extension GameViewModel: GameViewModelInterface {
-    func onViewAppear() {
-        sceneSessionRunRequest.send(Void())
-        guard let currentWeaponData = currentWeaponData else { return }
-        weaponObjectShowRequest.send(currentWeaponData.extractWeaponObjectData())
-    }
-    
-    func onViewDisappear() {
-        sceneSessionPauseRequest.send(Void())
-    }
-    
-    func fireButtonTapped() {
-        fireWeapon()
-    }
-    
-    func reloadButtonTapped() {
-        reloadWeapon()
-    }
-    
-    func weaponChangeButtonTapped() {
-        
     }
 }

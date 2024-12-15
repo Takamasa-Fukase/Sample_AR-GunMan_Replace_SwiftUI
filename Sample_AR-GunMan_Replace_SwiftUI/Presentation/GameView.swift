@@ -74,9 +74,6 @@ struct GameView<ViewModel: GameViewModelInterface>: View {
                 }
             }
         }
-        // TODO: 後で直したい
-        // landscapeだと左右のSafeAreaが考慮されずに謎の伸びが発生してレイアウトがおかしくなっているのでpaddingを+1して暫定対応している
-        .padding([.leading, .trailing], 1)
         .onAppear {
             viewModel.onViewAppear()
         }
