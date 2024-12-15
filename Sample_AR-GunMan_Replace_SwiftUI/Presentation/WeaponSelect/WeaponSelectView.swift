@@ -12,9 +12,6 @@ struct WeaponSelectView: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let weaponSelectVC = WeaponSelectViewController()
-//        weaponSelectVC.weaponSelected = { weaponId in
-//            weaponSelected?(weaponId)
-//        }
         weaponSelectVC.weaponSelected = weaponSelected
         return weaponSelectVC
     }

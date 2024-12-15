@@ -106,6 +106,7 @@ struct GameView: View {
             })
             // sheetの背景を透過
             .presentationBackground(.clear)
+            .ignoresSafeArea()
         }
     }
     
