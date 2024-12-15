@@ -22,7 +22,7 @@ struct GameView<ViewModel: GameViewModelInterface>: View {
     var body: some View {
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            GameARViewContainer(arController: arController)
+            GameARView(arController: arController)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             

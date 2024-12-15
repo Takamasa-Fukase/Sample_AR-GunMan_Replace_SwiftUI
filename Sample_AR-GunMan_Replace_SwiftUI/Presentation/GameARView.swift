@@ -8,7 +8,7 @@
 import SwiftUI
 import ARKit
 
-struct GameARViewContainer: UIViewRepresentable {
+struct GameARView: UIViewRepresentable {
     private let arController: GameARControllerInterface
     
     init(arController: GameARControllerInterface) {
