@@ -15,10 +15,8 @@ struct GameView: View {
         arController: GameARControllerInterface,
         viewModel: GameViewModel
     ) {
-        print("GameView init")
         self.arController = arController
         self._viewModel = StateObject(wrappedValue: viewModel)
-        viewModel.viewDidInit()
     }
     
     var body: some View {
@@ -83,12 +81,11 @@ struct GameView: View {
             arController.renderWeaponFiring()
         }
         .onReceive(viewModel.weaponShowingRequest) { weaponObjectData in
-            guard let weaponObjectData = weaponObjectData else { return }
             arController.showWeaponObject(objectData: weaponObjectData)
         }
         .onAppear {
-            print("onAppear")
             arController.runSession()
+            viewModel.onViewAppear()
         }
         .onDisappear {
             arController.pauseSession()
