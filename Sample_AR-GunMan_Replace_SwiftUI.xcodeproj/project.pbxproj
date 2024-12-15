@@ -22,7 +22,6 @@
 		BCE325532D0EA45B001B3955 /* SceneAnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */; };
 		BCE325592D0F178E001B3955 /* GameARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE325582D0F178E001B3955 /* GameARController.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
-		BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A612CF9F6240018649D /* ContentView.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
 		BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A662CF9F6250018649D /* Preview Assets.xcassets */; };
 		BCFB7A712CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A702CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUITests.swift */; };
@@ -113,7 +112,6 @@
 		BCE325582D0F178E001B3955 /* GameARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameARController.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
-		BCFB7A612CF9F6240018649D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCFB7A632CF9F6250018649D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCFB7A662CF9F6250018649D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BCFB7A6C2CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +217,14 @@
 				3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC3908C52D0FA03B001AF829 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		BCE325542D0F15B0001B3955 /* Top */ = {
@@ -462,11 +468,10 @@
 		BCFB7AFD2CFAC17D0018649D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BCFB7A612CF9F6240018649D /* ContentView.swift */,
-				BCFB7AFB2CFABF280018649D /* SoundPlayer.swift */,
 				BCE325542D0F15B0001B3955 /* Top */,
 				BCE325562D0F15BF001B3955 /* Game */,
 				BCE325552D0F15B6001B3955 /* WeaponSelect */,
+				BC3908C52D0FA03B001AF829 /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -747,7 +752,6 @@
 				BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */,
 				BCFB7AD72CFA05C90018649D /* WeaponResourceGetUseCase.swift in Sources */,
 				BCFB7ADD2CFA05C90018649D /* WeaponDataSource.swift in Sources */,
-				BCFB7A622CF9F6240018649D /* ContentView.swift in Sources */,
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
 				BCFB7AD52CFA05C90018649D /* UseCaseProvider.swift in Sources */,
