@@ -16,10 +16,4 @@ final class PresentationFactory {
         )
         return GameView(arController: arController, viewModel: viewModel)
     }
-    
-    // MARK: Private Methods
-    
-    private static func createSoundPlayer() -> SoundPlayerInterface {
-        return SoundPlayer()
-    }
 }

@@ -24,6 +24,8 @@ struct TopView: View {
             .onAppear {
                 // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
                 AVCaptureDevice.requestAccess(for: .video) { _ in }
+                // TODO: 後で直す
+                let soundPlayer = SoundPlayer.shared
             }
             .sheet(isPresented: $isGameViewPresented) {
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))

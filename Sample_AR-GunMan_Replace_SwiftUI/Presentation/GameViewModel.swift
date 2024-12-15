@@ -78,9 +78,7 @@ final class GameViewModel: ObservableObject {
             onFired: { response in
                 currentWeaponData?.state.bulletsCount = response.bulletsCount
                 arControllerInputEvent.send(.renderWeaponFiring)
-                
-//                view?.playSound(type: currentWeaponData?.resources.firingSound ?? .pistolShoot)
-//                view?.showBulletsCountImage(name: currentWeaponData?.bulletsCountImageName() ?? "")
+                playSound.send(currentWeaponData?.resources.firingSound ?? .pistolShoot)
                 
                 if response.needsAutoReload {
                     // リロードを自動的に実行
@@ -89,7 +87,7 @@ final class GameViewModel: ObservableObject {
             },
             onCanceled: {
                 if let noBulletsSound = currentWeaponData?.resources.noBulletsSound {
-//                    view?.playSound(type: noBulletsSound)
+                    playSound.send(noBulletsSound)
                 }
             })
     }
@@ -102,12 +100,11 @@ final class GameViewModel: ObservableObject {
             reloadWaitingTime: currentWeaponData?.spec.reloadWaitingTime ?? 0,
             onReloadStarted: { response in
                 currentWeaponData?.state.isReloading = response.isReloading
-//                view?.playSound(type: currentWeaponData?.resources.reloadingSound ?? .pistolReload)
+                playSound.send(currentWeaponData?.resources.reloadingSound ?? .pistolReload)
             },
             onReloadEnded: { [weak self] response in
                 self?.currentWeaponData?.state.bulletsCount = response.bulletsCount
                 self?.currentWeaponData?.state.isReloading = response.isReloading
-//                self?.view?.showBulletsCountImage(name: self?.currentWeaponData?.bulletsCountImageName() ?? "")
             })
     }
 }

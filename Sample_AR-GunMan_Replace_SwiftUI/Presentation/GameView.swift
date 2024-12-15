@@ -93,6 +93,9 @@ struct GameView: View {
                 arController.showWeaponObject(objectData: weaponObjectData)
             }
         }
+        .onReceive(viewModel.playSound) { soundType in
+            SoundPlayer.shared.play(soundType)
+        }
     }
     
     private func button(

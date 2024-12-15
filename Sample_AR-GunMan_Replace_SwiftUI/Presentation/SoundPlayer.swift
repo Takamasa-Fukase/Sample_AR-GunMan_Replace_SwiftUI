@@ -12,9 +12,11 @@ protocol SoundPlayerInterface {
 }
 
 final class SoundPlayer {
+    static let shared = SoundPlayer()
+    
     private var audioPlayers: [SoundType: AVAudioPlayer] = [:]
     
-    init() {
+    private init() {
         initAudioPlayers()
         forceSoundOn()
     }
