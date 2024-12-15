@@ -9,22 +9,32 @@ import Foundation
 import Combine
 
 protocol GameViewModelInterface: ObservableObject {
+    // ViewへのOutput（表示するデータ）
     var timeCount: Double { get set }
     var currentWeaponData: CurrentWeaponData? { get set }
-    var weaponFireRenderingRequest: PassthroughSubject<Void, Never> { get }
-    var weaponShowingRequest: PassthroughSubject<WeaponObjectData, Never> { get }
+    
+    // ViewへのOutput（イベント通知）
+    var sceneSessionRunRequest: PassthroughSubject<Void, Never> { get }
+    var sceneSessionPauseRequest: PassthroughSubject<Void, Never> { get }
+    var weaponFiringRenderRequest: PassthroughSubject<Void, Never> { get }
+    var weaponObjectShowRequest: PassthroughSubject<WeaponObjectData, Never> { get }
+    
+    // ViewからのInput
     func onViewAppear()
-    func fireWeapon()
-    func reloadWeapon()
+    func onViewDisappear()
+    func fireButtonTapped()
+    func reloadButtonTapped()
+    func weaponChangeButtonTapped()
 }
 
 final class GameViewModel {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
-    // TODO: 値を外側から流せないように外部に公開するプロパティはPublisherなどにする（Observableみたいに）
-    let weaponFireRenderingRequest = PassthroughSubject<Void, Never>()
-    let weaponShowingRequest = PassthroughSubject<WeaponObjectData, Never>()
+    let sceneSessionRunRequest = PassthroughSubject<Void, Never>()
+    let sceneSessionPauseRequest = PassthroughSubject<Void, Never>()
+    let weaponFiringRenderRequest = PassthroughSubject<Void, Never>()
+    let weaponObjectShowRequest = PassthroughSubject<WeaponObjectData, Never>()
     
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
@@ -43,15 +53,8 @@ final class GameViewModel {
             print("defaultWeaponGetUseCase error: \(error)")
         }
     }
-}
-
-extension GameViewModel: GameViewModelInterface {
-    func onViewAppear() {
-        guard let currentWeaponData = currentWeaponData else { return }
-        weaponShowingRequest.send(currentWeaponData.extractWeaponObjectData())
-    }
     
-    func fireWeapon() {
+    private func fireWeapon() {
         weaponActionExecuteUseCase.fireWeapon(
             bulletsCount: currentWeaponData?.state.bulletsCount ?? 0,
             isReloading: currentWeaponData?.state.isReloading ?? false,
@@ -59,7 +62,7 @@ extension GameViewModel: GameViewModelInterface {
             onFired: { response in
                 currentWeaponData?.state.bulletsCount = response.bulletsCount
 //                view?.renderWeaponFiring()
-                weaponFireRenderingRequest.send(Void())
+                weaponFiringRenderRequest.send(Void())
                 
 //                view?.playSound(type: currentWeaponData?.resources.firingSound ?? .pistolShoot)
 //                view?.showBulletsCountImage(name: currentWeaponData?.bulletsCountImageName() ?? "")
@@ -76,7 +79,7 @@ extension GameViewModel: GameViewModelInterface {
             })
     }
     
-    func reloadWeapon() {
+    private func reloadWeapon() {
         weaponActionExecuteUseCase.reloadWeapon(
             bulletsCount: currentWeaponData?.state.bulletsCount ?? 0,
             isReloading: currentWeaponData?.state.isReloading ?? false,
@@ -91,5 +94,29 @@ extension GameViewModel: GameViewModelInterface {
                 self?.currentWeaponData?.state.isReloading = response.isReloading
 //                self?.view?.showBulletsCountImage(name: self?.currentWeaponData?.bulletsCountImageName() ?? "")
             })
+    }
+}
+
+extension GameViewModel: GameViewModelInterface {
+    func onViewAppear() {
+        sceneSessionRunRequest.send(Void())
+        guard let currentWeaponData = currentWeaponData else { return }
+        weaponObjectShowRequest.send(currentWeaponData.extractWeaponObjectData())
+    }
+    
+    func onViewDisappear() {
+        sceneSessionPauseRequest.send(Void())
+    }
+    
+    func fireButtonTapped() {
+        fireWeapon()
+    }
+    
+    func reloadButtonTapped() {
+        reloadWeapon()
+    }
+    
+    func weaponChangeButtonTapped() {
+        
     }
 }

@@ -65,10 +65,10 @@ struct GameView<ViewModel: GameViewModelInterface>: View {
                     
                     VStack(spacing: 16) {
                         button(title: "Fire") {
-                            viewModel.fireWeapon()
+                            viewModel.fireButtonTapped()
                         }
                         button(title: "Reload") {
-                            viewModel.reloadWeapon()
+                            viewModel.reloadButtonTapped()
                         }
                     }
                 }
@@ -77,17 +77,22 @@ struct GameView<ViewModel: GameViewModelInterface>: View {
         // TODO: 後で直したい
         // landscapeだと左右のSafeAreaが考慮されずに謎の伸びが発生してレイアウトがおかしくなっているのでpaddingを+1して暫定対応している
         .padding([.leading, .trailing], 1)
-        .onReceive(viewModel.weaponFireRenderingRequest) { _ in
-            arController.renderWeaponFiring()
-        }
-        .onReceive(viewModel.weaponShowingRequest) { weaponObjectData in
-            arController.showWeaponObject(objectData: weaponObjectData)
-        }
         .onAppear {
-            arController.runSession()
             viewModel.onViewAppear()
         }
         .onDisappear {
+            viewModel.onViewDisappear()
+        }
+        .onReceive(viewModel.weaponFiringRenderRequest) { _ in
+            arController.renderWeaponFiring()
+        }
+        .onReceive(viewModel.weaponObjectShowRequest) { weaponObjectData in
+            arController.showWeaponObject(objectData: weaponObjectData)
+        }
+        .onReceive(viewModel.sceneSessionRunRequest) { _ in
+            arController.runSession()
+        }
+        .onReceive(viewModel.sceneSessionPauseRequest) { _ in
             arController.pauseSession()
         }
     }
