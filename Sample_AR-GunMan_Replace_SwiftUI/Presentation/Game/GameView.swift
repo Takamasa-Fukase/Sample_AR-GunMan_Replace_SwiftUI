@@ -25,7 +25,7 @@ struct GameView: View {
     var body: some View {
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            GameARView(arController: arController)
+            GameARView(sceneView: arController.getSceneView())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             

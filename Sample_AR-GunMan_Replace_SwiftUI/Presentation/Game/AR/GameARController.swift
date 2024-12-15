@@ -1,26 +1,11 @@
 //
-//  GameARView.swift
+//  GameARController.swift
 //  Sample_AR-GunMan_Replace_SwiftUI
 //
 //  Created by ウルトラ深瀬 on 15/12/24.
 //
 
-import SwiftUI
 import ARKit
-
-struct GameARView: UIViewRepresentable {
-    private let arController: GameARControllerInterface
-    
-    init(arController: GameARControllerInterface) {
-        self.arController = arController
-    }
-    
-    func makeUIView(context: Context) -> some UIView {
-        return arController.getSceneView()
-    }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
-}
 
 protocol GameARControllerInterface {
     var targetHit: (() -> Void)? { get set }
