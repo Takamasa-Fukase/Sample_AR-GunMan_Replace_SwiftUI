@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct GameView<ViewModel: GameViewModelInterface>: View {
+struct GameView: View {
     private var arController: GameARControllerInterface
-    @StateObject private var viewModel: ViewModel
+    @StateObject private var viewModel: GameViewModel
     
     init(
         arController: GameARControllerInterface,
-        viewModel: ViewModel
+        viewModel: GameViewModel
     ) {
         self.arController = arController
         self._viewModel = StateObject(wrappedValue: viewModel)

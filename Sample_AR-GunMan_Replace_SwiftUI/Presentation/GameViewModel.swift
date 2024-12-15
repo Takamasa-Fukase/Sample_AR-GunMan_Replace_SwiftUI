@@ -8,29 +8,12 @@
 import Foundation
 import Combine
 
-protocol GameViewModelInterface: ObservableObject {
+final class GameViewModel: ObservableObject {
     // MARK: ViewへのOutput（表示するデータ）
-    var timeCount: Double { get set }
-    var currentWeaponData: CurrentWeaponData? { get set }
-    
-    // MARK: ViewへのOutput（イベント通知）
-    var sceneSessionRunRequest: PassthroughSubject<Void, Never> { get }
-    var sceneSessionPauseRequest: PassthroughSubject<Void, Never> { get }
-    var weaponFiringRenderRequest: PassthroughSubject<Void, Never> { get }
-    var weaponObjectShowRequest: PassthroughSubject<WeaponObjectData, Never> { get }
-    
-    // MARK: ViewからのInput
-    func onViewAppear()
-    func onViewDisappear()
-    func fireButtonTapped()
-    func reloadButtonTapped()
-    func weaponChangeButtonTapped()
-}
-
-final class GameViewModel: GameViewModelInterface {
     @Published var timeCount: Double = 30.00
     @Published var currentWeaponData: CurrentWeaponData?
     
+    // MARK: ViewへのOutput（イベント通知）
     let sceneSessionRunRequest = PassthroughSubject<Void, Never>()
     let sceneSessionPauseRequest = PassthroughSubject<Void, Never>()
     let weaponFiringRenderRequest = PassthroughSubject<Void, Never>()
@@ -49,6 +32,7 @@ final class GameViewModel: GameViewModelInterface {
         getDefaultWeaponDetail()
     }
     
+    // MARK: ViewからのInput
     func onViewAppear() {
         sceneSessionRunRequest.send(Void())
         guard let currentWeaponData = currentWeaponData else { return }
@@ -71,7 +55,7 @@ final class GameViewModel: GameViewModelInterface {
         
     }
     
-    // MARK: Private Methods
+    // MARK: Privateメソッド
     private func getDefaultWeaponDetail() {
         do {
             currentWeaponData = try self.weaponResourceGetUseCase.getDefaultWeaponDetail()

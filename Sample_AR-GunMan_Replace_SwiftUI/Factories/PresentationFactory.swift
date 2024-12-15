@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class PresentationFactory {
-    static func createGameView(frame: CGRect) -> GameView<GameViewModel> {
+    static func createGameView(frame: CGRect) -> GameView {
         let arController = GameARController(frame: frame)
         let viewModel = GameViewModel(
             weaponResourceGetUseCase: UseCaseFactory.create(),
