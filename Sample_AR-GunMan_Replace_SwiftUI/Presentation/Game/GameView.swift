@@ -104,6 +104,8 @@ struct GameView: View {
             WeaponSelectView(weaponSelected: { weaponId in
                 viewModel.weaponSelected(weaponId: weaponId)
             })
+            // sheetの背景を透過
+            .presentationBackground(.clear)
         }
     }
     
