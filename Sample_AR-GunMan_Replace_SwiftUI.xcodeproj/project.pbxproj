@@ -15,6 +15,7 @@
 		BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908BB2D0F272A001AF829 /* WeaponSelectView.swift */; };
 		BC3908C12D0F272A001AF829 /* WeaponSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908BC2D0F272A001AF829 /* WeaponSelectCell.swift */; };
 		BC3908C22D0F272A001AF829 /* WeaponSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */; };
+		BC3908C42D0F283C001AF829 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */; };
 		BCE3254D2D0E8172001B3955 /* GameARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254C2D0E8172001B3955 /* GameARView.swift */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCE325522D0EA45B001B3955 /* SceneNodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */; };
@@ -104,6 +105,7 @@
 		BC3908BB2D0F272A001AF829 /* WeaponSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponSelectView.swift; sourceTree = "<group>"; };
 		BC3908BC2D0F272A001AF829 /* WeaponSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponSelectCell.swift; sourceTree = "<group>"; };
 		BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponSelectViewController.xib; sourceTree = "<group>"; };
+		BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		BCE3254C2D0E8172001B3955 /* GameARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameARView.swift; sourceTree = "<group>"; };
 		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneNodeUtil.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 			children = (
 				BCFB7ADE2CFA063D0018649D /* UserDefaults+Extension.swift */,
 				BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */,
+				BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				BCFB7AED2CFA07370018649D /* LoadedWeaponObjectData.swift in Sources */,
 				BCFB7AD62CFA05C90018649D /* WeaponActionExecuteUseCase.swift in Sources */,
 				BCFB7AD22CFA05C90018649D /* WeaponRepositoryInterface.swift in Sources */,
+				BC3908C42D0F283C001AF829 /* NSObject+Extension.swift in Sources */,
 				BC3908BE2D0F272A001AF829 /* WeaponSelectViewController.swift in Sources */,
 				BCFB7ADA2CFA05C90018649D /* TutorialRepository.swift in Sources */,
 				BCFB7AE12CFA06870018649D /* ColorTypeConverter.swift in Sources */,
