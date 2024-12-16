@@ -12,8 +12,11 @@ final class GameViewModel: ObservableObject {
     enum ARControllerInputEventType {
         case runSceneSession
         case pauseSceneSession
+        case startDeviceMotionDetection
+        case stopDeviceMotionDetection
         case renderWeaponFiring
         case showWeaponObject(_ weaponObjectData: WeaponObjectData)
+        case changeTargetsAppearance(imageName: String)
     }
     
     // MARK: ViewへのOutput（表示するデータ）
@@ -28,6 +31,7 @@ final class GameViewModel: ObservableObject {
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
     private var score: Double = 0.0
+    private var reloadingMotionDetecedCount: Int = 0
     
     init(
         weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface,
@@ -48,18 +52,44 @@ final class GameViewModel: ObservableObject {
         }
         
         arControllerInputEvent.send(.runSceneSession)
+        arControllerInputEvent.send(.startDeviceMotionDetection)
     }
     
     func onViewDisappear() {
         arControllerInputEvent.send(.pauseSceneSession)
+        arControllerInputEvent.send(.stopDeviceMotionDetection)
+    }
+
+    func accelerationUpdated(acceleration: Vector, latestGyro: Vector) {
+        let accelerationCompositeValue = CompositeCalculator.getCompositeValue(
+            x: 0,
+            y: acceleration.y,
+            z: acceleration.z
+        )
+        let gyroCompositeValue = CompositeCalculator.getCompositeValue(
+            x: 0,
+            y: 0,
+            z: latestGyro.z
+        )
+        if accelerationCompositeValue >= 1.5 && gyroCompositeValue < 10 {
+            fireWeapon()
+        }
     }
     
-    func fireButtonTapped() {
-        fireWeapon()
-    }
-    
-    func reloadButtonTapped() {
-        reloadWeapon()
+    func gyroUpdated(_ gyro: Vector) {
+        let gyroCompositeValue = CompositeCalculator.getCompositeValue(
+            x: 0,
+            y: 0,
+            z: gyro.z
+        )
+        if gyroCompositeValue >= 10 {
+            reloadWeapon()
+            reloadingMotionDetecedCount += 1
+            if reloadingMotionDetecedCount == 20 {
+                playSound.send(.kyuiin)
+                arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan"))
+            }
+        }
     }
     
     func weaponChangeButtonTapped() {

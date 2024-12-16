@@ -10,10 +10,15 @@ import SwiftUI
 final class PresentationFactory {
     static func createGameView(frame: CGRect) -> GameView {
         let arController = GameARController(frame: frame)
+        let deviceMotionController = DeviceMotionController()
         let viewModel = GameViewModel(
             weaponResourceGetUseCase: UseCaseFactory.create(),
             weaponActionExecuteUseCase: UseCaseFactory.create()
         )
-        return GameView(arController: arController, viewModel: viewModel)
+        return GameView(
+            arController: arController,
+            deviceMotionController: deviceMotionController,
+            viewModel: viewModel
+        )
     }
 }

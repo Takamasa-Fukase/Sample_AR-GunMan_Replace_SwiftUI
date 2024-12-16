@@ -9,15 +9,24 @@ import SwiftUI
 
 struct GameView: View {
     private var arController: GameARControllerInterface
+    private var deviceMotionController: DeviceMotionController
     @StateObject private var viewModel: GameViewModel
     
     init(
         arController: GameARControllerInterface,
+        deviceMotionController: DeviceMotionController,
         viewModel: GameViewModel
     ) {
         self.arController = arController
         self.arController.targetHit = {
             viewModel.targetHit()
+        }
+        self.deviceMotionController = deviceMotionController
+        self.deviceMotionController.accelerationUpdated = { acceleration, latestGyro in
+            viewModel.accelerationUpdated(acceleration: acceleration, latestGyro: latestGyro)
+        }
+        self.deviceMotionController.gyroUpdated = { gyro in
+            viewModel.gyroUpdated(gyro)
         }
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -67,15 +76,6 @@ struct GameView: View {
                         .frame(width: 180, height: 80, alignment: .bottom)
                     
                     Spacer()
-                    
-                    VStack(spacing: 16) {
-                        button(title: "Fire") {
-                            viewModel.fireButtonTapped()
-                        }
-                        button(title: "Reload") {
-                            viewModel.reloadButtonTapped()
-                        }
-                    }
                 }
             }
         }
@@ -91,10 +91,16 @@ struct GameView: View {
                 arController.runSession()
             case .pauseSceneSession:
                 arController.pauseSession()
+            case .startDeviceMotionDetection:
+                deviceMotionController.startMotionDetection()
+            case .stopDeviceMotionDetection:
+                deviceMotionController.stopMotionDetection()
             case .renderWeaponFiring:
                 arController.renderWeaponFiring()
             case .showWeaponObject(let weaponObjectData):
                 arController.showWeaponObject(objectData: weaponObjectData)
+            case .changeTargetsAppearance(let imageName):
+                arController.changeTargetsAppearance(to: imageName)
             }
         }
         .onReceive(viewModel.playSound) { soundType in
