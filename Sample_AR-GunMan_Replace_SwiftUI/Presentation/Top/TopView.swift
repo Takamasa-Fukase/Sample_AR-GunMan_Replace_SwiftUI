@@ -6,19 +6,23 @@
 //
 
 import SwiftUI
+import Foundation
 import AVFoundation
 
 struct TopView: View {
-    @State private var isGameViewPresented = false
+    @StateObject var viewModel = TopViewModel()
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 16) {
-                button(title: "Start") {
-                    isGameViewPresented = true
+                targetIconButton(title: "Start", isIconSwitched: viewModel.isStartButtonIconSwitched) {
+                    viewModel.startButtonTapped()
                 }
-                button(title: "HowToPlay") {
-                    
+                targetIconButton(title: "Settings", isIconSwitched: viewModel.isSettingsButtonIconSwitched) {
+                    viewModel.settingsButtonTapped()
+                }
+                targetIconButton(title: "HowToPlay", isIconSwitched: viewModel.isHowToPlayButtonIconSwitched) {
+                    viewModel.howToPlayButtonTapped()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -28,24 +32,46 @@ struct TopView: View {
                 // TODO: 後で直す
                 let soundPlayer = SoundPlayer.shared
             }
-            .sheet(isPresented: $isGameViewPresented) {
+            .sheet(isPresented: $viewModel.isGameViewPresented) {
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))
             }
         }
+        .background(ColorConst.goldLeaf)
+        .onReceive(viewModel.playSound) { soundType in
+            SoundPlayer.shared.play(soundType)
+        }
     }
     
-    private func button(
+    private func targetIconButton(
         title: String,
+        isIconSwitched: Bool,
         onTap: @escaping (() -> Void)
     ) -> some View {
         Button {
             onTap()
         } label: {
-            Text(title)
-                .foregroundStyle(Color(.label))
-                .frame(width: 200, height: 60)
-                .background(.tint)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+            HStack(alignment: .center, spacing: 8) {
+                buttonImage(isIconSwitched: isIconSwitched)
+                    .frame(width: 45, height: 45)
+                    .tint(ColorConst.blackSteel)
+                
+                Text(title)
+                    .foregroundStyle(ColorConst.blackSteel)
+                    .frame(alignment: .leading)
+                    .font(.custom("Copperplate Bold", size: 50))
+                
+                Spacer()
+            }
+        }
+    }
+    
+    private func buttonImage(isIconSwitched: Bool) -> some View {
+        if isIconSwitched {
+            Image("bullets_hole", bundle: .main)
+                .resizable()
+        }else {
+            Image(systemName: "target")
+                .resizable()
         }
     }
 }
