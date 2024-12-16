@@ -5,15 +5,15 @@
 //  Created by ウルトラ深瀬 on 10/11/24.
 //
 
-import UIKit
+import SwiftUI
 
 final class ColorTypeConverter {
-    static func fromColorType(_ colorType: ColorType) -> UIColor {
+    static func fromColorType(_ colorType: ColorType) -> Color {
         switch colorType {
         case .red:
-            return .systemRed
+            return Color(uiColor: .systemRed)
         case .green:
-            return .systemGreen
+            return Color(uiColor: .systemGreen)
         }
     }
 }

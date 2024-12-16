@@ -17,6 +17,7 @@
 		BC3908C22D0F272A001AF829 /* WeaponSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */; };
 		BC3908C42D0F283C001AF829 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */; };
 		BC3908C82D0FA5F2001AF829 /* DeviceMotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908C72D0FA5F2001AF829 /* DeviceMotionController.swift */; };
+		BC3909462D104F04001AF829 /* ColorConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909452D104F04001AF829 /* ColorConst.swift */; };
 		BCE3254D2D0E8172001B3955 /* GameARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254C2D0E8172001B3955 /* GameARView.swift */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCE325522D0EA45B001B3955 /* SceneNodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */; };
@@ -107,6 +108,7 @@
 		BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponSelectViewController.xib; sourceTree = "<group>"; };
 		BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		BC3908C72D0FA5F2001AF829 /* DeviceMotionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceMotionController.swift; sourceTree = "<group>"; };
+		BC3909452D104F04001AF829 /* ColorConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConst.swift; sourceTree = "<group>"; };
 		BCE3254C2D0E8172001B3955 /* GameARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameARView.swift; sourceTree = "<group>"; };
 		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneNodeUtil.swift; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 			path = DeviceMotion;
 			sourceTree = "<group>";
 		};
+		BC3909442D104EF2001AF829 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BC3909452D104F04001AF829 /* ColorConst.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		BCE325542D0F15B0001B3955 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +319,7 @@
 				BCFB7AFD2CFAC17D0018649D /* Presentation */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
+				BC3909442D104EF2001AF829 /* Constants */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A9D2CF9FA4A0018649D /* art.scnassets */,
 				BCFB7A9C2CF9FA490018649D /* Resources */,
@@ -769,6 +780,7 @@
 				BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */,
 				BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
+				BC3909462D104F04001AF829 /* ColorConst.swift in Sources */,
 				BC3908C82D0FA5F2001AF829 /* DeviceMotionController.swift in Sources */,
 				BCFB7AD12CFA05C90018649D /* TutorialRepositoryInterface.swift in Sources */,
 				BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */,
