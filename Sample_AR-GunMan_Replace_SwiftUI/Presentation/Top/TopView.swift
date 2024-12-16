@@ -61,7 +61,7 @@ struct TopView: View {
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))
             }
         }
-        .background(ColorConst.goldLeaf)
+        .background(Color.goldLeaf)
         .onAppear {
             // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
             AVCaptureDevice.requestAccess(for: .video) { _ in }
@@ -83,7 +83,7 @@ struct TopView: View {
                 buttonImage(isIconSwitched: isIconSwitched)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: geometry.size.height)
-                    .foregroundStyle(ColorConst.blackSteel)
+                    .foregroundStyle(Color.blackSteel)
             }
             .frame(width: 40, height: 40)
             
@@ -91,7 +91,7 @@ struct TopView: View {
                 onTap()
             } label: {
                 Text(title)
-                    .foregroundStyle(ColorConst.blackSteel)
+                    .foregroundStyle(Color.blackSteel)
                     .font(.custom("Copperplate Bold", size: 50))
                     .underline()
                 
