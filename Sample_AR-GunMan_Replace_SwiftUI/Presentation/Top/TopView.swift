@@ -15,24 +15,21 @@ struct TopView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .trailing, spacing: 0) {
-                Text("")
+                Spacer()
                     .frame(height: geometry.size.height * 0.1)
                     .frame(maxWidth: .infinity)
-                    .background(.red)
                 
                 Image("ar_gunman_title_image", bundle: .main)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 510, height: 70)
-                    .background(.blue)
                     .padding(.trailing, 40)
                     .padding(.bottom, 12)
                 
                 HStack(spacing: 0) {
-                    Text("")
+                    Spacer()
                         .frame(width: 40)
                         .frame(maxHeight: .infinity)
-                        .background(.tint)
                     
                     VStack(spacing: 0) {
                         targetIconButton(title: "Start", isIconSwitched: viewModel.isStartButtonIconSwitched) {
@@ -49,24 +46,20 @@ struct TopView: View {
                     }
                     .frame(width: (geometry.size.width) * 0.517327)
                     .frame(maxHeight: .infinity)
-                    .background(.green)
                     
                     Image("top_page_pistol_icon", bundle: .main)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(.yellow)
                 }
-                .background(.purple)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(ColorConst.goldLeaf)
             .sheet(isPresented: $viewModel.isGameViewPresented) {
                 // ゲーム画面への遷移
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))
             }
         }
-        .ignoresSafeArea()
+        .background(ColorConst.goldLeaf)
         .onAppear {
             // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
             AVCaptureDevice.requestAccess(for: .video) { _ in }
@@ -76,7 +69,6 @@ struct TopView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-        .padding(.all, 1)
     }
     
     private func targetIconButton(
@@ -103,7 +95,6 @@ struct TopView: View {
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.indigo)
         }
     }
     
