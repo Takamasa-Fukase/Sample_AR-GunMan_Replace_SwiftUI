@@ -78,18 +78,18 @@ struct TopView: View {
         isIconSwitched: Bool,
         onTap: @escaping (() -> Void)
     ) -> some View {
-        Button {
-            onTap()
-        } label: {
-            HStack(alignment: .center, spacing: 8) {
-                GeometryReader { geometry in
-                    buttonImage(isIconSwitched: isIconSwitched)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.height)
-                        .tint(ColorConst.blackSteel)
-                }
-                .frame(width: 40, height: 40)
-                
+        HStack(alignment: .center, spacing: 8) {
+            GeometryReader { geometry in
+                buttonImage(isIconSwitched: isIconSwitched)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: geometry.size.height)
+                    .foregroundStyle(ColorConst.blackSteel)
+            }
+            .frame(width: 40, height: 40)
+            
+            Button {
+                onTap()
+            } label: {
                 Text(title)
                     .foregroundStyle(ColorConst.blackSteel)
                     .font(.custom("Copperplate Bold", size: 50))
@@ -97,8 +97,8 @@ struct TopView: View {
                 
                 Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     private func buttonImage(isIconSwitched: Bool) -> some View {
