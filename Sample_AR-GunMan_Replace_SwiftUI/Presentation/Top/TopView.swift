@@ -52,6 +52,8 @@ struct TopView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .padding(.bottom, 16)
+                .padding(.trailing, 14)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .sheet(isPresented: $viewModel.isGameViewPresented) {
@@ -86,7 +88,7 @@ struct TopView: View {
                         .frame(width: geometry.size.height)
                         .tint(ColorConst.blackSteel)
                 }
-                .frame(width: 45, height: 45)
+                .frame(width: 40, height: 40)
                 
                 Text(title)
                     .foregroundStyle(ColorConst.blackSteel)
