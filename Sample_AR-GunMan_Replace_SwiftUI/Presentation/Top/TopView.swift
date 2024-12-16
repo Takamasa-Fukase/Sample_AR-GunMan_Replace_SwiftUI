@@ -91,6 +91,7 @@ struct TopView: View {
                 Text(title)
                     .foregroundStyle(ColorConst.blackSteel)
                     .font(.custom("Copperplate Bold", size: 50))
+                    .underline()
                 
                 Spacer()
             }
