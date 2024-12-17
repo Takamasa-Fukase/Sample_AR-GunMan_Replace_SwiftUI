@@ -19,14 +19,33 @@ final class SceneNodeUtil {
         return scnView.pointOfView?.position ?? SCNVector3()
     }
     
-    //scnファイルからノードを読み込む
+    // scnファイルからノードを読み込む
     static func loadScnFile(of path: String, nodeName: String) -> SCNNode {
-        //注意:scnのファイル名ではなく、Identity欄のnameを指定する
-        guard let node = SCNScene(named: path)?.rootNode.childNode(withName: nodeName, recursively: false) else {
-            print("loadScnFile失敗　ファイルパス(\(path))またはnodeのname(\(nodeName))が間違っています")
+        // Bundle.moduleからリソースのURLを取得する
+//        guard let sceneURL = Bundle.module.url(forResource: nil,
+//                                               withExtension: nil,
+//                                               subdirectory: path),
+        guard let sceneURL = Bundle.module.url(forResource: "pistol",
+                                               withExtension: "scn",
+                                               subdirectory: "art.scnassets/Weapon/Pistol"),
+              let scene = try? SCNScene(url: sceneURL, options: nil),
+              // 注意: childNode(withName:)にはscnのファイル名ではなく、Identity欄のnameを指定する
+              let node = scene.rootNode.childNode(withName: nodeName, recursively: false)
+        else {
+            let sceneURL = Bundle.module.url(forResource: "pistol",
+                                                   withExtension: "scn",
+                                                   subdirectory: "art.scnassets/Weapon/Pistol")
+            print("loadScnFile失敗　ファイルパス(\(path)), sceneURL: \(sceneURL?.absoluteString), またはnodeのname(\(nodeName))が間違っています")
             return SCNNode()
         }
         return node
+        
+        
+//        guard let node = SCNScene(named: path)?.rootNode.childNode(withName: nodeName, recursively: false) else {
+//            print("loadScnFile失敗　ファイルパス(\(path))またはnodeのname(\(nodeName))が間違っています")
+//            return SCNNode()
+//        }
+//        return node
     }
 
     static func getRandomTargetPosition() -> SCNVector3 {
