@@ -9,17 +9,17 @@ import SwiftUI
 import ARShootingApp
 
 struct GameView: View {
-    private var arController: GameARControllerInterface
+    private var arShootingController: ARShootingControllerInterface
     private var deviceMotionController: DeviceMotionController
     @Bindable private var viewModel: GameViewModel
     
     init(
-        arController: GameARControllerInterface,
+        arShootingController: ARShootingControllerInterface,
         deviceMotionController: DeviceMotionController,
         viewModel: GameViewModel
     ) {
-        self.arController = arController
-        self.arController.targetHit = {
+        self.arShootingController = arShootingController
+        self.arShootingController.targetHit = {
             viewModel.targetHit()
         }
         self.deviceMotionController = deviceMotionController
@@ -35,7 +35,7 @@ struct GameView: View {
     var body: some View {
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            GameARView(sceneView: arController.getSceneView())
+            ARShootingView(sceneView: arShootingController.getSceneView())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
@@ -89,20 +89,20 @@ struct GameView: View {
         .onReceive(viewModel.arControllerInputEvent) { eventType in
             switch eventType {
             case .runSceneSession:
-                arController.runSession()
+                arShootingController.runSession()
             case .pauseSceneSession:
-                arController.pauseSession()
+                arShootingController.pauseSession()
             case .startDeviceMotionDetection:
                 deviceMotionController.startMotionDetection()
             case .stopDeviceMotionDetection:
                 deviceMotionController.stopMotionDetection()
             case .renderWeaponFiring:
-                arController.renderWeaponFiring()
+                arShootingController.renderWeaponFiring()
             case .showWeaponObject(let weaponObjectData):
                 let objectData = DataModelMapper.convertDomainWeaponObjectDataForARShootingApp(weaponObjectData)
-                arController.showWeaponObject(objectData: objectData)
+                arShootingController.showWeaponObject(objectData: objectData)
             case .changeTargetsAppearance(let imageName):
-                arController.changeTargetsAppearance(to: imageName)
+                arShootingController.changeTargetsAppearance(to: imageName)
             }
         }
         .onReceive(viewModel.playSound) { soundType in

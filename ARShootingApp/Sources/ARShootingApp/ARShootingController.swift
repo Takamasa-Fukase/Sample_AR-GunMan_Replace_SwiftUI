@@ -1,5 +1,5 @@
 //
-//  GameARController.swift
+//  ARShootingController.swift
 //  Sample_AR-GunMan_Replace_SwiftUI
 //
 //  Created by ウルトラ深瀬 on 15/12/24.
@@ -7,7 +7,7 @@
 
 import ARKit
 
-public protocol GameARControllerInterface {
+public protocol ARShootingControllerInterface {
     var targetHit: (() -> Void)? { get set }
     func getSceneView() -> UIView
     func setup(targetCount: Int)
@@ -18,7 +18,7 @@ public protocol GameARControllerInterface {
     func changeTargetsAppearance(to imageName: String)
 }
 
-public final class GameARController: NSObject {
+public final class ARShootingController: NSObject {
     public var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
@@ -80,7 +80,7 @@ public final class GameARController: NSObject {
     }
 }
 
-extension GameARController: GameARControllerInterface {
+extension ARShootingController: ARShootingControllerInterface {
     public func getSceneView() -> UIView {
         return sceneView
     }
@@ -170,13 +170,13 @@ extension GameARController: GameARControllerInterface {
     }
 }
 
-extension GameARController: ARSCNViewDelegate {
+extension ARShootingController: ARSCNViewDelegate {
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         currentWeaponObjectData()?.weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
     }
 }
 
-extension GameARController: SCNPhysicsContactDelegate {
+extension ARShootingController: SCNPhysicsContactDelegate {
     public func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if contact.nodeA.name == "target" && contact.nodeB.name == "bullet"
             || contact.nodeB.name == "target" && contact.nodeA.name == "bullet" {
