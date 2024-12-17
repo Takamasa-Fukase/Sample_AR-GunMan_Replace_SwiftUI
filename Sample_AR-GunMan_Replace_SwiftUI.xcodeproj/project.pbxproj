@@ -259,13 +259,6 @@
 			path = DeviceMotion;
 			sourceTree = "<group>";
 		};
-		BC3909442D104EF2001AF829 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		BC39094B2D107830001AF829 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,7 +348,6 @@
 				BCFB7AFD2CFAC17D0018649D /* Presentation */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
-				BC3909442D104EF2001AF829 /* Constants */,
 				BC2F9AF82D11C6D30066806C /* ARShootingApp */,
 				BC2F9AF92D11C72D0066806C /* WeaponControlMotion */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
