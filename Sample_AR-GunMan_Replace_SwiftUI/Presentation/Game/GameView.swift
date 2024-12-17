@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ARShootingApp
 
 struct GameView: View {
     private var arController: GameARControllerInterface
@@ -98,7 +99,8 @@ struct GameView: View {
             case .renderWeaponFiring:
                 arController.renderWeaponFiring()
             case .showWeaponObject(let weaponObjectData):
-                arController.showWeaponObject(objectData: weaponObjectData)
+                let objectData = DataModelMapper.convertDomainWeaponObjectDataForARShootingApp(weaponObjectData)
+                arController.showWeaponObject(objectData: objectData)
             case .changeTargetsAppearance(let imageName):
                 arController.changeTargetsAppearance(to: imageName)
             }

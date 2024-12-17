@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ARShootingApp
 
 final class PresentationFactory {
     static func createGameView(frame: CGRect) -> GameView {

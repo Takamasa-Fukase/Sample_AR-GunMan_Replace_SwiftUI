@@ -7,7 +7,7 @@
 
 import ARKit
 
-protocol GameARControllerInterface {
+public protocol GameARControllerInterface {
     var targetHit: (() -> Void)? { get set }
     func getSceneView() -> UIView
     func setup(targetCount: Int)
@@ -18,14 +18,14 @@ protocol GameARControllerInterface {
     func changeTargetsAppearance(to imageName: String)
 }
 
-final class GameARController: NSObject {
-    var targetHit: (() -> Void)?
+public final class GameARController: NSObject {
+    public var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
     private let originalBulletNode = SceneNodeUtil.originalBulletNode()
     private var currentWeaponId: Int = 0
     
-    init(frame: CGRect) {
+    public init(frame: CGRect) {
         // MEMO: 予めframeを渡して初期化することで、モーダル出現アニメーションの途中時点から既に正しい比率でSceneオブジェクトを表示した状態で一緒にアニメーションさせられるので遷移の見た目が綺麗になる（遷移前に予め表示予定領域のframeが確定している場合）
         sceneView = ARSCNView(frame: frame)
         super.init()
@@ -81,11 +81,11 @@ final class GameARController: NSObject {
 }
 
 extension GameARController: GameARControllerInterface {
-    func getSceneView() -> UIView {
+    public func getSceneView() -> UIView {
         return sceneView
     }
     
-    func setup(targetCount: Int) {
+    public func setup(targetCount: Int) {
         sceneView.scene = SCNScene()
         sceneView.autoenablesDefaultLighting = true
         sceneView.delegate = self
@@ -94,17 +94,17 @@ extension GameARController: GameARControllerInterface {
         showTargetsToRandomPositions(count: targetCount)
     }
     
-    func runSession() {
+    public func runSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
     }
     
-    func pauseSession() {
+    public func pauseSession() {
         sceneView.session.pause()
     }
     
-    func showWeaponObject(objectData: WeaponObjectData) {
+    public func showWeaponObject(objectData: WeaponObjectData) {
         currentWeaponId = objectData.weaponId
         removeOtherWeapons(except: objectData.weaponId)
         
@@ -141,7 +141,7 @@ extension GameARController: GameARControllerInterface {
         }
     }
     
-    func renderWeaponFiring() {
+    public func renderWeaponFiring() {
         // 弾の発射アニメーションを描画
         let clonedBulletNode = originalBulletNode.clone()
         clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)
@@ -156,7 +156,7 @@ extension GameARController: GameARControllerInterface {
         }
     }
     
-    func changeTargetsAppearance(to imageName: String) {
+    public func changeTargetsAppearance(to imageName: String) {
         sceneView.scene.rootNode.childNodes.forEach({ node in
             if node.name == "target" {
                 while node.childNode(withName: "torus", recursively: false) != nil {
@@ -171,13 +171,13 @@ extension GameARController: GameARControllerInterface {
 }
 
 extension GameARController: ARSCNViewDelegate {
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+    public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         currentWeaponObjectData()?.weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
     }
 }
 
 extension GameARController: SCNPhysicsContactDelegate {
-    func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+    public func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if contact.nodeA.name == "target" && contact.nodeB.name == "bullet"
             || contact.nodeB.name == "target" && contact.nodeA.name == "bullet" {
             targetHit?()

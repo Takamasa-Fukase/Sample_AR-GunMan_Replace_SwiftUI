@@ -22,6 +22,7 @@
 		BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094D2D10F42B001AF829 /* SettingsView.swift */; };
 		BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */; };
 		BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC9E67F12D11D3F6006DC459 /* ARShootingApp */; };
+		BC9E67F42D11D6C6006DC459 /* DataModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		BC3909492D1057AF001AF829 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		BC39094D2D10F42B001AF829 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelMapper.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShootingApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShootingApp; sourceTree = "<group>"; };
 		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -455,6 +457,7 @@
 			children = (
 				BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */,
 				BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */,
+				BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */,
 				BCFB7AEE2CFA07370018649D /* Vector.swift in Sources */,
 				BCFB7AF12CFA07370018649D /* WeaponObjectData.swift in Sources */,
+				BC9E67F42D11D6C6006DC459 /* DataModelMapper.swift in Sources */,
 				BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */,
 				BCFB7AD72CFA05C90018649D /* WeaponResourceGetUseCase.swift in Sources */,
 				BCFB7ADD2CFA05C90018649D /* WeaponDataSource.swift in Sources */,

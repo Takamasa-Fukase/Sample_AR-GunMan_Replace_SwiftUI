@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeaponObjectData {
+public struct WeaponObjectData {
     let weaponId: Int
     let objectFilePath: String
     let rootObjectName: String
@@ -16,4 +16,15 @@ struct WeaponObjectData {
     let targetHitParticleRootObjectName: String?
     let isGunnerHandShakingAnimationEnabled: Bool
     let isRecoilAnimationEnabled: Bool
+    
+    public init(weaponId: Int, objectFilePath: String, rootObjectName: String, weaponObjectName: String, targetHitParticleFilePath: String?, targetHitParticleRootObjectName: String?, isGunnerHandShakingAnimationEnabled: Bool, isRecoilAnimationEnabled: Bool) {
+        self.weaponId = weaponId
+        self.objectFilePath = objectFilePath
+        self.rootObjectName = rootObjectName
+        self.weaponObjectName = weaponObjectName
+        self.targetHitParticleFilePath = targetHitParticleFilePath
+        self.targetHitParticleRootObjectName = targetHitParticleRootObjectName
+        self.isGunnerHandShakingAnimationEnabled = isGunnerHandShakingAnimationEnabled
+        self.isRecoilAnimationEnabled = isRecoilAnimationEnabled
+    }
 }

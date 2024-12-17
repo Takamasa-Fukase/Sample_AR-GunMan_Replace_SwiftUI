@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct GameARView: UIViewRepresentable {
+public struct GameARView: UIViewRepresentable {
     private let sceneView: UIView
     
-    init(sceneView: UIView) {
+    public init(sceneView: UIView) {
         self.sceneView = sceneView
     }
     
-    func makeUIView(context: Context) -> some UIView {
+    public func makeUIView(context: Context) -> some UIView {
         return sceneView
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {}
+    public func updateUIView(_ uiView: UIViewType, context: Context) {}
 }
