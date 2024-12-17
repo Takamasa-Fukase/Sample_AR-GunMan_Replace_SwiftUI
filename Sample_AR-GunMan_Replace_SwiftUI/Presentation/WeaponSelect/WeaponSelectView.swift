@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct WeaponSelectView: UIViewControllerRepresentable {
-    var weaponSelected: ((Int) -> Void)?
+    var weaponSelected: ((Int) -> Void)
+    @Environment(\.dismiss) private var dismiss
+    
+    init(weaponSelected: @escaping (Int) -> Void) {
+        self.weaponSelected = weaponSelected
+    }
     
     func makeUIViewController(context: Context) -> some UIViewController {
         let weaponSelectVC = WeaponSelectViewController()
-        weaponSelectVC.weaponSelected = weaponSelected
+        weaponSelectVC.weaponSelected = { weaponId in
+            // このViewの利用側へ選択されたweaponIdをコールバック
+            weaponSelected(weaponId)
+            // 画面を閉じる
+            dismiss()
+        }
         return weaponSelectVC
     }
     

@@ -107,6 +107,7 @@ struct GameView: View {
             SoundPlayer.shared.play(soundType)
         }
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
+            // 武器選択画面に遷移
             WeaponSelectView(weaponSelected: { weaponId in
                 viewModel.weaponSelected(weaponId: weaponId)
             })

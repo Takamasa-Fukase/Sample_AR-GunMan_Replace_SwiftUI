@@ -103,9 +103,6 @@ final class GameViewModel {
             let selectedWeaponData = try weaponResourceGetUseCase.getWeaponDetail(of: weaponId)
             showSelectedWeapon(selectedWeaponData)
             
-            // 武器選択画面を閉じる
-            isWeaponSelectViewPresented = false
-            
         } catch {
             print("WeaponDetailGetRequest error: \(error)")
         }
