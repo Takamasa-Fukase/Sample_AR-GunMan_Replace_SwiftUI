@@ -232,6 +232,11 @@
 		BC2F9AF82D11C6D30066806C /* ARShootingApp */ = {
 			isa = PBXGroup;
 			children = (
+				BCE3254C2D0E8172001B3955 /* GameARView.swift */,
+				BCE325582D0F178E001B3955 /* GameARController.swift */,
+				BCFB7AE72CFA07370018649D /* LoadedWeaponObjectData.swift */,
+				BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */,
+				BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */,
 			);
 			path = ARShootingApp;
 			sourceTree = "<group>";
@@ -301,19 +306,9 @@
 			children = (
 				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
 				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
-				BCE325572D0F177E001B3955 /* AR */,
 				BC3908C62D0FA5AD001AF829 /* DeviceMotion */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		BCE325572D0F177E001B3955 /* AR */ = {
-			isa = PBXGroup;
-			children = (
-				BCE3254C2D0E8172001B3955 /* GameARView.swift */,
-				BCE325582D0F178E001B3955 /* GameARController.swift */,
-			);
-			path = AR;
 			sourceTree = "<group>";
 		};
 		BCFB7A532CF9F6240018649D = {
@@ -490,8 +485,6 @@
 			children = (
 				BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */,
 				BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */,
-				BCE325502D0EA45B001B3955 /* SceneAnimationUtil.swift */,
-				BCE3254F2D0EA45B001B3955 /* SceneNodeUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -499,7 +492,6 @@
 		BCFB7AEC2CFA07370018649D /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				BCFB7AE72CFA07370018649D /* LoadedWeaponObjectData.swift */,
 				BCFB7AE82CFA07370018649D /* Vector.swift */,
 				BCFB7AE92CFA07370018649D /* CurrentWeaponData.swift */,
 				BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */,
