@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Observation
 import Combine
 
+@Observable
 final class GameViewModel: ObservableObject {
     enum ARControllerInputEventType {
         case runSceneSession
@@ -20,9 +22,9 @@ final class GameViewModel: ObservableObject {
     }
     
     // MARK: ViewへのOutput（表示するデータ）
-    @Published var timeCount: Double = 30.00
-    @Published var currentWeaponData: CurrentWeaponData?
-    @Published var isWeaponSelectViewPresented = false
+    private(set) var timeCount: Double = 30.00
+    private(set) var currentWeaponData: CurrentWeaponData?
+    var isWeaponSelectViewPresented = false
     
     // MARK: ViewへのOutput（イベント通知）
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()

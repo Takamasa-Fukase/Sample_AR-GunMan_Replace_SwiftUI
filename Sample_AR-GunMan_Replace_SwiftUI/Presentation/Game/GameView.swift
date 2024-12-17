@@ -10,7 +10,7 @@ import SwiftUI
 struct GameView: View {
     private var arController: GameARControllerInterface
     private var deviceMotionController: DeviceMotionController
-    @StateObject private var viewModel: GameViewModel
+    @Bindable private var viewModel: GameViewModel
     
     init(
         arController: GameARControllerInterface,
@@ -28,7 +28,7 @@ struct GameView: View {
         self.deviceMotionController.gyroUpdated = { gyro in
             viewModel.gyroUpdated(gyro)
         }
-        self._viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
     }
     
     var body: some View {
