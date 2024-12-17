@@ -113,6 +113,7 @@
 		BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelMapper.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShootingApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShootingApp; sourceTree = "<group>"; };
+		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
 		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -289,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				BCACEDD32D11D26E009F9D18 /* ARShootingApp */,
+				BCB2B01F2D124344001EE755 /* WeaponControlMotion */,
 				BCFB7A5E2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI */,
 				BCFB7A6F2CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUITests */,
 				BCFB7A792CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUIUITests */,
