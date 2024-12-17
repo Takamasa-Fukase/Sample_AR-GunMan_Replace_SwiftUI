@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Observation
 import Combine
 
+@Observable
 final class TopViewModel: ObservableObject {
     enum IconButtonType {
         case start
@@ -15,12 +17,12 @@ final class TopViewModel: ObservableObject {
         case howToPlay
     }
     
-    @Published var isStartButtonIconSwitched = false
-    @Published var isSettingsButtonIconSwitched = false
-    @Published var isHowToPlayButtonIconSwitched = false
-    @Published var isGameViewPresented = false
-    @Published var isSettingsViewPresented = false
-    @Published var isTutorialViewPresented = false
+    private(set) var isStartButtonIconSwitched = false
+    private(set) var isSettingsButtonIconSwitched = false
+    private(set) var isHowToPlayButtonIconSwitched = false
+    var isGameViewPresented = false
+    var isSettingsViewPresented = false
+    var isTutorialViewPresented = false
     
     let playSound = PassthroughSubject<SoundType, Never>()
 

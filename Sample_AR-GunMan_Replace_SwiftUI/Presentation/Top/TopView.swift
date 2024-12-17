@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 struct TopView: View {
-    @StateObject var viewModel = TopViewModel()
+    @Bindable var viewModel = TopViewModel()
     
     var body: some View {
         GeometryReader { geometry in
@@ -61,7 +61,12 @@ struct TopView: View {
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))
             }
             .sheet(isPresented: $viewModel.isSettingsViewPresented) {
+                // 設定画面への遷移
                 SettingsView()
+            }
+            .sheet(isPresented: $viewModel.isTutorialViewPresented) {
+                // チュートリアル画面への遷移
+                
             }
         }
         .background(Color.goldLeaf)
