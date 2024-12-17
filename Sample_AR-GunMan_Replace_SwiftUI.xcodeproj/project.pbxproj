@@ -21,6 +21,7 @@
 		BC39094A2D1057AF001AF829 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909492D1057AF001AF829 /* TopViewModel.swift */; };
 		BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094D2D10F42B001AF829 /* SettingsView.swift */; };
 		BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */; };
+		BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC9E67F12D11D3F6006DC459 /* ARShootingApp */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */,
 				B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +511,9 @@
 			dependencies = (
 			);
 			name = "Sample_AR-GunMan_Replace_SwiftUI";
+			packageProductDependencies = (
+				BC9E67F12D11D3F6006DC459 /* ARShootingApp */,
+			);
 			productName = "Sample_AR-GunMan_Replace_SwiftUI";
 			productReference = BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -1124,6 +1129,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC9E67F12D11D3F6006DC459 /* ARShootingApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ARShootingApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCFB7A542CF9F6240018649D /* Project object */;
 }
