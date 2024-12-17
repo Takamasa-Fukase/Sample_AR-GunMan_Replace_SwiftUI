@@ -21,31 +21,15 @@ final class SceneNodeUtil {
     
     // scnファイルからノードを読み込む
     static func loadScnFile(of path: String, nodeName: String) -> SCNNode {
-        // Bundle.moduleからリソースのURLを取得する
-//        guard let sceneURL = Bundle.module.url(forResource: nil,
-//                                               withExtension: nil,
-//                                               subdirectory: path),
-        guard let sceneURL = Bundle.module.url(forResource: "pistol",
-                                               withExtension: "scn",
-                                               subdirectory: "art.scnassets/Weapon/Pistol"),
-              let scene = try? SCNScene(url: sceneURL, options: nil),
+        guard let url = URL(string: Bundle.module.bundleURL.absoluteString + path),
+              let scene = try? SCNScene(url: url, options: nil),
               // 注意: childNode(withName:)にはscnのファイル名ではなく、Identity欄のnameを指定する
               let node = scene.rootNode.childNode(withName: nodeName, recursively: false)
         else {
-            let sceneURL = Bundle.module.url(forResource: "pistol",
-                                                   withExtension: "scn",
-                                                   subdirectory: "art.scnassets/Weapon/Pistol")
-            print("loadScnFile失敗　ファイルパス(\(path)), sceneURL: \(sceneURL?.absoluteString), またはnodeのname(\(nodeName))が間違っています")
+            print("loadScnFile失敗　ファイルパス(\(path)), またはnodeのname(\(nodeName))が間違っています")
             return SCNNode()
         }
         return node
-        
-        
-//        guard let node = SCNScene(named: path)?.rootNode.childNode(withName: nodeName, recursively: false) else {
-//            print("loadScnFile失敗　ファイルパス(\(path))またはnodeのname(\(nodeName))が間違っています")
-//            return SCNNode()
-//        }
-//        return node
     }
 
     static func getRandomTargetPosition() -> SCNVector3 {
@@ -90,7 +74,7 @@ final class SceneNodeUtil {
     }
     
     static func originalTargetNode() -> SCNNode {
-        let targetNode = SceneNodeUtil.loadScnFile(of: "art.scnassets/Target/target.scn", nodeName: "target")
+        let targetNode = SceneNodeUtil.loadScnFile(of: "Resources/art.scnassets/Target/target.scn", nodeName: "target")
         
         targetNode.scale = SCNVector3(0.3, 0.3, 0.3)
         
