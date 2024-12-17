@@ -60,6 +60,9 @@ struct TopView: View {
                 // ゲーム画面への遷移
                 PresentationFactory.createGameView(frame: geometry.frame(in: .global))
             }
+            .sheet(isPresented: $viewModel.isSettingsViewPresented) {
+                SettingsView()
+            }
         }
         .background(Color.goldLeaf)
         .onAppear {
