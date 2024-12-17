@@ -23,6 +23,7 @@
 		BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */; };
 		BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC9E67F12D11D3F6006DC459 /* ARShootingApp */; };
 		BC9E67F42D11D6C6006DC459 /* DataModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */; };
+		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
 		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
@@ -176,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */,
 				BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */,
 				B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */,
 			);
@@ -518,6 +520,7 @@
 			name = "Sample_AR-GunMan_Replace_SwiftUI";
 			packageProductDependencies = (
 				BC9E67F12D11D3F6006DC459 /* ARShootingApp */,
+				BCB2B0202D1247DA001EE755 /* WeaponControlMotion */,
 			);
 			productName = "Sample_AR-GunMan_Replace_SwiftUI";
 			productReference = BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */;
@@ -1140,6 +1143,10 @@
 		BC9E67F12D11D3F6006DC459 /* ARShootingApp */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ARShootingApp;
+		};
+		BCB2B0202D1247DA001EE755 /* WeaponControlMotion */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeaponControlMotion;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
