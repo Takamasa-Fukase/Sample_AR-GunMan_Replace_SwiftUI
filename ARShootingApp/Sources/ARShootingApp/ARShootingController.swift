@@ -7,17 +7,6 @@
 
 import ARKit
 
-public protocol ARShootingControllerInterface {
-    var targetHit: (() -> Void)? { get set }
-    func getSceneView() -> UIView
-    func setup(targetCount: Int)
-    func runSession()
-    func pauseSession()
-    func showWeaponObject(objectData: WeaponObjectData)
-    func renderWeaponFiring()
-    func changeTargetsAppearance(to imageName: String)
-}
-
 public final class ARShootingController: NSObject {
     public var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
@@ -32,55 +21,6 @@ public final class ARShootingController: NSObject {
         setup(targetCount: 50)
     }
     
-    private func showTargetsToRandomPositions(count: Int) {
-        let originalTargetNode = SceneNodeUtil.originalTargetNode()
-        
-        DispatchQueue.main.async { [weak self] in
-            Array(0..<count).forEach { _ in
-                let clonedTargetNode = originalTargetNode.clone()
-                clonedTargetNode.position = SceneNodeUtil.getRandomTargetPosition()
-                SceneNodeUtil.addBillboardConstraint(clonedTargetNode)
-                self?.sceneView.scene.rootNode.addChildNode(clonedTargetNode)
-            }
-        }
-    }
-    
-    private func createWeaponNode(scnFilePath: String, nodeName: String) -> SCNNode {
-        let weaponParentNode = SceneNodeUtil.loadScnFile(of: scnFilePath, nodeName: nodeName)
-        SceneNodeUtil.addBillboardConstraint(weaponParentNode)
-        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
-        return weaponParentNode
-    }
-    
-    private func removeOtherWeapons(except weaponId: Int) {
-        loadedWeaponDataList.forEach { loadedWeaponData in
-            if loadedWeaponData.objectData.weaponId != weaponId {
-                loadedWeaponData.weaponParentNode.removeFromParentNode()
-            }
-        }
-    }
-    
-    private func currentWeaponObjectData() -> LoadedWeaponObjectData? {
-        return loadedWeaponDataList.first(where: { $0.objectData.weaponId == currentWeaponId })
-    }
-    
-    private func currentWeaponNode() -> SCNNode {
-        guard let currentObjectData = loadedWeaponDataList.first(where: { $0.objectData.weaponId == currentWeaponId }) else { return SCNNode() }
-        return currentObjectData.weaponParentNode.childNode(withName: currentObjectData.objectData.weaponObjectName, recursively: false) ?? SCNNode()
-    }
-    
-    private func renderTargetHitParticle(to position: SCNVector3) {
-        if let particleNode = currentWeaponObjectData()?.particleNode {
-            let clonedParticleNode = particleNode.clone()
-            clonedParticleNode.position = position
-            clonedParticleNode.particleSystems?.first?.birthRate = 300
-            clonedParticleNode.particleSystems?.first?.loops = false
-            sceneView.scene.rootNode.addChildNode(clonedParticleNode)
-        }
-    }
-}
-
-extension ARShootingController: ARShootingControllerInterface {
     public func getSceneView() -> UIView {
         return sceneView
     }
@@ -167,6 +107,55 @@ extension ARShootingController: ARShootingControllerInterface {
             node.childNode(withName: "sphere", recursively: false)?
                 .geometry?.firstMaterial?.diffuse.contents = UIImage(named: imageName, in: Bundle.module, with: nil)
         })
+    }
+    
+    
+    // MARK: Private Methods
+    private func showTargetsToRandomPositions(count: Int) {
+        let originalTargetNode = SceneNodeUtil.originalTargetNode()
+        
+        DispatchQueue.main.async { [weak self] in
+            Array(0..<count).forEach { _ in
+                let clonedTargetNode = originalTargetNode.clone()
+                clonedTargetNode.position = SceneNodeUtil.getRandomTargetPosition()
+                SceneNodeUtil.addBillboardConstraint(clonedTargetNode)
+                self?.sceneView.scene.rootNode.addChildNode(clonedTargetNode)
+            }
+        }
+    }
+    
+    private func createWeaponNode(scnFilePath: String, nodeName: String) -> SCNNode {
+        let weaponParentNode = SceneNodeUtil.loadScnFile(of: scnFilePath, nodeName: nodeName)
+        SceneNodeUtil.addBillboardConstraint(weaponParentNode)
+        weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+        return weaponParentNode
+    }
+    
+    private func removeOtherWeapons(except weaponId: Int) {
+        loadedWeaponDataList.forEach { loadedWeaponData in
+            if loadedWeaponData.objectData.weaponId != weaponId {
+                loadedWeaponData.weaponParentNode.removeFromParentNode()
+            }
+        }
+    }
+    
+    private func currentWeaponObjectData() -> LoadedWeaponObjectData? {
+        return loadedWeaponDataList.first(where: { $0.objectData.weaponId == currentWeaponId })
+    }
+    
+    private func currentWeaponNode() -> SCNNode {
+        guard let currentObjectData = loadedWeaponDataList.first(where: { $0.objectData.weaponId == currentWeaponId }) else { return SCNNode() }
+        return currentObjectData.weaponParentNode.childNode(withName: currentObjectData.objectData.weaponObjectName, recursively: false) ?? SCNNode()
+    }
+    
+    private func renderTargetHitParticle(to position: SCNVector3) {
+        if let particleNode = currentWeaponObjectData()?.particleNode {
+            let clonedParticleNode = particleNode.clone()
+            clonedParticleNode.position = position
+            clonedParticleNode.particleSystems?.first?.birthRate = 300
+            clonedParticleNode.particleSystems?.first?.loops = false
+            sceneView.scene.rootNode.addChildNode(clonedParticleNode)
+        }
     }
 }
 

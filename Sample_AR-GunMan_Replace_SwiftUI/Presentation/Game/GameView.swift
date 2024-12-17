@@ -9,12 +9,12 @@ import SwiftUI
 import ARShootingApp
 
 struct GameView: View {
-    private var arShootingController: ARShootingControllerInterface
+    private var arShootingController: ARShootingController
     private var deviceMotionController: DeviceMotionController
     @Bindable private var viewModel: GameViewModel
     
     init(
-        arShootingController: ARShootingControllerInterface,
+        arShootingController: ARShootingController,
         deviceMotionController: DeviceMotionController,
         viewModel: GameViewModel
     ) {
