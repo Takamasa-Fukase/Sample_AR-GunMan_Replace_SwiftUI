@@ -10,7 +10,7 @@ import Observation
 import Combine
 
 @Observable
-final class GameViewModel: ObservableObject {
+final class GameViewModel {
     enum ARControllerInputEventType {
         case runSceneSession
         case pauseSceneSession

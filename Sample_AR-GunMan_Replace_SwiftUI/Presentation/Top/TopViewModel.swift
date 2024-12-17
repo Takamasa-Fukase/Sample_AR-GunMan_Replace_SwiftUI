@@ -10,7 +10,7 @@ import Observation
 import Combine
 
 @Observable
-final class TopViewModel: ObservableObject {
+final class TopViewModel {
     enum IconButtonType {
         case start
         case settings
