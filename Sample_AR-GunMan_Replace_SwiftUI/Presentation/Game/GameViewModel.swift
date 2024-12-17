@@ -89,7 +89,7 @@ final class GameViewModel {
             reloadingMotionDetecedCount += 1
             if reloadingMotionDetecedCount == 20 {
                 playSound.send(.kyuiin)
-                arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan"))
+                arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan.jpg"))
             }
         }
     }

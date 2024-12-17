@@ -165,7 +165,7 @@ extension GameARController: GameARControllerInterface {
                 }
             }
             node.childNode(withName: "sphere", recursively: false)?
-                .geometry?.firstMaterial?.diffuse.contents = UIImage(named: imageName)
+                .geometry?.firstMaterial?.diffuse.contents = UIImage(named: imageName, in: Bundle.module, with: nil)
         })
     }
 }
