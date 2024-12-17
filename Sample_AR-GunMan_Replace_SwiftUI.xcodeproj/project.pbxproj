@@ -44,7 +44,6 @@
 		BCFB7AA92CF9FA4A0018649D /* rankingAppear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A982CF9FA490018649D /* rankingAppear.mp3 */; };
 		BCFB7AAA2CF9FA4A0018649D /* startWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A992CF9FA490018649D /* startWhistle.mp3 */; };
 		BCFB7AAB2CF9FA4A0018649D /* westernPistolShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */; };
-		BCFB7AAC2CF9FA4A0018649D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9D2CF9FA4A0018649D /* art.scnassets */; };
 		BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */; };
 		BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AB02CFA04D20018649D /* GameViewModel.swift */; };
 		BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7ABC2CFA05C80018649D /* Weapon.swift */; };
@@ -137,7 +136,6 @@
 		BCFB7A982CF9FA490018649D /* rankingAppear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rankingAppear.mp3; sourceTree = "<group>"; };
 		BCFB7A992CF9FA490018649D /* startWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startWhistle.mp3; sourceTree = "<group>"; };
 		BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = westernPistolShoot.mp3; sourceTree = "<group>"; };
-		BCFB7A9D2CF9FA4A0018649D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		BCFB7AB02CFA04D20018649D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		BCFB7ABC2CFA05C80018649D /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
@@ -236,13 +234,6 @@
 			path = DeviceMotion;
 			sourceTree = "<group>";
 		};
-		BC3909442D104EF2001AF829 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		BC39094B2D107830001AF829 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,9 +314,7 @@
 				BCFB7AFD2CFAC17D0018649D /* Presentation */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
-				BC3909442D104EF2001AF829 /* Constants */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
-				BCFB7A9D2CF9FA4A0018649D /* art.scnassets */,
 				BCFB7A9C2CF9FA490018649D /* Resources */,
 				BCFB7A652CF9F6250018649D /* Preview Content */,
 			);
@@ -624,7 +613,6 @@
 				BC3908BF2D0F272A001AF829 /* WeaponSelectCell.xib in Resources */,
 				BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */,
 				BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */,
-				BCFB7AAC2CF9FA4A0018649D /* art.scnassets in Resources */,
 				BCFB7AA22CF9FA4A0018649D /* endWhistle.mp3 in Resources */,
 				BCFB7AA92CF9FA4A0018649D /* rankingAppear.mp3 in Resources */,
 				BCFB7AA52CF9FA4A0018649D /* pistol-fire.mp3 in Resources */,
