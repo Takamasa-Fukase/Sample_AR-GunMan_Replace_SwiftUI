@@ -10,6 +10,7 @@
 		B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7C0DA9E81CB0F805C19489 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework */; };
 		B43470AD20B0569B779EE7D0 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */; };
 		BA663FF8FEFA4C1253172AD0 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446B7296F9F55517A56CE20 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework */; };
+		BC2F9AFD2D11D0850066806C /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC2F9AFC2D11D0850066806C /* ARShootingApp */; };
 		BC3908BE2D0F272A001AF829 /* WeaponSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908B92D0F272A001AF829 /* WeaponSelectViewController.swift */; };
 		BC3908BF2D0F272A001AF829 /* WeaponSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3908BA2D0F272A001AF829 /* WeaponSelectCell.xib */; };
 		BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908BB2D0F272A001AF829 /* WeaponSelectView.swift */; };
@@ -172,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC2F9AFD2D11D0850066806C /* ARShootingApp in Frameworks */,
 				B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +519,9 @@
 			dependencies = (
 			);
 			name = "Sample_AR-GunMan_Replace_SwiftUI";
+			packageProductDependencies = (
+				BC2F9AFC2D11D0850066806C /* ARShootingApp */,
+			);
 			productName = "Sample_AR-GunMan_Replace_SwiftUI";
 			productReference = BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -1132,6 +1137,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC2F9AFC2D11D0850066806C /* ARShootingApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ARShootingApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCFB7A542CF9F6240018649D /* Project object */;
 }
