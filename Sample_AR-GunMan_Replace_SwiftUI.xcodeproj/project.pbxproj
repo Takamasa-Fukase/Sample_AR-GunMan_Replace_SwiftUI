@@ -229,6 +229,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC2F9AF82D11C6D30066806C /* ARShootingApp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARShootingApp;
+			sourceTree = "<group>";
+		};
+		BC2F9AF92D11C72D0066806C /* WeaponControlMotion */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeaponControlMotion;
+			sourceTree = "<group>";
+		};
 		BC3908C52D0FA03B001AF829 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +356,8 @@
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
 				BC3909442D104EF2001AF829 /* Constants */,
+				BC2F9AF82D11C6D30066806C /* ARShootingApp */,
+				BC2F9AF92D11C72D0066806C /* WeaponControlMotion */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A9D2CF9FA4A0018649D /* art.scnassets */,
 				BCFB7A9C2CF9FA490018649D /* Resources */,
