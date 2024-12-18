@@ -227,13 +227,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BC3908C62D0FA5AD001AF829 /* DeviceMotion */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DeviceMotion;
-			sourceTree = "<group>";
-		};
 		BC39094B2D107830001AF829 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +269,6 @@
 			children = (
 				BCFB7AB02CFA04D20018649D /* GameViewModel.swift */,
 				BCFB7A8B2CF9FA0F0018649D /* GameView.swift */,
-				BC3908C62D0FA5AD001AF829 /* DeviceMotion */,
 			);
 			path = Game;
 			sourceTree = "<group>";
