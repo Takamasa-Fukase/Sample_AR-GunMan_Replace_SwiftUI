@@ -45,41 +45,16 @@ public final class ARShootingController: NSObject {
     }
     
     public func showWeaponObject(weaponId: Int) {
-        // TODO: ここでUseCaseというかRepositoryかで、weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
-        
-        currentWeaponId = objectData.weaponId
-        removeOtherWeapons(except: objectData.weaponId)
-        
-        if let loadedWeaponData = loadedWeaponDataList.first(where: { $0.objectData.weaponId == objectData.weaponId }) {
-            sceneView.scene.rootNode.addChildNode(loadedWeaponData.weaponParentNode)
-        }else {
-            let weaponParentNode = createWeaponNode(scnFilePath: objectData.objectFilePath, nodeName: objectData.rootObjectName)
+        // weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
+        let repository = WeaponRepository()
+        do {
+            let objectData = try repository.getWeaponObjectData(by: weaponId)
+            currentWeaponId = objectData.weaponId
+            removeOtherWeapons(except: objectData.weaponId)
+            handleObjectLoadNecessity(objectData: objectData)
             
-            // Particle情報がある場合はロード
-            let particleNode: SCNNode? = {
-                if let particleFilePath = objectData.targetHitParticleFilePath,
-                   let particleNodeName = objectData.targetHitParticleRootObjectName {
-                    let particleNode = SceneNodeUtil.loadScnFile(of: particleFilePath, nodeName: particleNodeName)
-                    particleNode.particleSystems?.first?.birthRate = 0
-                    return particleNode
-                }else {
-                    return nil
-                }
-            }()
-            
-            // 武器を持つ手の揺れのアニメーションが有効な場合は描画
-            if objectData.isGunnerHandShakingAnimationEnabled {
-                let weaponNode = weaponParentNode.childNode(withName: objectData.weaponObjectName, recursively: false) ?? SCNNode()
-                weaponNode.runAction(SceneAnimationUtil.gunnerHandShakingAnimation)
-            }
-            
-            let loadedWeaponData = LoadedWeaponObjectData(
-                objectData: objectData,
-                weaponParentNode: weaponParentNode,
-                particleNode: particleNode
-            )
-            loadedWeaponDataList.append(loadedWeaponData)
-            sceneView.scene.rootNode.addChildNode(loadedWeaponData.weaponParentNode)
+        } catch {
+            print("getWeaponObjectData error: \(error)")
         }
     }
     
@@ -123,6 +98,43 @@ public final class ARShootingController: NSObject {
                 SceneNodeUtil.addBillboardConstraint(clonedTargetNode)
                 self?.sceneView.scene.rootNode.addChildNode(clonedTargetNode)
             }
+        }
+    }
+    
+    private func handleObjectLoadNecessity(objectData: WeaponObjectData) {
+        // 既にロード済みのオブジェクトがある場合
+        if let loadedWeaponData = loadedWeaponDataList.first(where: { $0.objectData.weaponId == objectData.weaponId }) {
+            sceneView.scene.rootNode.addChildNode(loadedWeaponData.weaponParentNode)
+        }
+        // まだロード済のオブジェクトが無い場合
+        else {
+            let weaponParentNode = createWeaponNode(scnFilePath: objectData.objectFilePath, nodeName: objectData.rootObjectName)
+            
+            // Particle情報がある場合はロード
+            let particleNode: SCNNode? = {
+                if let particleFilePath = objectData.targetHitParticleFilePath,
+                   let particleNodeName = objectData.targetHitParticleRootObjectName {
+                    let particleNode = SceneNodeUtil.loadScnFile(of: particleFilePath, nodeName: particleNodeName)
+                    particleNode.particleSystems?.first?.birthRate = 0
+                    return particleNode
+                }else {
+                    return nil
+                }
+            }()
+            
+            // 武器を持つ手の揺れのアニメーションが有効な場合は描画
+            if objectData.isGunnerHandShakingAnimationEnabled {
+                let weaponNode = weaponParentNode.childNode(withName: objectData.weaponObjectName, recursively: false) ?? SCNNode()
+                weaponNode.runAction(SceneAnimationUtil.gunnerHandShakingAnimation)
+            }
+            
+            let loadedWeaponData = LoadedWeaponObjectData(
+                objectData: objectData,
+                weaponParentNode: weaponParentNode,
+                particleNode: particleNode
+            )
+            loadedWeaponDataList.append(loadedWeaponData)
+            sceneView.scene.rootNode.addChildNode(loadedWeaponData.weaponParentNode)
         }
     }
     
