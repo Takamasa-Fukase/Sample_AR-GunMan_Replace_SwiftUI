@@ -7,18 +7,19 @@
 
 import SwiftUI
 import ARShootingApp
+import WeaponControlMotion
 
 final class PresentationFactory {
     static func createGameView(frame: CGRect) -> GameView {
         let arShootingController = ARShootingController(frame: frame)
-        let deviceMotionController = DeviceMotionController()
+        let motionDetector = WeaponControlMotionDetector()
         let viewModel = GameViewModel(
             weaponResourceGetUseCase: UseCaseFactory.create(),
             weaponActionExecuteUseCase: UseCaseFactory.create()
         )
         return GameView(
             arShootingController: arShootingController,
-            deviceMotionController: deviceMotionController,
+            motionDetector: motionDetector,
             viewModel: viewModel
         )
     }

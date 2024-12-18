@@ -61,38 +61,19 @@ final class GameViewModel {
         arControllerInputEvent.send(.pauseSceneSession)
         arControllerInputEvent.send(.stopDeviceMotionDetection)
     }
-
-//    func accelerationUpdated(acceleration: Vector, latestGyro: Vector) {
-//        let accelerationCompositeValue = CompositeCalculator.getCompositeValue(
-//            x: 0,
-//            y: acceleration.y,
-//            z: acceleration.z
-//        )
-//        let gyroCompositeValue = CompositeCalculator.getCompositeValue(
-//            x: 0,
-//            y: 0,
-//            z: latestGyro.z
-//        )
-//        if accelerationCompositeValue >= 1.5 && gyroCompositeValue < 10 {
-//            fireWeapon()
-//        }
-//    }
-//    
-//    func gyroUpdated(_ gyro: Vector) {
-//        let gyroCompositeValue = CompositeCalculator.getCompositeValue(
-//            x: 0,
-//            y: 0,
-//            z: gyro.z
-//        )
-//        if gyroCompositeValue >= 10 {
-//            reloadWeapon()
-//            reloadingMotionDetecedCount += 1
-//            if reloadingMotionDetecedCount == 20 {
-//                playSound.send(.kyuiin)
-//                arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan.jpg"))
-//            }
-//        }
-//    }
+    
+    func fireMotionDetected() {
+        fireWeapon()
+    }
+    
+    func reloadMotionDetected() {
+        reloadWeapon()
+        reloadingMotionDetecedCount += 1
+        if reloadingMotionDetecedCount == 20 {
+            playSound.send(.kyuiin)
+            arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan.jpg"))
+        }
+    }
     
     func weaponChangeButtonTapped() {
         isWeaponSelectViewPresented = true

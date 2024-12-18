@@ -7,27 +7,28 @@
 
 import SwiftUI
 import ARShootingApp
+import WeaponControlMotion
 
 struct GameView: View {
     private var arShootingController: ARShootingController
-    private var deviceMotionController: DeviceMotionController
+    private var motionDetector: WeaponControlMotionDetector
     @Bindable private var viewModel: GameViewModel
     
     init(
         arShootingController: ARShootingController,
-        deviceMotionController: DeviceMotionController,
+        motionDetector: WeaponControlMotionDetector,
         viewModel: GameViewModel
     ) {
         self.arShootingController = arShootingController
         self.arShootingController.targetHit = {
             viewModel.targetHit()
         }
-        self.deviceMotionController = deviceMotionController
-        self.deviceMotionController.accelerationUpdated = { acceleration, latestGyro in
-            viewModel.accelerationUpdated(acceleration: acceleration, latestGyro: latestGyro)
+        self.motionDetector = motionDetector
+        self.motionDetector.fireMotionDetected = {
+            viewModel.fireMotionDetected()
         }
-        self.deviceMotionController.gyroUpdated = { gyro in
-            viewModel.gyroUpdated(gyro)
+        self.motionDetector.reloadMotionDetected = {
+            viewModel.reloadMotionDetected()
         }
         self.viewModel = viewModel
     }
@@ -93,9 +94,9 @@ struct GameView: View {
             case .pauseSceneSession:
                 arShootingController.pauseSession()
             case .startDeviceMotionDetection:
-                deviceMotionController.startMotionDetection()
+                motionDetector.startDetection()
             case .stopDeviceMotionDetection:
-                deviceMotionController.stopMotionDetection()
+                motionDetector.stopDetection()
             case .renderWeaponFiring:
                 arShootingController.renderWeaponFiring()
             case .showWeaponObject(let weaponObjectData):
