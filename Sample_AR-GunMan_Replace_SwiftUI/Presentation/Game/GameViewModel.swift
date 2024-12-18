@@ -32,8 +32,9 @@ final class GameViewModel {
         
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
-    private var score: Double = 0.0
-    private var reloadingMotionDetecedCount: Int = 0
+    
+    @ObservationIgnored private var score: Double = 0.0
+    @ObservationIgnored private var reloadingMotionDetecedCount: Int = 0
     
     init(
         weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface,
