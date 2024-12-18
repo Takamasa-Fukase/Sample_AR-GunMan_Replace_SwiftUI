@@ -16,7 +16,6 @@
 		BC3908C12D0F272A001AF829 /* WeaponSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908BC2D0F272A001AF829 /* WeaponSelectCell.swift */; };
 		BC3908C22D0F272A001AF829 /* WeaponSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */; };
 		BC3908C42D0F283C001AF829 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */; };
-		BC3908C82D0FA5F2001AF829 /* DeviceMotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908C72D0FA5F2001AF829 /* DeviceMotionController.swift */; };
 		BC3909462D104F04001AF829 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909452D104F04001AF829 /* Color+Extension.swift */; };
 		BC39094A2D1057AF001AF829 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909492D1057AF001AF829 /* TopViewModel.swift */; };
 		BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094D2D10F42B001AF829 /* SettingsView.swift */; };
@@ -24,7 +23,6 @@
 		BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC9E67F12D11D3F6006DC459 /* ARShootingApp */; };
 		BC9E67F42D11D6C6006DC459 /* DataModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
-		BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
 		BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A662CF9F6250018649D /* Preview Assets.xcassets */; };
@@ -66,7 +64,6 @@
 		BCFB7ADF2CFA063D0018649D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7ADE2CFA063D0018649D /* UserDefaults+Extension.swift */; };
 		BCFB7AE12CFA06870018649D /* ColorTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */; };
 		BCFB7AE62CFA070A0018649D /* SoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AE42CFA070A0018649D /* SoundType.swift */; };
-		BCFB7AEE2CFA07370018649D /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AE82CFA07370018649D /* Vector.swift */; };
 		BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AE92CFA07370018649D /* CurrentWeaponData.swift */; };
 		BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */; };
 		BCFB7AF12CFA07370018649D /* WeaponObjectData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AEB2CFA07370018649D /* WeaponObjectData.swift */; };
@@ -107,7 +104,6 @@
 		BC3908BC2D0F272A001AF829 /* WeaponSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponSelectCell.swift; sourceTree = "<group>"; };
 		BC3908BD2D0F272A001AF829 /* WeaponSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeaponSelectViewController.xib; sourceTree = "<group>"; };
 		BC3908C32D0F283C001AF829 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
-		BC3908C72D0FA5F2001AF829 /* DeviceMotionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceMotionController.swift; sourceTree = "<group>"; };
 		BC3909452D104F04001AF829 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BC3909492D1057AF001AF829 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		BC39094D2D10F42B001AF829 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -115,7 +111,6 @@
 		BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelMapper.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShootingApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShootingApp; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
-		BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeCalculator.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
 		BCFB7A632CF9F6250018649D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,7 +155,6 @@
 		BCFB7ADE2CFA063D0018649D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTypeConverter.swift; sourceTree = "<group>"; };
 		BCFB7AE42CFA070A0018649D /* SoundType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundType.swift; sourceTree = "<group>"; };
-		BCFB7AE82CFA07370018649D /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		BCFB7AE92CFA07370018649D /* CurrentWeaponData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeaponData.swift; sourceTree = "<group>"; };
 		BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponListItem.swift; sourceTree = "<group>"; };
 		BCFB7AEB2CFA07370018649D /* WeaponObjectData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponObjectData.swift; sourceTree = "<group>"; };
@@ -236,7 +230,6 @@
 		BC3908C62D0FA5AD001AF829 /* DeviceMotion */ = {
 			isa = PBXGroup;
 			children = (
-				BC3908C72D0FA5F2001AF829 /* DeviceMotionController.swift */,
 			);
 			path = DeviceMotion;
 			sourceTree = "<group>";
@@ -460,7 +453,6 @@
 			isa = PBXGroup;
 			children = (
 				BCFB7AE02CFA06870018649D /* ColorTypeConverter.swift */,
-				BCE3254E2D0EA45B001B3955 /* CompositeCalculator.swift */,
 				BC9E67F32D11D6C6006DC459 /* DataModelMapper.swift */,
 			);
 			path = Utilities;
@@ -469,7 +461,6 @@
 		BCFB7AEC2CFA07370018649D /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
-				BCFB7AE82CFA07370018649D /* Vector.swift */,
 				BCFB7AE92CFA07370018649D /* CurrentWeaponData.swift */,
 				BCFB7AEA2CFA07370018649D /* WeaponListItem.swift */,
 				BCFB7AEB2CFA07370018649D /* WeaponObjectData.swift */,
@@ -771,7 +762,6 @@
 				BCFB7AE62CFA070A0018649D /* SoundType.swift in Sources */,
 				BCFB7AFA2CFABE670018649D /* PresentationFactory.swift in Sources */,
 				BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */,
-				BCFB7AEE2CFA07370018649D /* Vector.swift in Sources */,
 				BCFB7AF12CFA07370018649D /* WeaponObjectData.swift in Sources */,
 				BC9E67F42D11D6C6006DC459 /* DataModelMapper.swift in Sources */,
 				BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */,
@@ -781,11 +771,9 @@
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
 				BCFB7AD52CFA05C90018649D /* UseCaseProvider.swift in Sources */,
-				BCE325512D0EA45B001B3955 /* CompositeCalculator.swift in Sources */,
 				BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
 				BC3909462D104F04001AF829 /* Color+Extension.swift in Sources */,
-				BC3908C82D0FA5F2001AF829 /* DeviceMotionController.swift in Sources */,
 				BCFB7AD12CFA05C90018649D /* TutorialRepositoryInterface.swift in Sources */,
 				BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */,
 				BCFB7ADF2CFA063D0018649D /* UserDefaults+Extension.swift in Sources */,
