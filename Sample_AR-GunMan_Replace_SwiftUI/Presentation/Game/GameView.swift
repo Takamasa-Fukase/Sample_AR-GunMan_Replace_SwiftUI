@@ -99,9 +99,8 @@ struct GameView: View {
                 motionDetector.stopDetection()
             case .renderWeaponFiring:
                 arShootingController.renderWeaponFiring()
-            case .showWeaponObject(let weaponObjectData):
-                let objectData = DataModelMapper.convertDomainWeaponObjectDataForARShootingApp(weaponObjectData)
-                arShootingController.showWeaponObject(objectData: objectData)
+            case .showWeaponObject(let weaponId):
+                arShootingController.showWeaponObject(weaponId: weaponId)
             case .changeTargetsAppearance(let imageName):
                 arShootingController.changeTargetsAppearance(to: imageName)
             }

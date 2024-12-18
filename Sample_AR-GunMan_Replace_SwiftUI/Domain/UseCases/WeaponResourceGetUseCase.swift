@@ -38,8 +38,6 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 capacity: weapon.spec.capacity,
                 reloadWaitingTime: weapon.spec.reloadWaitingTime,
                 reloadType: weapon.spec.reloadType,
-                isGunnerHandShakingAnimationEnabled: weapon.spec.isGunnerHandShakingAnimationEnabled,
-                isRecoilAnimationEnabled: weapon.spec.isRecoilAnimationEnabled,
                 targetHitPoint: weapon.spec.targetHitPoint
             ),
             resources: .init(
@@ -47,11 +45,6 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 sightImageName: weapon.resources.sightImageName,
                 sightImageColorType: weapon.resources.sightImageColorType,
                 bulletsCountImageBaseName: weapon.resources.bulletsCountImageBaseName,
-                objectFilePath: weapon.resources.objectFilePath,
-                rootObjectName: weapon.resources.rootObjectName,
-                weaponObjectName: weapon.resources.weaponObjectName,
-                targetHitParticleFilePath: weapon.resources.targetHitParticleFilePath,
-                targetHitParticleRootObjectName: weapon.resources.targetHitParticleRootObjectName,
                 showingSound: weapon.resources.showingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,
@@ -73,8 +66,6 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 capacity: weapon.spec.capacity,
                 reloadWaitingTime: weapon.spec.reloadWaitingTime,
                 reloadType: weapon.spec.reloadType,
-                isGunnerHandShakingAnimationEnabled: weapon.spec.isGunnerHandShakingAnimationEnabled,
-                isRecoilAnimationEnabled: weapon.spec.isRecoilAnimationEnabled,
                 targetHitPoint: weapon.spec.targetHitPoint
             ),
             resources: .init(
@@ -82,11 +73,6 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 sightImageName: weapon.resources.sightImageName,
                 sightImageColorType: weapon.resources.sightImageColorType,
                 bulletsCountImageBaseName: weapon.resources.bulletsCountImageBaseName,
-                objectFilePath: weapon.resources.objectFilePath,
-                rootObjectName: weapon.resources.rootObjectName,
-                weaponObjectName: weapon.resources.weaponObjectName,
-                targetHitParticleFilePath: weapon.resources.targetHitParticleFilePath,
-                targetHitParticleRootObjectName: weapon.resources.targetHitParticleRootObjectName,
                 showingSound: weapon.resources.showingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,

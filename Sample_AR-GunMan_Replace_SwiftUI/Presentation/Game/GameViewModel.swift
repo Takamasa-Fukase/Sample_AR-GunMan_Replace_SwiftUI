@@ -17,7 +17,7 @@ final class GameViewModel {
         case startDeviceMotionDetection
         case stopDeviceMotionDetection
         case renderWeaponFiring
-        case showWeaponObject(_ weaponObjectData: WeaponObjectData)
+        case showWeaponObject(weaponId: Int)
         case changeTargetsAppearance(imageName: String)
     }
     
@@ -108,7 +108,7 @@ final class GameViewModel {
         self.currentWeaponData = selectedWeaponData
         
         guard let currentWeaponData = self.currentWeaponData else { return }
-        arControllerInputEvent.send(.showWeaponObject(currentWeaponData.extractWeaponObjectData()))
+        arControllerInputEvent.send(.showWeaponObject(weaponId: currentWeaponData.id))
         
 //        if isCheckedTutorialCompletedFlag {
         playSound.send(currentWeaponData.resources.showingSound)
