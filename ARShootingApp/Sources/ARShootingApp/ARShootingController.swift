@@ -44,7 +44,9 @@ public final class ARShootingController: NSObject {
         sceneView.session.pause()
     }
     
-    public func showWeaponObject(objectData: WeaponObjectData) {
+    public func showWeaponObject(weaponId: Int) {
+        // TODO: ここでUseCaseというかRepositoryかで、weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
+        
         currentWeaponId = objectData.weaponId
         removeOtherWeapons(except: objectData.weaponId)
         

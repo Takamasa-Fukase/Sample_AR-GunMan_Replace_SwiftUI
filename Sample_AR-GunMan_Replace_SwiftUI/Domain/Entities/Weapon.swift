@@ -27,8 +27,6 @@ struct Weapon {
         let capacity: Int
         let reloadWaitingTime: TimeInterval
         let reloadType: ReloadType
-        let isGunnerHandShakingAnimationEnabled: Bool
-        let isRecoilAnimationEnabled: Bool
         let targetHitPoint: Int
     }
     
@@ -37,11 +35,6 @@ struct Weapon {
         let sightImageName: String
         let sightImageColorType: ColorType
         let bulletsCountImageBaseName: String
-        let objectFilePath: String
-        let rootObjectName: String
-        let weaponObjectName: String
-        let targetHitParticleFilePath: String?
-        let targetHitParticleRootObjectName: String?
         let showingSound: SoundType
         let firingSound: SoundType
         let reloadingSound: SoundType
