@@ -8,6 +8,14 @@
 import Foundation
 
 final class UseCaseFactory {
+    static func create() -> TutorialUseCaseInterface {
+        return TutorialUseCase(tutorialRepository: RepositoryFactory.create())
+    }
+
+    static func create() -> GameTimerCreateUseCaseInterface {
+        return GameTimerCreateUseCase()
+    }
+    
     static func create() -> WeaponResourceGetUseCaseInterface {
         return WeaponResourceGetUseCase(weaponRepository: RepositoryFactory.create())
     }

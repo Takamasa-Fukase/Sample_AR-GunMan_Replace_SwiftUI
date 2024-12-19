@@ -11,4 +11,8 @@ final class RepositoryFactory {
     static func create() -> WeaponRepositoryInterface {
         return WeaponRepository()
     }
+    
+    static func create() -> TutorialRepositoryInterface {
+        return TutorialRepository()
+    }
 }
