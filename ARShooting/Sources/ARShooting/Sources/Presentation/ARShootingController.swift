@@ -11,35 +11,35 @@ import SwiftUI
 public final class ARShootingController {
     public var targetHit: (() -> Void)? {
         didSet {
-            arController.targetHit = targetHit
+            sceneManager.targetHit = targetHit
         }
     }
     public var view: some View {
-        return SceneViewRepresentable(view: arController.getSceneView())
+        return SceneViewRepresentable(view: sceneManager.getSceneView())
     }
-    private var arController: ARController
+    private var sceneManager: SceneManager
     
     public init(frame: CGRect) {
-        arController = ARController(frame: frame)
+        sceneManager = SceneManager(frame: frame)
     }
     
     public func runSession() {
-        arController.runSession()
+        sceneManager.runSession()
     }
     
     public func pauseSession() {
-        arController.pauseSession()
+        sceneManager.pauseSession()
     }
     
     public func showWeaponObject(weaponId: Int) {
-        arController.showWeaponObject(weaponId: weaponId)
+        sceneManager.showWeaponObject(weaponId: weaponId)
     }
     
     public func renderWeaponFiring() {
-        arController.renderWeaponFiring()
+        sceneManager.renderWeaponFiring()
     }
     
     public func changeTargetsAppearance(to imageName: String) {
-        arController.changeTargetsAppearance(to: imageName)
+        sceneManager.changeTargetsAppearance(to: imageName)
     }
 }

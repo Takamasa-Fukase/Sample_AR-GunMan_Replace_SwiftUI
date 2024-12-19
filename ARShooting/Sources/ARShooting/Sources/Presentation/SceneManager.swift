@@ -1,5 +1,5 @@
 //
-//  ARController.swift
+//  SceneManager.swift
 //
 //
 //  Created by ウルトラ深瀬 on 19/12/24.
@@ -7,7 +7,7 @@
 
 import ARKit
 
-final class ARController: NSObject {
+final class SceneManager: NSObject {
     var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
@@ -173,13 +173,13 @@ final class ARController: NSObject {
     }
 }
 
-extension ARController: ARSCNViewDelegate {
+extension SceneManager: ARSCNViewDelegate {
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         currentWeaponObjectData()?.weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
     }
 }
 
-extension ARController: SCNPhysicsContactDelegate {
+extension SceneManager: SCNPhysicsContactDelegate {
     public func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if contact.nodeA.name == "target" && contact.nodeB.name == "bullet"
             || contact.nodeB.name == "target" && contact.nodeA.name == "bullet" {
