@@ -5,11 +5,10 @@
 //  Created by ウルトラ深瀬 on 19/12/24.
 //
 
-import Foundation
 import ARKit
 
 final class ARController: NSObject {
-    public var targetHit: (() -> Void)?
+    var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
     private let originalBulletNode = SceneNodeUtil.originalBulletNode()
@@ -22,7 +21,7 @@ final class ARController: NSObject {
         setup(targetCount: 50)
     }
     
-    func getSceneView() -> UIView {
+    func getSceneView() -> ARSCNView {
         return sceneView
     }
     

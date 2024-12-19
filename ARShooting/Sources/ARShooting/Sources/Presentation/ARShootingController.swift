@@ -15,7 +15,7 @@ public final class ARShootingController {
         }
     }
     public var view: some View {
-        return ARShootingView(sceneView: arController.getSceneView())
+        return SceneViewRepresentable(view: arController.getSceneView())
     }
     private var arController: ARController
     
