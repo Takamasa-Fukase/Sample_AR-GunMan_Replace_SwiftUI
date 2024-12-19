@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Bindable var viewModel = SettingsViewModel()
+    @Bindable var viewModel: SettingsViewModel
     @Environment(\.dismiss) private var dismiss
+    
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -42,7 +46,7 @@ struct SettingsView: View {
             dismiss()
         }
         .sheet(isPresented: $viewModel.isPresentedWorldRanking) {
-            SettingsView()
+//            SettingsViewFactory.create()
         }
     }
     
@@ -64,5 +68,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(viewModel: SettingsViewModel())
 }

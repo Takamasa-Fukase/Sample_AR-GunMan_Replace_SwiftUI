@@ -138,5 +138,5 @@ struct GameView: View {
 }
 
 #Preview {
-    PresentationFactory.createGameView(frame: .zero)
+    GameViewFactory.create(frame: .zero)
 }

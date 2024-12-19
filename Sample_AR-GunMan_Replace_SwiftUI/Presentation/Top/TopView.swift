@@ -10,7 +10,11 @@ import Foundation
 import AVFoundation
 
 struct TopView: View {
-    @Bindable var viewModel = TopViewModel()
+    @Bindable var viewModel: TopViewModel
+    
+    init(viewModel: TopViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -58,11 +62,11 @@ struct TopView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .sheet(isPresented: $viewModel.isGameViewPresented) {
                 // ゲーム画面への遷移
-                PresentationFactory.createGameView(frame: geometry.frame(in: .global))
+                GameViewFactory.create(frame: geometry.frame(in: .global))
             }
             .sheet(isPresented: $viewModel.isSettingsViewPresented) {
                 // 設定画面への遷移
-                SettingsView()
+                SettingsViewFactory.create()
             }
             .sheet(isPresented: $viewModel.isTutorialViewPresented) {
                 // チュートリアル画面への遷移
@@ -121,5 +125,5 @@ struct TopView: View {
 }
 
 #Preview {
-    TopView()
+    TopView(viewModel: TopViewModel())
 }

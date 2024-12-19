@@ -11,7 +11,7 @@ import SwiftUI
 struct Sample_AR_GunMan_Replace_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            TopView()
+            TopViewFactory.create()
         }
     }
 }

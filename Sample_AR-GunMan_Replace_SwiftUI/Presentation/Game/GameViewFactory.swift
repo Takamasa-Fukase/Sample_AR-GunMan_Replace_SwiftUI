@@ -1,16 +1,16 @@
 //
-//  PresentationFactory.swift
+//  GameViewFactory.swift
+//  Sample_AR-GunMan_Replace_SwiftUI
 //
-//
-//  Created by ウルトラ深瀬 on 22/11/24.
+//  Created by ウルトラ深瀬 on 19/12/24.
 //
 
-import SwiftUI
+import Foundation
 import ARShootingApp
 import WeaponControlMotion
 
-final class PresentationFactory {
-    static func createGameView(frame: CGRect) -> GameView {
+final class GameViewFactory {
+    static func create(frame: CGRect) -> GameView {
         let arShootingAppController = ARShootingAppController(frame: frame)
         let motionDetector = WeaponControlMotionDetector()
         let viewModel = GameViewModel(
