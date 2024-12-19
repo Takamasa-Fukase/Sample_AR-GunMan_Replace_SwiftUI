@@ -11,14 +11,14 @@ import WeaponControlMotion
 
 final class PresentationFactory {
     static func createGameView(frame: CGRect) -> GameView {
-        let arShootingController = ARShootingController(frame: frame)
+        let arShootingAppController = ARShootingAppController(frame: frame)
         let motionDetector = WeaponControlMotionDetector()
         let viewModel = GameViewModel(
             weaponResourceGetUseCase: UseCaseFactory.create(),
             weaponActionExecuteUseCase: UseCaseFactory.create()
         )
         return GameView(
-            arShootingController: arShootingController,
+            arShootingAppController: arShootingAppController,
             motionDetector: motionDetector,
             viewModel: viewModel
         )

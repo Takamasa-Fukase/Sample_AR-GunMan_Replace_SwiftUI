@@ -10,17 +10,17 @@ import ARShootingApp
 import WeaponControlMotion
 
 struct GameView: View {
-    private var arShootingController: ARShootingController
+    private var arShootingAppController: ARShootingAppController
     private var motionDetector: WeaponControlMotionDetector
     @Bindable private var viewModel: GameViewModel
     
     init(
-        arShootingController: ARShootingController,
+        arShootingAppController: ARShootingAppController,
         motionDetector: WeaponControlMotionDetector,
         viewModel: GameViewModel
     ) {
-        self.arShootingController = arShootingController
-        self.arShootingController.targetHit = {
+        self.arShootingAppController = arShootingAppController
+        self.arShootingAppController.targetHit = {
             viewModel.targetHit()
         }
         self.motionDetector = motionDetector
@@ -36,7 +36,7 @@ struct GameView: View {
     var body: some View {
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            ARShootingView(sceneView: arShootingController.getSceneView())
+            ARShootingAppView(sceneView: arShootingAppController.getSceneView())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
@@ -90,19 +90,21 @@ struct GameView: View {
         .onReceive(viewModel.arControllerInputEvent) { eventType in
             switch eventType {
             case .runSceneSession:
-                arShootingController.runSession()
+                arShootingAppController.runSession()
             case .pauseSceneSession:
-                arShootingController.pauseSession()
+                arShootingAppController.pauseSession()
+            case .renderWeaponFiring:
+                arShootingAppController.renderWeaponFiring()
+            case .showWeaponObject(let weaponId):
+                arShootingAppController.showWeaponObject(weaponId: weaponId)
+            case .changeTargetsAppearance(let imageName):
+                arShootingAppController.changeTargetsAppearance(to: imageName)
+                
+                // TODO: ARと関係ないものを別の通知に分ける
             case .startDeviceMotionDetection:
                 motionDetector.startDetection()
             case .stopDeviceMotionDetection:
                 motionDetector.stopDetection()
-            case .renderWeaponFiring:
-                arShootingController.renderWeaponFiring()
-            case .showWeaponObject(let weaponId):
-                arShootingController.showWeaponObject(weaponId: weaponId)
-            case .changeTargetsAppearance(let imageName):
-                arShootingController.changeTargetsAppearance(to: imageName)
             }
         }
         .onReceive(viewModel.playSound) { soundType in
