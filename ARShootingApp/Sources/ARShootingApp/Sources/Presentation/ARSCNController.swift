@@ -1,50 +1,42 @@
 //
-//  ARShootingController.swift
-//  Sample_AR-GunMan_Replace_SwiftUI
+//  ARController.swift
 //
-//  Created by ウルトラ深瀬 on 15/12/24.
+//
+//  Created by ウルトラ深瀬 on 19/12/24.
 //
 
+import Foundation
 import ARKit
 
-public final class ARShootingController: NSObject {
+final class ARController: NSObject {
     public var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
     private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
     private let originalBulletNode = SceneNodeUtil.originalBulletNode()
     private var currentWeaponId: Int = 0
     
-    public init(frame: CGRect) {
+    init(frame: CGRect) {
         // MEMO: 予めframeを渡して初期化することで、モーダル出現アニメーションの途中時点から既に正しい比率でSceneオブジェクトを表示した状態で一緒にアニメーションさせられるので遷移の見た目が綺麗になる（遷移前に予め表示予定領域のframeが確定している場合）
         sceneView = ARSCNView(frame: frame)
         super.init()
         setup(targetCount: 50)
     }
     
-    public func getSceneView() -> UIView {
+    func getSceneView() -> UIView {
         return sceneView
     }
     
-    public func setup(targetCount: Int) {
-        sceneView.scene = SCNScene()
-        sceneView.autoenablesDefaultLighting = true
-        sceneView.delegate = self
-        sceneView.scene.physicsWorld.contactDelegate = self
-        
-        showTargetsToRandomPositions(count: targetCount)
-    }
-    
-    public func runSession() {
+    func runSession() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
     }
     
-    public func pauseSession() {
+    func pauseSession() {
         sceneView.session.pause()
     }
     
-    public func showWeaponObject(weaponId: Int) {
+    func showWeaponObject(weaponId: Int) {
         // weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
         let repository = WeaponRepository()
         do {
@@ -58,7 +50,7 @@ public final class ARShootingController: NSObject {
         }
     }
     
-    public func renderWeaponFiring() {
+    func renderWeaponFiring() {
         // 弾の発射アニメーションを描画
         let clonedBulletNode = originalBulletNode.clone()
         clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)
@@ -73,7 +65,7 @@ public final class ARShootingController: NSObject {
         }
     }
     
-    public func changeTargetsAppearance(to imageName: String) {
+    func changeTargetsAppearance(to imageName: String) {
         sceneView.scene.rootNode.childNodes.forEach({ node in
             if node.name == "target" {
                 while node.childNode(withName: "torus", recursively: false) != nil {
@@ -88,6 +80,15 @@ public final class ARShootingController: NSObject {
     
     
     // MARK: Private Methods
+    private func setup(targetCount: Int) {
+        sceneView.scene = SCNScene()
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.delegate = self
+        sceneView.scene.physicsWorld.contactDelegate = self
+        
+        showTargetsToRandomPositions(count: targetCount)
+    }
+    
     private func showTargetsToRandomPositions(count: Int) {
         let originalTargetNode = SceneNodeUtil.originalTargetNode()
         
@@ -173,13 +174,13 @@ public final class ARShootingController: NSObject {
     }
 }
 
-extension ARShootingController: ARSCNViewDelegate {
+extension ARController: ARSCNViewDelegate {
     public func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         currentWeaponObjectData()?.weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
     }
 }
 
-extension ARShootingController: SCNPhysicsContactDelegate {
+extension ARController: SCNPhysicsContactDelegate {
     public func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
         if contact.nodeA.name == "target" && contact.nodeB.name == "bullet"
             || contact.nodeB.name == "target" && contact.nodeA.name == "bullet" {

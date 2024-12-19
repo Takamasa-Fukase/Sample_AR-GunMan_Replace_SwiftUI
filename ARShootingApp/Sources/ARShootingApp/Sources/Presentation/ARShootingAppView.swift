@@ -1,5 +1,5 @@
 //
-//  ARShootingView.swift
+//  ARShootingAppView.swift
 //  Sample_AR-GunMan_Replace_SwiftUI
 //
 //  Created by ウルトラ深瀬 on 15/12/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ARShootingView: UIViewRepresentable {
+public struct ARShootingAppView: UIViewRepresentable {
     private let sceneView: UIView
     
     public init(sceneView: UIView) {
