@@ -10,17 +10,17 @@ import ARShooting
 import WeaponControlMotion
 
 struct GameView: View {
-    private var arShootingController: ARShootingController
+    private var arController: ARShootingController
     private var motionDetector: WeaponControlMotionDetector
     @State private var viewModel: GameViewModel
     
     init(
-        arShootingController: ARShootingController,
+        arController: ARShootingController,
         motionDetector: WeaponControlMotionDetector,
         viewModel: GameViewModel
     ) {
-        self.arShootingController = arShootingController
-        self.arShootingController.targetHit = {
+        self.arController = arController
+        self.arController.targetHit = {
             viewModel.targetHit()
         }
         self.motionDetector = motionDetector
@@ -38,7 +38,7 @@ struct GameView: View {
 
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            arShootingController.view
+            arController.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
@@ -92,15 +92,15 @@ struct GameView: View {
         .onReceive(viewModel.arControllerInputEvent) { eventType in
             switch eventType {
             case .runSceneSession:
-                arShootingController.runSession()
+                arController.runSession()
             case .pauseSceneSession:
-                arShootingController.pauseSession()
+                arController.pauseSession()
             case .renderWeaponFiring:
-                arShootingController.renderWeaponFiring()
+                arController.renderWeaponFiring()
             case .showWeaponObject(let weaponId):
-                arShootingController.showWeaponObject(weaponId: weaponId)
+                arController.showWeaponObject(weaponId: weaponId)
             case .changeTargetsAppearance(let imageName):
-                arShootingController.changeTargetsAppearance(to: imageName)
+                arController.changeTargetsAppearance(to: imageName)
             }
         }
         .onReceive(viewModel.motionDetectorInputEvent) { eventType in
