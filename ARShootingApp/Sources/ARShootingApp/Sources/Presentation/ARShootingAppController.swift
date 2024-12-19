@@ -8,7 +8,11 @@
 import UIKit
 
 public final class ARShootingAppController {
-    public var targetHit: (() -> Void)?
+    public var targetHit: (() -> Void)? {
+        didSet {
+            arController.targetHit = targetHit
+        }
+    }
     private var arController: ARController
     
     public init(frame: CGRect) {
