@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ARShootingApp
+import ARShooting
 import WeaponControlMotion
 
 final class GameViewFactory {

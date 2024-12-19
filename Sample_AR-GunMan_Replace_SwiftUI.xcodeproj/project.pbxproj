@@ -10,6 +10,7 @@
 		B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7C0DA9E81CB0F805C19489 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework */; };
 		B43470AD20B0569B779EE7D0 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0A2D42C282A1BA39021E21 /* Pods_Sample_AR_GunMan_Replace_SwiftUITests.framework */; };
 		BA663FF8FEFA4C1253172AD0 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A446B7296F9F55517A56CE20 /* Pods_Sample_AR_GunMan_Replace_SwiftUI_Sample_AR_GunMan_Replace_SwiftUIUITests.framework */; };
+		BC277D022D145E5E00A56324 /* ARShooting in Frameworks */ = {isa = PBXBuildFile; productRef = BC277D012D145E5E00A56324 /* ARShooting */; };
 		BC3908BE2D0F272A001AF829 /* WeaponSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908B92D0F272A001AF829 /* WeaponSelectViewController.swift */; };
 		BC3908BF2D0F272A001AF829 /* WeaponSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC3908BA2D0F272A001AF829 /* WeaponSelectCell.xib */; };
 		BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3908BB2D0F272A001AF829 /* WeaponSelectView.swift */; };
@@ -25,7 +26,6 @@
 		BC79D4842D142FBB008D4D8B /* SettingsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */; };
 		BC79D4862D1432CC008D4D8B /* WeaponSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4852D1432CC008D4D8B /* WeaponSelectViewModel.swift */; };
 		BC79D4882D143867008D4D8B /* WeaponSelectViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */; };
-		BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */ = {isa = PBXBuildFile; productRef = BC9E67F12D11D3F6006DC459 /* ARShootingApp */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
@@ -113,7 +113,7 @@
 		BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4852D1432CC008D4D8B /* WeaponSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectViewModel.swift; sourceTree = "<group>"; };
 		BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectViewFactory.swift; sourceTree = "<group>"; };
-		BCACEDD32D11D26E009F9D18 /* ARShootingApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShootingApp; sourceTree = "<group>"; };
+		BCACEDD32D11D26E009F9D18 /* ARShooting */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShooting; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */,
-				BC9E67F22D11D3F6006DC459 /* ARShootingApp in Frameworks */,
+				BC277D022D145E5E00A56324 /* ARShooting in Frameworks */,
 				B0CDC43A50AAD1913A8DBCC6 /* Pods_Sample_AR_GunMan_Replace_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +281,7 @@
 		BCFB7A532CF9F6240018649D = {
 			isa = PBXGroup;
 			children = (
-				BCACEDD32D11D26E009F9D18 /* ARShootingApp */,
+				BCACEDD32D11D26E009F9D18 /* ARShooting */,
 				BCB2B01F2D124344001EE755 /* WeaponControlMotion */,
 				BCFB7A5E2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI */,
 				BCFB7A6F2CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUITests */,
@@ -502,8 +502,8 @@
 			);
 			name = "Sample_AR-GunMan_Replace_SwiftUI";
 			packageProductDependencies = (
-				BC9E67F12D11D3F6006DC459 /* ARShootingApp */,
 				BCB2B0202D1247DA001EE755 /* WeaponControlMotion */,
+				BC277D012D145E5E00A56324 /* ARShooting */,
 			);
 			productName = "Sample_AR-GunMan_Replace_SwiftUI";
 			productReference = BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */;
@@ -1120,9 +1120,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC9E67F12D11D3F6006DC459 /* ARShootingApp */ = {
+		BC277D012D145E5E00A56324 /* ARShooting */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = ARShootingApp;
+			productName = ARShooting;
 		};
 		BCB2B0202D1247DA001EE755 /* WeaponControlMotion */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,7 +1,7 @@
 import XCTest
-@testable import ARShootingApp
+@testable import ARShooting
 
-final class ARShootingAppTests: XCTestCase {
+final class ARShootingTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

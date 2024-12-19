@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import ARShootingApp
+import ARShooting
 import WeaponControlMotion
 
 struct GameView: View {

@@ -7,7 +7,25 @@
 		<key>Sample_AR-GunMan_Replace_SwiftUI.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BCFB7A5B2CF9F6240018649D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCFB7A6B2CF9F6260018649D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCFB7A752CF9F6260018649D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
