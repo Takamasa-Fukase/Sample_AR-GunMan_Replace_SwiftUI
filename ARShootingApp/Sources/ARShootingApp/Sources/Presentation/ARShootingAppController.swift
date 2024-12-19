@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 public final class ARShootingAppController {
     public var targetHit: (() -> Void)? {
@@ -13,14 +14,13 @@ public final class ARShootingAppController {
             arController.targetHit = targetHit
         }
     }
+    public var view: some View {
+        return ARShootingAppView(sceneView: arController.getSceneView())
+    }
     private var arController: ARController
     
     public init(frame: CGRect) {
         arController = ARController(frame: frame)
-    }
-    
-    public func getSceneView() -> UIView {
-        return arController.getSceneView()
     }
     
     public func runSession() {

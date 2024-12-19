@@ -38,7 +38,7 @@ struct GameView: View {
 
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            ARShootingAppView(sceneView: arShootingAppController.getSceneView())
+            arShootingAppController.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             

@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-public struct ARShootingAppView: UIViewRepresentable {
+struct ARShootingAppView: UIViewRepresentable {
     private let sceneView: UIView
     
-    public init(sceneView: UIView) {
+    init(sceneView: UIView) {
         self.sceneView = sceneView
     }
     
-    public func makeUIView(context: Context) -> some UIView {
+    func makeUIView(context: Context) -> some UIView {
         return sceneView
     }
     
-    public func updateUIView(_ uiView: UIViewType, context: Context) {}
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
 }
