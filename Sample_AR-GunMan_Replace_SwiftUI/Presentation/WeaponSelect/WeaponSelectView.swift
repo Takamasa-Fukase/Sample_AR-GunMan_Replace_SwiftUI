@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WeaponSelectView: View {
-    // 親ビュー（GameView）の更新時にも同じインスタンスを保持しておける様に＠Stateにする
     @State private var viewModel: WeaponSelectViewModel
     private var weaponSelected: ((Int) -> Void)
     
@@ -21,12 +20,9 @@ struct WeaponSelectView: View {
     }
     
     var body: some View {
-        // プロパティをbindできる様に＠Bindableに変換する
-        @Bindable var viewModel = viewModel
-        
         WeaponSelectViewControllerRepresentable(
             weaponSelected: weaponSelected,
-            weaponListItems: $viewModel.weaponListItems
+            weaponListItems: viewModel.weaponListItems
         )
         .onAppear {
             viewModel.onViewAppear()
@@ -36,15 +32,15 @@ struct WeaponSelectView: View {
 
 struct WeaponSelectViewControllerRepresentable: UIViewControllerRepresentable {
     private var weaponSelected: ((Int) -> Void)
-    @Binding private var weaponListItems: [WeaponListItem]
+    private var weaponListItems: [WeaponListItem]
     @Environment(\.dismiss) private var dismiss
     
     init(
         weaponSelected: @escaping (Int) -> Void,
-        weaponListItems: Binding<[WeaponListItem]>
+        weaponListItems: [WeaponListItem]
     ) {
         self.weaponSelected = weaponSelected
-        self._weaponListItems = weaponListItems
+        self.weaponListItems = weaponListItems
     }
     
     func makeUIViewController(context: Context) -> WeaponSelectViewController {
