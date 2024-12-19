@@ -1,5 +1,5 @@
 //
-//  ARShootingAppController.swift
+//  ARShootingController.swift
 //  Sample_AR-GunMan_Replace_SwiftUI
 //
 //  Created by ウルトラ深瀬 on 15/12/24.
@@ -8,14 +8,14 @@
 import UIKit
 import SwiftUI
 
-public final class ARShootingAppController {
+public final class ARShootingController {
     public var targetHit: (() -> Void)? {
         didSet {
             arController.targetHit = targetHit
         }
     }
     public var view: some View {
-        return ARShootingAppView(sceneView: arController.getSceneView())
+        return ARShootingView(sceneView: arController.getSceneView())
     }
     private var arController: ARController
     

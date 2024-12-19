@@ -10,17 +10,17 @@ import ARShootingApp
 import WeaponControlMotion
 
 struct GameView: View {
-    private var arShootingAppController: ARShootingAppController
+    private var arShootingController: ARShootingController
     private var motionDetector: WeaponControlMotionDetector
     @State private var viewModel: GameViewModel
     
     init(
-        arShootingAppController: ARShootingAppController,
+        arShootingController: ARShootingController,
         motionDetector: WeaponControlMotionDetector,
         viewModel: GameViewModel
     ) {
-        self.arShootingAppController = arShootingAppController
-        self.arShootingAppController.targetHit = {
+        self.arShootingController = arShootingController
+        self.arShootingController.targetHit = {
             viewModel.targetHit()
         }
         self.motionDetector = motionDetector
@@ -38,7 +38,7 @@ struct GameView: View {
 
         ZStack(alignment: .center) {
             // ARコンテンツ部分
-            arShootingAppController.view
+            arShootingController.view
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
@@ -92,15 +92,15 @@ struct GameView: View {
         .onReceive(viewModel.arControllerInputEvent) { eventType in
             switch eventType {
             case .runSceneSession:
-                arShootingAppController.runSession()
+                arShootingController.runSession()
             case .pauseSceneSession:
-                arShootingAppController.pauseSession()
+                arShootingController.pauseSession()
             case .renderWeaponFiring:
-                arShootingAppController.renderWeaponFiring()
+                arShootingController.renderWeaponFiring()
             case .showWeaponObject(let weaponId):
-                arShootingAppController.showWeaponObject(weaponId: weaponId)
+                arShootingController.showWeaponObject(weaponId: weaponId)
             case .changeTargetsAppearance(let imageName):
-                arShootingAppController.changeTargetsAppearance(to: imageName)
+                arShootingController.changeTargetsAppearance(to: imageName)
                 
                 // TODO: ARと関係ないものを別の通知に分ける
             case .startDeviceMotionDetection:
