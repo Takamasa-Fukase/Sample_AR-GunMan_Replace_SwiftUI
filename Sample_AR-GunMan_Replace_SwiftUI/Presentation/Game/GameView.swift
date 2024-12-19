@@ -101,8 +101,10 @@ struct GameView: View {
                 arShootingController.showWeaponObject(weaponId: weaponId)
             case .changeTargetsAppearance(let imageName):
                 arShootingController.changeTargetsAppearance(to: imageName)
-                
-                // TODO: ARと関係ないものを別の通知に分ける
+            }
+        }
+        .onReceive(viewModel.motionDetectorInputEvent) { eventType in
+            switch eventType {
             case .startDeviceMotionDetection:
                 motionDetector.startDetection()
             case .stopDeviceMotionDetection:

@@ -14,11 +14,13 @@ final class GameViewModel {
     enum ARControllerInputEventType {
         case runSceneSession
         case pauseSceneSession
-        case startDeviceMotionDetection
-        case stopDeviceMotionDetection
         case renderWeaponFiring
         case showWeaponObject(weaponId: Int)
         case changeTargetsAppearance(imageName: String)
+    }
+    enum MotionDetectorInputEventType {
+        case startDeviceMotionDetection
+        case stopDeviceMotionDetection
     }
     
     private(set) var timeCount: Double = 30.00
@@ -26,6 +28,7 @@ final class GameViewModel {
     var isWeaponSelectViewPresented = false
     
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
+    let motionDetectorInputEvent = PassthroughSubject<MotionDetectorInputEventType, Never>()
     let playSound = PassthroughSubject<SoundType, Never>()
         
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
@@ -53,12 +56,12 @@ final class GameViewModel {
         }
         
         arControllerInputEvent.send(.runSceneSession)
-        arControllerInputEvent.send(.startDeviceMotionDetection)
+        motionDetectorInputEvent.send(.startDeviceMotionDetection)
     }
     
     func onViewDisappear() {
         arControllerInputEvent.send(.pauseSceneSession)
-        arControllerInputEvent.send(.stopDeviceMotionDetection)
+        motionDetectorInputEvent.send(.stopDeviceMotionDetection)
     }
     
     func fireMotionDetected() {
