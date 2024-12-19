@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Bindable var viewModel: SettingsViewModel
+    @State var viewModel: SettingsViewModel
     @Environment(\.dismiss) private var dismiss
     
     init(viewModel: SettingsViewModel) {
@@ -16,6 +16,8 @@ struct SettingsView: View {
     }
     
     var body: some View {
+        @Bindable var viewModel = viewModel
+
         VStack(alignment: .leading, spacing: 0) {
             Text("Settings")
                 .foregroundStyle(Color.blackSteel)
@@ -50,6 +52,7 @@ struct SettingsView: View {
         }
     }
     
+    // TODO: サイズをUIKit版と同じにする
     private func underlineButton(
         title: String,
         fontSize: CGFloat,

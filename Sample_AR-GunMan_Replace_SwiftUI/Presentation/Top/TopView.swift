@@ -10,13 +10,15 @@ import Foundation
 import AVFoundation
 
 struct TopView: View {
-    @Bindable var viewModel: TopViewModel
+    @State var viewModel: TopViewModel
     
     init(viewModel: TopViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
+        @Bindable var viewModel = viewModel
+        
         GeometryReader { geometry in
             VStack(alignment: .trailing, spacing: 0) {
                 Spacer()

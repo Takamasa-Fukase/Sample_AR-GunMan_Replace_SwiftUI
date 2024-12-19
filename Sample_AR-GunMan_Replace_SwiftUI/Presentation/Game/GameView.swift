@@ -12,7 +12,7 @@ import WeaponControlMotion
 struct GameView: View {
     private var arShootingAppController: ARShootingAppController
     private var motionDetector: WeaponControlMotionDetector
-    @Bindable private var viewModel: GameViewModel
+    @State private var viewModel: GameViewModel
     
     init(
         arShootingAppController: ARShootingAppController,
@@ -34,6 +34,8 @@ struct GameView: View {
     }
     
     var body: some View {
+        @Bindable var viewModel = viewModel
+
         ZStack(alignment: .center) {
             // ARコンテンツ部分
             ARShootingAppView(sceneView: arShootingAppController.getSceneView())
