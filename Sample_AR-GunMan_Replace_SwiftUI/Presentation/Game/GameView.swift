@@ -112,7 +112,7 @@ struct GameView: View {
         }
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
             // 武器選択画面に遷移
-            WeaponSelectView(weaponSelected: { weaponId in
+            WeaponSelectViewFactory.create(weaponSelected: { weaponId in
                 viewModel.weaponSelected(weaponId: weaponId)
             })
             // sheetの背景を透過

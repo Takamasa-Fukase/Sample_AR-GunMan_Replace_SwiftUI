@@ -10,9 +10,9 @@ import FSPagerView
 
 class WeaponSelectViewController: UIViewController {
     var weaponSelected: ((Int) -> Void)?
-    private var weaponListItems: [WeaponListItem] = []
+    private var weaponListItems = [WeaponListItem]()
     
-    @IBOutlet weak var pagerView: FSPagerView!
+    @IBOutlet private weak var pagerView: FSPagerView!
     
     init() {
         super.init(nibName: WeaponSelectViewController.className, bundle: nil)
@@ -25,16 +25,18 @@ class WeaponSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupFSPagerView()
-                
-        weaponListItems = UseCaseProvider.makeWeaponResourceGetUseCase().getWeaponListItems()
-        pagerView.reloadData()
+        setupFSPagerView()                
     }
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         
         pagerView.itemSize = CGSize(width: view.frame.width * 0.5, height: view.frame.height * 0.8)
+    }
+    
+    func updateWeaponListItems(_ items: [WeaponListItem]) {
+        weaponListItems = items
+        pagerView.reloadData()
     }
 
     private func setupFSPagerView() {

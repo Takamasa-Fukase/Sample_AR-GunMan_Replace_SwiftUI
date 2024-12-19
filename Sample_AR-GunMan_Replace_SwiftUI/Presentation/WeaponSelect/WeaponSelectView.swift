@@ -7,15 +7,43 @@
 
 import SwiftUI
 
-struct WeaponSelectView: UIViewControllerRepresentable {
-    var weaponSelected: ((Int) -> Void)
-    @Environment(\.dismiss) private var dismiss
+struct WeaponSelectView: View {
+    @Bindable private var viewModel: WeaponSelectViewModel
+    private var weaponSelected: ((Int) -> Void)
     
-    init(weaponSelected: @escaping (Int) -> Void) {
+    init(
+        viewModel: WeaponSelectViewModel,
+        weaponSelected: @escaping (Int) -> Void
+    ) {
+        self.viewModel = viewModel
         self.weaponSelected = weaponSelected
     }
     
-    func makeUIViewController(context: Context) -> some UIViewController {
+    var body: some View {
+        WeaponSelectViewControllerRepresentable(
+            weaponSelected: weaponSelected,
+            weaponListItems: $viewModel.weaponListItems
+        )
+        .onAppear {
+            viewModel.onViewAppear()
+        }
+    }
+}
+
+struct WeaponSelectViewControllerRepresentable: UIViewControllerRepresentable {
+    private var weaponSelected: ((Int) -> Void)
+    @Binding private var weaponListItems: [WeaponListItem]
+    @Environment(\.dismiss) private var dismiss
+    
+    init(
+        weaponSelected: @escaping (Int) -> Void,
+        weaponListItems: Binding<[WeaponListItem]>
+    ) {
+        self.weaponSelected = weaponSelected
+        self._weaponListItems = weaponListItems
+    }
+    
+    func makeUIViewController(context: Context) -> WeaponSelectViewController {
         let weaponSelectVC = WeaponSelectViewController()
         weaponSelectVC.weaponSelected = { weaponId in
             // このViewの利用側へ選択されたweaponIdをコールバック
@@ -26,5 +54,7 @@ struct WeaponSelectView: UIViewControllerRepresentable {
         return weaponSelectVC
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+    func updateUIViewController(_ uiViewController: WeaponSelectViewController, context: Context) {
+        uiViewController.updateWeaponListItems(weaponListItems)
+    }
 }
