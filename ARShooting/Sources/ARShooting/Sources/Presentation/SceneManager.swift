@@ -7,6 +7,16 @@
 
 import ARKit
 
+protocol SceneManagerInterface {
+    var targetHit: (() -> Void)? { get set }
+    func getSceneView() -> ARSCNView
+    func runSession()
+    func pauseSession()
+    func showWeaponObject(weaponId: Int)
+    func renderWeaponFiring()
+    func changeTargetsAppearance(to imageName: String)
+}
+
 final class SceneManager: NSObject {
     var targetHit: (() -> Void)?
     private var sceneView: ARSCNView
@@ -20,63 +30,6 @@ final class SceneManager: NSObject {
         super.init()
         setup(targetCount: 50)
     }
-    
-    func getSceneView() -> ARSCNView {
-        return sceneView
-    }
-    
-    func runSession() {
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        sceneView.session.run(configuration)
-    }
-    
-    func pauseSession() {
-        sceneView.session.pause()
-    }
-    
-    func showWeaponObject(weaponId: Int) {
-        // weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
-        let repository = WeaponRepository()
-        do {
-            let objectData = try repository.getWeaponObjectData(by: weaponId)
-            currentWeaponId = objectData.weaponId
-            removeOtherWeapons(except: objectData.weaponId)
-            handleObjectLoadNecessity(objectData: objectData)
-            
-        } catch {
-            print("getWeaponObjectData error: \(error)")
-        }
-    }
-    
-    func renderWeaponFiring() {
-        // 弾の発射アニメーションを描画
-        let clonedBulletNode = originalBulletNode.clone()
-        clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)
-        sceneView.scene.rootNode.addChildNode(clonedBulletNode)
-        clonedBulletNode.runAction(SceneAnimationUtil.bulletShootingAnimation(sceneView.pointOfView)) {
-            clonedBulletNode.removeFromParentNode()
-        }
-        
-        // 武器の反動アニメーションを描画
-        if currentWeaponObjectData()?.objectData.isRecoilAnimationEnabled ?? false {
-            currentWeaponNode().runAction(SceneAnimationUtil.recoilAnimation)
-        }
-    }
-    
-    func changeTargetsAppearance(to imageName: String) {
-        sceneView.scene.rootNode.childNodes.forEach({ node in
-            if node.name == "target" {
-                while node.childNode(withName: "torus", recursively: false) != nil {
-                    //ドーナツ型の白い線のパーツを削除
-                    node.childNode(withName: "torus", recursively: false)?.removeFromParentNode()
-                }
-            }
-            node.childNode(withName: "sphere", recursively: false)?
-                .geometry?.firstMaterial?.diffuse.contents = UIImage(named: imageName, in: Bundle.module, with: nil)
-        })
-    }
-    
     
     // MARK: Private Methods
     private func setup(targetCount: Int) {
@@ -190,5 +143,63 @@ extension SceneManager: SCNPhysicsContactDelegate {
             contact.nodeA.removeFromParentNode()
             contact.nodeB.removeFromParentNode()
         }
+    }
+}
+
+extension SceneManager: SceneManagerInterface {
+    func getSceneView() -> ARSCNView {
+        return sceneView
+    }
+    
+    func runSession() {
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
+        sceneView.session.run(configuration)
+    }
+    
+    func pauseSession() {
+        sceneView.session.pause()
+    }
+    
+    func showWeaponObject(weaponId: Int) {
+        // weaponIdを使ってDataSourceから該当のWeaponObjectDataを取り出す
+        let repository = WeaponRepository()
+        do {
+            let objectData = try repository.getWeaponObjectData(by: weaponId)
+            currentWeaponId = objectData.weaponId
+            removeOtherWeapons(except: objectData.weaponId)
+            handleObjectLoadNecessity(objectData: objectData)
+            
+        } catch {
+            print("getWeaponObjectData error: \(error)")
+        }
+    }
+    
+    func renderWeaponFiring() {
+        // 弾の発射アニメーションを描画
+        let clonedBulletNode = originalBulletNode.clone()
+        clonedBulletNode.position = SceneNodeUtil.getCameraPosition(sceneView)
+        sceneView.scene.rootNode.addChildNode(clonedBulletNode)
+        clonedBulletNode.runAction(SceneAnimationUtil.bulletShootingAnimation(sceneView.pointOfView)) {
+            clonedBulletNode.removeFromParentNode()
+        }
+        
+        // 武器の反動アニメーションを描画
+        if currentWeaponObjectData()?.objectData.isRecoilAnimationEnabled ?? false {
+            currentWeaponNode().runAction(SceneAnimationUtil.recoilAnimation)
+        }
+    }
+    
+    func changeTargetsAppearance(to imageName: String) {
+        sceneView.scene.rootNode.childNodes.forEach({ node in
+            if node.name == "target" {
+                while node.childNode(withName: "torus", recursively: false) != nil {
+                    //ドーナツ型の白い線のパーツを削除
+                    node.childNode(withName: "torus", recursively: false)?.removeFromParentNode()
+                }
+            }
+            node.childNode(withName: "sphere", recursively: false)?
+                .geometry?.firstMaterial?.diffuse.contents = UIImage(named: imageName, in: Bundle.module, with: nil)
+        })
     }
 }

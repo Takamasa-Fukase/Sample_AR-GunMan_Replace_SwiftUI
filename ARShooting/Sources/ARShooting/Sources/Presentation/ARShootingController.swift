@@ -17,11 +17,18 @@ public final class ARShootingController {
     public var view: some View {
         return SceneViewRepresentable(view: sceneManager.getSceneView())
     }
-    private var sceneManager: SceneManager
+    private var sceneManager: SceneManagerInterface
     
     public init(frame: CGRect) {
         sceneManager = SceneManager(frame: frame)
     }
+    
+    
+    // TODO: 後で#if TEST分岐を追加する
+    init(sceneManager: SceneManagerInterface) {
+        self.sceneManager = sceneManager
+    }
+    
     
     public func runSession() {
         sceneManager.runSession()
