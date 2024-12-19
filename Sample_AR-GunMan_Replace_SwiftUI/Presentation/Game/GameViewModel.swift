@@ -21,12 +21,10 @@ final class GameViewModel {
         case changeTargetsAppearance(imageName: String)
     }
     
-    // MARK: ViewへのOutput（表示するデータ）
     private(set) var timeCount: Double = 30.00
     private(set) var currentWeaponData: CurrentWeaponData?
     var isWeaponSelectViewPresented = false
     
-    // MARK: ViewへのOutput（イベント通知）
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
     let playSound = PassthroughSubject<SoundType, Never>()
         
