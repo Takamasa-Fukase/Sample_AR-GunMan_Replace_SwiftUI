@@ -19,16 +19,26 @@ public final class WeaponControlMotionDetector {
     }
 
     public func startDetection() {
-        guard !coreMotionManager.isAccelerometerActive && !coreMotionManager.isGyroActive else { return }
         guard let currentOperationQueue = OperationQueue.current else { return }
+        startAccelerometerUpdates(operationQueue: currentOperationQueue)
+        startGyroUpdates(operationQueue: currentOperationQueue)
+    }
+    
+    public func stopDetection() {
+        coreMotionManager.stopAccelerometerUpdates()
+        coreMotionManager.stopGyroUpdates()
+    }
+    
+    
+    // MARK: Private Methods
+    private func startAccelerometerUpdates(operationQueue: OperationQueue) {
+        guard !coreMotionManager.isAccelerometerActive else { return }
         
-        coreMotionManager.startAccelerometerUpdates(to: currentOperationQueue) { [weak self] data, error in
-            if let error = error {
-                print(error)
-                return
-            }
+        coreMotionManager.startAccelerometerUpdates(to: operationQueue) { [weak self] data, error in
+            if let error = error { print(error); return }
             guard let acceleration = data?.acceleration else { return }
             guard let latestGyro = self?.coreMotionManager.gyroData?.rotationRate else { return }
+            
             DeviceMotionFilter.accelerationUpdated(
                 acceleration: acceleration,
                 latestGyro: latestGyro,
@@ -36,23 +46,20 @@ public final class WeaponControlMotionDetector {
                     self?.fireMotionDetected?()
                 })
         }
+    }
+    
+    private func startGyroUpdates(operationQueue: OperationQueue) {
+        guard !coreMotionManager.isGyroActive else { return }
         
-        coreMotionManager.startGyroUpdates(to: currentOperationQueue) { [weak self] data, error in
-            if let error = error {
-                print(error)
-                return
-            }
+        coreMotionManager.startGyroUpdates(to: operationQueue) { [weak self] data, error in
+            if let error = error { print(error); return }
             guard let gyro = data?.rotationRate else { return }
+            
             DeviceMotionFilter.gyroUpdated(
                 gyro: gyro,
                 onDetectReloadMotion: {
                     self?.reloadMotionDetected?()
                 })
         }
-    }
-    
-    public func stopDetection() {
-        coreMotionManager.stopAccelerometerUpdates()
-        coreMotionManager.stopGyroUpdates()
     }
 }
