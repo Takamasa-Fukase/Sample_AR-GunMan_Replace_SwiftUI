@@ -9,9 +9,12 @@ import XCTest
 @testable import ARShooting
 
 final class ARShootingControllerTests: XCTestCase {
-
+    private var arShootingController: ARShootingController!
+    private var sceneManagerStub: SceneManagerStub!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sceneManagerStub = .init()
+        arShootingController = .init(sceneManager: sceneManagerStub)
     }
 
     override func tearDownWithError() throws {
