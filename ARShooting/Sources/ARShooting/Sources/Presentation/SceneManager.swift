@@ -61,13 +61,13 @@ final class SceneManager: NSObject {
         }
         // まだロード済のオブジェクトが無い場合
         else {
-            let weaponParentNode = createWeaponNode(scnFilePath: objectData.objectFilePath, nodeName: objectData.rootObjectName)
+            let weaponParentNode = createWeaponNode(fileName: objectData.objectFileName, nodeName: objectData.rootObjectName)
             
             // Particle情報がある場合はロード
             let particleNode: SCNNode? = {
-                if let particleFilePath = objectData.targetHitParticleFilePath,
+                if let particleFileName = objectData.targetHitParticleFileName,
                    let particleNodeName = objectData.targetHitParticleRootObjectName {
-                    let particleNode = SceneNodeUtil.loadScnFile(of: particleFilePath, nodeName: particleNodeName)
+                    let particleNode = SceneNodeUtil.loadScnNode(fileName: particleFileName, nodeName: particleNodeName)
                     particleNode.particleSystems?.first?.birthRate = 0
                     return particleNode
                 }else {
@@ -91,8 +91,8 @@ final class SceneManager: NSObject {
         }
     }
     
-    private func createWeaponNode(scnFilePath: String, nodeName: String) -> SCNNode {
-        let weaponParentNode = SceneNodeUtil.loadScnFile(of: scnFilePath, nodeName: nodeName)
+    private func createWeaponNode(fileName: String, nodeName: String) -> SCNNode {
+        let weaponParentNode = SceneNodeUtil.loadScnNode(fileName: fileName, nodeName: nodeName)
         SceneNodeUtil.addBillboardConstraint(weaponParentNode)
         weaponParentNode.position = SceneNodeUtil.getCameraPosition(sceneView)
         return weaponParentNode

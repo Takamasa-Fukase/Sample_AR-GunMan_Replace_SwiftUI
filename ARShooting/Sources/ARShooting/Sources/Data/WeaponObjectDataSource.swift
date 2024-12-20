@@ -11,20 +11,20 @@ final class WeaponObjectDataSource {
     static let weaponObjectDataList: [WeaponObjectData] = [
         .init(
             weaponId: 0,
-            objectFilePath: "Resources/art.scnassets/Weapon/Pistol/pistol.scn",
+            objectFileName: "pistol",
             rootObjectName: "pistolParent",
             weaponObjectName: "pistol",
-            targetHitParticleFilePath: nil,
+            targetHitParticleFileName: nil,
             targetHitParticleRootObjectName: nil,
             isGunnerHandShakingAnimationEnabled: true,
             isRecoilAnimationEnabled: true
         ),
         .init(
             weaponId: 1,
-            objectFilePath: "Resources/art.scnassets/Weapon/Bazooka/bazooka.scn",
+            objectFileName: "bazooka",
             rootObjectName: "bazookaParent",
-            weaponObjectName: "pistol",
-            targetHitParticleFilePath: "Resources/art.scnassets/ParticleSystem/bazookaExplosion.scn",
+            weaponObjectName: "bazooka",
+            targetHitParticleFileName: "bazookaExplosion",
             targetHitParticleRootObjectName: "bazookaExplosion",
             isGunnerHandShakingAnimationEnabled: false,
             isRecoilAnimationEnabled: false

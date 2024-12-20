@@ -20,13 +20,13 @@ final class SceneNodeUtil {
     }
     
     // scnファイルからノードを読み込む
-    static func loadScnFile(of path: String, nodeName: String) -> SCNNode {
-        guard let url = URL(string: Bundle.module.bundleURL.absoluteString + path),
+    static func loadScnNode(fileName: String, nodeName: String) -> SCNNode {
+        guard let url = Bundle.module.url(forResource: fileName, withExtension: "scn"),
               let scene = try? SCNScene(url: url, options: nil),
               // 注意: childNode(withName:)にはscnのファイル名ではなく、Identity欄のnameを指定する
               let node = scene.rootNode.childNode(withName: nodeName, recursively: false)
         else {
-            print("loadScnFile失敗　ファイルパス(\(path)), またはnodeのname(\(nodeName))が間違っています")
+            print("loadScnFile失敗　ファイル名(\(fileName)), またはnodeのname(\(nodeName))が間違っています")
             return SCNNode()
         }
         return node
@@ -74,7 +74,7 @@ final class SceneNodeUtil {
     }
     
     static func originalTargetNode() -> SCNNode {
-        let targetNode = SceneNodeUtil.loadScnFile(of: "Resources/art.scnassets/Target/target.scn", nodeName: "target")
+        let targetNode = SceneNodeUtil.loadScnNode(fileName: "target", nodeName: "target")
         
         targetNode.scale = SCNVector3(0.3, 0.3, 0.3)
         

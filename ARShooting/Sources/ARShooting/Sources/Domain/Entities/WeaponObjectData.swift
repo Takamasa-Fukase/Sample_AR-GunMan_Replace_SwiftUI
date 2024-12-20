@@ -9,10 +9,10 @@ import Foundation
 
 struct WeaponObjectData {
     let weaponId: Int
-    let objectFilePath: String
+    let objectFileName: String
     let rootObjectName: String
     let weaponObjectName: String
-    let targetHitParticleFilePath: String?
+    let targetHitParticleFileName: String?
     let targetHitParticleRootObjectName: String?
     let isGunnerHandShakingAnimationEnabled: Bool
     let isRecoilAnimationEnabled: Bool
