@@ -20,4 +20,11 @@ struct SceneViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ view: ARSCNView, context: Context) {}
+    
+    // MARK: ユニットテスト時のみアクセスする
+    #if DEBUG
+    func getView() -> ARSCNView {
+        return view
+    }
+    #endif
 }
