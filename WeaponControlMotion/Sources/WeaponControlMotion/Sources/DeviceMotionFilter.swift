@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import CoreMotion
 
 final class DeviceMotionFilter {
     static func accelerationUpdated(
-        acceleration: Vector,
-        latestGyro: Vector,
+        acceleration: CMAcceleration,
+        latestGyro: CMRotationRate,
         onDetectFireMotion: (() -> Void)
     ) {
         let accelerationCompositeValue = CompositeCalculator.getCompositeValue(
@@ -29,7 +30,7 @@ final class DeviceMotionFilter {
     }
     
     static func gyroUpdated(
-        gyro: Vector,
+        gyro: CMRotationRate,
         onDetectReloadMotion: (() -> Void)
     ) {
         let gyroCompositeValue = CompositeCalculator.getCompositeValue(

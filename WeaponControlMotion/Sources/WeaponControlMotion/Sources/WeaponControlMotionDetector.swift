@@ -28,12 +28,10 @@ public final class WeaponControlMotionDetector {
                 return
             }
             guard let acceleration = data?.acceleration else { return }
-            let accelerationVector = Vector(x: acceleration.x, y: acceleration.y, z: acceleration.z)
-            let latestGyro = self?.coreMotionManager.gyroData?.rotationRate ?? CMRotationRate(x: 0, y: 0, z: 0)
-            let latestGyroVector = Vector(x: latestGyro.x, y: latestGyro.y, z: latestGyro.z)
+            guard let latestGyro = self?.coreMotionManager.gyroData?.rotationRate else { return }
             DeviceMotionFilter.accelerationUpdated(
-                acceleration: accelerationVector,
-                latestGyro: latestGyroVector,
+                acceleration: acceleration,
+                latestGyro: latestGyro,
                 onDetectFireMotion: {
                     self?.fireMotionDetected?()
                 })
@@ -44,10 +42,9 @@ public final class WeaponControlMotionDetector {
                 print(error)
                 return
             }
-            guard let rotationRate = data?.rotationRate else { return }
-            let vector = Vector(x: rotationRate.x, y: rotationRate.y, z: rotationRate.z)
+            guard let gyro = data?.rotationRate else { return }
             DeviceMotionFilter.gyroUpdated(
-                gyro: vector,
+                gyro: gyro,
                 onDetectReloadMotion: {
                     self?.reloadMotionDetected?()
                 })
