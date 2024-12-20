@@ -23,12 +23,12 @@ public final class ARShootingController {
         sceneManager = SceneManager(frame: frame)
     }
     
-    
-    // TODO: 後で#if TEST分岐を追加する
+    // MARK: ユニットテスト時のみアクセスする
+    #if DEBUG
     init(sceneManager: SceneManagerInterface) {
         self.sceneManager = sceneManager
     }
-    
+    #endif
     
     public func runSession() {
         sceneManager.runSession()
