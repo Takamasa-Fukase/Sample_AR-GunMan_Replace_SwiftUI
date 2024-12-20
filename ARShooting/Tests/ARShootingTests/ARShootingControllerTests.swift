@@ -22,6 +22,23 @@ final class ARShootingControllerTests: XCTestCase {
         arShootingController = nil
     }
     
+    func test_targetHit() {
+        XCTAssertTrue(arShootingController.targetHit == nil)
+        XCTAssertTrue(sceneManagerStub.targetHit == nil)
+        
+        var isARShootingControllerTargetHitCalled = false
+        
+        arShootingController.targetHit = {
+            isARShootingControllerTargetHitCalled = true
+        }
+        
+        XCTAssertTrue(sceneManagerStub.targetHit != nil)
+        
+        XCTAssertEqual(isARShootingControllerTargetHitCalled, false)
+        sceneManagerStub.targetHit?()
+        XCTAssertEqual(isARShootingControllerTargetHitCalled, true)
+    }
+    
     func test_view() {
         let view = arShootingController.view as! SceneViewRepresentable
         XCTAssertEqual(view.getView(), sceneManagerStub.dummySceneView)
