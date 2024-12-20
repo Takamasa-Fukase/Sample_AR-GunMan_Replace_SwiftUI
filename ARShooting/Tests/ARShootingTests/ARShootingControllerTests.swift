@@ -9,68 +9,68 @@ import XCTest
 @testable import ARShooting
 
 final class ARShootingControllerTests: XCTestCase {
-    private var arShootingController: ARShootingController!
+    private var arController: ARShootingController!
     private var sceneManagerStub: SceneManagerStub!
     
     override func setUpWithError() throws {
         sceneManagerStub = .init()
-        arShootingController = .init(sceneManager: sceneManagerStub)
+        arController = .init(sceneManager: sceneManagerStub)
     }
 
     override func tearDownWithError() throws {
         sceneManagerStub = nil
-        arShootingController = nil
+        arController = nil
     }
     
     func test_targetHit() {
-        XCTAssertTrue(arShootingController.targetHit == nil)
+        XCTAssertTrue(arController.targetHit == nil)
         XCTAssertTrue(sceneManagerStub.targetHit == nil)
         
-        var isARShootingControllerTargetHitCalled = false
+        var isARControllerTargetHitCalled = false
         
-        arShootingController.targetHit = {
-            isARShootingControllerTargetHitCalled = true
+        arController.targetHit = {
+            isARControllerTargetHitCalled = true
         }
         
         XCTAssertTrue(sceneManagerStub.targetHit != nil)
         
-        XCTAssertEqual(isARShootingControllerTargetHitCalled, false)
+        XCTAssertEqual(isARControllerTargetHitCalled, false)
         sceneManagerStub.targetHit?()
-        XCTAssertEqual(isARShootingControllerTargetHitCalled, true)
+        XCTAssertEqual(isARControllerTargetHitCalled, true)
     }
     
     func test_view() {
-        let view = arShootingController.view as! SceneViewRepresentable
+        let view = arController.view as! SceneViewRepresentable
         XCTAssertEqual(view.getView(), sceneManagerStub.dummySceneView)
     }
     
     func test_runSession() {
         XCTAssertEqual(sceneManagerStub.runSessionCalledCount, 0)
-        arShootingController.runSession()
+        arController.runSession()
         XCTAssertEqual(sceneManagerStub.runSessionCalledCount, 1)
     }
     
     func test_pauseSession() {
         XCTAssertEqual(sceneManagerStub.pauseSessionCalledCount, 0)
-        arShootingController.pauseSession()
+        arController.pauseSession()
         XCTAssertEqual(sceneManagerStub.pauseSessionCalledCount, 1)
     }
     
     func test_showWeaponObject() {
         XCTAssertEqual(sceneManagerStub.showWeaponObjectCalledValues, [])
-        arShootingController.showWeaponObject(weaponId: 100)
+        arController.showWeaponObject(weaponId: 100)
         XCTAssertEqual(sceneManagerStub.showWeaponObjectCalledValues, [100])
     }
     
     func test_renderWeaponFiring() {
         XCTAssertEqual(sceneManagerStub.renderWeaponFiringCalledCount, 0)
-        arShootingController.renderWeaponFiring()
+        arController.renderWeaponFiring()
         XCTAssertEqual(sceneManagerStub.renderWeaponFiringCalledCount, 1)
     }
     
     func test_changeTargetsAppearance() {
         XCTAssertEqual(sceneManagerStub.changeTargetsAppearanceCalledValues, [])
-        arShootingController.changeTargetsAppearance(to: "test_image")
+        arController.changeTargetsAppearance(to: "test_image")
         XCTAssertEqual(sceneManagerStub.changeTargetsAppearanceCalledValues, ["test_image"])
     }
 }
