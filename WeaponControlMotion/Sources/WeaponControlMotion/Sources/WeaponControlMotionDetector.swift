@@ -29,6 +29,10 @@ public final class WeaponControlMotionDetector {
         coreMotionManager.stopGyroUpdates()
     }
     
+    // MARK: ユニットテスト時のみアクセスする
+    #if DEBUG
+    
+    #endif
     
     // MARK: Private Methods
     private func startAccelerometerUpdates(operationQueue: OperationQueue) {
