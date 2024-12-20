@@ -6,30 +6,61 @@
 //
 
 import XCTest
+@testable import WeaponControlMotion
 
 final class WeaponControlMotionDetectorTests: XCTestCase {
+    private var motionDetector: WeaponControlMotionDetector!
+    private var coreMotionManagerStub: CoreMotionManagerStub!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        coreMotionManagerStub = .init()
+        motionDetector = .init(coreMotionManager: coreMotionManagerStub)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        coreMotionManagerStub = nil
+        motionDetector = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func test_init() {
+        XCTAssertEqual(coreMotionManagerStub.accelerometerUpdateInterval, 0.2)
+        XCTAssertEqual(coreMotionManagerStub.gyroUpdateInterval, 0.2)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_startDetection() {
+        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 0)
+        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 0)
+        motionDetector.startDetection()
+        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 1)
+        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            XCTAssertTrue(self.coreMotionManagerStub.isAccelerometerActive)
+            XCTAssertTrue(self.coreMotionManagerStub.isGyroActive)
+        })
     }
+    
+    // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
+    func test_startDetectionを複数回呼ばれても加速度とジャイロのstartUpdatesメソッドがそれぞれ1回ずつしか呼ばれなければ成功() {
+        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 0)
+        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 0)
+        
+        // 複数回実行
+        motionDetector.startDetection()
+        motionDetector.startDetection()
+        motionDetector.startDetection()
 
+        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 1)
+        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 1)
+    }
+    
+    func test_stopDetection() {
+        XCTAssertEqual(coreMotionManagerStub.stopAccelerometerUpdatesCalledCount, 0)
+        XCTAssertEqual(coreMotionManagerStub.stopGyroUpdatesCalledCount, 0)
+        motionDetector.stopDetection()
+        XCTAssertEqual(coreMotionManagerStub.stopAccelerometerUpdatesCalledCount, 1)
+        XCTAssertEqual(coreMotionManagerStub.stopGyroUpdatesCalledCount, 1)
+        XCTAssertFalse(coreMotionManagerStub.isAccelerometerActive)
+        XCTAssertFalse(coreMotionManagerStub.isGyroActive)
+    }
 }

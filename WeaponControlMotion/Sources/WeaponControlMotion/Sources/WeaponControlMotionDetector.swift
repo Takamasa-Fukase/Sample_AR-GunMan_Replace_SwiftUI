@@ -11,12 +11,20 @@ import CoreMotion
 public final class WeaponControlMotionDetector {
     public var fireMotionDetected: (() -> Void)?
     public var reloadMotionDetected: (() -> Void)?
-    private let coreMotionManager = CMMotionManager()
+    private var coreMotionManager: CMMotionManager
     
     public init() {
-        coreMotionManager.accelerometerUpdateInterval = 0.2
-        coreMotionManager.gyroUpdateInterval = 0.2
+        coreMotionManager = CMMotionManager()
+        setup()
     }
+    
+    // MARK: ユニットテスト時のみアクセスする
+    #if DEBUG
+    init(coreMotionManager: CMMotionManager) {
+        self.coreMotionManager = coreMotionManager
+        setup()
+    }
+    #endif
 
     public func startDetection() {
         guard let currentOperationQueue = OperationQueue.current else { return }
@@ -29,13 +37,14 @@ public final class WeaponControlMotionDetector {
         coreMotionManager.stopGyroUpdates()
     }
     
-    // MARK: ユニットテスト時のみアクセスする
-    #if DEBUG
-    
-    #endif
-    
     // MARK: Private Methods
+    private func setup() {
+        coreMotionManager.accelerometerUpdateInterval = 0.2
+        coreMotionManager.gyroUpdateInterval = 0.2
+    }
+    
     private func startAccelerometerUpdates(operationQueue: OperationQueue) {
+        // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
         guard !coreMotionManager.isAccelerometerActive else { return }
         
         coreMotionManager.startAccelerometerUpdates(to: operationQueue) { [weak self] data, error in
@@ -53,6 +62,7 @@ public final class WeaponControlMotionDetector {
     }
     
     private func startGyroUpdates(operationQueue: OperationQueue) {
+        // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
         guard !coreMotionManager.isGyroActive else { return }
         
         coreMotionManager.startGyroUpdates(to: operationQueue) { [weak self] data, error in
