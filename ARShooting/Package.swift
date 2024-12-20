@@ -18,7 +18,7 @@ let package = Package(
         .target(
             name: "ARShooting",
             resources: [
-                .copy("Resources")
+                .process("Resources")
             ]
         ),
         .testTarget(
