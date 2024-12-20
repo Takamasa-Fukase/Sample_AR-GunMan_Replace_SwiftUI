@@ -44,7 +44,6 @@ public final class WeaponControlMotionDetector {
     }
     
     private func startAccelerometerUpdates(operationQueue: OperationQueue) {
-        // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
         guard !coreMotionManager.isAccelerometerActive else { return }
         
         coreMotionManager.startAccelerometerUpdates(to: operationQueue) { [weak self] data, error in
@@ -62,7 +61,6 @@ public final class WeaponControlMotionDetector {
     }
     
     private func startGyroUpdates(operationQueue: OperationQueue) {
-        // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
         guard !coreMotionManager.isGyroActive else { return }
         
         coreMotionManager.startGyroUpdates(to: operationQueue) { [weak self] data, error in

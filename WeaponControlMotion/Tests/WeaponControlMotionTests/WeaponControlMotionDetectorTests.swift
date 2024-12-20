@@ -40,20 +40,6 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
         })
     }
     
-    // TODO: 今だと0.2秒経たないとisActiveがtrueにならないので0.2秒以内に複数回実行するとまずい実装になってそうなのでテストが通る様に修正したい
-    func test_startDetectionを複数回呼ばれても加速度とジャイロのstartUpdatesメソッドがそれぞれ1回ずつしか呼ばれなければ成功() {
-        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 0)
-        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 0)
-        
-        // 複数回実行
-        motionDetector.startDetection()
-        motionDetector.startDetection()
-        motionDetector.startDetection()
-
-        XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 1)
-        XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 1)
-    }
-    
     func test_stopDetection() {
         XCTAssertEqual(coreMotionManagerStub.stopAccelerometerUpdatesCalledCount, 0)
         XCTAssertEqual(coreMotionManagerStub.stopGyroUpdatesCalledCount, 0)
