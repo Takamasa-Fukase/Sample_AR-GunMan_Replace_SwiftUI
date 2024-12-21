@@ -18,21 +18,13 @@ struct TutorialView: View {
                     showsIndicator: false,
                     content: {
                         HStack(spacing: 0) {
-                            Color.green
-                                .frame(
-                                    width: scrollViewSize.width,
-                                    height: scrollViewSize.height
-                                )
-                            Color.orange
-                                .frame(
-                                    width: scrollViewSize.width,
-                                    height: scrollViewSize.height
-                                )
-                            Color.blue
-                                .frame(
-                                    width: scrollViewSize.width,
-                                    height: scrollViewSize.height
-                                )
+                            ForEach(TutorialConst.contents) { content in
+                                TutorialScrollViewItem(content: content)
+                                    .frame(
+                                        width: scrollViewSize.width,
+                                        height: scrollViewSize.height
+                                    )
+                            }
                         }
                     },
                     onScroll: { frame in

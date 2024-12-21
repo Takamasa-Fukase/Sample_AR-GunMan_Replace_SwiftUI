@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct TutorialContent {
+struct TutorialContent: Identifiable {
+    let id: UUID = UUID()
     let title: String
     let description: String
     let imageNames: [String]
