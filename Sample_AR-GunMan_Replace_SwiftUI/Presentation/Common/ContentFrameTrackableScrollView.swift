@@ -32,7 +32,7 @@ struct ContentFrameTrackableScrollView<Content: View>: View {
         ) {
             content.background {
                 GeometryReader { geometry in
-                    Color.clear.onChange(of: geometry.frame(in: .global), { _, newFrame in
+                    Color.clear.onChange(of: geometry.frame(in: .scrollView), { _, newFrame in
                         onScroll(newFrame)
                     })
                 }
