@@ -26,7 +26,7 @@ final class WeaponDataSource {
                 showingSound: .pistolSet,
                 firingSound: .pistolShoot,
                 reloadingSound: .pistolReload,
-                noBulletsSound: .pistolOutBullets,
+                outOfBulletsSound: .pistolOutBullets,
                 targetHitSound: nil
             )
         ),
@@ -47,7 +47,7 @@ final class WeaponDataSource {
                 showingSound: .bazookaSet,
                 firingSound: .bazookaShoot,
                 reloadingSound: .bazookaReload,
-                noBulletsSound: nil,
+                outOfBulletsSound: nil,
                 targetHitSound: .bazookaHit
             )
         )

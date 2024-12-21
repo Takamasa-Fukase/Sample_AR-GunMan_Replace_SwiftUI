@@ -12,7 +12,7 @@ protocol WeaponActionExecuteUseCaseInterface {
                     isReloading: Bool,
                     reloadType: ReloadType,
                     onFired: ((WeaponFireCompletedResponse) -> Void),
-                    onCanceled: (() -> Void))
+                    onOutOfBullets: (() -> Void))
     func reloadWeapon(bulletsCount: Int,
                       isReloading: Bool,
                       capacity: Int,
@@ -44,7 +44,7 @@ final class WeaponActionExecuteUseCase {
 }
 
 extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
-    func fireWeapon(bulletsCount: Int, isReloading: Bool, reloadType: ReloadType, onFired: ((WeaponFireCompletedResponse) -> Void), onCanceled: (() -> Void)) {
+    func fireWeapon(bulletsCount: Int, isReloading: Bool, reloadType: ReloadType, onFired: ((WeaponFireCompletedResponse) -> Void), onOutOfBullets: (() -> Void)) {
         let canFire = weaponStatusCheckUseCase.checkCanFire(bulletsCount: bulletsCount, isReloading: isReloading)
         
         let decrementedBulletsCount = bulletsCount - 1
@@ -56,7 +56,7 @@ extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
             onFired(completedReponse)
             
         }else {
-            onCanceled()
+            onOutOfBullets()
         }
     }
     

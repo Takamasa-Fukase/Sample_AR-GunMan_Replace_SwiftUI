@@ -131,9 +131,9 @@ final class GameViewModel {
                     reloadWeapon()
                 }
             },
-            onCanceled: {
-                if let noBulletsSound = currentWeaponData?.resources.noBulletsSound {
-                    playSound.send(noBulletsSound)
+            onOutOfBullets: {
+                if let outOfBulletsSound = currentWeaponData?.resources.outOfBulletsSound {
+                    playSound.send(outOfBulletsSound)
                 }
             })
     }

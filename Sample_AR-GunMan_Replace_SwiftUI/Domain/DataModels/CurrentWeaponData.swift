@@ -28,7 +28,7 @@ struct CurrentWeaponData {
         let showingSound: SoundType
         let firingSound: SoundType
         let reloadingSound: SoundType
-        let noBulletsSound: SoundType?
+        let outOfBulletsSound: SoundType?
         let targetHitSound: SoundType?
     }
     

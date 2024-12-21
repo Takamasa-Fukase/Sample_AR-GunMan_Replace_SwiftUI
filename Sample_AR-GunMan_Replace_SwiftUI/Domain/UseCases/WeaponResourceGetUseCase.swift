@@ -48,7 +48,7 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 showingSound: weapon.resources.showingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,
-                noBulletsSound: weapon.resources.noBulletsSound,
+                outOfBulletsSound: weapon.resources.outOfBulletsSound,
                 targetHitSound: weapon.resources.targetHitSound
             ),
             state: .init(
@@ -76,7 +76,7 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 showingSound: weapon.resources.showingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,
-                noBulletsSound: weapon.resources.noBulletsSound,
+                outOfBulletsSound: weapon.resources.outOfBulletsSound,
                 targetHitSound: weapon.resources.targetHitSound
             ),
             state: .init(
