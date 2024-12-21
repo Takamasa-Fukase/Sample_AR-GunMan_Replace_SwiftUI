@@ -14,6 +14,8 @@ final class GameViewFactory {
         let arController = ARShootingController(frame: frame)
         let motionDetector = WeaponControlMotionDetector()
         let viewModel = GameViewModel(
+            tutorialUseCase: UseCaseFactory.create(),
+            gameTimerCreateUseCase: UseCaseFactory.create(),
             weaponResourceGetUseCase: UseCaseFactory.create(),
             weaponActionExecuteUseCase: UseCaseFactory.create()
         )

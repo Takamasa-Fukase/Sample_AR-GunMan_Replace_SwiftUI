@@ -31,6 +31,8 @@ final class GameViewModel {
     let motionDetectorInputEvent = PassthroughSubject<MotionDetectorInputEventType, Never>()
     let playSound = PassthroughSubject<SoundType, Never>()
         
+    private let tutorialUseCase: TutorialUseCaseInterface
+    private let gameTimerCreateUseCase: GameTimerCreateUseCaseInterface
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
     
@@ -38,9 +40,13 @@ final class GameViewModel {
     @ObservationIgnored private var reloadingMotionDetecedCount: Int = 0
     
     init(
+        tutorialUseCase: TutorialUseCaseInterface,
+        gameTimerCreateUseCase: GameTimerCreateUseCaseInterface,
         weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface,
         weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
     ) {
+        self.tutorialUseCase = tutorialUseCase
+        self.gameTimerCreateUseCase = gameTimerCreateUseCase
         self.weaponResourceGetUseCase = weaponResourceGetUseCase
         self.weaponActionExecuteUseCase = weaponActionExecuteUseCase
     }
