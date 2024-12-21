@@ -35,6 +35,10 @@ final class TutorialViewModel {
         }
     }
     
+    func backgroundViewTapped() {
+        dismiss.send(Void())
+    }
+    
     private func isLastPage() -> Bool {
         return currentPageIndex == (contents.count - 1)
     }
