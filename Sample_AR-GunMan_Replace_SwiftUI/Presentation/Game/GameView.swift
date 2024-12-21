@@ -75,12 +75,12 @@ struct GameView: View {
                 
                 Spacer()
                 
-                Image("pistol_sight")
+                Image(viewModel.currentWeaponData?.resources.sightImageName ?? "")
                     .renderingMode(.template)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 100, height: 100)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(ColorTypeConverter.fromColorType(viewModel.currentWeaponData?.resources.sightImageColorType ?? .red))
                 
                 Spacer()
                 
