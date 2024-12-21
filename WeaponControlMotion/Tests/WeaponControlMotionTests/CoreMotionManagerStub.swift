@@ -13,13 +13,31 @@ final class CoreMotionManagerStub: CMMotionManager {
     var startGyroUpdatesCalledCount = 0
     var stopAccelerometerUpdatesCalledCount = 0
     var stopGyroUpdatesCalledCount = 0
-    
+    var accelerometerHander: CMAccelerometerHandler?
+    var gyroHander: CMGyroHandler?
+    var latestAccelerometerData: CMAccelerometerData? = nil
+    var latestGyroData: CMGyroData? = nil
+
+    override var accelerometerData: CMAccelerometerData? {
+        return latestAccelerometerData
+    }
+    override var gyroData: CMGyroData? {
+        return latestGyroData
+    }
     
     override func startAccelerometerUpdates(to queue: OperationQueue, withHandler handler: @escaping CMAccelerometerHandler) {
+        accelerometerHander = { [weak self] (data, nil) in
+            self?.latestAccelerometerData = data
+            handler(data, nil)
+        }
         startAccelerometerUpdatesCalledCount += 1
     }
     
     override func startGyroUpdates(to queue: OperationQueue, withHandler handler: @escaping CMGyroHandler) {
+        gyroHander = { [weak self] (data, nil) in
+            self?.latestGyroData = data
+            handler(data, nil)
+        }
         startGyroUpdatesCalledCount += 1
     }
     

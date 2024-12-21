@@ -24,6 +24,7 @@ final class DeviceMotionFilter {
             y: 0,
             z: latestGyro.z
         )
+        print("DeviceMotionFilter.accelerationUpdated()\n - acceleration: \(acceleration)\n - latestGyro: \(latestGyro)\n - accelerationCompositeValue: \(accelerationCompositeValue), gyroCompositeValue: \(gyroCompositeValue)")
         if accelerationCompositeValue >= 1.5 && gyroCompositeValue < 10 {
             onDetectFireMotion()
         }
@@ -38,6 +39,7 @@ final class DeviceMotionFilter {
             y: 0,
             z: gyro.z
         )
+        print("DeviceMotionFilter.gyroUpdated()\n - gyro: \(gyro)\n - gyroCompositeValue: \(gyroCompositeValue)")
         if gyroCompositeValue >= 10 {
             onDetectReloadMotion()
         }
