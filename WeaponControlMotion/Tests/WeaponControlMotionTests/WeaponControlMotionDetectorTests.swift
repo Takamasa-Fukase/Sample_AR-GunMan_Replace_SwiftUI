@@ -52,8 +52,9 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
     }
     
     func test_fireMotionDetected() {
-        var isFireMotionDetectedCalled = false
+        // MARK: 事前準備
         
+        var isFireMotionDetectedCalled = false
         // 発射モーションが検知された時にフラグをtrueにする
         motionDetector.fireMotionDetected = {
             isFireMotionDetectedCalled = true
@@ -62,14 +63,63 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
         motionDetector.startDetection()
         
         
-        
-//        coreMotionManagerStub.gyroHander?(successGyro, nil)
-//        coreMotionManagerStub.accelerometerHander?(successAcceleration, nil)
-        
-//        XCTAssertTrue(isFireMotionDetectedCalled)
+        // MARK: ジャイロと加速度の両方が成功データの場合にfireMotionDetectedが呼ばれることをテスト
         
         // 一度falseにリセット
         isFireMotionDetectedCalled = false
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        // ジャイロの最新値が使用されるため、先にジャイロの成功データを流しておく
+        coreMotionManagerStub.gyroHander?(発射モーションジャイロ成功データ, nil)
+        // 加速度の成功データを流す
+        coreMotionManagerStub.accelerometerHander?(発射モーション加速度成功データ, nil)
+        XCTAssertTrue(isFireMotionDetectedCalled)
         
+        
+        // MARK: ジャイロが成功データで加速度が失敗データの場合にfireMotionDetectedが呼ばれ無いことをテスト
+        
+        // 一度falseにリセット
+        isFireMotionDetectedCalled = false
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        // ジャイロの最新値が使用されるため、先にジャイロの成功データを流しておく
+        coreMotionManagerStub.gyroHander?(発射モーションジャイロ成功データ, nil)
+        // 加速度の失敗データを流す
+        coreMotionManagerStub.accelerometerHander?(発射モーション加速度失敗データ, nil)
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        
+        
+        // MARK: ジャイロが失敗データで加速度が成功データの場合にfireMotionDetectedが呼ばれ無いことをテスト
+        
+        // 一度falseにリセット
+        isFireMotionDetectedCalled = false
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        // ジャイロの最新値が使用されるため、先にジャイロの失敗データを流しておく
+        coreMotionManagerStub.gyroHander?(発射モーションジャイロ失敗データ, nil)
+        // 加速度の成功データを流す
+        coreMotionManagerStub.accelerometerHander?(発射モーション加速度成功データ, nil)
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        
+        
+        // MARK: ジャイロと加速度の両方が失敗データの場合にfireMotionDetectedが呼ばれ無いことをテスト
+        
+        // 一度falseにリセット
+        isFireMotionDetectedCalled = false
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        // ジャイロの最新値が使用されるため、先にジャイロの失敗データを流しておく
+        coreMotionManagerStub.gyroHander?(発射モーションジャイロ失敗データ, nil)
+        // 加速度の失敗データを流す
+        coreMotionManagerStub.accelerometerHander?(発射モーション加速度失敗データ, nil)
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        
+        
+        // MARK: 加速度とジャイロに成功データと一緒にエラーを流した場合にfireMotionDetectedが呼ばれ無いことをテスト
+        
+        // 一度falseにリセット
+        isFireMotionDetectedCalled = false
+        XCTAssertFalse(isFireMotionDetectedCalled)
+        // ジャイロの最新値が使用されるため、先にジャイロの成功データと一緒にエラーを流す
+        coreMotionManagerStub.gyroHander?(発射モーションジャイロ成功データ, CustomError.other(message: "ジャイロダミーエラー"))
+        // 加速度に成功データと一緒にエラーを流す
+        coreMotionManagerStub.accelerometerHander?(発射モーション加速度成功データ, CustomError.other(message: "加速度ダミーエラー"))
+        XCTAssertFalse(isFireMotionDetectedCalled)
     }
 }
