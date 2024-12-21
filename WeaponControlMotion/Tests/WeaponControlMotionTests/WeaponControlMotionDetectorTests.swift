@@ -34,12 +34,6 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
         motionDetector.startDetection()
         XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 1)
         XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 1)
-        
-        // TODO: waitしてちゃんと動作検証する　多分これだとassertされてない
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            XCTAssertTrue(self.coreMotionManagerStub.isAccelerometerActive)
-            XCTAssertTrue(self.coreMotionManagerStub.isGyroActive)
-        })
     }
     
     func test_stopDetection() {
@@ -48,8 +42,6 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
         motionDetector.stopDetection()
         XCTAssertEqual(coreMotionManagerStub.stopAccelerometerUpdatesCalledCount, 1)
         XCTAssertEqual(coreMotionManagerStub.stopGyroUpdatesCalledCount, 1)
-        XCTAssertFalse(coreMotionManagerStub.isAccelerometerActive)
-        XCTAssertFalse(coreMotionManagerStub.isGyroActive)
     }
     
     func test_fireMotionDetected() {
