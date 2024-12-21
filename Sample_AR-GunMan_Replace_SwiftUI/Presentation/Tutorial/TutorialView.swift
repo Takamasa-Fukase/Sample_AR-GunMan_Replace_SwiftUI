@@ -42,14 +42,22 @@ struct TutorialView: View {
                 .clipped()
                 .background(.white)
                 
-                Spacer()
-                    .frame(height: 30)
+                HStack(alignment: .center, spacing: 0) {
+                    ForEach(0..<TutorialConst.contents.count, id: \.self) { index in
+                        Circle()
+                            .frame(width: 8, height: 8)
+                            .foregroundStyle(index == 0 ? Color.paper : Color(.lightGray))
+                            .clipped()
+                            .padding(.all, 4)
+                    }
+                }
+                .frame(height: 30)
                 
                 Button {
                     
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundStyle(Color.goldLeaf.opacity(0.7))
+                        .foregroundStyle(Color.goldLeaf)
                         .frame(width: 150, height: 65, alignment: .center)
                         .overlay {
                             Text("NEXT")
