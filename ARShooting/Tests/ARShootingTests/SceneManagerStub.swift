@@ -9,8 +9,6 @@ import Foundation
 import ARKit
 @testable import ARShooting
 
-final class DummySceneView: ARSCNView {}
-
 final class SceneManagerStub: SceneManagerInterface {
     var runSessionCalledCount = 0
     var pauseSessionCalledCount = 0
