@@ -35,7 +35,6 @@ struct SettingsView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(.pink)
             
             underlineButton(title: "Back", fontSize: 36) {
                 viewModel.backButtonTapped()
@@ -52,7 +51,6 @@ struct SettingsView: View {
         }
     }
     
-    // TODO: サイズをUIKit版と同じにする
     private func underlineButton(
         title: String,
         fontSize: CGFloat,
@@ -65,8 +63,8 @@ struct SettingsView: View {
                 .foregroundStyle(Color.blackSteel)
                 .font(.custom("Copperplate Bold", size: fontSize))
                 .underline()
-//                .background(.yellow)
         }
+        .frame(maxHeight: .infinity)
     }
 }
 
