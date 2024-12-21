@@ -26,17 +26,17 @@ final class CoreMotionManagerStub: CMMotionManager {
     }
     
     override func startAccelerometerUpdates(to queue: OperationQueue, withHandler handler: @escaping CMAccelerometerHandler) {
-        accelerometerHander = { [weak self] (data, nil) in
+        accelerometerHander = { [weak self] (data, error) in
             self?.latestAccelerometerData = data
-            handler(data, nil)
+            handler(data, error)
         }
         startAccelerometerUpdatesCalledCount += 1
     }
     
     override func startGyroUpdates(to queue: OperationQueue, withHandler handler: @escaping CMGyroHandler) {
-        gyroHander = { [weak self] (data, nil) in
+        gyroHander = { [weak self] (data, error) in
             self?.latestGyroData = data
-            handler(data, nil)
+            handler(data, error)
         }
         startGyroUpdatesCalledCount += 1
     }
