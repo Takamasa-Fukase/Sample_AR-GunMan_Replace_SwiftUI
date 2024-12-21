@@ -23,11 +23,11 @@ final class WeaponDataSource {
                 sightImageName: "pistol_sight",
                 sightImageColorType: .red,
                 bulletsCountImageBaseName: "pistol_bullets_",
-                showingSound: .pistolSet,
-                firingSound: .pistolShoot,
+                appearingSound: .pistolAppear,
+                firingSound: .pistolFire,
                 reloadingSound: .pistolReload,
-                outOfBulletsSound: .pistolOutBullets,
-                targetHitSound: nil
+                outOfBulletsSound: .pistolOutOfBullets,
+                bulletHitSound: nil
             )
         ),
         .init(
@@ -44,11 +44,11 @@ final class WeaponDataSource {
                 sightImageName: "bazooka_sight",
                 sightImageColorType: .green,
                 bulletsCountImageBaseName: "bazooka_bullets_",
-                showingSound: .bazookaSet,
-                firingSound: .bazookaShoot,
+                appearingSound: .bazookaAppear,
+                firingSound: .bazookaFire,
                 reloadingSound: .bazookaReload,
                 outOfBulletsSound: nil,
-                targetHitSound: .bazookaHit
+                bulletHitSound: .bazookaExplosion
             )
         )
     ]

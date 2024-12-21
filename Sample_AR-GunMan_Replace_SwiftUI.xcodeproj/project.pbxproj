@@ -35,20 +35,20 @@
 		BCFB7A7D2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A7C2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift */; };
 		BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A892CF9F70E0018649D /* TopView.swift */; };
 		BCFB7A8C2CF9FA0F0018649D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A8B2CF9FA0F0018649D /* GameView.swift */; };
-		BCFB7A9E2CF9FA4A0018649D /* bazookaHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8D2CF9FA490018649D /* bazookaHit.mp3 */; };
-		BCFB7A9F2CF9FA4A0018649D /* bazookaReload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8E2CF9FA490018649D /* bazookaReload.mp3 */; };
-		BCFB7AA02CF9FA4A0018649D /* bazookaSet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8F2CF9FA490018649D /* bazookaSet.mp3 */; };
-		BCFB7AA12CF9FA4A0018649D /* bazookaShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A902CF9FA490018649D /* bazookaShoot.mp3 */; };
-		BCFB7AA22CF9FA4A0018649D /* endWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A912CF9FA490018649D /* endWhistle.mp3 */; };
-		BCFB7AA32CF9FA4A0018649D /* headShot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A922CF9FA490018649D /* headShot.mp3 */; };
-		BCFB7AA42CF9FA4A0018649D /* kyuiin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A932CF9FA490018649D /* kyuiin.mp3 */; };
-		BCFB7AA52CF9FA4A0018649D /* pistol-fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A942CF9FA490018649D /* pistol-fire.mp3 */; };
-		BCFB7AA62CF9FA4A0018649D /* pistol-out-bullets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A952CF9FA490018649D /* pistol-out-bullets.mp3 */; };
-		BCFB7AA72CF9FA4A0018649D /* pistol-reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A962CF9FA490018649D /* pistol-reload.mp3 */; };
-		BCFB7AA82CF9FA4A0018649D /* pistol-slide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A972CF9FA490018649D /* pistol-slide.mp3 */; };
-		BCFB7AA92CF9FA4A0018649D /* rankingAppear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A982CF9FA490018649D /* rankingAppear.mp3 */; };
-		BCFB7AAA2CF9FA4A0018649D /* startWhistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A992CF9FA490018649D /* startWhistle.mp3 */; };
-		BCFB7AAB2CF9FA4A0018649D /* westernPistolShoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */; };
+		BCFB7A9E2CF9FA4A0018649D /* bazooka_explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8D2CF9FA490018649D /* bazooka_explosion.mp3 */; };
+		BCFB7A9F2CF9FA4A0018649D /* bazooka_reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8E2CF9FA490018649D /* bazooka_reload.mp3 */; };
+		BCFB7AA02CF9FA4A0018649D /* bazooka_appear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A8F2CF9FA490018649D /* bazooka_appear.mp3 */; };
+		BCFB7AA12CF9FA4A0018649D /* bazooka_fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A902CF9FA490018649D /* bazooka_fire.mp3 */; };
+		BCFB7AA22CF9FA4A0018649D /* end_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A912CF9FA490018649D /* end_whistle.mp3 */; };
+		BCFB7AA32CF9FA4A0018649D /* target_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A922CF9FA490018649D /* target_hit.mp3 */; };
+		BCFB7AA42CF9FA4A0018649D /* target_appearance_change.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A932CF9FA490018649D /* target_appearance_change.mp3 */; };
+		BCFB7AA52CF9FA4A0018649D /* pistol_fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A942CF9FA490018649D /* pistol_fire.mp3 */; };
+		BCFB7AA62CF9FA4A0018649D /* pistol_out_of_bullets.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A952CF9FA490018649D /* pistol_out_of_bullets.mp3 */; };
+		BCFB7AA72CF9FA4A0018649D /* pistol_reload.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A962CF9FA490018649D /* pistol_reload.mp3 */; };
+		BCFB7AA82CF9FA4A0018649D /* pistol_appear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A972CF9FA490018649D /* pistol_appear.mp3 */; };
+		BCFB7AA92CF9FA4A0018649D /* ranking_appear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A982CF9FA490018649D /* ranking_appear.mp3 */; };
+		BCFB7AAA2CF9FA4A0018649D /* start_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A992CF9FA490018649D /* start_whistle.mp3 */; };
+		BCFB7AAB2CF9FA4A0018649D /* western_pistol_fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A9A2CF9FA490018649D /* western_pistol_fire.mp3 */; };
 		BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */; };
 		BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7AB02CFA04D20018649D /* GameViewModel.swift */; };
 		BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7ABC2CFA05C80018649D /* Weapon.swift */; };
@@ -126,20 +126,20 @@
 		BCFB7A7C2CF9F6260018649D /* Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BCFB7A892CF9F70E0018649D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		BCFB7A8B2CF9FA0F0018649D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		BCFB7A8D2CF9FA490018649D /* bazookaHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaHit.mp3; sourceTree = "<group>"; };
-		BCFB7A8E2CF9FA490018649D /* bazookaReload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaReload.mp3; sourceTree = "<group>"; };
-		BCFB7A8F2CF9FA490018649D /* bazookaSet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaSet.mp3; sourceTree = "<group>"; };
-		BCFB7A902CF9FA490018649D /* bazookaShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazookaShoot.mp3; sourceTree = "<group>"; };
-		BCFB7A912CF9FA490018649D /* endWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endWhistle.mp3; sourceTree = "<group>"; };
-		BCFB7A922CF9FA490018649D /* headShot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = headShot.mp3; sourceTree = "<group>"; };
-		BCFB7A932CF9FA490018649D /* kyuiin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kyuiin.mp3; sourceTree = "<group>"; };
-		BCFB7A942CF9FA490018649D /* pistol-fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-fire.mp3"; sourceTree = "<group>"; };
-		BCFB7A952CF9FA490018649D /* pistol-out-bullets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-out-bullets.mp3"; sourceTree = "<group>"; };
-		BCFB7A962CF9FA490018649D /* pistol-reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-reload.mp3"; sourceTree = "<group>"; };
-		BCFB7A972CF9FA490018649D /* pistol-slide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pistol-slide.mp3"; sourceTree = "<group>"; };
-		BCFB7A982CF9FA490018649D /* rankingAppear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rankingAppear.mp3; sourceTree = "<group>"; };
-		BCFB7A992CF9FA490018649D /* startWhistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startWhistle.mp3; sourceTree = "<group>"; };
-		BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = westernPistolShoot.mp3; sourceTree = "<group>"; };
+		BCFB7A8D2CF9FA490018649D /* bazooka_explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazooka_explosion.mp3; sourceTree = "<group>"; };
+		BCFB7A8E2CF9FA490018649D /* bazooka_reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazooka_reload.mp3; sourceTree = "<group>"; };
+		BCFB7A8F2CF9FA490018649D /* bazooka_appear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazooka_appear.mp3; sourceTree = "<group>"; };
+		BCFB7A902CF9FA490018649D /* bazooka_fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bazooka_fire.mp3; sourceTree = "<group>"; };
+		BCFB7A912CF9FA490018649D /* end_whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end_whistle.mp3; sourceTree = "<group>"; };
+		BCFB7A922CF9FA490018649D /* target_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = target_hit.mp3; sourceTree = "<group>"; };
+		BCFB7A932CF9FA490018649D /* target_appearance_change.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = target_appearance_change.mp3; sourceTree = "<group>"; };
+		BCFB7A942CF9FA490018649D /* pistol_fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pistol_fire.mp3; sourceTree = "<group>"; };
+		BCFB7A952CF9FA490018649D /* pistol_out_of_bullets.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pistol_out_of_bullets.mp3; sourceTree = "<group>"; };
+		BCFB7A962CF9FA490018649D /* pistol_reload.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pistol_reload.mp3; sourceTree = "<group>"; };
+		BCFB7A972CF9FA490018649D /* pistol_appear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pistol_appear.mp3; sourceTree = "<group>"; };
+		BCFB7A982CF9FA490018649D /* ranking_appear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ranking_appear.mp3; sourceTree = "<group>"; };
+		BCFB7A992CF9FA490018649D /* start_whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = start_whistle.mp3; sourceTree = "<group>"; };
+		BCFB7A9A2CF9FA490018649D /* western_pistol_fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = western_pistol_fire.mp3; sourceTree = "<group>"; };
 		BCFB7AAE2CF9FD420018649D /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		BCFB7AB02CFA04D20018649D /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		BCFB7ABC2CFA05C80018649D /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
@@ -347,20 +347,20 @@
 		BCFB7A9B2CF9FA490018649D /* mp3 */ = {
 			isa = PBXGroup;
 			children = (
-				BCFB7A8D2CF9FA490018649D /* bazookaHit.mp3 */,
-				BCFB7A8E2CF9FA490018649D /* bazookaReload.mp3 */,
-				BCFB7A8F2CF9FA490018649D /* bazookaSet.mp3 */,
-				BCFB7A902CF9FA490018649D /* bazookaShoot.mp3 */,
-				BCFB7A912CF9FA490018649D /* endWhistle.mp3 */,
-				BCFB7A922CF9FA490018649D /* headShot.mp3 */,
-				BCFB7A932CF9FA490018649D /* kyuiin.mp3 */,
-				BCFB7A942CF9FA490018649D /* pistol-fire.mp3 */,
-				BCFB7A952CF9FA490018649D /* pistol-out-bullets.mp3 */,
-				BCFB7A962CF9FA490018649D /* pistol-reload.mp3 */,
-				BCFB7A972CF9FA490018649D /* pistol-slide.mp3 */,
-				BCFB7A982CF9FA490018649D /* rankingAppear.mp3 */,
-				BCFB7A992CF9FA490018649D /* startWhistle.mp3 */,
-				BCFB7A9A2CF9FA490018649D /* westernPistolShoot.mp3 */,
+				BCFB7A8D2CF9FA490018649D /* bazooka_explosion.mp3 */,
+				BCFB7A8E2CF9FA490018649D /* bazooka_reload.mp3 */,
+				BCFB7A8F2CF9FA490018649D /* bazooka_appear.mp3 */,
+				BCFB7A902CF9FA490018649D /* bazooka_fire.mp3 */,
+				BCFB7A912CF9FA490018649D /* end_whistle.mp3 */,
+				BCFB7A922CF9FA490018649D /* target_hit.mp3 */,
+				BCFB7A932CF9FA490018649D /* target_appearance_change.mp3 */,
+				BCFB7A942CF9FA490018649D /* pistol_fire.mp3 */,
+				BCFB7A952CF9FA490018649D /* pistol_out_of_bullets.mp3 */,
+				BCFB7A962CF9FA490018649D /* pistol_reload.mp3 */,
+				BCFB7A972CF9FA490018649D /* pistol_appear.mp3 */,
+				BCFB7A982CF9FA490018649D /* ranking_appear.mp3 */,
+				BCFB7A992CF9FA490018649D /* start_whistle.mp3 */,
+				BCFB7A9A2CF9FA490018649D /* western_pistol_fire.mp3 */,
 			);
 			path = mp3;
 			sourceTree = "<group>";
@@ -596,24 +596,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCFB7AA82CF9FA4A0018649D /* pistol-slide.mp3 in Resources */,
-				BCFB7AAA2CF9FA4A0018649D /* startWhistle.mp3 in Resources */,
-				BCFB7AA62CF9FA4A0018649D /* pistol-out-bullets.mp3 in Resources */,
-				BCFB7A9E2CF9FA4A0018649D /* bazookaHit.mp3 in Resources */,
-				BCFB7AAB2CF9FA4A0018649D /* westernPistolShoot.mp3 in Resources */,
-				BCFB7AA72CF9FA4A0018649D /* pistol-reload.mp3 in Resources */,
-				BCFB7A9F2CF9FA4A0018649D /* bazookaReload.mp3 in Resources */,
-				BCFB7AA42CF9FA4A0018649D /* kyuiin.mp3 in Resources */,
+				BCFB7AA82CF9FA4A0018649D /* pistol_appear.mp3 in Resources */,
+				BCFB7AAA2CF9FA4A0018649D /* start_whistle.mp3 in Resources */,
+				BCFB7AA62CF9FA4A0018649D /* pistol_out_of_bullets.mp3 in Resources */,
+				BCFB7A9E2CF9FA4A0018649D /* bazooka_explosion.mp3 in Resources */,
+				BCFB7AAB2CF9FA4A0018649D /* western_pistol_fire.mp3 in Resources */,
+				BCFB7AA72CF9FA4A0018649D /* pistol_reload.mp3 in Resources */,
+				BCFB7A9F2CF9FA4A0018649D /* bazooka_reload.mp3 in Resources */,
+				BCFB7AA42CF9FA4A0018649D /* target_appearance_change.mp3 in Resources */,
 				BC3908C22D0F272A001AF829 /* WeaponSelectViewController.xib in Resources */,
-				BCFB7AA32CF9FA4A0018649D /* headShot.mp3 in Resources */,
+				BCFB7AA32CF9FA4A0018649D /* target_hit.mp3 in Resources */,
 				BC3908BF2D0F272A001AF829 /* WeaponSelectCell.xib in Resources */,
 				BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */,
 				BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */,
-				BCFB7AA22CF9FA4A0018649D /* endWhistle.mp3 in Resources */,
-				BCFB7AA92CF9FA4A0018649D /* rankingAppear.mp3 in Resources */,
-				BCFB7AA52CF9FA4A0018649D /* pistol-fire.mp3 in Resources */,
-				BCFB7AA12CF9FA4A0018649D /* bazookaShoot.mp3 in Resources */,
-				BCFB7AA02CF9FA4A0018649D /* bazookaSet.mp3 in Resources */,
+				BCFB7AA22CF9FA4A0018649D /* end_whistle.mp3 in Resources */,
+				BCFB7AA92CF9FA4A0018649D /* ranking_appear.mp3 in Resources */,
+				BCFB7AA52CF9FA4A0018649D /* pistol_fire.mp3 in Resources */,
+				BCFB7AA12CF9FA4A0018649D /* bazooka_fire.mp3 in Resources */,
+				BCFB7AA02CF9FA4A0018649D /* bazooka_appear.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,7 +72,7 @@ final class GameViewModel {
         reloadWeapon()
         reloadingMotionDetecedCount += 1
         if reloadingMotionDetecedCount == 20 {
-            playSound.send(.kyuiin)
+            playSound.send(.targetAppearanceChange)
             arControllerInputEvent.send(.changeTargetsAppearance(imageName: "taimeisan.jpg"))
         }
     }
@@ -97,10 +97,10 @@ final class GameViewModel {
         // 100を超えない様に更新する
         score = min(score + randomlyAdjustedHitPoint, 100.0)
         
-        playSound.send(.headShot)
+        playSound.send(.targetHit)
         
-        if let targetHitSound = currentWeaponData?.resources.targetHitSound {
-            playSound.send(targetHitSound)
+        if let bulletHitSound = currentWeaponData?.resources.bulletHitSound {
+            playSound.send(bulletHitSound)
         }
     }
     
@@ -112,7 +112,7 @@ final class GameViewModel {
         arControllerInputEvent.send(.showWeaponObject(weaponId: currentWeaponData.id))
         
 //        if isCheckedTutorialCompletedFlag {
-        playSound.send(currentWeaponData.resources.showingSound)
+        playSound.send(currentWeaponData.resources.appearingSound)
 //        }
     }
     
@@ -124,7 +124,7 @@ final class GameViewModel {
             onFired: { response in
                 currentWeaponData?.state.bulletsCount = response.bulletsCount
                 arControllerInputEvent.send(.renderWeaponFiring)
-                playSound.send(currentWeaponData?.resources.firingSound ?? .pistolShoot)
+                playSound.send(currentWeaponData?.resources.firingSound ?? .pistolFire)
                 
                 if response.needsAutoReload {
                     // リロードを自動的に実行

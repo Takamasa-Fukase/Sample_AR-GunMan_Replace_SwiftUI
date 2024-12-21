@@ -45,11 +45,11 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 sightImageName: weapon.resources.sightImageName,
                 sightImageColorType: weapon.resources.sightImageColorType,
                 bulletsCountImageBaseName: weapon.resources.bulletsCountImageBaseName,
-                showingSound: weapon.resources.showingSound,
+                appearingSound: weapon.resources.appearingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,
                 outOfBulletsSound: weapon.resources.outOfBulletsSound,
-                targetHitSound: weapon.resources.targetHitSound
+                bulletHitSound: weapon.resources.bulletHitSound
             ),
             state: .init(
                 bulletsCount: weapon.spec.capacity,
@@ -73,11 +73,11 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
                 sightImageName: weapon.resources.sightImageName,
                 sightImageColorType: weapon.resources.sightImageColorType,
                 bulletsCountImageBaseName: weapon.resources.bulletsCountImageBaseName,
-                showingSound: weapon.resources.showingSound,
+                appearingSound: weapon.resources.appearingSound,
                 firingSound: weapon.resources.firingSound,
                 reloadingSound: weapon.resources.reloadingSound,
                 outOfBulletsSound: weapon.resources.outOfBulletsSound,
-                targetHitSound: weapon.resources.targetHitSound
+                bulletHitSound: weapon.resources.bulletHitSound
             ),
             state: .init(
                 bulletsCount: weapon.spec.capacity,

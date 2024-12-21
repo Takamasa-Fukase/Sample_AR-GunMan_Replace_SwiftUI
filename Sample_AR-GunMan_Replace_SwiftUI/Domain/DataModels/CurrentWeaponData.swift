@@ -25,11 +25,11 @@ struct CurrentWeaponData {
         let sightImageName: String
         let sightImageColorType: ColorType
         let bulletsCountImageBaseName: String
-        let showingSound: SoundType
+        let appearingSound: SoundType
         let firingSound: SoundType
         let reloadingSound: SoundType
         let outOfBulletsSound: SoundType?
-        let targetHitSound: SoundType?
+        let bulletHitSound: SoundType?
     }
     
     struct State {

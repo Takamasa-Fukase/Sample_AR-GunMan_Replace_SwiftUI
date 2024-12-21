@@ -39,7 +39,7 @@ final class TopViewModel {
     }
     
     private func switchButtonIconAndRevert(type: IconButtonType) {
-        playSound.send(.westernPistolShoot)
+        playSound.send(.westernPistolFire)
         
         switch type {
         case .start:
