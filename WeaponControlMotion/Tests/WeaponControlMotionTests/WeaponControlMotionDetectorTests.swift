@@ -35,6 +35,7 @@ final class WeaponControlMotionDetectorTests: XCTestCase {
         XCTAssertEqual(coreMotionManagerStub.startAccelerometerUpdatesCalledCount, 1)
         XCTAssertEqual(coreMotionManagerStub.startGyroUpdatesCalledCount, 1)
         
+        // TODO: waitしてちゃんと動作検証する　多分これだとassertされてない
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             XCTAssertTrue(self.coreMotionManagerStub.isAccelerometerActive)
             XCTAssertTrue(self.coreMotionManagerStub.isGyroActive)
