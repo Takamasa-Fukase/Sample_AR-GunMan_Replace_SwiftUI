@@ -13,6 +13,9 @@ struct TutorialView: View {
             let scrollViewSize = scrollViewSize(safeAreaSize: geometry.size)
             
             VStack(alignment: .center, spacing: 0) {
+                Spacer()
+                    .frame(height: 20)
+                
                 ContentFrameTrackableScrollView(
                     scrollDirections: .horizontal,
                     showsIndicator: false,
@@ -37,9 +40,30 @@ struct TutorialView: View {
                     height: scrollViewSize.height
                 )
                 .clipped()
+                .background(.white)
+                
+                Spacer()
+                    .frame(height: 30)
+                
+                Button {
+                    
+                } label: {
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundStyle(Color.goldLeaf.opacity(0.7))
+                        .frame(width: 150, height: 65, alignment: .center)
+                        .overlay {
+                            Text("NEXT")
+                                .font(.custom("Copperplate Bold", size: 25))
+                                .foregroundStyle(Color.blackSteel)
+                        }
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.customDarkBrown, lineWidth: 1)
+                        }
+                }
             }
-            .padding(.top, 20)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.black.opacity(0.4))
         }
     }
     
