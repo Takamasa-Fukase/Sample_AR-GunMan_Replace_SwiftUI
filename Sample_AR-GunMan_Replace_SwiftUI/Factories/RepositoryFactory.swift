@@ -15,4 +15,8 @@ final class RepositoryFactory {
     static func create() -> TutorialRepositoryInterface {
         return TutorialRepository()
     }
+    
+    static func create() -> PermissionRepositoryInterface {
+        return PermissionRepository()
+    }
 }

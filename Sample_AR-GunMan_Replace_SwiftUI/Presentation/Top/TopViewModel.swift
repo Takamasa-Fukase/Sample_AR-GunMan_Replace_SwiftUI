@@ -25,6 +25,12 @@ final class TopViewModel {
     var isTutorialViewPresented = false
     
     let playSound = PassthroughSubject<SoundType, Never>()
+    
+    private let cameraUsagePermissionHandlingUseCase: CameraUsagePermissionHandlingUseCaseInterface
+    
+    init(cameraUsagePermissionHandlingUseCase: CameraUsagePermissionHandlingUseCaseInterface) {
+        self.cameraUsagePermissionHandlingUseCase = cameraUsagePermissionHandlingUseCase
+    }
 
     func startButtonTapped() {
         switchButtonIconAndRevert(type: .start)
@@ -66,5 +72,9 @@ final class TopViewModel {
                 self.isTutorialViewPresented = true
             }
         })
+    }
+    
+    private func checkCameraUsagePermission() {
+        
     }
 }

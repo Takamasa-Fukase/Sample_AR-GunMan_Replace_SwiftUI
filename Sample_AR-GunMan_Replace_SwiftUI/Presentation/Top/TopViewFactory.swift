@@ -9,6 +9,9 @@ import Foundation
 
 final class TopViewFactory {
     static func create() -> TopView {
-        return TopView(viewModel: TopViewModel())
+        let viewModel = TopViewModel(
+            cameraUsagePermissionHandlingUseCase: UseCaseFactory.create()
+        )
+        return TopView(viewModel: viewModel)
     }
 }

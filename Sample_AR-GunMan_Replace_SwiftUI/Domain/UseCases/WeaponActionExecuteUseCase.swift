@@ -36,7 +36,7 @@ struct WeaponReloadEndedResponse {
 }
 
 final class WeaponActionExecuteUseCase {
-    let weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface
+    private let weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface
     
     init(weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface) {
         self.weaponStatusCheckUseCase = weaponStatusCheckUseCase

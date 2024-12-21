@@ -11,7 +11,7 @@ import CoreMotion
 public final class WeaponControlMotionDetector {
     public var fireMotionDetected: (() -> Void)?
     public var reloadMotionDetected: (() -> Void)?
-    private var coreMotionManager: CMMotionManager
+    private let coreMotionManager: CMMotionManager
     
     public init() {
         coreMotionManager = CMMotionManager()

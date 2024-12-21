@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Foundation
-import AVFoundation
 
 struct TopView: View {
     @State var viewModel: TopViewModel
@@ -77,8 +76,6 @@ struct TopView: View {
         }
         .background(Color.goldLeaf)
         .onAppear {
-            // カメラ（ARで使用）へのアクセス許可をユーザーにリクエストするダイアログを表示
-            AVCaptureDevice.requestAccess(for: .video) { _ in }
             // TODO: 後で直す
             let soundPlayer = SoundPlayer.shared
         }
@@ -127,5 +124,5 @@ struct TopView: View {
 }
 
 #Preview {
-    TopView(viewModel: TopViewModel())
+    TopViewFactory.create()
 }

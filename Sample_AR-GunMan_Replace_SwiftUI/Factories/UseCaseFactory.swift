@@ -27,4 +27,8 @@ final class UseCaseFactory {
     static func create() -> WeaponActionExecuteUseCaseInterface {
         return WeaponActionExecuteUseCase(weaponStatusCheckUseCase: create())
     }
+    
+    static func create() -> CameraUsagePermissionHandlingUseCaseInterface {
+        return CameraUsagePermissionHandlingUseCase(permissionRepository: RepositoryFactory.create())
+    }
 }

@@ -27,6 +27,9 @@
 		BC79D4862D1432CC008D4D8B /* WeaponSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4852D1432CC008D4D8B /* WeaponSelectViewModel.swift */; };
 		BC79D4882D143867008D4D8B /* WeaponSelectViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
+		BCEA71FC2D16C22C006BEA65 /* PermissionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */; };
+		BCEA71FE2D16C254006BEA65 /* PermissionRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */; };
+		BCEA72002D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FF2D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
 		BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A662CF9F6250018649D /* Preview Assets.xcassets */; };
@@ -115,6 +118,9 @@
 		BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectViewFactory.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShooting */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShooting; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
+		BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRepository.swift; sourceTree = "<group>"; };
+		BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRepositoryInterface.swift; sourceTree = "<group>"; };
+		BCEA71FF2D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermissionHandlingUseCase.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
 		BCFB7A632CF9F6250018649D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -398,6 +404,7 @@
 			children = (
 				BCFB7ABE2CFA05C80018649D /* TutorialRepositoryInterface.swift */,
 				BCFB7ABF2CFA05C80018649D /* WeaponRepositoryInterface.swift */,
+				BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */,
 			);
 			path = RepositoryInterfaces;
 			sourceTree = "<group>";
@@ -410,6 +417,7 @@
 				BCFB7AC42CFA05C80018649D /* WeaponActionExecuteUseCase.swift */,
 				BCFB7AC52CFA05C80018649D /* WeaponResourceGetUseCase.swift */,
 				BCFB7AC62CFA05C80018649D /* WeaponStatusCheckUseCase.swift */,
+				BCEA71FF2D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -430,6 +438,7 @@
 			children = (
 				BCFB7ACA2CFA05C90018649D /* TutorialRepository.swift */,
 				BCFB7ACB2CFA05C90018649D /* WeaponRepository.swift */,
+				BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -741,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCEA71FE2D16C254006BEA65 /* PermissionRepositoryInterface.swift in Sources */,
 				BCFB7AF72CFA09130018649D /* RepositoryFactory.swift in Sources */,
 				BCFB7AD42CFA05C90018649D /* TutorialUseCase.swift in Sources */,
 				BC79D4862D1432CC008D4D8B /* WeaponSelectViewModel.swift in Sources */,
@@ -750,6 +760,7 @@
 				BCFB7AD22CFA05C90018649D /* WeaponRepositoryInterface.swift in Sources */,
 				BC3908C42D0F283C001AF829 /* NSObject+Extension.swift in Sources */,
 				BC3908BE2D0F272A001AF829 /* WeaponSelectViewController.swift in Sources */,
+				BCEA72002D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift in Sources */,
 				BCFB7ADA2CFA05C90018649D /* TutorialRepository.swift in Sources */,
 				BCFB7AE12CFA06870018649D /* ColorTypeConverter.swift in Sources */,
 				BCFB7AE62CFA070A0018649D /* SoundType.swift in Sources */,
@@ -768,6 +779,7 @@
 				BCFB7AD12CFA05C90018649D /* TutorialRepositoryInterface.swift in Sources */,
 				BCFB7AD02CFA05C90018649D /* Weapon.swift in Sources */,
 				BCFB7ADF2CFA063D0018649D /* UserDefaults+Extension.swift in Sources */,
+				BCEA71FC2D16C22C006BEA65 /* PermissionRepository.swift in Sources */,
 				BCFB7A8C2CF9FA0F0018649D /* GameView.swift in Sources */,
 				BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */,
 				BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */,

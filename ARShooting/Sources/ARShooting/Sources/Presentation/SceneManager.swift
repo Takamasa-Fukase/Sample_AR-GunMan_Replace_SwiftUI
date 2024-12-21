@@ -19,8 +19,8 @@ protocol SceneManagerInterface {
 
 final class SceneManager: NSObject {
     var targetHit: (() -> Void)?
-    private var sceneView: ARSCNView
-    private var loadedWeaponDataList: [LoadedWeaponObjectData] = []
+    private let sceneView: ARSCNView
+    private var loadedWeaponDataList = [LoadedWeaponObjectData]()
     private let originalBulletNode = SceneNodeUtil.originalBulletNode()
     private var currentWeaponId: Int = 0
     
