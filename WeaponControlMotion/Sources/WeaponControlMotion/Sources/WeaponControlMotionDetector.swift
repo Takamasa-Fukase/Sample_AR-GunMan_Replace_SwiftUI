@@ -48,8 +48,8 @@ public final class WeaponControlMotionDetector {
         
         coreMotionManager.startAccelerometerUpdates(to: operationQueue) { [weak self] data, error in
             if let error = error { print(error); return }
-            guard let acceleration = data?.acceleration else { return }
-            guard let latestGyro = self?.coreMotionManager.gyroData?.rotationRate else { return }
+            guard let acceleration = data?.acceleration,
+                  let latestGyro = self?.coreMotionManager.gyroData?.rotationRate else { return }
             
             DeviceMotionFilter.accelerationUpdated(
                 acceleration: acceleration,
