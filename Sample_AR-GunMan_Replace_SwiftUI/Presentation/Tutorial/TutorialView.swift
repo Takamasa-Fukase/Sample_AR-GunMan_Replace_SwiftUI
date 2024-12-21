@@ -36,8 +36,8 @@ struct TutorialView: View {
                                 }
                             }
                         },
-                        onScroll: { frame in
-                            
+                        onScroll: { contentFrame in
+                            viewModel.onScroll(contentFrame)
                         }
                     )
                     // ページング可能にする（ピッタリ止まる）
