@@ -41,8 +41,12 @@ struct TutorialView: View {
                     width: scrollViewSize.width,
                     height: scrollViewSize.height
                 )
-                .clipped()
                 .background(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.goldLeaf, lineWidth: 5)
+                }
                 
                 // ページコントロール
                 HStack(alignment: .center, spacing: 0) {
