@@ -35,6 +35,7 @@
 		BCEA72062D16EEF9006BEA65 /* TutorialScrollViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA72052D16EEF9006BEA65 /* TutorialScrollViewItem.swift */; };
 		BCEA72082D16F710006BEA65 /* CenterPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA72072D16F710006BEA65 /* CenterPreviewView.swift */; };
 		BCEA720B2D16F834006BEA65 /* TutorialConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA720A2D16F834006BEA65 /* TutorialConst.swift */; };
+		BCEA720D2D1708F2006BEA65 /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA720C2D1708F2006BEA65 /* TutorialViewModel.swift */; };
 		BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */; };
 		BCFB7A642CF9F6250018649D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A632CF9F6250018649D /* Assets.xcassets */; };
 		BCFB7A672CF9F6250018649D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCFB7A662CF9F6250018649D /* Preview Assets.xcassets */; };
@@ -131,6 +132,7 @@
 		BCEA72052D16EEF9006BEA65 /* TutorialScrollViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScrollViewItem.swift; sourceTree = "<group>"; };
 		BCEA72072D16F710006BEA65 /* CenterPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterPreviewView.swift; sourceTree = "<group>"; };
 		BCEA720A2D16F834006BEA65 /* TutorialConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialConst.swift; sourceTree = "<group>"; };
+		BCEA720C2D1708F2006BEA65 /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		BCFB7A5C2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample_AR-GunMan_Replace_SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample_AR_GunMan_Replace_SwiftUIApp.swift; sourceTree = "<group>"; };
 		BCFB7A632CF9F6250018649D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		BC39094B2D107830001AF829 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				BCEA720C2D1708F2006BEA65 /* TutorialViewModel.swift */,
 				BCEA72012D16E28D006BEA65 /* TutorialView.swift */,
 				BCEA72052D16EEF9006BEA65 /* TutorialScrollViewItem.swift */,
 			);
@@ -800,6 +803,7 @@
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCEA72062D16EEF9006BEA65 /* TutorialScrollViewItem.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
+				BCEA720D2D1708F2006BEA65 /* TutorialViewModel.swift in Sources */,
 				BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
 				BC3909462D104F04001AF829 /* Color+Extension.swift in Sources */,

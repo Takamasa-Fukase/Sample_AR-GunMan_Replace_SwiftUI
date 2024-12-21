@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TutorialView: View {
+    let viewModel = TutorialViewModel()
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         GeometryReader { geometry in
             let scrollViewSize = scrollViewSize(safeAreaSize: geometry.size)
@@ -16,44 +19,55 @@ struct TutorialView: View {
                 Spacer()
                     .frame(height: 20)
                 
-                // 横向きのスクロールビュー（PagerView的な）
-                ContentFrameTrackableScrollView(
-                    scrollDirections: .horizontal,
-                    showsIndicator: false,
-                    content: {
-                        HStack(spacing: 0) {
-                            ForEach(TutorialConst.contents) { content in
-                                TutorialScrollViewItem(content: content)
-                                    .frame(
-                                        width: scrollViewSize.width,
-                                        height: scrollViewSize.height
-                                    )
+                ScrollViewReader { proxy in
+                    // 横向きのスクロールビュー（PagerView的な）
+                    ContentFrameTrackableScrollView(
+                        scrollDirections: .horizontal,
+                        showsIndicator: false,
+                        content: {
+                            HStack(spacing: 0) {
+                                ForEach(Array(viewModel.contents.enumerated()), id: \.offset) { index, content in
+                                    TutorialScrollViewItem(content: content)
+                                        .id(index) // 指定したページにスクロールできる様に識別idを付与
+                                        .frame(
+                                            width: scrollViewSize.width,
+                                            height: scrollViewSize.height
+                                        )
+                                }
                             }
+                        },
+                        onScroll: { frame in
+                            
                         }
-                    },
-                    onScroll: { frame in
-                        
+                    )
+                    // ページング可能にする（ピッタリ止まる）
+                    .scrollTargetBehavior(.paging)
+                    .frame(
+                        width: scrollViewSize.width,
+                        height: scrollViewSize.height
+                    )
+                    .background(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.goldLeaf, lineWidth: 5)
                     }
-                )
-                // ページング可能にする（ピッタリ止まる）
-                .scrollTargetBehavior(.paging)
-                .frame(
-                    width: scrollViewSize.width,
-                    height: scrollViewSize.height
-                )
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay {
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.goldLeaf, lineWidth: 5)
+                    .onReceive(viewModel.scrollToPageIndex) { pageIndex in
+                        // 受け取ったpageIndexまでアニメーション付きでスクロールさせる
+                        withAnimation {
+                            proxy.scrollTo(pageIndex)
+                        }
+                    }
                 }
                 
                 // ページコントロール
                 HStack(alignment: .center, spacing: 0) {
-                    ForEach(0..<TutorialConst.contents.count, id: \.self) { index in
+                    ForEach(0..<viewModel.contents.count, id: \.self) { index in
                         Circle()
                             .frame(width: 8, height: 8)
-                            .foregroundStyle(index == 0 ? Color.paper : Color(.lightGray))
+                            .foregroundStyle(
+                                index == viewModel.currentPageIndex ? Color.paper : Color(.lightGray)
+                            )
                             .clipped()
                             .padding(.all, 4)
                     }
@@ -62,13 +76,13 @@ struct TutorialView: View {
                 
                 // 画面下部のボタン（NEXT or OK）
                 Button {
-                    
+                    viewModel.buttonTapped()
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundStyle(Color.goldLeaf)
                         .frame(width: 150, height: 65, alignment: .center)
                         .overlay {
-                            Text("NEXT")
+                            Text(viewModel.buttonTitle)
                                 .font(.custom("Copperplate Bold", size: 25))
                                 .foregroundStyle(Color.blackSteel)
                         }
@@ -80,6 +94,9 @@ struct TutorialView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black.opacity(0.4))
+        }
+        .onReceive(viewModel.dismiss) { _ in
+            dismiss()
         }
     }
     
