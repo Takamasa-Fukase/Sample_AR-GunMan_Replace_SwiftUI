@@ -16,6 +16,7 @@ struct TutorialView: View {
                 Spacer()
                     .frame(height: 20)
                 
+                // 横向きのスクロールビュー（PagerView的な）
                 ContentFrameTrackableScrollView(
                     scrollDirections: .horizontal,
                     showsIndicator: false,
@@ -34,6 +35,7 @@ struct TutorialView: View {
                         
                     }
                 )
+                // ページング可能にする（ピッタリ止まる）
                 .scrollTargetBehavior(.paging)
                 .frame(
                     width: scrollViewSize.width,
@@ -42,6 +44,7 @@ struct TutorialView: View {
                 .clipped()
                 .background(.white)
                 
+                // ページコントロール
                 HStack(alignment: .center, spacing: 0) {
                     ForEach(0..<TutorialConst.contents.count, id: \.self) { index in
                         Circle()
@@ -53,6 +56,7 @@ struct TutorialView: View {
                 }
                 .frame(height: 30)
                 
+                // 画面下部のボタン（NEXT or OK）
                 Button {
                     
                 } label: {
@@ -80,14 +84,6 @@ struct TutorialView: View {
             width: safeAreaSize.height * 0.685 * 1.33,
             height: safeAreaSize.height * 0.685
         )
-    }
-    
-    private func scrollViewItem(scrollViewSize: CGSize) -> some View {
-        Spacer()
-            .frame(
-                width: scrollViewSize.width,
-                height: scrollViewSize.height
-            )
     }
 }
 
