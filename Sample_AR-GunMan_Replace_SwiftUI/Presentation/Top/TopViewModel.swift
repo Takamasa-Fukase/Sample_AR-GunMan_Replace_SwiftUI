@@ -20,6 +20,7 @@ final class TopViewModel {
     private(set) var isStartButtonIconSwitched = false
     private(set) var isSettingsButtonIconSwitched = false
     private(set) var isHowToPlayButtonIconSwitched = false
+    var isPermissionRequiredAlertPresented = false
     var isGameViewPresented = false
     var isSettingsViewPresented = false
     var isTutorialViewPresented = false
@@ -30,6 +31,10 @@ final class TopViewModel {
     
     init(cameraUsagePermissionHandlingUseCase: CameraUsagePermissionHandlingUseCaseInterface) {
         self.cameraUsagePermissionHandlingUseCase = cameraUsagePermissionHandlingUseCase
+    }
+    
+    func onViewAppear() {
+        cameraUsagePermissionHandlingUseCase.requestPermission()
     }
 
     func startButtonTapped() {
@@ -60,8 +65,13 @@ final class TopViewModel {
             switch type {
             case .start:
                 self.isStartButtonIconSwitched = false
-                self.isGameViewPresented = true
-                // TODO: checkCameraUsagePermissionに変える
+                
+                let isCameraPermissionGranted = self.cameraUsagePermissionHandlingUseCase.checkGrantedFlag()
+                if isCameraPermissionGranted {
+                    self.isGameViewPresented = true
+                }else {
+                    self.isPermissionRequiredAlertPresented = true
+                }
                 
             case .settings:
                 self.isSettingsButtonIconSwitched = false
@@ -72,9 +82,5 @@ final class TopViewModel {
                 self.isTutorialViewPresented = true
             }
         })
-    }
-    
-    private func checkCameraUsagePermission() {
-        
     }
 }

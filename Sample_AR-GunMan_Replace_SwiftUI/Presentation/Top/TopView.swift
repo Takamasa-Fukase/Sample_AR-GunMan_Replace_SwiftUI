@@ -65,22 +65,36 @@ struct TopView: View {
                 // ゲーム画面への遷移
                 GameViewFactory.create(frame: geometry.frame(in: .global))
             }
-            .sheet(isPresented: $viewModel.isSettingsViewPresented) {
-                // 設定画面への遷移
-                SettingsViewFactory.create()
-            }
-            .sheet(isPresented: $viewModel.isTutorialViewPresented) {
-                // チュートリアル画面への遷移
-                
-            }
         }
         .background(Color.goldLeaf)
         .onAppear {
+            viewModel.onViewAppear()
+
             // TODO: 後で直す
             let soundPlayer = SoundPlayer.shared
         }
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
+        }
+        .alert(
+            "Camera Permission Required",
+            isPresented: $viewModel.isPermissionRequiredAlertPresented,
+            actions: {
+                Button("Yes") {
+                    openDeviceSettings()
+                }
+                Button("Not now", role: .cancel) {}
+            },
+            message: {
+                Text("Camera Permission is required to play this game.\nDo you want to change your settings?")
+            })
+        .sheet(isPresented: $viewModel.isSettingsViewPresented) {
+            // 設定画面への遷移
+            SettingsViewFactory.create()
+        }
+        .sheet(isPresented: $viewModel.isTutorialViewPresented) {
+            // チュートリアル画面への遷移
+            
         }
     }
     
@@ -120,6 +134,14 @@ struct TopView: View {
             Image(systemName: "target")
                 .resizable()
         }
+    }
+    
+    private func openDeviceSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        // 設定アプリを開く
+        UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
     }
 }
 
