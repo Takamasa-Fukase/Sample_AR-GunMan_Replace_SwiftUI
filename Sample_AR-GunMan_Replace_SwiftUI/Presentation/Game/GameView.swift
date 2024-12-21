@@ -44,13 +44,19 @@ struct GameView: View {
             
             // SwiftUIViewコンテンツ部分
             VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    Text(viewModel.timeCount.timeCountText)
-                        .font(.system(size: 32))
-                        .frame(width: 120, height: 60, alignment: .center)
-                        .foregroundStyle(Color(.systemBackground))
-                        .background(Color(.label))
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                HStack(alignment: .top, spacing: 0) {
+                    RoundedRectangle(cornerRadius: 6)
+                        .foregroundStyle(Color.goldLeaf.opacity(0.7))
+                        .frame(width: 120, height: 50, alignment: .center)
+                        .overlay {
+                            Text(viewModel.timeCount.timeCountText)
+                                .font(.system(size: 35))
+                                .foregroundStyle(Color.paper)
+                        }
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(Color.customDarkBrown.opacity(0.7), lineWidth: 3)
+                        }
                     
                     Spacer()
                     
@@ -65,6 +71,9 @@ struct GameView: View {
                             .frame(width: 100, height: 100)
                     }
                 }
+                .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 12))
+                
+                Spacer()
                 
                 Image("pistol_sight")
                     .renderingMode(.template)
@@ -73,11 +82,13 @@ struct GameView: View {
                     .frame(width: 100, height: 100)
                     .foregroundStyle(.red)
                 
-                HStack(alignment: .bottom, spacing: 0) {
+                Spacer()
+                
+                HStack(spacing: 0) {
                     Image(viewModel.currentWeaponData?.bulletsCountImageName() ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 80, alignment: .bottom)
+                        .frame(width: 210, height: 70, alignment: .bottom)
                     
                     Spacer()
                 }
