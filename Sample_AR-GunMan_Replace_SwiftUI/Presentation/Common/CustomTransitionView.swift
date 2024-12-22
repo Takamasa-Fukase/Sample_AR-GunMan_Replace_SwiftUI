@@ -7,40 +7,47 @@
 
 import SwiftUI
 
-struct CustomModalPresenter<Content: View>: View {
+struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     @Binding var isPresented: Bool
     let dismissOnBackgroundTap: Bool
     let onDismiss: (() -> Void)?
-    let content: Content
+    let modalContent: ModalContent
     
     init(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)?,
-        @ViewBuilder content: (() -> Content)
+        @ViewBuilder modalContent: (() -> ModalContent)
     ) {
         self._isPresented = Binding<Bool>(projectedValue: isPresented)
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
         self.onDismiss = onDismiss
-        self.content = content()
+        self.modalContent = modalContent()
     }
     
-    var body: some View {
-        if isPresented {
-            content.modifier(
-                CustomModalModifier(
-                    dismissOnBackgroundTap: true,
-                    onDismiss: {
-                        onDismiss?()
-                        isPresented = false
-                    })
-            )
+    func body(content: Content) -> some View {
+        ZStack {
+            Color.blue.opacity(0.0)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            content
+            
+            if isPresented {
+                modalContent.modifier(
+                    CustomModalModifier(
+                        dismissOnBackgroundTap: dismissOnBackgroundTap,
+                        onDismiss: {
+                            onDismiss?()
+                            isPresented = false
+                        })
+                )
+            }
         }
     }
 }
 
 struct CustomModalModifier: ViewModifier {
-    var dismissOnBackgroundTap = false
+    var dismissOnBackgroundTap = true
     var onDismiss: (() -> Void)?
     @State private var backgroundOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
@@ -96,27 +103,27 @@ struct CustomModalModifier: ViewModifier {
 }
 
 extension View {
-    func showCustomModal<Content: View>(
+    func showCustomModal<ModalContent: View>(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder content: (() -> Content)
+        @ViewBuilder modalContent: (() -> ModalContent)
     ) -> some View {
-        return CustomModalPresenter<Content>(
+        modifier(CustomModalPresenter(
             isPresented: isPresented,
             dismissOnBackgroundTap: dismissOnBackgroundTap,
             onDismiss: onDismiss,
-            content: content
-        )
+            modalContent: modalContent
+        ))
     }
 }
 
 struct CustomModalTestView: View {
-    @State var isPresented = false
+    @State var isPresented = true
     
     var body: some View {
         ZStack(alignment: .center, content: {
-            Color.goldLeaf
+            Color.green
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button(action: {
@@ -124,7 +131,9 @@ struct CustomModalTestView: View {
             }, label: {
                 Text("show")
             })
+            .zIndex(1.0)
         })
+        .background(.purple)
         .ignoresSafeArea()
         .showCustomModal(
             isPresented: $isPresented,
@@ -135,6 +144,7 @@ struct CustomModalTestView: View {
                     .foregroundStyle(.orange)
                     .frame(width: 400, height: 300)
                     .presentationBackground(.clear)
+                    .zIndex(0)
             }
     }
 }
