@@ -92,7 +92,7 @@ struct TutorialView: View {
                         }
                 }
             }
-
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onReceive(viewModel.dismiss) { _ in
             dismiss()

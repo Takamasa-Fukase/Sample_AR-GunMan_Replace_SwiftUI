@@ -26,7 +26,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        ZStack {
+        ZStack(alignment: .center) {
             // モーダル表示元のビュー
             content
             
@@ -54,7 +54,7 @@ struct CustomModalModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         GeometryReader { geometry in
-            ZStack(alignment: .top) {
+            ZStack(alignment: .center) {
                 Color.black
                     .opacity(backgroundOpacity)
                     .ignoresSafeArea()
