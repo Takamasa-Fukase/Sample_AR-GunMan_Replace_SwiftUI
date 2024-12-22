@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TutorialView: View {
     let viewModel = TutorialViewModel()
-    @Environment(\.dismiss) private var dismiss
+    let dismissRequestHandler: DismissRequestHandler
     
     var body: some View {
         GeometryReader { geometry in
@@ -85,11 +85,11 @@ struct TutorialView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onReceive(viewModel.dismiss) { _ in
-            dismiss()
+            dismissRequestHandler.subject.send(())
         }
     }
 }
 
 #Preview {
-    TutorialView()
+    TutorialView(dismissRequestHandler: DismissRequestHandler())
 }

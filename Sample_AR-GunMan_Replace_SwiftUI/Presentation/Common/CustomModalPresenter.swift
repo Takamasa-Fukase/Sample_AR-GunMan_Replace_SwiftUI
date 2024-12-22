@@ -6,23 +6,30 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     @Binding var isPresented: Bool
     let dismissOnBackgroundTap: Bool
     let onDismiss: (() -> Void)?
     let modalContent: ModalContent
+    let dismissRequestHandler = DismissRequestHandler()
+//    private let dismissRequestCalled = PassthroughSubject<Void, Never>()
     
     init(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)?,
-        @ViewBuilder modalContent: (() -> ModalContent)
+        @ViewBuilder modalContent: ((DismissRequestHandler) -> ModalContent)
     ) {
         self._isPresented = isPresented
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
         self.onDismiss = onDismiss
-        self.modalContent = modalContent()
+        self.modalContent = modalContent(dismissRequestHandler)
+    }
+    
+    func hoge() {
+        
     }
     
     func body(content: Content) -> some View {
@@ -39,7 +46,9 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
                             onDismiss: {
                                 onDismiss?()
                                 isPresented = false
-                            })
+                            },
+                            dismissRequestCalled: dismissRequestHandler.subject
+                        )
                     )
             }
         }
@@ -49,6 +58,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
 struct CustomModalModifier: ViewModifier {
     let dismissOnBackgroundTap: Bool
     let onDismiss: (() -> Void)?
+    let dismissRequestCalled: PassthroughSubject<Void, Never>
     @State private var backgroundOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
     
@@ -73,8 +83,13 @@ struct CustomModalModifier: ViewModifier {
             .onAppear {
                 animate(isAppearing: true, geometry)
             }
-            .onDisappear {
-                onDismiss?()
+//            .onDisappear {
+//                onDismiss?()
+//            }
+            .onReceive(dismissRequestCalled) {
+                animate(isAppearing: false, geometry) {
+                    onDismiss?()
+                }
             }
         }
         .ignoresSafeArea()
@@ -102,12 +117,16 @@ struct CustomModalModifier: ViewModifier {
     }
 }
 
+final class DismissRequestHandler {
+    let subject = PassthroughSubject<Void, Never>()
+}
+
 extension View {
     func showCustomModal<ModalContent: View>(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder modalContent: (() -> ModalContent)
+        @ViewBuilder modalContent: ((DismissRequestHandler) -> ModalContent)
     ) -> some View {
         modifier(CustomModalPresenter(
             isPresented: isPresented,
@@ -137,7 +156,7 @@ struct CustomModalTestView: View {
             isPresented: $isPresented,
             onDismiss: {
                 
-            }) {
+            }) { dismissRequest in
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.orange)
                     .frame(width: 400, height: 300)

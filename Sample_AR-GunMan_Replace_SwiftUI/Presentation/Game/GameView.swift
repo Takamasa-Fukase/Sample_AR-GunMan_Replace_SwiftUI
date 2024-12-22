@@ -125,14 +125,15 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
-            // チュートリアルの完了を通知
-            viewModel.tutorialEnded()
-        }) {
-            // チュートリアル画面への遷移
-            TutorialView()
-                .presentationBackground(.clear) // sheetの背景を透過
-        }
+//        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
+//            // チュートリアルの完了を通知
+//            viewModel.tutorialEnded()
+//        }) {
+//            // チュートリアル画面への遷移
+//            TutorialView(isPresented: $viewModel.isTutorialViewPresented)
+//            // sheetの背景を透過
+//            .presentationBackground(.clear)
+//        }
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
             // 武器選択画面に遷移
             WeaponSelectViewFactory.create(weaponSelected: { weaponId in
