@@ -7,21 +7,45 @@
 
 import SwiftUI
 
-struct CustomTransitionView<Content: View>: View {
-    let onTap: (() -> Void)
+struct CustomModalPresenter<Content: View>: View {
+    @Binding var isPresented: Bool
+    let dismissOnBackgroundTap: Bool
+    let onDismiss: (() -> Void)?
     let content: Content
-    @State private var backgroundOpacity: CGFloat = 0.0
-    @State private var contentOffsetY: CGFloat = 0.0
     
     init(
-        onTap: @escaping (() -> Void),
-        @ViewBuilder content: () -> Content
+        isPresented: Binding<Bool>,
+        dismissOnBackgroundTap: Bool = true,
+        onDismiss: (() -> Void)?,
+        @ViewBuilder content: (() -> Content)
     ) {
-        self.onTap = onTap
+        self._isPresented = Binding<Bool>(projectedValue: isPresented)
+        self.dismissOnBackgroundTap = dismissOnBackgroundTap
+        self.onDismiss = onDismiss
         self.content = content()
     }
     
     var body: some View {
+        if isPresented {
+            content.modifier(
+                CustomModalModifier(
+                    dismissOnBackgroundTap: true,
+                    onDismiss: {
+                        onDismiss?()
+                        isPresented = false
+                    })
+            )
+        }
+    }
+}
+
+struct CustomModalModifier: ViewModifier {
+    var dismissOnBackgroundTap = false
+    var onDismiss: (() -> Void)?
+    @State private var backgroundOpacity: CGFloat = 0.0
+    @State private var contentOffsetY: CGFloat = 0.0
+    
+    func body(content: Content) -> some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
                 Color.black
@@ -29,8 +53,10 @@ struct CustomTransitionView<Content: View>: View {
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onTapGesture(perform: {
-                        animate(isAppearing: false, geometry) {
-                            onTap()
+                        if dismissOnBackgroundTap {
+                            animate(isAppearing: false, geometry) {
+                                onDismiss?()
+                            }
                         }
                     })
                 
@@ -39,6 +65,9 @@ struct CustomTransitionView<Content: View>: View {
             }
             .onAppear {
                 animate(isAppearing: true, geometry)
+            }
+            .onDisappear {
+                onDismiss?()
             }
         }
         .ignoresSafeArea()
@@ -66,7 +95,23 @@ struct CustomTransitionView<Content: View>: View {
     }
 }
 
-struct TestView: View {
+extension View {
+    func showCustomModal<Content: View>(
+        isPresented: Binding<Bool>,
+        dismissOnBackgroundTap: Bool = true,
+        onDismiss: (() -> Void)? = nil,
+        @ViewBuilder content: (() -> Content)
+    ) -> some View {
+        return CustomModalPresenter<Content>(
+            isPresented: isPresented,
+            dismissOnBackgroundTap: dismissOnBackgroundTap,
+            onDismiss: onDismiss,
+            content: content
+        )
+    }
+}
+
+struct CustomModalTestView: View {
     @State var isPresented = false
     
     var body: some View {
@@ -79,37 +124,21 @@ struct TestView: View {
             }, label: {
                 Text("show")
             })
-            
-            if isPresented {
-                CustomTransitionView(
-                    onTap: {
-                        isPresented = false
-                    },
-                    content: {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundStyle(.white)
-                            .frame(width: 400, height: 300)
-                    }
-                )
-            }
         })
         .ignoresSafeArea()
+        .showCustomModal(
+            isPresented: $isPresented,
+            onDismiss: {
+                
+            }) {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundStyle(.orange)
+                    .frame(width: 400, height: 300)
+                    .presentationBackground(.clear)
+            }
     }
 }
 
 #Preview {
-    CustomTransitionView(
-        onTap: {
-            
-        },
-        content: {
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundStyle(.white)
-                .frame(width: 400, height: 300)
-        }
-    )
-}
-
-#Preview {
-    TestView()
+    CustomModalTestView()
 }
