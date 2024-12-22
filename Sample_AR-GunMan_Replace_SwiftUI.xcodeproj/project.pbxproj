@@ -21,6 +21,7 @@
 		BC39094A2D1057AF001AF829 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909492D1057AF001AF829 /* TopViewModel.swift */; };
 		BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094D2D10F42B001AF829 /* SettingsView.swift */; };
 		BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */; };
+		BC469FB32D18463000DFA407 /* CustomModalPresentDummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FB22D18463000DFA407 /* CustomModalPresentDummyView.swift */; };
 		BC79D4802D142ED9008D4D8B /* TopViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */; };
 		BC79D4822D142F74008D4D8B /* GameViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4812D142F74008D4D8B /* GameViewFactory.swift */; };
 		BC79D4842D142FBB008D4D8B /* SettingsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */; };
@@ -120,6 +121,7 @@
 		BC3909492D1057AF001AF829 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		BC39094D2D10F42B001AF829 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		BC469FB22D18463000DFA407 /* CustomModalPresentDummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalPresentDummyView.swift; sourceTree = "<group>"; };
 		BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4812D142F74008D4D8B /* GameViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewFactory.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */,
 				BC7CAC952D17C938009E6D31 /* CustomModalPresenter.swift */,
 				BC7CAC972D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift */,
+				BC469FB22D18463000DFA407 /* CustomModalPresentDummyView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				BCFB7ADF2CFA063D0018649D /* UserDefaults+Extension.swift in Sources */,
 				BCEA720B2D16F834006BEA65 /* TutorialConst.swift in Sources */,
 				BCEA71FC2D16C22C006BEA65 /* PermissionRepository.swift in Sources */,
+				BC469FB32D18463000DFA407 /* CustomModalPresentDummyView.swift in Sources */,
 				BCFB7A8C2CF9FA0F0018649D /* GameView.swift in Sources */,
 				BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */,
 				BCFB7AAF2CF9FD420018649D /* Double+Extension.swift in Sources */,
