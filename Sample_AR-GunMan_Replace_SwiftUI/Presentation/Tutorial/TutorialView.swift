@@ -10,6 +10,7 @@ import SwiftUI
 struct TutorialView: View {
     let viewModel = TutorialViewModel()
     var dismissRequestReceiver: DismissRequestReceiver?
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         GeometryReader { geometry in
@@ -86,6 +87,7 @@ struct TutorialView: View {
         }
         .onReceive(viewModel.dismiss) { _ in
             dismissRequestReceiver?.subject.send(())
+            dismiss()
         }
         .onAppear {
             print("TutorialView onAppear")
