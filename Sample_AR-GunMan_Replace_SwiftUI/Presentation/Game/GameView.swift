@@ -125,6 +125,14 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
+        .sheet(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
+            // チュートリアルの完了を通知
+            viewModel.tutorialEnded()
+        }) {
+            // チュートリアル画面への遷移
+            TutorialView()
+                .presentationBackground(.clear) // sheetの背景を透過
+        }
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
             // 武器選択画面に遷移
             WeaponSelectViewFactory.create(weaponSelected: { weaponId in
@@ -133,6 +141,10 @@ struct GameView: View {
             // sheetの背景を透過
             .presentationBackground(.clear)
             .ignoresSafeArea()
+        }
+        .sheet(isPresented: $viewModel.isResultViewPresented) {
+            // 結果画面に遷移
+            
         }
     }
     

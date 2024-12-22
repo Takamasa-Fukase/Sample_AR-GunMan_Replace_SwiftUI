@@ -25,18 +25,22 @@ final class GameViewModel {
     
     private(set) var timeCount: Double = 30.00
     private(set) var currentWeaponData: CurrentWeaponData?
+    
+    var isTutorialViewPresented = false
     var isWeaponSelectViewPresented = false
+    var isResultViewPresented = false
     
     let arControllerInputEvent = PassthroughSubject<ARControllerInputEventType, Never>()
     let motionDetectorInputEvent = PassthroughSubject<MotionDetectorInputEventType, Never>()
     let playSound = PassthroughSubject<SoundType, Never>()
-        
+    
     private let tutorialUseCase: TutorialUseCaseInterface
     private let gameTimerCreateUseCase: GameTimerCreateUseCaseInterface
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
-    
-    @ObservationIgnored private var score: Double = 0.0
+
+    @ObservationIgnored var score: Double = 0.0
+    @ObservationIgnored private var isCheckedTutorialCompletedFlag = false
     @ObservationIgnored private var reloadingMotionDetecedCount: Int = 0
     
     init(
@@ -62,12 +66,26 @@ final class GameViewModel {
         }
         
         arControllerInputEvent.send(.runSceneSession)
-        motionDetectorInputEvent.send(.startDeviceMotionDetection)
+        
+        if !isCheckedTutorialCompletedFlag {
+            isCheckedTutorialCompletedFlag = true
+            
+            let isTutorialCompleted = tutorialUseCase.checkCompletedFlag()
+            if isTutorialCompleted {
+                waitAndCreateTimer()
+            }else {
+                isTutorialViewPresented = true
+            }
+        }
     }
     
     func onViewDisappear() {
         arControllerInputEvent.send(.pauseSceneSession)
-        motionDetectorInputEvent.send(.stopDeviceMotionDetection)
+    }
+    
+    func tutorialEnded() {
+        tutorialUseCase.updateCompletedFlag(isCompleted: true)
+        waitAndCreateTimer()
     }
     
     func fireMotionDetected() {
@@ -117,9 +135,39 @@ final class GameViewModel {
         guard let currentWeaponData = self.currentWeaponData else { return }
         arControllerInputEvent.send(.showWeaponObject(weaponId: currentWeaponData.id))
         
-//        if isCheckedTutorialCompletedFlag {
+        if isCheckedTutorialCompletedFlag {
+            playSound.send(currentWeaponData.resources.appearingSound)
+        }
+    }
+    
+    private func waitAndCreateTimer() {
+        guard let currentWeaponData = self.currentWeaponData else { return }
         playSound.send(currentWeaponData.resources.appearingSound)
-//        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            let request = GameTimerCreateRequest(
+                initialTimeCount: 30.00,
+                updateInterval: 0.01
+            )
+            self?.gameTimerCreateUseCase.execute(
+                request: request,
+                onTimerStarted: { [weak self] response in
+                    self?.playSound.send(response.startWhistleSound)
+                    self?.motionDetectorInputEvent.send(.startDeviceMotionDetection)
+                },
+                onTimerUpdated: { [weak self] response in
+                    self?.timeCount = response.timeCount
+                },
+                onTimerEnded: { [weak self] response in
+                    self?.playSound.send(response.endWhistleSound)
+                    self?.motionDetectorInputEvent.send(.stopDeviceMotionDetection)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+                        self?.playSound.send(response.rankingAppearSound)
+                        self?.isResultViewPresented = true
+                    })
+                })
+        })
     }
     
     private func fireWeapon() {
