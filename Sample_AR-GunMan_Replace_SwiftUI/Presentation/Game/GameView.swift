@@ -125,18 +125,7 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-//        .sheet(
-//            isPresented: $viewModel.isTutorialViewPresented,
-//            onDismiss: {
-//                // チュートリアルの完了を通知
-//                viewModel.tutorialEnded()
-//            }
-//        ) {
-//            // チュートリアル画面への遷移
-//            TutorialView()
-//            // sheetの背景を透過
-//            .presentationBackground(.clear)
-//        }
+        // チュートリアル画面への遷移
         .sheet(
             isPresented: $viewModel.isTutorialViewPresented,
             onDismiss: {
@@ -144,13 +133,17 @@ struct GameView: View {
                 viewModel.tutorialEnded()
             }
         ) {
-            // チュートリアル画面への遷移
-            CustomModalPresentDummyView()
+            ZStack(alignment: .center) {
+                Color.black.opacity(0.7)
+                UIBlurEffectViewRepresentable()
+                TutorialView()
+            }
+            .ignoresSafeArea()
             // sheetの背景を透過
             .presentationBackground(.clear)
         }
+        // 武器選択画面に遷移
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
-            // 武器選択画面に遷移
             WeaponSelectViewFactory.create(weaponSelected: { weaponId in
                 viewModel.weaponSelected(weaponId: weaponId)
             })
@@ -158,8 +151,8 @@ struct GameView: View {
             .presentationBackground(.clear)
             .ignoresSafeArea()
         }
+        // 結果画面に遷移
         .sheet(isPresented: $viewModel.isResultViewPresented) {
-            // 結果画面に遷移
             
         }
     }
