@@ -94,7 +94,10 @@ struct TopView: View {
         }
         .showCustomModal(isPresented: $viewModel.isTutorialViewPresented) { dismissRequestReceiver in
             // チュートリアル画面への遷移
-            TutorialView(dismissRequestReceiver: dismissRequestReceiver)
+            TutorialView(
+                // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
+                dismissRequestReceiver: dismissRequestReceiver
+            )
             // sheetの背景を透過
             .presentationBackground(.clear)
         }

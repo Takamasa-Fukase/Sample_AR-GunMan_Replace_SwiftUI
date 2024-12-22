@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+// モーダル表示コンテンツ内部からのdismissリクエストを受け取る為のレシーバー
 final class DismissRequestReceiver {
     let subject = PassthroughSubject<Void, Never>()
 }
@@ -28,6 +29,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
         self._isPresented = isPresented
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
         self.onDismiss = onDismiss
+        // modalContentにレシーバーを受け渡し
         self.modalContent = modalContent(dismissRequestReceiver)
     }
     
