@@ -39,6 +39,7 @@ final class GameViewModel {
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
     private let timerPauseController = GameTimerCreateRequest.PauseController()
+    private let weaponReloadCanceller = WeaponReloadCanceller()
 
     @ObservationIgnored var score: Double = 0.0
     @ObservationIgnored private var isCheckedTutorialCompletedFlag = false
@@ -103,12 +104,17 @@ final class GameViewModel {
     }
     
     func weaponChangeButtonTapped() {
+        // 武器選択中はタイムカウントの更新を止める
         timerPauseController.isPaused = true
         isWeaponSelectViewPresented = true
     }
     
     func weaponSelected(weaponId: Int) {
+        // タイムカウントの更新を再開する
         timerPauseController.isPaused = false
+        // 既存のリロードをキャンセルする
+        weaponReloadCanceller.isCancelled = true
+        
         do {
             let selectedWeaponData = try weaponResourceGetUseCase.getWeaponDetail(of: weaponId)
             showSelectedWeapon(selectedWeaponData)
@@ -197,11 +203,15 @@ final class GameViewModel {
     }
     
     private func reloadWeapon() {
+        // falseにリセット
+        weaponReloadCanceller.isCancelled = false
+        
         weaponActionExecuteUseCase.reloadWeapon(
             bulletsCount: currentWeaponData?.state.bulletsCount ?? 0,
             isReloading: currentWeaponData?.state.isReloading ?? false,
             capacity: currentWeaponData?.spec.capacity ?? 0,
             reloadWaitingTime: currentWeaponData?.spec.reloadWaitingTime ?? 0,
+            reloadCanceller: weaponReloadCanceller,
             onReloadStarted: { response in
                 currentWeaponData?.state.isReloading = response.isReloading
                 playSound.send(currentWeaponData?.resources.reloadingSound ?? .pistolReload)

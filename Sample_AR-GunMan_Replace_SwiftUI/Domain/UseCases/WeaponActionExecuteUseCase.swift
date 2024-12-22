@@ -17,8 +17,13 @@ protocol WeaponActionExecuteUseCaseInterface {
                       isReloading: Bool,
                       capacity: Int,
                       reloadWaitingTime: TimeInterval,
+                      reloadCanceller: WeaponReloadCanceller,
                       onReloadStarted: ((WeaponReloadStartedResponse) -> Void),
                       onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void))
+}
+
+final class WeaponReloadCanceller {
+    var isCancelled = false
 }
 
 struct WeaponFireCompletedResponse {
@@ -60,7 +65,7 @@ extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
         }
     }
     
-    func reloadWeapon(bulletsCount: Int, isReloading: Bool, capacity: Int, reloadWaitingTime: TimeInterval, onReloadStarted: ((WeaponReloadStartedResponse) -> Void), onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void)) {
+    func reloadWeapon(bulletsCount: Int, isReloading: Bool, capacity: Int, reloadWaitingTime: TimeInterval, reloadCanceller: WeaponReloadCanceller, onReloadStarted: ((WeaponReloadStartedResponse) -> Void), onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void)) {
         let canReload = weaponStatusCheckUseCase.checkCanReload(bulletsCount: bulletsCount, isReloading: isReloading)
         
         let refilledBulletsCount = capacity
@@ -74,7 +79,9 @@ extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
                     bulletsCount: refilledBulletsCount,
                     isReloading: false
                 )
-                onReloadEnded(endedResponse)
+                if !reloadCanceller.isCancelled {
+                    onReloadEnded(endedResponse)
+                }
             })
         }
     }
