@@ -8,28 +8,27 @@
 import SwiftUI
 import Combine
 
+final class DismissRequestReceiver {
+    let subject = PassthroughSubject<Void, Never>()
+}
+
 struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     @Binding var isPresented: Bool
     let dismissOnBackgroundTap: Bool
     let onDismiss: (() -> Void)?
     let modalContent: ModalContent
-    let dismissRequestHandler = DismissRequestHandler()
-//    private let dismissRequestCalled = PassthroughSubject<Void, Never>()
+    let dismissRequestReceiver = DismissRequestReceiver()
     
     init(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)?,
-        @ViewBuilder modalContent: ((DismissRequestHandler) -> ModalContent)
+        @ViewBuilder modalContent: ((DismissRequestReceiver) -> ModalContent)
     ) {
         self._isPresented = isPresented
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
         self.onDismiss = onDismiss
-        self.modalContent = modalContent(dismissRequestHandler)
-    }
-    
-    func hoge() {
-        
+        self.modalContent = modalContent(dismissRequestReceiver)
     }
     
     func body(content: Content) -> some View {
@@ -47,7 +46,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
                                 onDismiss?()
                                 isPresented = false
                             },
-                            dismissRequestCalled: dismissRequestHandler.subject
+                            dismissRequestCalled: dismissRequestReceiver.subject
                         )
                     )
             }
@@ -117,16 +116,12 @@ struct CustomModalModifier: ViewModifier {
     }
 }
 
-final class DismissRequestHandler {
-    let subject = PassthroughSubject<Void, Never>()
-}
-
 extension View {
     func showCustomModal<ModalContent: View>(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
         onDismiss: (() -> Void)? = nil,
-        @ViewBuilder modalContent: ((DismissRequestHandler) -> ModalContent)
+        @ViewBuilder modalContent: ((DismissRequestReceiver) -> ModalContent)
     ) -> some View {
         modifier(CustomModalPresenter(
             isPresented: isPresented,

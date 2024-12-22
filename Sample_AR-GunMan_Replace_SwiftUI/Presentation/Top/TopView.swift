@@ -92,9 +92,9 @@ struct TopView: View {
             // 設定画面への遷移
             SettingsViewFactory.create()
         }
-        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented) { dismissRequestHandler in
+        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented) { dismissRequestReceiver in
             // チュートリアル画面への遷移
-            TutorialView(dismissRequestHandler: dismissRequestHandler)
+            TutorialView(dismissRequestReceiver: dismissRequestReceiver)
             // sheetの背景を透過
             .presentationBackground(.clear)
         }
