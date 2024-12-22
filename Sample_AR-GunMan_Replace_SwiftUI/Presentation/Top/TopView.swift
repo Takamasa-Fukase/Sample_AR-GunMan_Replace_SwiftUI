@@ -61,8 +61,8 @@ struct TopView: View {
                 .padding(.trailing, 14)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            // ゲーム画面への遷移
             .sheet(isPresented: $viewModel.isGameViewPresented) {
-                // ゲーム画面への遷移
                 GameViewFactory.create(frame: geometry.frame(in: .global))
             }
         }
@@ -87,15 +87,16 @@ struct TopView: View {
             },
             message: {
                 Text("Camera Permission is required to play this game.\nDo you want to change your settings?")
-            })
+            }
+        )
+        // 設定画面への遷移
         .sheet(isPresented: $viewModel.isSettingsViewPresented) {
-            // 設定画面への遷移
             SettingsViewFactory.create()
         }
+        // チュートリアル画面への遷移
         .showCustomModal(
             isPresented: $viewModel.isTutorialViewPresented
         ) { dismissRequestReceiver in
-            // チュートリアル画面への遷移
             TutorialView(
                 // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
                 dismissRequestReceiver: dismissRequestReceiver
