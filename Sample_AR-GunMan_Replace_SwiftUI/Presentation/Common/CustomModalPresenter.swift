@@ -16,18 +16,21 @@ final class DismissRequestReceiver {
 struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     @Binding var isPresented: Bool
     let dismissOnBackgroundTap: Bool
+    let applyBlurEffectBackground: Bool
     let onDismiss: (() -> Void)?
     let modalContent: ModalContent
     let dismissRequestReceiver = DismissRequestReceiver()
     
     init(
         isPresented: Binding<Bool>,
-        dismissOnBackgroundTap: Bool = true,
+        dismissOnBackgroundTap: Bool,
+        applyBlurEffectBackground: Bool,
         onDismiss: (() -> Void)?,
         @ViewBuilder modalContent: ((DismissRequestReceiver) -> ModalContent)
     ) {
         self._isPresented = isPresented
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
+        self.applyBlurEffectBackground = applyBlurEffectBackground
         self.onDismiss = onDismiss
         // modalContentにレシーバーを受け渡し
         self.modalContent = modalContent(dismissRequestReceiver)
@@ -44,6 +47,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
                     .modifier(
                         CustomModalModifier(
                             dismissOnBackgroundTap: dismissOnBackgroundTap,
+                            applyBlurEffectBackground: applyBlurEffectBackground,
                             onDismiss: {
                                 onDismiss?()
                                 isPresented = false
@@ -58,9 +62,11 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
 
 struct CustomModalModifier: ViewModifier {
     let dismissOnBackgroundTap: Bool
+    let applyBlurEffectBackground: Bool
     let onDismiss: (() -> Void)?
     let dismissRequestReceived: PassthroughSubject<Void, Never>
     @State private var backgroundOpacity: CGFloat = 0.0
+    @State private var blurEffectOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
     
     func body(content: Content) -> some View {
@@ -79,6 +85,15 @@ struct CustomModalModifier: ViewModifier {
                         }
                     })
                 
+                // ぼかし効果のビューを表示するオプションが有効の場合のみ表示（タップ判定は無効にして透過する）
+                if applyBlurEffectBackground {
+                    UIBlurEffectViewRepresentable()
+                        .allowsHitTesting(false)
+                        .opacity(blurEffectOpacity)
+                        .ignoresSafeArea()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                                
                 // モーダル表示するコンテンツ（Y座標を表示＆非表示時でアニメーションで切り替える）
                 content
                     .offset(y: contentOffsetY)
@@ -102,6 +117,7 @@ struct CustomModalModifier: ViewModifier {
             contentOffsetY = geometry.size.height
             withAnimation(.linear(duration: duration)) {
                 backgroundOpacity = 0.7
+                blurEffectOpacity = 1.0
                 contentOffsetY = 0
             }
         }
@@ -109,6 +125,7 @@ struct CustomModalModifier: ViewModifier {
         else {
             withAnimation(.linear(duration: duration)) {
                 backgroundOpacity = 0.0
+                blurEffectOpacity = 0.0
                 contentOffsetY = geometry.size.height
             } completion: {
                 completion?()
@@ -121,12 +138,14 @@ extension View {
     func showCustomModal<ModalContent: View>(
         isPresented: Binding<Bool>,
         dismissOnBackgroundTap: Bool = true,
+        applyBlurEffectBackground: Bool = false,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder modalContent: ((DismissRequestReceiver) -> ModalContent)
     ) -> some View {
         modifier(CustomModalPresenter(
             isPresented: isPresented,
             dismissOnBackgroundTap: dismissOnBackgroundTap,
+            applyBlurEffectBackground: applyBlurEffectBackground,
             onDismiss: onDismiss,
             modalContent: modalContent
         ))

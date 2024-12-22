@@ -35,7 +35,7 @@ struct GameView: View {
     
     var body: some View {
         @Bindable var viewModel = viewModel
-
+        
         ZStack(alignment: .center) {
             // ARコンテンツ部分
             arController.view
@@ -125,15 +125,22 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-//        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
-//            // チュートリアルの完了を通知
-//            viewModel.tutorialEnded()
-//        }) {
-//            // チュートリアル画面への遷移
-//            TutorialView(isPresented: $viewModel.isTutorialViewPresented)
-//            // sheetの背景を透過
-//            .presentationBackground(.clear)
-//        }
+        .showCustomModal(
+            isPresented: $viewModel.isTutorialViewPresented,
+            applyBlurEffectBackground: true,
+            onDismiss: {
+                // チュートリアルの完了を通知
+                viewModel.tutorialEnded()
+            }
+        ) { dismissRequestReceiver in
+            // チュートリアル画面への遷移
+            TutorialView(
+                // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
+                dismissRequestReceiver: dismissRequestReceiver
+            )
+            // sheetの背景を透過
+            .presentationBackground(.clear)
+        }
         .sheet(isPresented: $viewModel.isWeaponSelectViewPresented) {
             // 武器選択画面に遷移
             WeaponSelectViewFactory.create(weaponSelected: { weaponId in

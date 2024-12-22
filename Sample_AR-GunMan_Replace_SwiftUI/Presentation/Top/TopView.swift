@@ -92,7 +92,9 @@ struct TopView: View {
             // 設定画面への遷移
             SettingsViewFactory.create()
         }
-        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented) { dismissRequestReceiver in
+        .showCustomModal(
+            isPresented: $viewModel.isTutorialViewPresented
+        ) { dismissRequestReceiver in
             // チュートリアル画面への遷移
             TutorialView(
                 // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
