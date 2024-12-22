@@ -27,20 +27,20 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
     
     func body(content: Content) -> some View {
         ZStack {
-            Color.blue.opacity(0.0)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
+            // モーダル表示元のビュー
             content
             
+            // モーダルのコンテンツを上に被せる
             if isPresented {
-                modalContent.modifier(
-                    CustomModalModifier(
-                        dismissOnBackgroundTap: dismissOnBackgroundTap,
-                        onDismiss: {
-                            onDismiss?()
-                            isPresented = false
-                        })
-                )
+                modalContent
+                    .modifier(
+                        CustomModalModifier(
+                            dismissOnBackgroundTap: dismissOnBackgroundTap,
+                            onDismiss: {
+                                onDismiss?()
+                                isPresented = false
+                            })
+                    )
             }
         }
     }
@@ -119,11 +119,11 @@ extension View {
 }
 
 struct CustomModalTestView: View {
-    @State var isPresented = true
+    @State var isPresented = false
     
     var body: some View {
         ZStack(alignment: .center, content: {
-            Color.green
+            Color.goldLeaf
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button(action: {
@@ -131,9 +131,7 @@ struct CustomModalTestView: View {
             }, label: {
                 Text("show")
             })
-            .zIndex(1.0)
         })
-        .background(.purple)
         .ignoresSafeArea()
         .showCustomModal(
             isPresented: $isPresented,
@@ -144,7 +142,6 @@ struct CustomModalTestView: View {
                     .foregroundStyle(.orange)
                     .frame(width: 400, height: 300)
                     .presentationBackground(.clear)
-                    .zIndex(0)
             }
     }
 }
