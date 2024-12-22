@@ -50,7 +50,7 @@ struct GameView: View {
                         .frame(width: 120, height: 50, alignment: .center)
                         .overlay {
                             Text(viewModel.timeCount.timeCountText)
-                                .font(.system(size: 35))
+                                .font(Font(UIFont.monospacedDigitSystemFont(ofSize: 35, weight: .regular)))
                                 .foregroundStyle(Color.paper)
                         }
                         .overlay {
