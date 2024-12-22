@@ -19,9 +19,14 @@ struct TutorialScrollViewItem: View {
             Spacer()
                 .frame(height: 10)
             
-            Image(content.imageNames[0])
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            StopMotionAnimationView(
+                updateInterval: 0.4,
+                contentList: content.imageNames.map({ imageName in
+                    AnyView(Image(imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit))
+                })
+            )
             
             Spacer()
                 .frame(height: 6)
@@ -45,7 +50,7 @@ struct TutorialScrollViewItem: View {
 #Preview {
     GeometryReader { geometry in
         let height = geometry.size.height * 0.685
-        CenterPreviewView(backgroundColor: .blue) {
+        CenterPreviewView(backgroundColor: .black) {
             TutorialScrollViewItem(content: TutorialConst.contents[0])
                 .frame(width: height * 1.33, height: height)
                 .background(.white)
