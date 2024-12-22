@@ -25,7 +25,6 @@ struct TutorialView: View {
                                     TutorialScrollViewItem(content: content)
                                         .id(index) // 指定したページにスクロールできる様に識別idを付与
                                         .frame(width: geometry.size.height * 0.65 * 1.33)
-//                                        .aspectRatio(4 / 3, contentMode: .fit)
                                 }
                             }
                         },
@@ -36,7 +35,6 @@ struct TutorialView: View {
                     // ページング可能にする（ピッタリ止まる）
                     .scrollTargetBehavior(.paging)
                     .frame(width: geometry.size.height * 0.65 * 1.33)
-//                    .aspectRatio(4 / 3, contentMode: .fit)
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay {
