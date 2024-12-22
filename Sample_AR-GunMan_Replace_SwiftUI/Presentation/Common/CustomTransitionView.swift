@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomTransitionView<Content: View>: View {
     let onTap: (() -> Void)
     let content: Content
-    @State private var backgroundColorOpacity: CGFloat = 0.0
+    @State private var backgroundOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
     
     init(
@@ -24,9 +24,8 @@ struct CustomTransitionView<Content: View>: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
-                // 背景タップで画面を閉じる為のビュー
                 Color.black
-                    .opacity(backgroundColorOpacity)
+                    .opacity(backgroundOpacity)
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onTapGesture(perform: {
@@ -51,14 +50,14 @@ struct CustomTransitionView<Content: View>: View {
         if isAppearing {
             contentOffsetY = geometry.size.height
             withAnimation(.linear(duration: duration)) {
-                backgroundColorOpacity = 0.7
+                backgroundOpacity = 0.7
                 contentOffsetY = 0
             }
         }
         // 表示終了時の処理
         else {
             withAnimation(.linear(duration: duration)) {
-                backgroundColorOpacity = 0.0
+                backgroundOpacity = 0.0
                 contentOffsetY = geometry.size.height
             } completion: {
                 completion?()
