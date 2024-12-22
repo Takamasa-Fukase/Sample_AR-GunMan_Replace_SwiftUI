@@ -46,7 +46,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
                                 onDismiss?()
                                 isPresented = false
                             },
-                            dismissRequestCalled: dismissRequestReceiver.subject
+                            dismissRequestReceived: dismissRequestReceiver.subject
                         )
                     )
             }
@@ -57,36 +57,35 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
 struct CustomModalModifier: ViewModifier {
     let dismissOnBackgroundTap: Bool
     let onDismiss: (() -> Void)?
-    let dismissRequestCalled: PassthroughSubject<Void, Never>
+    let dismissRequestReceived: PassthroughSubject<Void, Never>
     @State private var backgroundOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
     
     func body(content: Content) -> some View {
         GeometryReader { geometry in
             ZStack(alignment: .center) {
+                // 背景の半透明ビュー（画面の表示＆非表示時で透明度をアニメーションで切り替える）
                 Color.black
                     .opacity(backgroundOpacity)
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onTapGesture(perform: {
                         if dismissOnBackgroundTap {
-                            animate(isAppearing: false, geometry) {
+                            executeTransitionAnimation(isAppearing: false, geometry) {
                                 onDismiss?()
                             }
                         }
                     })
                 
+                // モーダル表示するコンテンツ（Y座標を表示＆非表示時でアニメーションで切り替える）
                 content
                     .offset(y: contentOffsetY)
             }
             .onAppear {
-                animate(isAppearing: true, geometry)
+                executeTransitionAnimation(isAppearing: true, geometry)
             }
-//            .onDisappear {
-//                onDismiss?()
-//            }
-            .onReceive(dismissRequestCalled) {
-                animate(isAppearing: false, geometry) {
+            .onReceive(dismissRequestReceived) {
+                executeTransitionAnimation(isAppearing: false, geometry) {
                     onDismiss?()
                 }
             }
@@ -94,7 +93,7 @@ struct CustomModalModifier: ViewModifier {
         .ignoresSafeArea()
     }
     
-    func animate(isAppearing: Bool, _ geometry: GeometryProxy, completion: (() -> Void)? = nil) {
+    func executeTransitionAnimation(isAppearing: Bool, _ geometry: GeometryProxy, completion: (() -> Void)? = nil) {
         let duration: TimeInterval = 0.2
         // 表示開始時の処理
         if isAppearing {
@@ -132,7 +131,9 @@ extension View {
     }
 }
 
-struct CustomModalTestView: View {
+
+// MARK: Preview用のビュー
+struct CustomModalPreviewView: View {
     @State var isPresented = false
     
     var body: some View {
@@ -161,5 +162,5 @@ struct CustomModalTestView: View {
 }
 
 #Preview {
-    CustomModalTestView()
+    CustomModalPreviewView()
 }
