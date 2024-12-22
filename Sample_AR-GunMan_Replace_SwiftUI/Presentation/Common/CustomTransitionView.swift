@@ -43,8 +43,6 @@ struct CustomTransitionView<Content: View>: View {
             }
         }
         .ignoresSafeArea()
-        // デバッグ用なので後で消す
-        .id("")
     }
     
     func animate(isAppearing: Bool, _ geometry: GeometryProxy, completion: (() -> Void)? = nil) {
