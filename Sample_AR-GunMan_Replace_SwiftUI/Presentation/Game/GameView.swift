@@ -167,21 +167,6 @@ struct GameView: View {
             
         }
     }
-    
-    private func button(
-        title: String,
-        onTap: @escaping (() -> Void)
-    ) -> some View {
-        Button {
-            onTap()
-        } label: {
-            Text(title)
-                .foregroundStyle(Color(.label))
-                .frame(width: 80, height: 40)
-                .background(.tint)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-        }
-    }
 }
 
 #Preview {
