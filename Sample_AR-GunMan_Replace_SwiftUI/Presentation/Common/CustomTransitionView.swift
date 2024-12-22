@@ -10,9 +10,7 @@ import SwiftUI
 struct CustomTransitionView<Content: View>: View {
     let onTap: (() -> Void)
     let content: Content
-    @State private var isBackgroundViewHidden = true
     @State private var contentOffsetY: CGFloat = 0
-    @State var isAppeared = false
     
     init(
         onTap: @escaping (() -> Void),
@@ -31,40 +29,34 @@ struct CustomTransitionView<Content: View>: View {
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onTapGesture(perform: {
-                        isAppeared.toggle()
-                        animate(geometry: geometry)
-                        onTap()
+                        animate(isAppearing: false, geometry: geometry) {
+                            onTap()
+                        }
                     })
                 
                 content
                     .offset(y: contentOffsetY)
             }
             .onAppear {
-                animate(geometry: geometry)
+                animate(isAppearing: true, geometry: geometry)
             }
-//            .onDisappear {
-//                withAnimation(.linear(duration: 0.5)) {
-//                    isBackgroundViewHidden = true
-//                    contentOffsetY = geometry.size.height
-//                }
-//            }
         }
         .ignoresSafeArea()
         // デバッグ用なので後で消す
         .id("")
     }
     
-    func animate(geometry: GeometryProxy) {
-        if !isAppeared {
+    func animate(isAppearing: Bool, geometry: GeometryProxy, completion: (() -> Void)? = nil) {
+        if isAppearing {
             contentOffsetY = geometry.size.height
             withAnimation(.linear(duration: 0.5)) {
-                isBackgroundViewHidden = false
                 contentOffsetY = 0
             }
         }else {
             withAnimation(.linear(duration: 0.5)) {
-                isBackgroundViewHidden = true
                 contentOffsetY = geometry.size.height
+            } completion: {
+                completion?()
             }
         }
     }
@@ -72,7 +64,6 @@ struct CustomTransitionView<Content: View>: View {
 
 struct TestView: View {
     @State var isPresented = false
-    @State var transaction = Transaction()
     
     var body: some View {
         ZStack(alignment: .center, content: {
@@ -80,30 +71,24 @@ struct TestView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button(action: {
-                transaction.disablesAnimations = true
-//                withTransaction(transaction) {
-                    isPresented = true
-//                }
+                isPresented = true
             }, label: {
                 Text("show")
             })
-        })
-        .sheet(isPresented: $isPresented) {
-            CustomTransitionView(
-                onTap: {
-                    transaction.disablesAnimations = true
-//                    withTransaction(transaction) {
+            
+            if isPresented {
+                CustomTransitionView(
+                    onTap: {
                         isPresented = false
-//                    }
-                },
-                content: {
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundStyle(.blue)
-                        .frame(width: 400, height: 300)
-                }
-            )
-            .presentationBackground(.clear)
-        }
+                    },
+                    content: {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundStyle(.blue)
+                            .frame(width: 400, height: 300)
+                    }
+                )
+            }
+        })
     }
 }
 
