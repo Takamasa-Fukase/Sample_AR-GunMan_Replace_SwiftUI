@@ -13,12 +13,7 @@ struct TutorialView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            let scrollViewSize = scrollViewSize(safeAreaSize: geometry.size)
-            
             VStack(alignment: .center, spacing: 0) {
-                Spacer()
-                    .frame(height: 20)
-                
                 ScrollViewReader { proxy in
                     // 横向きのスクロールビュー（PagerView的な）
                     ContentFrameTrackableScrollView(
@@ -29,10 +24,8 @@ struct TutorialView: View {
                                 ForEach(Array(viewModel.contents.enumerated()), id: \.offset) { index, content in
                                     TutorialScrollViewItem(content: content)
                                         .id(index) // 指定したページにスクロールできる様に識別idを付与
-                                        .frame(
-                                            width: scrollViewSize.width,
-                                            height: scrollViewSize.height
-                                        )
+                                        .frame(width: geometry.size.height * 0.65 * 1.33)
+//                                        .aspectRatio(4 / 3, contentMode: .fit)
                                 }
                             }
                         },
@@ -42,10 +35,8 @@ struct TutorialView: View {
                     )
                     // ページング可能にする（ピッタリ止まる）
                     .scrollTargetBehavior(.paging)
-                    .frame(
-                        width: scrollViewSize.width,
-                        height: scrollViewSize.height
-                    )
+                    .frame(width: geometry.size.height * 0.65 * 1.33)
+//                    .aspectRatio(4 / 3, contentMode: .fit)
                     .background(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .overlay {
@@ -92,18 +83,12 @@ struct TutorialView: View {
                         }
                 }
             }
+            .padding(EdgeInsets(top: 20, leading: 0, bottom: 24, trailing: 0))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onReceive(viewModel.dismiss) { _ in
             dismiss()
         }
-    }
-    
-    private func scrollViewSize(safeAreaSize: CGSize) -> CGSize {
-        return .init(
-            width: safeAreaSize.height * 0.685 * 1.33,
-            height: safeAreaSize.height * 0.685
-        )
     }
 }
 
