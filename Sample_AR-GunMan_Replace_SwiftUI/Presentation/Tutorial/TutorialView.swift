@@ -67,7 +67,7 @@ struct TutorialView: View {
                             }
                         }
                         
-                        // ページコントロール
+                        // ページインジケーター
                         HStack(alignment: .center, spacing: 0) {
                             ForEach(0..<viewModel.contents.count, id: \.self) { index in
                                 Circle()
