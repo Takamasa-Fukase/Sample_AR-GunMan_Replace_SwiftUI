@@ -47,8 +47,8 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
 }
 
 struct CustomModalModifier: ViewModifier {
-    var dismissOnBackgroundTap = true
-    var onDismiss: (() -> Void)?
+    let dismissOnBackgroundTap: Bool
+    let onDismiss: (() -> Void)?
     @State private var backgroundOpacity: CGFloat = 0.0
     @State private var contentOffsetY: CGFloat = 0.0
     
