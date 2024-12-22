@@ -125,19 +125,31 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-        .showCustomModal(
+//        .showCustomModal(
+//            isPresented: $viewModel.isTutorialViewPresented,
+//            applyBlurEffectBackground: true,
+//            onDismiss: {
+//                // チュートリアルの完了を通知
+//                viewModel.tutorialEnded()
+//            }
+//        ) { dismissRequestReceiver in
+//            // チュートリアル画面への遷移
+//            TutorialView(
+//                // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
+//                dismissRequestReceiver: dismissRequestReceiver
+//            )
+//            // sheetの背景を透過
+//            .presentationBackground(.clear)
+//        }
+        .sheet(
             isPresented: $viewModel.isTutorialViewPresented,
-            applyBlurEffectBackground: true,
             onDismiss: {
                 // チュートリアルの完了を通知
                 viewModel.tutorialEnded()
             }
-        ) { dismissRequestReceiver in
+        ) {
             // チュートリアル画面への遷移
-            TutorialView(
-                // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
-                dismissRequestReceiver: dismissRequestReceiver
-            )
+            TutorialView()
             // sheetの背景を透過
             .presentationBackground(.clear)
         }
