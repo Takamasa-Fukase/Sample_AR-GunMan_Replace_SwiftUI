@@ -38,6 +38,7 @@ final class GameViewModel {
     private let gameTimerCreateUseCase: GameTimerCreateUseCaseInterface
     private let weaponResourceGetUseCase: WeaponResourceGetUseCaseInterface
     private let weaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface
+    private let timerPauseController = GameTimerCreateRequest.PauseController()
 
     @ObservationIgnored var score: Double = 0.0
     @ObservationIgnored private var isCheckedTutorialCompletedFlag = false
@@ -102,10 +103,12 @@ final class GameViewModel {
     }
     
     func weaponChangeButtonTapped() {
+        timerPauseController.isPaused = true
         isWeaponSelectViewPresented = true
     }
     
     func weaponSelected(weaponId: Int) {
+        timerPauseController.isPaused = false
         do {
             let selectedWeaponData = try weaponResourceGetUseCase.getWeaponDetail(of: weaponId)
             showSelectedWeapon(selectedWeaponData)
@@ -147,7 +150,8 @@ final class GameViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
             let request = GameTimerCreateRequest(
                 initialTimeCount: 30.00,
-                updateInterval: 0.01
+                updateInterval: 0.01,
+                pauseController: self?.timerPauseController ?? .init()
             )
             self?.gameTimerCreateUseCase.execute(
                 request: request,

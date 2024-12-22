@@ -8,8 +8,12 @@
 import Foundation
 
 struct GameTimerCreateRequest {
+    final class PauseController {
+        var isPaused = false
+    }
     let initialTimeCount: Double
     let updateInterval: TimeInterval
+    let pauseController: PauseController
 }
 
 struct TimerStartedResponse {
@@ -56,8 +60,11 @@ final class GameTimerCreateUseCase: GameTimerCreateUseCaseInterface {
                 timer.invalidate()
                 return
             }
-            timeCount -= request.updateInterval
-            onTimerUpdated(TimerUpdatedResponse(timeCount: timeCount))
+            
+            if !request.pauseController.isPaused {
+                timeCount -= request.updateInterval
+                onTimerUpdated(TimerUpdatedResponse(timeCount: timeCount))
+            }
         }
     }
 }
