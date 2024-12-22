@@ -10,7 +10,8 @@ import SwiftUI
 struct CustomTransitionView<Content: View>: View {
     let onTap: (() -> Void)
     let content: Content
-    @State private var contentOffsetY: CGFloat = 0
+    @State private var backgroundColorOpacity: CGFloat = 0.0
+    @State private var contentOffsetY: CGFloat = 0.0
     
     init(
         onTap: @escaping (() -> Void),
@@ -24,12 +25,12 @@ struct CustomTransitionView<Content: View>: View {
         GeometryReader { geometry in
             ZStack(alignment: .top) {
                 // 背景タップで画面を閉じる為のビュー
-                Spacer()
-                    .background(.yellow)
+                Color.black
+                    .opacity(backgroundColorOpacity)
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .onTapGesture(perform: {
-                        animate(isAppearing: false, geometry: geometry) {
+                        animate(isAppearing: false, geometry) {
                             onTap()
                         }
                     })
@@ -38,7 +39,7 @@ struct CustomTransitionView<Content: View>: View {
                     .offset(y: contentOffsetY)
             }
             .onAppear {
-                animate(isAppearing: true, geometry: geometry)
+                animate(isAppearing: true, geometry)
             }
         }
         .ignoresSafeArea()
@@ -46,14 +47,20 @@ struct CustomTransitionView<Content: View>: View {
         .id("")
     }
     
-    func animate(isAppearing: Bool, geometry: GeometryProxy, completion: (() -> Void)? = nil) {
+    func animate(isAppearing: Bool, _ geometry: GeometryProxy, completion: (() -> Void)? = nil) {
+        let duration: TimeInterval = 0.2
+        // 表示開始時の処理
         if isAppearing {
             contentOffsetY = geometry.size.height
-            withAnimation(.linear(duration: 0.5)) {
+            withAnimation(.linear(duration: duration)) {
+                backgroundColorOpacity = 0.7
                 contentOffsetY = 0
             }
-        }else {
-            withAnimation(.linear(duration: 0.5)) {
+        }
+        // 表示終了時の処理
+        else {
+            withAnimation(.linear(duration: duration)) {
+                backgroundColorOpacity = 0.0
                 contentOffsetY = geometry.size.height
             } completion: {
                 completion?()
@@ -67,7 +74,7 @@ struct TestView: View {
     
     var body: some View {
         ZStack(alignment: .center, content: {
-            Color.green
+            Color.goldLeaf
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             Button(action: {
@@ -83,12 +90,13 @@ struct TestView: View {
                     },
                     content: {
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(.white)
                             .frame(width: 400, height: 300)
                     }
                 )
             }
         })
+        .ignoresSafeArea()
     }
 }
 
@@ -99,7 +107,7 @@ struct TestView: View {
         },
         content: {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundStyle(.blue)
+                .foregroundStyle(.white)
                 .frame(width: 400, height: 300)
         }
     )
