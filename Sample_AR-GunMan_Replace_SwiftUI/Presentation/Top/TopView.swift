@@ -92,7 +92,7 @@ struct TopView: View {
             // 設定画面への遷移
             SettingsViewFactory.create()
         }
-        .sheet(isPresented: $viewModel.isTutorialViewPresented) {
+        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented) {
             // チュートリアル画面への遷移
             TutorialView()
                 .presentationBackground(.clear) // sheetの背景を透過

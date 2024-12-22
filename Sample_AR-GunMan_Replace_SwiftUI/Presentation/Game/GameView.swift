@@ -125,7 +125,7 @@ struct GameView: View {
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
         }
-        .sheet(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
+        .showCustomModal(isPresented: $viewModel.isTutorialViewPresented, onDismiss: {
             // チュートリアルの完了を通知
             viewModel.tutorialEnded()
         }) {

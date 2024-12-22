@@ -19,7 +19,7 @@ struct CustomModalPresenter<ModalContent: View>: ViewModifier {
         onDismiss: (() -> Void)?,
         @ViewBuilder modalContent: (() -> ModalContent)
     ) {
-        self._isPresented = Binding<Bool>(projectedValue: isPresented)
+        self._isPresented = isPresented
         self.dismissOnBackgroundTap = dismissOnBackgroundTap
         self.onDismiss = onDismiss
         self.modalContent = modalContent()
