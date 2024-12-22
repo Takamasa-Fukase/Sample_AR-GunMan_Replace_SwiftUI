@@ -27,6 +27,7 @@
 		BC79D4862D1432CC008D4D8B /* WeaponSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4852D1432CC008D4D8B /* WeaponSelectViewModel.swift */; };
 		BC79D4882D143867008D4D8B /* WeaponSelectViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */; };
 		BC8935AE2D17892700E59C78 /* BackgroundTapDetectableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8935AD2D17892700E59C78 /* BackgroundTapDetectableView.swift */; };
+		BC8935B02D17983000E59C78 /* StopMotionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
 		BCEA71FC2D16C22C006BEA65 /* PermissionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */; };
 		BCEA71FE2D16C254006BEA65 /* PermissionRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */; };
@@ -124,6 +125,7 @@
 		BC79D4852D1432CC008D4D8B /* WeaponSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectViewModel.swift; sourceTree = "<group>"; };
 		BC79D4872D143867008D4D8B /* WeaponSelectViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectViewFactory.swift; sourceTree = "<group>"; };
 		BC8935AD2D17892700E59C78 /* BackgroundTapDetectableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTapDetectableView.swift; sourceTree = "<group>"; };
+		BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMotionAnimationView.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShooting */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShooting; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
 		BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRepository.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				BCEA72032D16E32E006BEA65 /* ContentFrameTrackableScrollView.swift */,
 				BCEA72072D16F710006BEA65 /* CenterPreviewView.swift */,
 				BC8935AD2D17892700E59C78 /* BackgroundTapDetectableView.swift */,
+				BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				BCFB7ADB2CFA05C90018649D /* WeaponRepository.swift in Sources */,
 				BC8935AE2D17892700E59C78 /* BackgroundTapDetectableView.swift in Sources */,
 				BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */,
+				BC8935B02D17983000E59C78 /* StopMotionAnimationView.swift in Sources */,
 				BC79D4882D143867008D4D8B /* WeaponSelectViewFactory.swift in Sources */,
 				BC39094A2D1057AF001AF829 /* TopViewModel.swift in Sources */,
 				BCFB7AD32CFA05C90018649D /* GameTimerCreateUseCase.swift in Sources */,
