@@ -14,7 +14,7 @@ struct GameView: View {
     @State private var motionDetector: WeaponControlMotionDetector
     @State private var viewModel: GameViewModel
     @Environment(\.dismiss) private var dismiss
-    @State var id = UUID()
+    @State var gameViewId = UUID()
     
     init(
         arController: ARShootingController,
@@ -24,15 +24,7 @@ struct GameView: View {
         self.arController = arController
         self.motionDetector = motionDetector
         self.viewModel = viewModel
-        self.arController.targetHit = {
-            viewModel.targetHit()
-        }
-        self.motionDetector.fireMotionDetected = {
-            viewModel.fireMotionDetected()
-        }
-        self.motionDetector.reloadMotionDetected = {
-            viewModel.reloadMotionDetected()
-        }
+        connectDependencyCallbacksToViewModel()
     }
     
     var body: some View {
@@ -161,14 +153,27 @@ struct GameView: View {
                     dismiss()
                 },
                 replayButtonTapped: {
-                    reset()
+                    resetAllAndRestartGame()
                 }
             )
         }
-        .id(id)
+        .id(gameViewId)
     }
     
-    func reset() {
+    private func connectDependencyCallbacksToViewModel() {
+        arController.targetHit = {
+            viewModel.targetHit()
+        }
+        motionDetector.fireMotionDetected = {
+            viewModel.fireMotionDetected()
+        }
+        motionDetector.reloadMotionDetected = {
+            viewModel.reloadMotionDetected()
+        }
+    }
+    
+    private func resetAllAndRestartGame() {
+        // 依存を初期化し直してリセット
         let arController = ARShootingController(frame: .zero)
         let motionDetector = WeaponControlMotionDetector()
         let viewModel = GameViewModel(
@@ -180,16 +185,10 @@ struct GameView: View {
         self.arController = arController
         self.motionDetector = motionDetector
         self.viewModel = viewModel
-        self.arController.targetHit = {
-            viewModel.targetHit()
-        }
-        self.motionDetector.fireMotionDetected = {
-            viewModel.fireMotionDetected()
-        }
-        self.motionDetector.reloadMotionDetected = {
-            viewModel.reloadMotionDetected()
-        }
-        id = UUID()
+        // 依存先からのコールバックをVMに接続しなおし
+        connectDependencyCallbacksToViewModel()
+        // ルート階層のidを更新してビューを丸ごと再描画し、onAppearを呼ばせることでゲームをリスタートさせる
+        gameViewId = UUID()
     }
 }
 
