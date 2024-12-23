@@ -10,9 +10,11 @@ import ARShooting
 import WeaponControlMotion
 
 struct GameView: View {
-    private var arController: ARShootingController
-    private var motionDetector: WeaponControlMotionDetector
+    @State private var arController: ARShootingController
+    @State private var motionDetector: WeaponControlMotionDetector
     @State private var viewModel: GameViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State var id = UUID()
     
     init(
         arController: ARShootingController,
@@ -20,17 +22,17 @@ struct GameView: View {
         viewModel: GameViewModel
     ) {
         self.arController = arController
+        self.motionDetector = motionDetector
+        self.viewModel = viewModel
         self.arController.targetHit = {
             viewModel.targetHit()
         }
-        self.motionDetector = motionDetector
         self.motionDetector.fireMotionDetected = {
             viewModel.fireMotionDetected()
         }
         self.motionDetector.reloadMotionDetected = {
             viewModel.reloadMotionDetected()
         }
-        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -153,8 +155,41 @@ struct GameView: View {
         }
         // 結果画面に遷移
         .sheet(isPresented: $viewModel.isResultViewPresented) {
-            ResultView(score: viewModel.score)
+            ResultView(
+                score: viewModel.score,
+                toHomeButtonTapped: {
+                    dismiss()
+                },
+                replayButtonTapped: {
+                    reset()
+                }
+            )
         }
+        .id(id)
+    }
+    
+    func reset() {
+        let arController = ARShootingController(frame: .zero)
+        let motionDetector = WeaponControlMotionDetector()
+        let viewModel = GameViewModel(
+            tutorialUseCase: UseCaseFactory.create(),
+            gameTimerCreateUseCase: UseCaseFactory.create(),
+            weaponResourceGetUseCase: UseCaseFactory.create(),
+            weaponActionExecuteUseCase: UseCaseFactory.create()
+        )
+        self.arController = arController
+        self.motionDetector = motionDetector
+        self.viewModel = viewModel
+        self.arController.targetHit = {
+            viewModel.targetHit()
+        }
+        self.motionDetector.fireMotionDetected = {
+            viewModel.fireMotionDetected()
+        }
+        self.motionDetector.reloadMotionDetected = {
+            viewModel.reloadMotionDetected()
+        }
+        id = UUID()
     }
 }
 

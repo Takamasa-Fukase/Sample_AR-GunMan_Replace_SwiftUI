@@ -21,8 +21,7 @@ final class TopViewModel {
     private(set) var isSettingsButtonIconSwitched = false
     private(set) var isHowToPlayButtonIconSwitched = false
     var isPermissionRequiredAlertPresented = false
-//    var isGameViewPresented = false
-    var gameViewPresentationState = GameViewPresentationState()
+    var isGameViewPresented = false
     var isSettingsViewPresented = false
     var isTutorialViewPresented = false
     
@@ -69,8 +68,7 @@ final class TopViewModel {
                 
                 let isCameraPermissionGranted = self.cameraUsagePermissionHandlingUseCase.checkGrantedFlag()
                 if isCameraPermissionGranted {
-//                    self.isGameViewPresented = true
-                    self.gameViewPresentationState.isPresented = true
+                    self.isGameViewPresented = true
                 }else {
                     self.isPermissionRequiredAlertPresented = true
                 }

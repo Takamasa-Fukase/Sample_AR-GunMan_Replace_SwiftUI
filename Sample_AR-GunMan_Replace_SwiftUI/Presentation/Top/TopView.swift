@@ -62,7 +62,7 @@ struct TopView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             // ゲーム画面への遷移
-            .sheet(isPresented: $viewModel.gameViewPresentationState.isPresented) {
+            .sheet(isPresented: $viewModel.isGameViewPresented) {
                 GameViewFactory.create(frame: geometry.frame(in: .global))
             }
         }
@@ -104,7 +104,6 @@ struct TopView: View {
             // sheetの背景を透過
             .presentationBackground(.clear)
         }
-        .environment(viewModel.gameViewPresentationState)
     }
     
     private func targetIconButton(

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ResultView: View {
     let score: Double
-    @Environment(GameViewPresentationState.self) var gameViewPresentationState
+    let toHomeButtonTapped: (() -> Void)
+    let replayButtonTapped: (() -> Void)
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -19,7 +21,7 @@ struct ResultView: View {
                 .frame(height: 60)
             
             Button {
-                gameViewPresentationState.isPresented = false
+                toHomeButtonTapped()
             } label: {
                 Text("HOME")
             }
@@ -28,7 +30,12 @@ struct ResultView: View {
                 .frame(height: 40)
             
             Button {
-                gameViewPresentationState.isPresented = false
+                var transaction = Transaction()
+                transaction.disablesAnimations = true
+                withTransaction(transaction) {
+                    dismiss()
+                }
+                replayButtonTapped()
             } label: {
                 Text("REPLAY")
             }
@@ -37,5 +44,9 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(score: 0.0)
+    ResultView(
+        score: 0.0,
+        toHomeButtonTapped: {},
+        replayButtonTapped: {}
+    )
 }

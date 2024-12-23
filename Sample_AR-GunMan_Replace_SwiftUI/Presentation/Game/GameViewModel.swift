@@ -9,13 +9,6 @@ import Foundation
 import Observation
 import Combine
 
-
-@Observable
-final class GameViewPresentationState {
-    var isPresented = false
-    var isReplayRequested = false
-}
-
 @Observable
 final class GameViewModel {
     enum ARControllerInputEventType {
@@ -30,7 +23,7 @@ final class GameViewModel {
         case stopDeviceMotionDetection
     }
     
-    private(set) var timeCount: Double = 0.01
+    private(set) var timeCount: Double = 5.00
     private(set) var currentWeaponData: CurrentWeaponData?
     
     var isTutorialViewPresented = false
@@ -162,7 +155,7 @@ final class GameViewModel {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
             let request = GameTimerCreateRequest(
-                initialTimeCount: 0.01,
+                initialTimeCount: 5.00,
                 updateInterval: 0.01,
                 pauseController: self?.timerPauseController ?? .init()
             )
