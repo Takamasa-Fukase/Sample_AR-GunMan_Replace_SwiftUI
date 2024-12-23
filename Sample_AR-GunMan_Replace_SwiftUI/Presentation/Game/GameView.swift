@@ -36,9 +36,9 @@ struct GameView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
-            // SwiftUIViewコンテンツ部分
             VStack(spacing: 0) {
                 HStack(alignment: .top, spacing: 0) {
+                    // タイムカウント
                     RoundedRectangle(cornerRadius: 6)
                         .foregroundStyle(Color.goldLeaf.opacity(0.7))
                         .frame(width: 120, height: 50, alignment: .center)
@@ -54,6 +54,7 @@ struct GameView: View {
                     
                     Spacer()
                     
+                    // 武器変更ボタン
                     Button {
                         // 武器選択画面を表示
                         viewModel.weaponChangeButtonTapped()
@@ -69,15 +70,7 @@ struct GameView: View {
                 
                 Spacer()
                 
-                Image(viewModel.currentWeaponData?.resources.sightImageName ?? "")
-                    .renderingMode(.template)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-                    .foregroundStyle(ColorTypeConverter.fromColorType(viewModel.currentWeaponData?.resources.sightImageColorType ?? .red))
-                
-                Spacer()
-                
+                // 弾数画像
                 HStack(spacing: 0) {
                     Image(viewModel.currentWeaponData?.bulletsCountImageName() ?? "")
                         .resizable()
@@ -87,6 +80,14 @@ struct GameView: View {
                     Spacer()
                 }
             }
+            
+            // 照準画像
+            Image(viewModel.currentWeaponData?.resources.sightImageName ?? "")
+                .renderingMode(.template)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
+                .foregroundStyle(ColorTypeConverter.fromColorType(viewModel.currentWeaponData?.resources.sightImageColorType ?? .red))
         }
         .onAppear {
             viewModel.onViewAppear()
