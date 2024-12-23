@@ -13,8 +13,8 @@ struct GameView: View {
     @State private var arController: ARShootingController
     @State private var motionDetector: WeaponControlMotionDetector
     @State private var viewModel: GameViewModel
-    @Environment(\.dismiss) private var dismiss
     @State var gameViewId = UUID()
+    @Environment(\.dismiss) private var dismiss
     
     init(
         arController: ARShootingController,
