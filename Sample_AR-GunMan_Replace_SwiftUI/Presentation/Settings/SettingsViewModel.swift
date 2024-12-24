@@ -11,15 +11,25 @@ import Combine
 
 @Observable
 final class SettingsViewModel {
-    var isPresentedWorldRanking = false
+    var isRankingViewPresented = false
+    var isPrivacyPolicyViewPresented = false
+    var isDeveloperContactViewPresented = false
     
     let dismiss = PassthroughSubject<Void, Never>()
-    
+
     func worldRankingButtonTapped() {
-        isPresentedWorldRanking = true
+        isRankingViewPresented = true
+    }
+    
+    func privacyPolicyButtonTapped() {
+        isPrivacyPolicyViewPresented = true
+    }
+    
+    func contactDeveloperButtonTapped() {
+        isDeveloperContactViewPresented = true
     }
     
     func backButtonTapped() {
-        dismiss.send(Void())
+        dismiss.send(())
     }
 }

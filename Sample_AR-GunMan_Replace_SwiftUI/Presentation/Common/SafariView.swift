@@ -1,0 +1,20 @@
+//
+//  SafariView.swift
+//  Sample_AR-GunMan_Replace_SwiftUI
+//
+//  Created by ウルトラ深瀬 on 25/12/24.
+//
+
+import SafariServices
+import SwiftUI
+
+struct SafariView: UIViewControllerRepresentable {
+    var url: URL
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let safariViewController = SFSafariViewController(url: url)
+        return safariViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+}

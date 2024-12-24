@@ -28,10 +28,10 @@ struct SettingsView: View {
                     viewModel.worldRankingButtonTapped()
                 }
                 underlineButton(title: "Privacy Policy", fontSize: 40) {
-
+                    viewModel.privacyPolicyButtonTapped()
                 }
                 underlineButton(title: "Contact Developer", fontSize: 40) {
-                    
+                    viewModel.contactDeveloperButtonTapped()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -43,12 +43,20 @@ struct SettingsView: View {
         }
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 40, trailing: 30))
         .background(Color.goldLeaf)
+        // ランキング画面へ遷移
+        .showCustomModal(isPresented: $viewModel.isRankingViewPresented) { dismissRequestReceiver in
+            RankingView(dismissRequestReceiver: dismissRequestReceiver)
+        }
+        .sheet(isPresented: $viewModel.isPrivacyPolicyViewPresented) {
+            SafariView(url: URL(string: "https://takamasa-fukase.github.io/AR-GunMan/PrivacyPolicy")!)
+                .ignoresSafeArea()
+        }
+        .sheet(isPresented: $viewModel.isDeveloperContactViewPresented) {
+            SafariView(url: URL(string: "https://www.instagram.com/takamasa_fukase/")!)
+                .ignoresSafeArea()
+        }
         .onReceive(viewModel.dismiss) {
             dismiss()
-        }
-        // ランキング画面へ遷移
-        .showCustomModal(isPresented: $viewModel.isPresentedWorldRanking) { dismissRequestReceiver in
-            RankingView(dismissRequestReceiver: dismissRequestReceiver)
         }
     }
     
