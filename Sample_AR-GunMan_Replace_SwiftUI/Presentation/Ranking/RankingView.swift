@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct RankingView: View {
-    var rankingList: [Ranking]
+    let viewModel = RankingViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,8 +27,15 @@ struct RankingView: View {
                             .padding(.bottom, 8)
 
                         ZStack {
-                            // ランキング
-                            RankingListView(rankingList: rankingList)
+                            if viewModel.rankingList.isEmpty {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                                    .tint(Color.paper)
+                                
+                            }else {
+                                // ランキング
+                                RankingListView(rankingList: viewModel.rankingList)
+                            }
 
                             // 内側の枠線
                             RoundedRectangle(cornerRadius: 3)
@@ -42,6 +50,12 @@ struct RankingView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .task {
+            await viewModel.getRanking()
+        }
+        .onReceive(viewModel.dismiss) {
+            dismiss()
+        })
     }
     
     private var titleView: some View {
@@ -57,7 +71,7 @@ struct RankingView: View {
                 Spacer()
                 
                 Button {
-                    
+                    viewModel.closeButtonTapped()
                 } label: {
                     Image(systemName: "xmark")
                         .tint(.blackSteel)
@@ -70,8 +84,6 @@ struct RankingView: View {
 }
 
 #Preview {
-    RankingView(rankingList: Array<Int>(1...100).map({
-        return .init(score: Double(101 - $0), userName: "ユーザー\($0)")
-    }))
-    .background(.black)
+    RankingView()
+        .background(.black)
 }

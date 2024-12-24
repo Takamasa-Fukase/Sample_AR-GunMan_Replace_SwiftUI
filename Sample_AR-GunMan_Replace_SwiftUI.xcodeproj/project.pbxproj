@@ -26,6 +26,7 @@
 		BC469FBB2D19A5D000DFA407 /* RankingListeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */; };
 		BC469FBD2D19A5DB00DFA407 /* RankingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */; };
 		BC469FC12D1AE6E600DFA407 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC02D1AE6E600DFA407 /* Ranking.swift */; };
+		BC469FC32D1B064000DFA407 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC22D1B064000DFA407 /* RankingViewModel.swift */; };
 		BC79D4802D142ED9008D4D8B /* TopViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */; };
 		BC79D4822D142F74008D4D8B /* GameViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4812D142F74008D4D8B /* GameViewFactory.swift */; };
 		BC79D4842D142FBB008D4D8B /* SettingsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */; };
@@ -130,6 +131,7 @@
 		BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListeItem.swift; sourceTree = "<group>"; };
 		BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListView.swift; sourceTree = "<group>"; };
 		BC469FC02D1AE6E600DFA407 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		BC469FC22D1B064000DFA407 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4812D142F74008D4D8B /* GameViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewFactory.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		BC469FB52D185DED00DFA407 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				BC469FC22D1B064000DFA407 /* RankingViewModel.swift */,
 				BC469FB82D19A4C800DFA407 /* RankingView.swift */,
 				BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */,
 				BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */,
@@ -839,6 +842,7 @@
 				BCEA72042D16E32E006BEA65 /* ContentFrameTrackableScrollView.swift in Sources */,
 				BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */,
 				BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */,
+				BC469FC32D1B064000DFA407 /* RankingViewModel.swift in Sources */,
 				BCEA72082D16F710006BEA65 /* CenterPreviewView.swift in Sources */,
 				BCFB7AD72CFA05C90018649D /* WeaponResourceGetUseCase.swift in Sources */,
 				BCFB7ADD2CFA05C90018649D /* WeaponDataSource.swift in Sources */,
