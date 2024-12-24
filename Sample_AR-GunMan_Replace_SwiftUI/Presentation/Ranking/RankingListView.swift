@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct RankingListView: View {
+    var rankingList: [Ranking]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LazyVStack(spacing: 0) {
+            Spacer()
+                .frame(height: 10)
+            
+            ForEach(rankingList) { ranking in
+                RankingListeItem(rank: 1, score: ranking.score, userName: ranking.userName)
+            }
+        }
     }
 }
 
 #Preview {
-    RankingListView()
+    CenterPreviewView(backgroundColor: .black) {
+        RankingListView(rankingList: [
+            .init(score: 100.00, userName: "マイケル"),
+            .init(score: 99.000, userName: "マイケル")
+        ])
+    }
 }
