@@ -85,15 +85,12 @@ struct TutorialView: View {
             .padding(EdgeInsets(top: 20, leading: 0, bottom: 24, trailing: 0))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .onReceive(viewModel.dismiss) { _ in
+        .onReceive(viewModel.dismiss) {
             if let dismissRequestReceiver = dismissRequestReceiver {
                 dismissRequestReceiver.subject.send(())
             }else {
                 dismiss()
             }
-        }
-        .onAppear {
-            print("TutorialView onAppear")
         }
     }
 }

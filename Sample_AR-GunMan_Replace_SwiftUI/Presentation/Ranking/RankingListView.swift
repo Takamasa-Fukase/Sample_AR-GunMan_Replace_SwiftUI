@@ -19,6 +19,9 @@ struct RankingListView: View {
                 ForEach(Array(rankingList.enumerated()), id: \.offset) { (index, ranking) in
                     RankingListeItem(rank: index + 1, score: ranking.score, userName: ranking.userName)
                 }
+                
+                Spacer()
+                    .frame(height: 10)
             }
         }
     }
