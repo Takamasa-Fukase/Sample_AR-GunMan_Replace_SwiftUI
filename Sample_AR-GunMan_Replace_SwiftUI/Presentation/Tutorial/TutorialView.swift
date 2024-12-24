@@ -86,8 +86,11 @@ struct TutorialView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onReceive(viewModel.dismiss) { _ in
-            dismissRequestReceiver?.subject.send(())
-            dismiss()
+            if let dismissRequestReceiver = dismissRequestReceiver {
+                dismissRequestReceiver.subject.send(())
+            }else {
+                dismiss()
+            }
         }
         .onAppear {
             print("TutorialView onAppear")

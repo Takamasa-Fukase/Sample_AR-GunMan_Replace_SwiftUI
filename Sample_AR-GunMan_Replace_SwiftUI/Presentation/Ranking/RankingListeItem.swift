@@ -32,6 +32,7 @@ struct RankingListeItem: View {
                 // 順位
                 Text(String(rank))
                     .font(.custom("Copperplate Bold", size: 22))
+                    .minimumScaleFactor(0.5) // 文字数が多い場合は50%まで縮小
                     .frame(width: 32, height: 22)
                     .background(Color.goldLeaf)
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 4, trailing: 0))
@@ -45,10 +46,9 @@ struct RankingListeItem: View {
                 // ユーザー名
                 Text(userName)
                     .font(.custom("Copperplate Bold", size: 38))
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.5) // 文字数が多い場合は50%まで縮小
                     .frame(height: 38)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .frame(maxWidth: .infinity)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 14))
             }
         }

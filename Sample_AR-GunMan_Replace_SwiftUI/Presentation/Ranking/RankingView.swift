@@ -29,9 +29,11 @@ struct RankingView: View {
 
                         ZStack {
                             if viewModel.rankingList.isEmpty {
+                                // インジケーター
                                 ProgressView()
                                     .progressViewStyle(.circular)
                                     .tint(Color.paper)
+                                    .scaleEffect(1.8)
                                 
                             }else {
                                 // ランキング
@@ -46,17 +48,21 @@ struct RankingView: View {
                     }
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
                 }
-                .frame(width: (geometry.size.width * 0.6) + 20)
+                .frame(width: (geometry.size.width * 0.5) + 20)
                 .padding(EdgeInsets(top: 24, leading: 0, bottom: 30, trailing: 0))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .ignoresSafeArea()
         .task {
             await viewModel.getRanking()
         }
         .onReceive(viewModel.dismiss) {
-            dismissRequestReceiver?.subject.send(())
-            dismiss()
+            if let dismissRequestReceiver = dismissRequestReceiver {
+                dismissRequestReceiver.subject.send(())
+            }else {
+                dismiss()
+            }
         }
     }
     
