@@ -40,19 +40,21 @@ struct RankingListeItem: View {
                 Text(score.scoreText)
                     .font(.custom("Copperplate", size: 22))
                     .frame(alignment: .centerLastTextBaseline)
-                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 10))
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 13, trailing: 10))
                 
                 // ユーザー名
                 Text(userName)
                     .font(.custom("Copperplate Bold", size: 38))
                     .minimumScaleFactor(0.5)
-                    .frame(maxWidth: .infinity, alignment: .leadingLastTextBaseline)
-                    .padding(.bottom, 10)
+                    .frame(height: 38)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 14))
             }
         }
         .foregroundStyle(.white)
         .padding(EdgeInsets(top: 2, leading: 16, bottom: 2, trailing: 16))
-//        .frame(height: 40)
+        .frame(height: 48)
     }
     
     private var whiteCornerSquares: some View {
@@ -86,12 +88,12 @@ struct RankingListeItem: View {
     CenterPreviewView(backgroundColor: .black) {
         VStack(alignment: .center, spacing: 0) {
             RankingListeItem(rank: 1, score: 100.00, userName: "マイケル")
-            RankingListeItem(rank: 2, score: 99.000, userName: "マイケル")
-            RankingListeItem(rank: 3, score: 98.000, userName: "マイケル")
-            RankingListeItem(rank: 4, score: 97.000, userName: "マイケルaaa")
-            RankingListeItem(rank: 5, score: 96.000, userName: "マイケルaaaaa")
-            RankingListeItem(rank: 6, score: 95.000, userName: "マイケルaaaaaaaaaaaaaaaa")
+            RankingListeItem(rank: 2, score: 99.000, userName: "Adam")
+            RankingListeItem(rank: 3, score: 98.000, userName: "Jof")
+            RankingListeItem(rank: 4, score: 97.000, userName: "次郎")
+            RankingListeItem(rank: 5, score: 96.000, userName: "ジェシー")
+            RankingListeItem(rank: 6, score: 95.000, userName: "田中太郎")
         }
-        .frame(width: 400, height: 300)
+        .frame(width: 341.33, height: 319)
     }
 }
