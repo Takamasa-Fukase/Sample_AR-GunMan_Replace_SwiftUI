@@ -46,8 +46,9 @@ struct SettingsView: View {
         .onReceive(viewModel.dismiss) {
             dismiss()
         }
-        .sheet(isPresented: $viewModel.isPresentedWorldRanking) {
-//            SettingsViewFactory.create()
+        // ランキング画面へ遷移
+        .showCustomModal(isPresented: $viewModel.isPresentedWorldRanking) { dismissRequestReceiver in
+            RankingView(dismissRequestReceiver: dismissRequestReceiver)
         }
     }
     

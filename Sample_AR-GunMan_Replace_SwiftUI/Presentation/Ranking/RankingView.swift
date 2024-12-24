@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RankingView: View {
     let viewModel = RankingViewModel()
+    var dismissRequestReceiver: DismissRequestReceiver?
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -54,8 +55,9 @@ struct RankingView: View {
             await viewModel.getRanking()
         }
         .onReceive(viewModel.dismiss) {
+            dismissRequestReceiver?.subject.send(())
             dismiss()
-        })
+        }
     }
     
     private var titleView: some View {
