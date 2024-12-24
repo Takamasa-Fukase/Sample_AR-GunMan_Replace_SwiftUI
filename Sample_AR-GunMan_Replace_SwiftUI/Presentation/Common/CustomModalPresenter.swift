@@ -111,7 +111,7 @@ struct CustomModalModifier: ViewModifier {
     }
     
     func executeTransitionAnimation(isAppearing: Bool, _ geometry: GeometryProxy, completion: (() -> Void)? = nil) {
-        let duration: TimeInterval = 0.2
+        let duration: TimeInterval = 0.16
         // 表示開始時の処理
         if isAppearing {
             contentOffsetY = geometry.size.height
