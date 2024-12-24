@@ -15,8 +15,8 @@ struct RankingListView: View {
             Spacer()
                 .frame(height: 10)
             
-            ForEach(rankingList) { ranking in
-                RankingListeItem(rank: 1, score: ranking.score, userName: ranking.userName)
+            ForEach(Array(rankingList.enumerated()), id: \.offset) { (index, ranking) in
+                RankingListeItem(rank: index + 1, score: ranking.score, userName: ranking.userName)
             }
         }
     }
