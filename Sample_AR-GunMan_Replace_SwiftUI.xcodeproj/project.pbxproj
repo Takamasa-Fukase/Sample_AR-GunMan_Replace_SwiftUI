@@ -27,7 +27,7 @@
 		BC469FBD2D19A5DB00DFA407 /* RankingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */; };
 		BC469FC12D1AE6E600DFA407 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC02D1AE6E600DFA407 /* Ranking.swift */; };
 		BC469FC32D1B064000DFA407 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC22D1B064000DFA407 /* RankingViewModel.swift */; };
-		BC469FC52D1B105A00DFA407 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC42D1B105A00DFA407 /* SafariView.swift */; };
+		BC469FC52D1B105A00DFA407 /* SafariViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FC42D1B105A00DFA407 /* SafariViewControllerRepresentable.swift */; };
 		BC79D4802D142ED9008D4D8B /* TopViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */; };
 		BC79D4822D142F74008D4D8B /* GameViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4812D142F74008D4D8B /* GameViewFactory.swift */; };
 		BC79D4842D142FBB008D4D8B /* SettingsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */; };
@@ -133,7 +133,7 @@
 		BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListView.swift; sourceTree = "<group>"; };
 		BC469FC02D1AE6E600DFA407 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		BC469FC22D1B064000DFA407 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
-		BC469FC42D1B105A00DFA407 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		BC469FC42D1B105A00DFA407 /* SafariViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4812D142F74008D4D8B /* GameViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewFactory.swift; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 				BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */,
 				BC7CAC952D17C938009E6D31 /* CustomModalPresenter.swift */,
 				BC7CAC972D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift */,
-				BC469FC42D1B105A00DFA407 /* SafariView.swift */,
+				BC469FC42D1B105A00DFA407 /* SafariViewControllerRepresentable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -853,7 +853,7 @@
 				BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */,
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCEA72062D16EEF9006BEA65 /* TutorialScrollViewItem.swift in Sources */,
-				BC469FC52D1B105A00DFA407 /* SafariView.swift in Sources */,
+				BC469FC52D1B105A00DFA407 /* SafariViewControllerRepresentable.swift in Sources */,
 				BCFB7ADC2CFA05C90018649D /* CustomError.swift in Sources */,
 				BCEA720D2D1708F2006BEA65 /* TutorialViewModel.swift in Sources */,
 				BCFB7AF02CFA07370018649D /* WeaponListItem.swift in Sources */,

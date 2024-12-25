@@ -48,12 +48,16 @@ struct SettingsView: View {
             RankingView(dismissRequestReceiver: dismissRequestReceiver)
         }
         .sheet(isPresented: $viewModel.isPrivacyPolicyViewPresented) {
-            SafariView(url: URL(string: "https://takamasa-fukase.github.io/AR-GunMan/PrivacyPolicy")!)
-                .ignoresSafeArea()
+            SafariViewControllerRepresentable(
+                url: URL(string: "https://takamasa-fukase.github.io/AR-GunMan/PrivacyPolicy")!
+            )
+            .ignoresSafeArea()
         }
         .sheet(isPresented: $viewModel.isDeveloperContactViewPresented) {
-            SafariView(url: URL(string: "https://www.instagram.com/takamasa_fukase/")!)
-                .ignoresSafeArea()
+            SafariViewControllerRepresentable(
+                url: URL(string: "https://www.instagram.com/takamasa_fukase/")!
+            )
+            .ignoresSafeArea()
         }
         .onReceive(viewModel.dismiss) {
             dismiss()
