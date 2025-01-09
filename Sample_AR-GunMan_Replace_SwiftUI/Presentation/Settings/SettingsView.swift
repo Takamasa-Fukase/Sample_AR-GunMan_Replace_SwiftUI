@@ -47,12 +47,14 @@ struct SettingsView: View {
         .showCustomModal(isPresented: $viewModel.isRankingViewPresented) { dismissRequestReceiver in
             RankingView(dismissRequestReceiver: dismissRequestReceiver)
         }
+        // プライバシーポリシーをWebView表示
         .sheet(isPresented: $viewModel.isPrivacyPolicyViewPresented) {
             SafariViewControllerRepresentable(
                 url: URL(string: "https://takamasa-fukase.github.io/AR-GunMan/PrivacyPolicy")!
             )
             .ignoresSafeArea()
         }
+        // 開発者への問い合わせ画面をWebView表示
         .sheet(isPresented: $viewModel.isDeveloperContactViewPresented) {
             SafariViewControllerRepresentable(
                 url: URL(string: "https://www.instagram.com/takamasa_fukase/")!
