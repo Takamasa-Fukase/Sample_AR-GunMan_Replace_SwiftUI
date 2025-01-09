@@ -76,27 +76,38 @@ struct ResultView: View {
                                     .padding(.all, 3.5)
                                     .foregroundStyle(Color.goldLeaf)
                                 
-                                HStack(spacing: 0) {
-                                    
-                                    VStack(spacing: 0) {
-                                        Button {
-                                            var transaction = Transaction()
-                                            transaction.disablesAnimations = true
-                                            withTransaction(transaction) {
-                                                dismiss()
-                                            }
-                                            replayButtonTapped()
-                                        } label: {
-                                            Text("REPLAY")
-                                        }
+                                GeometryReader { actionButtonsAreaGeometry in
+                                    HStack(spacing: 0) {
+                                        Image("pistol")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
                                         
-                                        Button {
-                                            toHomeButtonTapped()
-                                        } label: {
-                                            Text("HOME")
+                                        VStack(spacing: 0) {
+                                            Button {
+                                                var transaction = Transaction()
+                                                transaction.disablesAnimations = true
+                                                withTransaction(transaction) {
+                                                    dismiss()
+                                                }
+                                                replayButtonTapped()
+                                            } label: {
+                                                Text("REPLAY")
+                                                    .font(.custom("Copperplate Bold", size: 25))
+                                                    .frame(maxHeight: .infinity)
+                                            }
+                                            
+                                            Button {
+                                                toHomeButtonTapped()
+                                            } label: {
+                                                Text("HOME")
+                                                    .font(.custom("Copperplate Bold", size: 25))
+                                                    .frame(maxHeight: .infinity)
+                                            }
                                         }
                                     }
                                 }
+                                .padding(.all, 20)
                             }
                         }
                         .frame(width: safeAreaGeometry.size.width * 0.465)
