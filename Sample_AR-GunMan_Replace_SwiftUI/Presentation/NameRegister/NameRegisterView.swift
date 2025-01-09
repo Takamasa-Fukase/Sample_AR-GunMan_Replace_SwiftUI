@@ -27,9 +27,13 @@ struct NameRegisterView: View {
                     Text("You're ranked at ")
                         .font(.custom("Copperplate", size: 21))
                         .foregroundStyle(Color.paper)
+                    
+                    // ランク表示
                     Text(viewModel.rankText)
                         .font(.custom("Copperplate", size: 25))
                         .foregroundStyle(Color.customDarkBrown)
+                        .frame(minWidth: 58)
+                    
                     Text(" in")
                         .font(.custom("Copperplate", size: 21))
                         .foregroundStyle(Color.paper)
@@ -41,6 +45,7 @@ struct NameRegisterView: View {
                     .foregroundStyle(Color.paper)
                     .frame(height: 21.5)
                 
+                // スコア表示
                 Text("Score: 78.753")
                     .font(.custom("Copperplate Bold", size: 38))
                     .foregroundStyle(Color.paper)

@@ -11,7 +11,7 @@ import Combine
 
 @Observable
 final class NameRegisterViewModel {
-    private(set) var rankText = "1 / 100"
+    private(set) var rankText = ""
     var nameText = ""
     
     let dismiss = PassthroughSubject<Void, Never>()
