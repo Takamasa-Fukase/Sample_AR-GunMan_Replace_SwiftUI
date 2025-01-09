@@ -51,9 +51,21 @@ struct ResultView: View {
                                     .padding(.all, 3.5)
                                     .foregroundStyle(Color.goldLeaf)
                                 
-                                Text("SCORE: \(score.scoreText)")
+                                VStack(alignment: .leading, spacing: 0) {
+                                    Text("SCORE")
+                                        .font(.custom("Copperplate", size: 22))
+                                        .frame(width: 75, height: 23)
+                                        .padding(EdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 0))
+                                        .minimumScaleFactor(0.5) // 最大50%までは縮小を許可する
+                                    
+                                    Text("\(score.scoreText)")
+                                        .font(.custom("Copperplate Bold", size: 80))
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .minimumScaleFactor(0.5) // 最大50%までは縮小を許可する
+                                        .padding(.bottom, 5)
+                                }
                             }
-                            .frame(height: rankingAndScoreAreaGeometry.size.height * 0.33125)
+                            .frame(height: (rankingAndScoreAreaGeometry.size.height - 20) * 0.33125)
                             
                             Spacer()
                                 .frame(height: 6)
@@ -98,9 +110,6 @@ struct ResultView: View {
                     }
                 }
                 .foregroundStyle(Color.paper)
-                
-                Spacer()
-                    .frame(height: 10)
             }
         }
         .ignoresSafeArea(edges: .bottom)
@@ -137,7 +146,7 @@ struct ResultView: View {
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
         ResultView(
-            score: 0.0,
+            score: 98.765,
             toHomeButtonTapped: {},
             replayButtonTapped: {}
         )
