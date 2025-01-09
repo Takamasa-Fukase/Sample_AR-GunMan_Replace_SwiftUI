@@ -28,17 +28,8 @@ struct RankingView: View {
                             .padding(.bottom, 8)
 
                         ZStack {
-                            if viewModel.rankingList.isEmpty {
-                                // インジケーター
-                                ProgressView()
-                                    .progressViewStyle(.circular)
-                                    .tint(Color.paper)
-                                    .scaleEffect(1.8)
-                                
-                            }else {
-                                // ランキング
-                                RankingListView(rankingList: viewModel.rankingList)
-                            }
+                            // ランキング
+                            RankingListView(rankingList: viewModel.rankingList)
 
                             // 内側の枠線
                             RoundedRectangle(cornerRadius: 3)

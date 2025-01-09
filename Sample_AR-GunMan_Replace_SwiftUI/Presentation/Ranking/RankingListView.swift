@@ -11,17 +11,27 @@ struct RankingListView: View {
     var rankingList: [Ranking]
     
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing: 0) {
-                Spacer()
-                    .frame(height: 10)
-                
-                ForEach(Array(rankingList.enumerated()), id: \.offset) { (index, ranking) in
-                    RankingListeItem(rank: index + 1, score: ranking.score, userName: ranking.userName)
+        if rankingList.isEmpty {
+            // インジケーター
+            ProgressView()
+                .progressViewStyle(.circular)
+                .tint(Color.paper)
+                .scaleEffect(1.8)
+            
+        }else {
+            // ランキング
+            ScrollView(.vertical) {
+                LazyVStack(spacing: 0) {
+                    Spacer()
+                        .frame(height: 10)
+                    
+                    ForEach(Array(rankingList.enumerated()), id: \.offset) { (index, ranking) in
+                        RankingListeItem(rank: index + 1, score: ranking.score, userName: ranking.userName)
+                    }
+                    
+                    Spacer()
+                        .frame(height: 10)
                 }
-                
-                Spacer()
-                    .frame(height: 10)
             }
         }
     }

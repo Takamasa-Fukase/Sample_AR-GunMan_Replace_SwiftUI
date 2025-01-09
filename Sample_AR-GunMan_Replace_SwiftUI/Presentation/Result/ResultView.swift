@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
+    let viewModel = ResultViewModel()
     let score: Double
     let toHomeButtonTapped: (() -> Void)
     let replayButtonTapped: (() -> Void)
@@ -30,13 +31,13 @@ struct ResultView: View {
                     HStack(spacing: 0) {
                         
                         ZStack {
+                            // ランキング
+                            RankingListView(rankingList: viewModel.rankingList)
+                            
                             RoundedRectangle(cornerRadius: 1)
                                 .stroke(lineWidth: 7)
                                 .padding(.all, 3.5)
                                 .foregroundStyle(Color.goldLeaf)
-                            
-                            // ランキング
-                            RankingListView(rankingList: [])
                         }
                         .frame(width: safeAreaGeometry.size.width * 0.465)
                         
@@ -93,6 +94,9 @@ struct ResultView: View {
                     }
                 }
             }
+        }
+        .task {
+            await viewModel.getRanking()
         }
     }
     
