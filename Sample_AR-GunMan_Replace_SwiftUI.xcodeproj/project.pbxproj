@@ -38,6 +38,8 @@
 		BC7CAC982D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7CAC972D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift */; };
 		BC8935B02D17983000E59C78 /* StopMotionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
+		BCB765EB2D2FC6CA00BF7CDD /* NameRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */; };
+		BCB765ED2D2FC6E900BF7CDD /* NameRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB765EC2D2FC6E900BF7CDD /* NameRegisterViewModel.swift */; };
 		BCEA71FC2D16C22C006BEA65 /* PermissionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */; };
 		BCEA71FE2D16C254006BEA65 /* PermissionRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */; };
 		BCEA72002D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA71FF2D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift */; };
@@ -146,6 +148,8 @@
 		BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMotionAnimationView.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShooting */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShooting; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
+		BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameRegisterView.swift; sourceTree = "<group>"; };
+		BCB765EC2D2FC6E900BF7CDD /* NameRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameRegisterViewModel.swift; sourceTree = "<group>"; };
 		BCEA71FB2D16C22C006BEA65 /* PermissionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRepository.swift; sourceTree = "<group>"; };
 		BCEA71FD2D16C254006BEA65 /* PermissionRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRepositoryInterface.swift; sourceTree = "<group>"; };
 		BCEA71FF2D16C547006BEA65 /* CameraUsagePermissionHandlingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraUsagePermissionHandlingUseCase.swift; sourceTree = "<group>"; };
@@ -311,6 +315,15 @@
 				BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */,
 			);
 			path = Ranking;
+			sourceTree = "<group>";
+		};
+		BCB765E92D2FC69A00BF7CDD /* NameRegister */ = {
+			isa = PBXGroup;
+			children = (
+				BCB765EC2D2FC6E900BF7CDD /* NameRegisterViewModel.swift */,
+				BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */,
+			);
+			path = NameRegister;
 			sourceTree = "<group>";
 		};
 		BCE325542D0F15B0001B3955 /* Top */ = {
@@ -561,6 +574,7 @@
 				BC39094B2D107830001AF829 /* Tutorial */,
 				BCE325552D0F15B6001B3955 /* WeaponSelect */,
 				BC469FB42D185DE400DFA407 /* Result */,
+				BCB765E92D2FC69A00BF7CDD /* NameRegister */,
 				BC469FB52D185DED00DFA407 /* Ranking */,
 				BC3908C52D0FA03B001AF829 /* Common */,
 			);
@@ -845,10 +859,12 @@
 				BCFB7AE62CFA070A0018649D /* SoundType.swift in Sources */,
 				BCEA72022D16E28D006BEA65 /* TutorialView.swift in Sources */,
 				BC79D4802D142ED9008D4D8B /* TopViewFactory.swift in Sources */,
+				BCB765ED2D2FC6E900BF7CDD /* NameRegisterViewModel.swift in Sources */,
 				BCEA72042D16E32E006BEA65 /* ContentFrameTrackableScrollView.swift in Sources */,
 				BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */,
 				BCFB7AEF2CFA07370018649D /* CurrentWeaponData.swift in Sources */,
 				BC469FC32D1B064000DFA407 /* RankingViewModel.swift in Sources */,
+				BCB765EB2D2FC6CA00BF7CDD /* NameRegisterView.swift in Sources */,
 				BCEA72082D16F710006BEA65 /* CenterPreviewView.swift in Sources */,
 				BCFB7AD72CFA05C90018649D /* WeaponResourceGetUseCase.swift in Sources */,
 				BCFB7ADD2CFA05C90018649D /* WeaponDataSource.swift in Sources */,
