@@ -13,6 +13,8 @@ struct ResultView: View {
     let toHomeButtonTapped: (() -> Void)
     let replayButtonTapped: (() -> Void)
     @Environment(\.dismiss) var dismiss
+    @State var isButtonsBaseViewVisible = false
+    @State var buttonsOpacity = 0.0
     
     var body: some View {
         GeometryReader { safeAreaGeometry in
@@ -83,29 +85,34 @@ struct ResultView: View {
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
                                         
-                                        VStack(spacing: 0) {
-                                            Button {
-                                                var transaction = Transaction()
-                                                transaction.disablesAnimations = true
-                                                withTransaction(transaction) {
-                                                    dismiss()
+                                        if isButtonsBaseViewVisible {
+                                            VStack(spacing: 0) {
+                                                Button {
+                                                    var transaction = Transaction()
+                                                    transaction.disablesAnimations = true
+                                                    withTransaction(transaction) {
+                                                        dismiss()
+                                                    }
+                                                    replayButtonTapped()
+                                                } label: {
+                                                    Text("REPLAY")
+                                                        .font(.custom("Copperplate Bold", size: 25))
+                                                        .frame(maxHeight: .infinity)
+                                                        .opacity(buttonsOpacity)
                                                 }
-                                                replayButtonTapped()
-                                            } label: {
-                                                Text("REPLAY")
-                                                    .font(.custom("Copperplate Bold", size: 25))
-                                                    .frame(maxHeight: .infinity)
-                                            }
-                                            
-                                            Button {
-                                                toHomeButtonTapped()
-                                            } label: {
-                                                Text("HOME")
-                                                    .font(.custom("Copperplate Bold", size: 25))
-                                                    .frame(maxHeight: .infinity)
+                                                
+                                                Button {
+                                                    toHomeButtonTapped()
+                                                } label: {
+                                                    Text("HOME")
+                                                        .font(.custom("Copperplate Bold", size: 25))
+                                                        .frame(maxHeight: .infinity)
+                                                        .opacity(buttonsOpacity)
+                                                }
                                             }
                                         }
                                     }
+                                    .frame(maxWidth: .infinity)
                                 }
                                 .padding(.all, 20)
                             }
@@ -126,7 +133,17 @@ struct ResultView: View {
         .ignoresSafeArea(edges: .bottom)
         .task {
             await viewModel.getRanking()
+            await viewModel.nameRegisterViewClosed()
         }
+        .onReceive(viewModel.showButtons, perform: { _ in
+            withAnimation(.linear(duration: 0.6)) {
+                isButtonsBaseViewVisible = true
+            } completion: {
+                withAnimation(.linear(duration: 0.2)) {
+                    buttonsOpacity = 1
+                }
+            }
+        })
     }
     
     private var titleView: some View {

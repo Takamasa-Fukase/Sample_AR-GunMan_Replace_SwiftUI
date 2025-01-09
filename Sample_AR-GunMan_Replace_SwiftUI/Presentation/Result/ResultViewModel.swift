@@ -12,6 +12,7 @@ import Combine
 @Observable
 final class ResultViewModel {
     private(set) var rankingList: [Ranking] = []
+    let showButtons = PassthroughSubject<Void, Never>()
     
     func getRanking() async {
         do {
@@ -22,6 +23,16 @@ final class ResultViewModel {
             })
         } catch {
             print("getRanking error: \(error)")
+        }
+    }
+    
+    func nameRegisterViewClosed() async {
+        do {
+            try await Task.sleep(nanoseconds: 1500000000)
+            showButtons.send(())
+            
+        } catch {
+            
         }
     }
     
