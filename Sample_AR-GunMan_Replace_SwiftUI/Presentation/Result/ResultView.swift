@@ -40,21 +40,26 @@ struct ResultView: View {
                                 .foregroundStyle(Color.goldLeaf)
                         }
                         .frame(width: safeAreaGeometry.size.width * 0.465)
+                        .clipped()
                         
                         Spacer()
                         
                         VStack(spacing: 0) {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 3)
+                                RoundedRectangle(cornerRadius: 1)
                                     .stroke(lineWidth: 7)
                                     .padding(.all, 3.5)
                                     .foregroundStyle(Color.goldLeaf)
                                 
                                 Text("SCORE: \(score.scoreText)")
                             }
+                            .frame(height: rankingAndScoreAreaGeometry.size.height * 0.33125)
+                            
+                            Spacer()
+                                .frame(height: 6)
                             
                             ZStack {
-                                RoundedRectangle(cornerRadius: 3)
+                                RoundedRectangle(cornerRadius: 1)
                                     .stroke(lineWidth: 7)
                                     .padding(.all, 3.5)
                                     .foregroundStyle(Color.goldLeaf)
@@ -78,7 +83,6 @@ struct ResultView: View {
                                         } label: {
                                             Text("HOME")
                                         }
-                                        
                                     }
                                 }
                             }
@@ -93,8 +97,13 @@ struct ResultView: View {
                             .foregroundStyle(Color.customDarkBrown)
                     }
                 }
+                .foregroundStyle(Color.paper)
+                
+                Spacer()
+                    .frame(height: 10)
             }
         }
+        .ignoresSafeArea(edges: .bottom)
         .task {
             await viewModel.getRanking()
         }
