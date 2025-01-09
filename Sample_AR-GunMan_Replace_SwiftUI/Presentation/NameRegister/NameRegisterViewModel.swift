@@ -12,7 +12,13 @@ import Combine
 @Observable
 final class NameRegisterViewModel {
     private(set) var rankText = ""
-    var nameText = ""
+    private(set) var isRegisterButtonEnabled = false
+    private(set) var isRegistering = false
+    var nameText = "" {
+        didSet {
+            rankText = nameText
+        }
+    }
     
     let dismiss = PassthroughSubject<Void, Never>()
 

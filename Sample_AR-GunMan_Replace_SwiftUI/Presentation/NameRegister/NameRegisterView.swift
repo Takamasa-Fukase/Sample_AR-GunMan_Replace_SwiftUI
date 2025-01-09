@@ -68,7 +68,7 @@ struct NameRegisterView: View {
                         .foregroundStyle(Color.goldLeaf)
                         .padding(.horizontal, 8)
                         .background(
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: 6)
                                 .fill(Color.customDarkBrown)
                                 .frame(height: 40)
                         )
