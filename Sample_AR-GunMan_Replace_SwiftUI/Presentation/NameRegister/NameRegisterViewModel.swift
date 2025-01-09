@@ -12,11 +12,11 @@ import Combine
 @Observable
 final class NameRegisterViewModel {
     private(set) var rankText = ""
-    private(set) var isRegisterButtonEnabled = false
     private(set) var isRegistering = false
+    private(set) var isRegisterButtonEnabled = false
     var nameText = "" {
         didSet {
-            rankText = nameText
+            isRegisterButtonEnabled = !nameText.isEmpty
         }
     }
     

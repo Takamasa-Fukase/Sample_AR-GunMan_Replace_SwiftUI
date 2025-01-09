@@ -87,6 +87,7 @@ struct NameRegisterView: View {
                 .frame(height: 1)
             
             HStack(spacing: 0) {
+                // キャンセルボタン
                 Button {
                     viewModel.noButtonTapped()
                 } label: {
@@ -99,14 +100,17 @@ struct NameRegisterView: View {
                 Color.black
                     .frame(width: 1)
                 
+                // 登録ボタン
                 Button {
                     viewModel.registerButtonTapped()
                 } label: {
                     Text("Register!")
                         .font(.custom("Copperplate Bold", size: 28))
                         .foregroundStyle(.black)
+                        .opacity(viewModel.isRegisterButtonEnabled ? 1 : 0.1)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .disabled(!viewModel.isRegisterButtonEnabled)
             }
             .frame(height: 46)
         }
