@@ -112,6 +112,17 @@ struct NameRegisterView: View {
         }
         .frame(width: 412)
         .background(Color.goldLeaf)
+        .clipShape(RoundedRectangle(cornerRadius: 5))
+        .overlay {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.paper, lineWidth: 1)
+                .padding(0.5)
+        }
+        .padding(.all, 5.2)
+        .overlay {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.paper, lineWidth: 2)
+        }
     }
 }
 
