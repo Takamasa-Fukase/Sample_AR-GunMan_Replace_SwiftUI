@@ -24,7 +24,9 @@ final class NameRegisterViewModel {
 
     func registerButtonTapped() {
         Task {
+            isRegistering = true
             await register()
+            isRegistering = false
         }
     }
     

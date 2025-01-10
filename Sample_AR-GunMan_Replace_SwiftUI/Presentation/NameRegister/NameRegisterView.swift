@@ -28,11 +28,19 @@ struct NameRegisterView: View {
                         .font(.custom("Copperplate", size: 21))
                         .foregroundStyle(Color.paper)
                     
-                    // ランク表示
-                    Text(viewModel.rankText)
-                        .font(.custom("Copperplate", size: 25))
-                        .foregroundStyle(Color.customDarkBrown)
-                        .frame(minWidth: 58)
+                    Group {
+                        if viewModel.rankText.isEmpty {
+                            // インジケーター
+                            progressView
+                            
+                        } else {
+                            // ランク表示
+                            Text(viewModel.rankText)
+                                .font(.custom("Copperplate", size: 25))
+                                .foregroundStyle(Color.customDarkBrown)
+                        }
+                    }
+                    .frame(minWidth: 58)
                     
                     Text(" in")
                         .font(.custom("Copperplate", size: 21))
@@ -94,8 +102,8 @@ struct NameRegisterView: View {
                     Text("No, thanks")
                         .font(.custom("Copperplate Bold", size: 22))
                         .foregroundStyle(Color(.darkGray))
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 Color.black
                     .frame(width: 1)
@@ -104,12 +112,18 @@ struct NameRegisterView: View {
                 Button {
                     viewModel.registerButtonTapped()
                 } label: {
-                    Text("Register!")
-                        .font(.custom("Copperplate Bold", size: 28))
-                        .foregroundStyle(.black)
-                        .opacity(viewModel.isRegisterButtonEnabled ? 1 : 0.1)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    if viewModel.isRegistering {
+                        // インジケーター
+                        progressView
+                        
+                    } else {
+                        Text("Register!")
+                            .font(.custom("Copperplate Bold", size: 28))
+                            .foregroundStyle(.black)
+                            .opacity(viewModel.isRegisterButtonEnabled ? 1 : 0.1)
+                    }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .disabled(!viewModel.isRegisterButtonEnabled)
             }
             .frame(height: 46)
@@ -127,6 +141,13 @@ struct NameRegisterView: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.paper, lineWidth: 2)
         }
+    }
+    
+    var progressView: some View {
+        ProgressView()
+            .progressViewStyle(.circular)
+            .tint(Color.paper)
+//            .scaleEffect(1.8)
     }
 }
 
