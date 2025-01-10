@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ResultView: View {
-    let viewModel = ResultViewModel()
-    let score: Double
-    let toHomeButtonTapped: (() -> Void)
+    let viewModel: ResultViewModel
     let replayButtonTapped: (() -> Void)
+    let toHomeButtonTapped: (() -> Void)
     @Environment(\.dismiss) var dismiss
     @State var isButtonsBaseViewVisible = false
     @State var buttonsOpacity = 0.0
     
     var body: some View {
+        @Bindable var viewModel = viewModel
+        
         GeometryReader { safeAreaGeometry in
             VStack(spacing: 0) {
                 Spacer()
@@ -60,7 +61,7 @@ struct ResultView: View {
                                         .padding(EdgeInsets(top: 10, leading: 15, bottom: 0, trailing: 0))
                                         .minimumScaleFactor(0.5) // 最大50%までは縮小を許可する
                                     
-                                    Text("\(score.scoreText)")
+                                    Text("\(viewModel.score.scoreText)")
                                         .font(.custom("Copperplate Bold", size: 80))
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         .minimumScaleFactor(0.5) // 最大50%までは縮小を許可する
@@ -88,12 +89,7 @@ struct ResultView: View {
                                         if isButtonsBaseViewVisible {
                                             VStack(spacing: 0) {
                                                 Button {
-                                                    var transaction = Transaction()
-                                                    transaction.disablesAnimations = true
-                                                    withTransaction(transaction) {
-                                                        dismiss()
-                                                    }
-                                                    replayButtonTapped()
+                                                    viewModel.replayButtonTapped()
                                                 } label: {
                                                     Text("REPLAY")
                                                         .font(.custom("Copperplate Bold", size: 25))
@@ -102,7 +98,7 @@ struct ResultView: View {
                                                 }
                                                 
                                                 Button {
-                                                    toHomeButtonTapped()
+                                                    viewModel.toHomeButtonTapped()
                                                 } label: {
                                                     Text("HOME")
                                                         .font(.custom("Copperplate Bold", size: 25))
@@ -131,11 +127,10 @@ struct ResultView: View {
             }
         }
         .ignoresSafeArea(edges: .bottom)
-        .task {
-            await viewModel.getRanking()
-            await viewModel.nameRegisterViewClosed()
+        .onAppear {
+            viewModel.onViewAppear()
         }
-        .onReceive(viewModel.showButtons, perform: { _ in
+        .onReceive(viewModel.showButtons) { _ in
             withAnimation(.linear(duration: 0.6)) {
                 isButtonsBaseViewVisible = true
             } completion: {
@@ -143,7 +138,33 @@ struct ResultView: View {
                     buttonsOpacity = 1
                 }
             }
-        })
+        }
+        .onReceive(viewModel.dismissAndNotifyReplayButtonTap) { _ in
+            var transaction = Transaction()
+            transaction.disablesAnimations = true
+            withTransaction(transaction) {
+                dismiss()
+            }
+            replayButtonTapped()
+        }
+        .onReceive(viewModel.notifyHomeButtonTap) { _ in
+            toHomeButtonTapped()
+        }
+        // ランキング画面へ遷移
+        .showCustomModal(
+            isPresented: $viewModel.isNameRegisterViewPresented,
+            onDismiss: {
+                viewModel.nameRegisterViewClosed()
+            }
+        ) { dismissRequestReceiver in
+            NameRegisterView(
+                viewModel: NameRegisterViewModel(score: viewModel.score),
+                dismissRequestReceiver: dismissRequestReceiver,
+                onRegistered: { ranking in
+                    viewModel.rankingRegistered()
+                }
+            )
+        }
     }
     
     private var titleView: some View {
@@ -174,9 +195,9 @@ struct ResultView: View {
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
         ResultView(
-            score: 98.765,
-            toHomeButtonTapped: {},
-            replayButtonTapped: {}
+            viewModel: ResultViewModel(score: 98.765),
+            replayButtonTapped: {},
+            toHomeButtonTapped: {}
         )
     }
 }

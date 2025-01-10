@@ -23,7 +23,7 @@ final class GameViewModel {
         case stopDeviceMotionDetection
     }
     
-    private(set) var timeCount: Double = 5.00
+    private(set) var timeCount: Double = 0.01
     private(set) var currentWeaponData: CurrentWeaponData?
     
     var isTutorialViewPresented = false
@@ -41,7 +41,7 @@ final class GameViewModel {
     private let timerPauseController = GameTimerCreateRequest.PauseController()
     private let weaponReloadCanceller = WeaponReloadCanceller()
 
-    @ObservationIgnored var score: Double = 0.0
+    @ObservationIgnored private(set) var score: Double = 98.000
     @ObservationIgnored private var isCheckedTutorialCompletedFlag = false
     @ObservationIgnored private var reloadingMotionDetecedCount: Int = 0
     

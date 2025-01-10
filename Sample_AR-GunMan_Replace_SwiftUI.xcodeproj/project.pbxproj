@@ -300,8 +300,8 @@
 		BC469FB42D185DE400DFA407 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				BC469FB62D185DFE00DFA407 /* ResultView.swift */,
 				BC469FC62D2FA61200DFA407 /* ResultViewModel.swift */,
+				BC469FB62D185DFE00DFA407 /* ResultView.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";

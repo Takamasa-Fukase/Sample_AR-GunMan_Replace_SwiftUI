@@ -149,12 +149,12 @@ struct GameView: View {
         // 結果画面に遷移
         .sheet(isPresented: $viewModel.isResultViewPresented) {
             ResultView(
-                score: viewModel.score,
-                toHomeButtonTapped: {
-                    dismiss()
-                },
+                viewModel: ResultViewModel(score: viewModel.score),
                 replayButtonTapped: {
                     resetAllAndRestartGame()
+                },
+                toHomeButtonTapped: {
+                    dismiss()
                 }
             )
         }

@@ -20,27 +20,38 @@ final class NameRegisterViewModel {
         }
     }
     
+    let notifyRegistrationCompletion = PassthroughSubject<Ranking, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
+    
+    private let score: Double
+    
+    init(score: Double) {
+        self.score = score
+    }
+    
+    func onViewDisappear() {
+        
+    }
 
     func registerButtonTapped() {
         Task {
+            let ranking = Ranking(score: score, userName: nameText)
+            
             isRegistering = true
-            await register()
+            do {
+                try await Task.sleep(nanoseconds: 1500000000)
+                notifyRegistrationCompletion.send(ranking)
+                dismiss.send(())
+                
+            } catch {
+                print("register error: \(error)")
+                // TODO: エラーをアラート表示
+            }
             isRegistering = false
         }
     }
     
     func noButtonTapped() {
         dismiss.send(())
-    }
-    
-    private func register() async {
-        do {
-            try await Task.sleep(nanoseconds: 1500000000)
-            dismiss.send(())
-            
-        } catch {
-            print("register error: \(error)")
-        }
     }
 }

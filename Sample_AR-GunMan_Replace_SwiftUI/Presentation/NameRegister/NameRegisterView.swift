@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct NameRegisterView: View {
-    @State var viewModel = NameRegisterViewModel()
-    
+    @State var viewModel: NameRegisterViewModel
+    var dismissRequestReceiver: DismissRequestReceiver
+    var onRegistered: (Ranking) -> Void
+        
     var body: some View {
         @Bindable var viewModel = viewModel
         
@@ -141,18 +143,27 @@ struct NameRegisterView: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.paper, lineWidth: 2)
         }
+        .onReceive(viewModel.notifyRegistrationCompletion) { ranking in
+            onRegistered(ranking)
+        }
+        .onReceive(viewModel.dismiss) {
+            dismissRequestReceiver.subject.send(())
+        }
     }
     
     var progressView: some View {
         ProgressView()
             .progressViewStyle(.circular)
             .tint(Color.paper)
-//            .scaleEffect(1.8)
     }
 }
 
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
-        NameRegisterView()
+        NameRegisterView(
+            viewModel: NameRegisterViewModel(score: 0.0),
+            dismissRequestReceiver: DismissRequestReceiver(),
+            onRegistered: { _ in }
+        )
     }
 }
