@@ -283,6 +283,7 @@
 				BCEA720C2D1708F2006BEA65 /* TutorialViewModel.swift */,
 				BCEA72012D16E28D006BEA65 /* TutorialView.swift */,
 				BCEA72052D16EEF9006BEA65 /* TutorialScrollViewItem.swift */,
+				BCEA720A2D16F834006BEA65 /* TutorialConst.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -360,14 +361,6 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		BCEA72092D16F81D006BEA65 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				BCEA720A2D16F834006BEA65 /* TutorialConst.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		BCFB7A532CF9F6240018649D = {
 			isa = PBXGroup;
 			children = (
@@ -402,7 +395,6 @@
 				BCFB7AFD2CFAC17D0018649D /* Presentation */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
-				BCEA72092D16F81D006BEA65 /* Constants */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
 				BCFB7A9C2CF9FA490018649D /* Resources */,
 				BCFB7A652CF9F6250018649D /* Preview Content */,
