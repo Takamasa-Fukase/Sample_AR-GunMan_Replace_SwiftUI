@@ -149,7 +149,10 @@ struct GameView: View {
         // 結果画面に遷移
         .sheet(isPresented: $viewModel.isResultViewPresented) {
             ResultView(
-                viewModel: ResultViewModel(score: viewModel.score),
+                viewModel: ResultViewModel(
+                    rankingRepository: RankingRepositoryStub(),
+                    score: viewModel.score
+                ),
                 replayButtonTapped: {
                     resetAllAndRestartGame()
                 },

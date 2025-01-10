@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct RankingView: View {
-    let viewModel = RankingViewModel()
-    var dismissRequestReceiver: DismissRequestReceiver?
-    @Environment(\.dismiss) var dismiss
+    let viewModel: RankingViewModel
+    let dismissRequestReceiver: DismissRequestReceiver
     
     var body: some View {
         GeometryReader { geometry in
@@ -49,11 +48,7 @@ struct RankingView: View {
             await viewModel.getRanking()
         }
         .onReceive(viewModel.dismiss) {
-            if let dismissRequestReceiver = dismissRequestReceiver {
-                dismissRequestReceiver.subject.send(())
-            }else {
-                dismiss()
-            }
+            dismissRequestReceiver.subject.send(())
         }
     }
     
@@ -83,6 +78,11 @@ struct RankingView: View {
 }
 
 #Preview {
-    RankingView()
-        .background(.black)
+    RankingView(
+        viewModel: RankingViewModel(
+            rankingRepository: RankingRepositoryStub()
+        ),
+        dismissRequestReceiver: DismissRequestReceiver()
+    )
+    .background(.black)
 }

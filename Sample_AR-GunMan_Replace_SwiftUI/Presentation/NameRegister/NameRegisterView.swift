@@ -161,7 +161,10 @@ struct NameRegisterView: View {
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
         NameRegisterView(
-            viewModel: NameRegisterViewModel(score: 0.0),
+            viewModel: NameRegisterViewModel(
+                rankingRepository: RankingRepositoryStub(),
+                score: 0.0
+            ),
             dismissRequestReceiver: DismissRequestReceiver(),
             onRegistered: { _ in }
         )

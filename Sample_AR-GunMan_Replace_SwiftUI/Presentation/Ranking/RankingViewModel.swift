@@ -15,13 +15,16 @@ final class RankingViewModel {
     
     let dismiss = PassthroughSubject<Void, Never>()
     
+    private let rankingRepository: RankingRepositoryInterface
+    
+    init(rankingRepository: RankingRepositoryInterface) {
+        self.rankingRepository = rankingRepository
+    }
+    
     func getRanking() async {
         do {
-            try await Task.sleep(nanoseconds: 1500000000)
+            rankingList = try await rankingRepository.getRanking()
             
-            rankingList = Array<Int>(1...100).map({
-                return .init(score: Double(101 - $0), userName: "ユーザー\($0)")
-            })
         } catch {
             print("getRanking error: \(error)")
         }

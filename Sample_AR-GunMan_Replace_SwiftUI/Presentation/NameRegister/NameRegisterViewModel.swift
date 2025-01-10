@@ -23,9 +23,14 @@ final class NameRegisterViewModel {
     let notifyRegistrationCompletion = PassthroughSubject<Ranking, Never>()
     let dismiss = PassthroughSubject<Void, Never>()
     
+    private let rankingRepository: RankingRepositoryInterface
     private let score: Double
     
-    init(score: Double) {
+    init(
+        rankingRepository: RankingRepositoryInterface,
+        score: Double
+    ) {
+        self.rankingRepository = rankingRepository
         self.score = score
     }
     
@@ -39,7 +44,7 @@ final class NameRegisterViewModel {
             
             isRegistering = true
             do {
-                try await Task.sleep(nanoseconds: 1500000000)
+                try await rankingRepository.registerRanking(ranking)
                 notifyRegistrationCompletion.send(ranking)
                 dismiss.send(())
                 

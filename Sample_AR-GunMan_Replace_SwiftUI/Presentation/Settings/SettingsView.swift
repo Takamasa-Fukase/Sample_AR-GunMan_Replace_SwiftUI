@@ -45,7 +45,10 @@ struct SettingsView: View {
         .background(Color.goldLeaf)
         // ランキング画面へ遷移
         .showCustomModal(isPresented: $viewModel.isRankingViewPresented) { dismissRequestReceiver in
-            RankingView(dismissRequestReceiver: dismissRequestReceiver)
+            RankingView(
+                viewModel: RankingViewModel(rankingRepository: RankingRepositoryStub()),
+                dismissRequestReceiver: dismissRequestReceiver
+            )
         }
         // プライバシーポリシーをWebView表示
         .sheet(isPresented: $viewModel.isPrivacyPolicyViewPresented) {

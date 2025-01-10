@@ -150,7 +150,7 @@ struct ResultView: View {
         .onReceive(viewModel.notifyHomeButtonTap) { _ in
             toHomeButtonTapped()
         }
-        // ランキング画面へ遷移
+        // 名前登録画面へ遷移
         .showCustomModal(
             isPresented: $viewModel.isNameRegisterViewPresented,
             onDismiss: {
@@ -158,7 +158,10 @@ struct ResultView: View {
             }
         ) { dismissRequestReceiver in
             NameRegisterView(
-                viewModel: NameRegisterViewModel(score: viewModel.score),
+                viewModel: NameRegisterViewModel(
+                    rankingRepository: RankingRepositoryStub(),
+                    score: viewModel.score
+                ),
                 dismissRequestReceiver: dismissRequestReceiver,
                 onRegistered: { ranking in
                     viewModel.rankingRegistered()
@@ -195,7 +198,10 @@ struct ResultView: View {
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
         ResultView(
-            viewModel: ResultViewModel(score: 98.765),
+            viewModel: ResultViewModel(
+                rankingRepository: RankingRepositoryStub(),
+                score: 98.765
+            ),
             replayButtonTapped: {},
             toHomeButtonTapped: {}
         )

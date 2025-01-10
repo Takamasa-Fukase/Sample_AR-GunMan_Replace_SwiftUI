@@ -19,7 +19,13 @@ final class ResultViewModel {
     let dismissAndNotifyReplayButtonTap = PassthroughSubject<Void, Never>()
     let notifyHomeButtonTap = PassthroughSubject<Void, Never>()
     
-    init(score: Double) {
+    private let rankingRepository: RankingRepositoryInterface
+    
+    init(
+        rankingRepository: RankingRepositoryInterface,
+        score: Double
+    ) {
+        self.rankingRepository = rankingRepository
         self.score = score
     }
     
@@ -49,6 +55,7 @@ final class ResultViewModel {
             _ = await withTaskGroup(of: Void.self) { group in
                 group.addTask {
                     do {
+                        // 0.5秒後に名前登録ダイアログを表示する
                         try await Task.sleep(nanoseconds: 500000000)
                         self.isNameRegisterViewPresented = true
                         
@@ -58,11 +65,7 @@ final class ResultViewModel {
                 }
                 group.addTask {
                     do {
-                        try await Task.sleep(nanoseconds: 1500000000)
-                        
-                        self.rankingList = Array<Int>(1...100).map({
-                            return .init(score: Double(101 - $0), userName: "ユーザー\($0)")
-                        })
+                        self.rankingList = try await self.rankingRepository.getRanking()
 
                     } catch {
                         print("getRanking error: \(error)")
