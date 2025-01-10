@@ -161,7 +161,8 @@ struct ResultView: View {
             NameRegisterView(
                 viewModel: NameRegisterViewModel(
                     rankingRepository: RankingRepositoryStub(),
-                    score: viewModel.score
+                    score: viewModel.score,
+                    temporaryRankTextSubject: viewModel.temporaryRankTextSubject
                 ),
                 dismissRequestReceiver: dismissRequestReceiver,
                 onRegistered: { ranking in

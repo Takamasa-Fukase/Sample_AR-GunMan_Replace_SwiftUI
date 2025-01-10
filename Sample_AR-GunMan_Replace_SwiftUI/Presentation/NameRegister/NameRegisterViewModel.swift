@@ -12,7 +12,7 @@ import Combine
 @Observable
 final class NameRegisterViewModel {
     let score: Double
-    private(set) var rankText = ""
+    private(set) var temporaryRankText = ""
     private(set) var isRegistering = false
     private(set) var isRegisterButtonEnabled = false
     var nameText = "" {
@@ -25,13 +25,21 @@ final class NameRegisterViewModel {
     let dismiss = PassthroughSubject<Void, Never>()
     
     private let rankingRepository: RankingRepositoryInterface
+    private var cancellables = Set<AnyCancellable>()
     
     init(
         rankingRepository: RankingRepositoryInterface,
-        score: Double
+        score: Double,
+        temporaryRankTextSubject: CurrentValueSubject<String, Never>
     ) {
         self.rankingRepository = rankingRepository
         self.score = score
+        
+        temporaryRankTextSubject
+            .sink { [weak self] rankText in
+                self?.temporaryRankText = rankText
+            }
+            .store(in: &cancellables)
     }
     
     func onViewDisappear() {

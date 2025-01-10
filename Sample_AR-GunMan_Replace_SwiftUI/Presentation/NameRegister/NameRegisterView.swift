@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NameRegisterView: View {
     @State var viewModel: NameRegisterViewModel
@@ -31,13 +32,13 @@ struct NameRegisterView: View {
                         .foregroundStyle(Color.paper)
                     
                     Group {
-                        if viewModel.rankText.isEmpty {
+                        if viewModel.temporaryRankText.isEmpty {
                             // インジケーター
                             progressView
                             
                         } else {
                             // ランク表示
-                            Text(viewModel.rankText)
+                            Text(viewModel.temporaryRankText)
                                 .font(.custom("Copperplate", size: 25))
                                 .foregroundStyle(Color.customDarkBrown)
                         }
@@ -163,7 +164,8 @@ struct NameRegisterView: View {
         NameRegisterView(
             viewModel: NameRegisterViewModel(
                 rankingRepository: RankingRepositoryStub(),
-                score: 0.0
+                score: 0.0,
+                temporaryRankTextSubject: CurrentValueSubject<String, Never>("")
             ),
             dismissRequestReceiver: DismissRequestReceiver(),
             onRegistered: { _ in }
