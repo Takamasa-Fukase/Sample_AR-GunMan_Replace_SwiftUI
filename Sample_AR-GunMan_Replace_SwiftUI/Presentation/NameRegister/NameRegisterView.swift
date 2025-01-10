@@ -134,12 +134,14 @@ struct NameRegisterView: View {
         .frame(width: 412)
         .background(Color.goldLeaf)
         .clipShape(RoundedRectangle(cornerRadius: 5))
+        // 枠線を重ねる
         .overlay {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.paper, lineWidth: 1)
                 .padding(0.5)
         }
-        .padding(.all, 5.2)
+        .padding(.all, 3.8)
+        // 外側の枠線を重ねる
         .overlay {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.paper, lineWidth: 2)
