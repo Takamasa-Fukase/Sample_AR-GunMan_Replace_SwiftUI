@@ -34,8 +34,16 @@ struct ResultView: View {
                     HStack(spacing: 0) {
                         
                         ZStack {
-                            // ランキング
-                            RankingListView(rankingList: viewModel.rankingList)
+                            ScrollViewReader { scrollProxy in
+                                // ランキング
+                                RankingListView(rankingList: viewModel.rankingList)
+                                // MEMO: scrollProxyを使用する為この位置で.onReceiveしている
+                                    .onReceive(viewModel.scrollCellToCenter) { index in
+                                        withAnimation {
+                                            scrollProxy.scrollTo(index, anchor: .center)
+                                        }
+                                    }
+                            }
                             
                             RoundedRectangle(cornerRadius: 1)
                                 .stroke(lineWidth: 7)
@@ -73,20 +81,20 @@ struct ResultView: View {
                             Spacer()
                                 .frame(height: 6)
                             
-                            ZStack {
+                            ZStack(alignment: .center) {
                                 RoundedRectangle(cornerRadius: 1)
                                     .stroke(lineWidth: 7)
                                     .padding(.all, 3.5)
                                     .foregroundStyle(Color.goldLeaf)
                                 
                                 GeometryReader { actionButtonsAreaGeometry in
-                                    HStack(spacing: 0) {
-                                        Image("pistol")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
-                                        
-                                        if isButtonsBaseViewVisible {
+                                    ZStack {
+                                        HStack(spacing: 0) {
+                                            if isButtonsBaseViewVisible {
+                                                Spacer()
+                                                    .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
+                                            }
+                                            
                                             VStack(spacing: 0) {
                                                 Button {
                                                     viewModel.replayButtonTapped()
@@ -105,6 +113,17 @@ struct ResultView: View {
                                                         .frame(maxHeight: .infinity)
                                                         .opacity(buttonsOpacity)
                                                 }
+                                            }
+                                        }
+                                        
+                                        HStack(spacing: 0) {
+                                            Image("pistol")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
+                                            
+                                            if isButtonsBaseViewVisible {
+                                                Spacer()
                                             }
                                         }
                                     }
@@ -134,11 +153,12 @@ struct ResultView: View {
         .onReceive(viewModel.showButtons) { _ in
             withAnimation(.linear(duration: 0.6)) {
                 isButtonsBaseViewVisible = true
-            } completion: {
-                withAnimation(.linear(duration: 0.2)) {
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
+                withAnimation(.linear(duration: 0.25)) {
                     buttonsOpacity = 1
                 }
-            }
+            })
         }
         .onReceive(viewModel.dismissAndNotifyReplayButtonTap) { _ in
             var transaction = Transaction()
@@ -166,7 +186,7 @@ struct ResultView: View {
                 ),
                 dismissRequestReceiver: dismissRequestReceiver,
                 onRegistered: { ranking in
-                    viewModel.rankingRegistered()
+                    viewModel.rankingRegistered(ranking)
                 }
             )
         }

@@ -18,9 +18,11 @@ final class ResultViewModel {
     let showButtons = PassthroughSubject<Void, Never>()
     let dismissAndNotifyReplayButtonTap = PassthroughSubject<Void, Never>()
     let notifyHomeButtonTap = PassthroughSubject<Void, Never>()
+    let scrollCellToCenter = PassthroughSubject<Int, Never>()
     let temporaryRankTextSubject = CurrentValueSubject<String, Never>("")
     
     private let rankingRepository: RankingRepositoryInterface
+    private var temporaryRankIndex = 0
     
     init(
         rankingRepository: RankingRepositoryInterface,
@@ -34,9 +36,9 @@ final class ResultViewModel {
         executeSimultaneously()
     }
     
-    func rankingRegistered() {
-        // TODO: 渡されたRankingを、該当のindex（既に算出して保持済みの想定）位置に挿入し、中央位置にスクロールさせる
-        
+    func rankingRegistered(_ ranking: Ranking) {
+        rankingList.insert(ranking, at: temporaryRankIndex)
+        scrollCellToCenter.send(temporaryRankIndex)
     }
     
     func nameRegisterViewClosed() {
@@ -71,8 +73,8 @@ final class ResultViewModel {
                         
                         // 今回のスコアが既存のランキングの中で何位に入り込むかを算出し、
                         // 名前登録画面に受け渡しているsubjectに流す
-                        let temporaryRankIndex = self.rankingList.firstIndex(where: { $0.score <= self.score }) ?? 0
-                        let temporaryRankText = "\(temporaryRankIndex + 1) / \(self.rankingList.count)"
+                        self.temporaryRankIndex = self.rankingList.firstIndex(where: { $0.score <= self.score }) ?? 0
+                        let temporaryRankText = "\(self.temporaryRankIndex + 1) / \(self.rankingList.count)"
                         self.temporaryRankTextSubject.send(temporaryRankText)
 
                     } catch {

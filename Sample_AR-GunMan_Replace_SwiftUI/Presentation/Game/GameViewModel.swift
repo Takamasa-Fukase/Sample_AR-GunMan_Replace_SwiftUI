@@ -41,7 +41,7 @@ final class GameViewModel {
     private let timerPauseController = GameTimerCreateRequest.PauseController()
     private let weaponReloadCanceller = WeaponReloadCanceller()
 
-    @ObservationIgnored private(set) var score: Double = 98.000
+    @ObservationIgnored private(set) var score: Double = 38.555
     @ObservationIgnored private var isCheckedTutorialCompletedFlag = false
     @ObservationIgnored private var reloadingMotionDetecedCount: Int = 0
     
