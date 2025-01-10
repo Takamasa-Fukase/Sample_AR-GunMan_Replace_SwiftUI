@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
-    let viewModel: ResultViewModel
+    @State var viewModel: ResultViewModel
     let replayButtonTapped: (() -> Void)
     let toHomeButtonTapped: (() -> Void)
     @Environment(\.dismiss) var dismiss
@@ -127,6 +127,7 @@ struct ResultView: View {
             }
         }
         .ignoresSafeArea(edges: .bottom)
+        .background(.black)
         .onAppear {
             viewModel.onViewAppear()
         }

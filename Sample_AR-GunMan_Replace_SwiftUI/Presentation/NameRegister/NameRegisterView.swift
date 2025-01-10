@@ -56,7 +56,7 @@ struct NameRegisterView: View {
                     .frame(height: 21.5)
                 
                 // スコア表示
-                Text("Score: 78.753")
+                Text("Score: \(viewModel.score.scoreText)")
                     .font(.custom("Copperplate Bold", size: 38))
                     .foregroundStyle(Color.paper)
                     .frame(height: 36)

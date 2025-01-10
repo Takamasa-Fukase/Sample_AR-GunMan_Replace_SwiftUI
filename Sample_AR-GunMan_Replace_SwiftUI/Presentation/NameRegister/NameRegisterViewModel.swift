@@ -11,6 +11,7 @@ import Combine
 
 @Observable
 final class NameRegisterViewModel {
+    let score: Double
     private(set) var rankText = ""
     private(set) var isRegistering = false
     private(set) var isRegisterButtonEnabled = false
@@ -24,7 +25,6 @@ final class NameRegisterViewModel {
     let dismiss = PassthroughSubject<Void, Never>()
     
     private let rankingRepository: RankingRepositoryInterface
-    private let score: Double
     
     init(
         rankingRepository: RankingRepositoryInterface,

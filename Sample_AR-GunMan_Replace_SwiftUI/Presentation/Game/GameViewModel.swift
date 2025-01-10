@@ -155,7 +155,7 @@ final class GameViewModel {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
             let request = GameTimerCreateRequest(
-                initialTimeCount: 5.00,
+                initialTimeCount: 0.01,
                 updateInterval: 0.01,
                 pauseController: self?.timerPauseController ?? .init()
             )

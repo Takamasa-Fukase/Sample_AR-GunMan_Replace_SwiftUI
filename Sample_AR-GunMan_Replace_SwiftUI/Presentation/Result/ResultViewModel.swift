@@ -51,6 +51,7 @@ final class ResultViewModel {
     }
     
     private func executeSimultaneously() {
+        print("executeSimultaneously")
         Task {
             _ = await withTaskGroup(of: Void.self) { group in
                 group.addTask {
@@ -58,6 +59,7 @@ final class ResultViewModel {
                         // 0.5秒後に名前登録ダイアログを表示する
                         try await Task.sleep(nanoseconds: 500000000)
                         self.isNameRegisterViewPresented = true
+                        print("self.isNameRegisterViewPresented = true")
                         
                     } catch {
                         print("showNameRegisterView error: \(error)")
@@ -66,6 +68,7 @@ final class ResultViewModel {
                 group.addTask {
                     do {
                         self.rankingList = try await self.rankingRepository.getRanking()
+                        print("self.rankingList = try await self.rankingRepository.getRanking()")
 
                     } catch {
                         print("getRanking error: \(error)")
