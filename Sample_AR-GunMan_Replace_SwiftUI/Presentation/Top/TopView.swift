@@ -69,9 +69,6 @@ struct TopView: View {
         .background(Color.goldLeaf)
         .onAppear {
             viewModel.onViewAppear()
-
-            // TODO: 後で直す
-            let soundPlayer = SoundPlayer.shared
         }
         .onReceive(viewModel.playSound) { soundType in
             SoundPlayer.shared.play(soundType)
