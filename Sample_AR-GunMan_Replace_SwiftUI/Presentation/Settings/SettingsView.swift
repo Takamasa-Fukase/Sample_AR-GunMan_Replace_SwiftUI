@@ -9,11 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @State var viewModel: SettingsViewModel
-    @Environment(\.dismiss) private var dismiss
-    
-    init(viewModel: SettingsViewModel) {
-        self.viewModel = viewModel
-    }
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         @Bindable var viewModel = viewModel

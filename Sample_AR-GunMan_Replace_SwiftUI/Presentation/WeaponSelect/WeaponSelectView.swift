@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct WeaponSelectView: View {
-    @State private var viewModel: WeaponSelectViewModel
-    private var weaponSelected: ((Int) -> Void)
-    
-    init(
-        viewModel: WeaponSelectViewModel,
-        weaponSelected: @escaping (Int) -> Void
-    ) {
-        self.viewModel = viewModel
-        self.weaponSelected = weaponSelected
-    }
+    @State var viewModel: WeaponSelectViewModel
+    var weaponSelected: ((Int) -> Void)
     
     var body: some View {
         WeaponSelectViewControllerRepresentable(

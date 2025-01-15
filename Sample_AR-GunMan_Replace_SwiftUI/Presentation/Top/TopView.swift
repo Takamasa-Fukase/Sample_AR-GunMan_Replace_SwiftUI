@@ -11,10 +11,6 @@ import Foundation
 struct TopView: View {
     @State var viewModel: TopViewModel
     
-    init(viewModel: TopViewModel) {
-        self.viewModel = viewModel
-    }
-    
     var body: some View {
         @Bindable var viewModel = viewModel
         

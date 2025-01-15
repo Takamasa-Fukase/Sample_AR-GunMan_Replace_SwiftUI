@@ -10,11 +10,11 @@ import ARShooting
 import WeaponControlMotion
 
 struct GameView: View {
-    @State private var arController: ARShootingController
-    @State private var motionDetector: WeaponControlMotionDetector
-    @State private var viewModel: GameViewModel
+    @State var arController: ARShootingController
+    @State var motionDetector: WeaponControlMotionDetector
+    @State var viewModel: GameViewModel
     @State var gameViewId = UUID()
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) var dismiss
     
     init(
         arController: ARShootingController,
