@@ -131,7 +131,7 @@ struct GameView: View {
             ZStack(alignment: .center) {
                 Color.black.opacity(0.7)
                 UIBlurEffectViewRepresentable()
-                TutorialView()
+                TutorialView(viewModel: TutorialViewModel())
             }
             .ignoresSafeArea()
             // sheetの背景を透過

@@ -91,6 +91,7 @@ struct TopView: View {
             isPresented: $viewModel.isTutorialViewPresented
         ) { dismissRequestReceiver in
             TutorialView(
+                viewModel: TutorialViewModel(),
                 // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
                 dismissRequestReceiver: dismissRequestReceiver
             )

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TutorialView: View {
-    let viewModel = TutorialViewModel()
-    var dismissRequestReceiver: DismissRequestReceiver?
+    @State var viewModel: TutorialViewModel
+    @State var dismissRequestReceiver: DismissRequestReceiver?
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -96,5 +96,5 @@ struct TutorialView: View {
 }
 
 #Preview {
-    TutorialView()
+    TutorialView(viewModel: TutorialViewModel())
 }

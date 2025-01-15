@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ResultView: View {
     @State var viewModel: ResultViewModel
-    let replayButtonTapped: (() -> Void)
-    let toHomeButtonTapped: (() -> Void)
-    @Environment(\.dismiss) var dismiss
     @State var isButtonsBaseViewVisible = false
     @State var buttonsOpacity = 0.0
+    @State var replayButtonTapped: (() -> Void)
+    @State var toHomeButtonTapped: (() -> Void)
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         @Bindable var viewModel = viewModel

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RankingView: View {
-    let viewModel: RankingViewModel
-    let dismissRequestReceiver: DismissRequestReceiver
+    @State var viewModel: RankingViewModel
+    @State var dismissRequestReceiver: DismissRequestReceiver
     
     var body: some View {
         GeometryReader { geometry in

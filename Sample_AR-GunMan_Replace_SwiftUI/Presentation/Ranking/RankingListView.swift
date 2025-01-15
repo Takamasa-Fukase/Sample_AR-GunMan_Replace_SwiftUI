@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RankingListView: View {
-    var rankingList: [Ranking]
+    @State var rankingList: [Ranking]
     
     var body: some View {
         if rankingList.isEmpty {
