@@ -43,7 +43,7 @@ struct SettingsView: View {
         // ランキング画面へ遷移
         .showCustomModal(isPresented: $viewModel.isRankingViewPresented) { dismissRequestReceiver in
             RankingView(
-                viewModel: RankingViewModel(rankingRepository: RankingRepositoryStub()),
+                viewModel: RankingViewModel(rankingRepository: RepositoryFactory.create()),
                 dismissRequestReceiver: dismissRequestReceiver
             )
         }

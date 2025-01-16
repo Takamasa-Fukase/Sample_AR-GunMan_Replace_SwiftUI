@@ -167,7 +167,7 @@ struct NameRegisterView: View {
     CenterPreviewView(backgroundColor: .black) {
         NameRegisterView(
             viewModel: NameRegisterViewModel(
-                rankingRepository: RankingRepositoryStub(),
+                rankingRepository: RepositoryFactory.create(),
                 score: 0.0,
                 temporaryRankTextSubject: CurrentValueSubject<String, Never>("")
             ),

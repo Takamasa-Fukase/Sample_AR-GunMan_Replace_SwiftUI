@@ -23,4 +23,8 @@ final class RepositoryFactory {
     static func create() -> PermissionRepositoryInterface {
         return PermissionRepository()
     }
+    
+    static func create() -> RankingRepositoryInterface {
+        return RankingRepositoryStub()
+    }
 }

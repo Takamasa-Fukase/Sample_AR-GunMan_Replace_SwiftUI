@@ -81,7 +81,7 @@ struct RankingView: View {
 #Preview {
     RankingView(
         viewModel: RankingViewModel(
-            rankingRepository: RankingRepositoryStub()
+            rankingRepository: RepositoryFactory.create()
         ),
         dismissRequestReceiver: DismissRequestReceiver()
     )

@@ -151,7 +151,7 @@ struct GameView: View {
         .sheet(isPresented: $viewModel.isResultViewPresented) {
             ResultView(
                 viewModel: ResultViewModel(
-                    rankingRepository: RankingRepositoryStub(),
+                    rankingRepository: RepositoryFactory.create(),
                     score: viewModel.score
                 ),
                 replayButtonTapped: {
