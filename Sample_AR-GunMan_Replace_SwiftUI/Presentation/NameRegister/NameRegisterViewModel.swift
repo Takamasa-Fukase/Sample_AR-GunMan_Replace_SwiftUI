@@ -8,6 +8,7 @@
 import Foundation
 import Observation
 import Combine
+import DomainLayer
 
 @Observable
 final class NameRegisterViewModel {

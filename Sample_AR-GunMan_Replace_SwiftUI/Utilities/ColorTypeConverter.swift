@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 final class ColorTypeConverter {
     static func fromColorType(_ colorType: ColorType) -> Color {

@@ -9,6 +9,8 @@ import Foundation
 import DomainLayer
 
 public final class TutorialRepository: TutorialRepositoryInterface {
+    public init() {}
+    
     public func getTutorialCompletedFlag() -> Bool {
         return UserDefaults.isTutorialCompleted
     }

@@ -9,8 +9,8 @@ import Foundation
 
 public struct Ranking: Codable, Identifiable {
     public let id = UUID()
-    let score: Double
-    let userName: String
+    public let score: Double
+    public let userName: String
     
     enum CodingKeys: String, CodingKey {
         case score

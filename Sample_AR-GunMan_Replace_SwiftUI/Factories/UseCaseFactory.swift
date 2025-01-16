@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DomainLayer
 
 final class UseCaseFactory {
     static func create() -> TutorialUseCaseInterface {

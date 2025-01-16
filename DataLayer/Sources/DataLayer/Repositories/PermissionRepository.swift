@@ -10,6 +10,8 @@ import AVFoundation
 import DomainLayer
 
 public final class PermissionRepository: PermissionRepositoryInterface {
+    public init() {}
+
     public func getCameraUsagePermissionGrantedFlag() -> Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FSPagerView
+import DomainLayer
 
 class WeaponSelectViewController: UIViewController {
     var weaponSelected: ((Int) -> Void)?

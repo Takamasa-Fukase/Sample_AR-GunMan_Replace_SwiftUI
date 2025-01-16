@@ -9,6 +9,8 @@ import Foundation
 import DomainLayer
 
 public final class RankingRepositoryStub: RankingRepositoryInterface {
+    public init() {}
+    
     public func getRanking() async throws -> [Ranking] {
         try await Task.sleep(nanoseconds: 1500000000)
         

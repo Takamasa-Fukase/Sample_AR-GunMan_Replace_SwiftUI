@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import DataLayer
+import DomainLayer
 
 struct NameRegisterView: View {
     @State var viewModel: NameRegisterViewModel

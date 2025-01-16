@@ -8,36 +8,90 @@
 import Foundation
 
 public struct CurrentWeaponData {
-    let id: Int
-    let spec: Spec
-    let resources: Resources
-    var state: State
+    public let id: Int
+    public let spec: Spec
+    public let resources: Resources
+    public var state: State
+    
+    public init(
+        id: Int,
+        spec: Spec,
+        resources: Resources,
+        state: State
+    ) {
+        self.id = id
+        self.spec = spec
+        self.resources = resources
+        self.state = state
+    }
     
     public struct Spec {
-        let capacity: Int
-        let reloadWaitingTime: TimeInterval
-        let reloadType: ReloadType
-        let targetHitPoint: Int
+        public let capacity: Int
+        public let reloadWaitingTime: TimeInterval
+        public let reloadType: ReloadType
+        public let targetHitPoint: Int
+        
+        public init(
+            capacity: Int,
+            reloadWaitingTime: TimeInterval,
+            reloadType: ReloadType,
+            targetHitPoint: Int
+        ) {
+            self.capacity = capacity
+            self.reloadWaitingTime = reloadWaitingTime
+            self.reloadType = reloadType
+            self.targetHitPoint = targetHitPoint
+        }
     }
     
     public struct Resources {
-        let weaponImageName: String
-        let sightImageName: String
-        let sightImageColorType: ColorType
-        let bulletsCountImageBaseName: String
-        let appearingSound: SoundType
-        let firingSound: SoundType
-        let reloadingSound: SoundType
-        let outOfBulletsSound: SoundType?
-        let bulletHitSound: SoundType?
+        public let weaponImageName: String
+        public let sightImageName: String
+        public let sightImageColorType: ColorType
+        public let bulletsCountImageBaseName: String
+        public let appearingSound: SoundType
+        public let firingSound: SoundType
+        public let reloadingSound: SoundType
+        public let outOfBulletsSound: SoundType?
+        public let bulletHitSound: SoundType?
+        
+        public init(
+            weaponImageName: String,
+            sightImageName: String,
+            sightImageColorType: ColorType,
+            bulletsCountImageBaseName: String,
+            appearingSound: SoundType,
+            firingSound: SoundType,
+            reloadingSound: SoundType,
+            outOfBulletsSound: SoundType?,
+            bulletHitSound: SoundType?
+        ) {
+            self.weaponImageName = weaponImageName
+            self.sightImageName = sightImageName
+            self.sightImageColorType = sightImageColorType
+            self.bulletsCountImageBaseName = bulletsCountImageBaseName
+            self.appearingSound = appearingSound
+            self.firingSound = firingSound
+            self.reloadingSound = reloadingSound
+            self.outOfBulletsSound = outOfBulletsSound
+            self.bulletHitSound = bulletHitSound
+        }
     }
     
     public struct State {
-        var bulletsCount: Int
-        var isReloading: Bool
+        public var bulletsCount: Int
+        public var isReloading: Bool
+        
+        public init(
+            bulletsCount: Int,
+            isReloading: Bool
+        ) {
+            self.bulletsCount = bulletsCount
+            self.isReloading = isReloading
+        }
     }
     
-    func bulletsCountImageName() -> String {
+    public func bulletsCountImageName() -> String {
         return resources.bulletsCountImageBaseName + String(state.bulletsCount)
     }
 }

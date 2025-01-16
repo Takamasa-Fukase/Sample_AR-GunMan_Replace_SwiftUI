@@ -8,6 +8,6 @@
 import Foundation
 
 public struct WeaponListItem: Equatable {
-    let weaponId: Int
-    let weaponImageName: String
+    public let weaponId: Int
+    public let weaponImageName: String
 }

@@ -7,8 +7,11 @@
 
 import Foundation
 import DataLayer
+import DomainLayer
 
 final class RepositoryFactory {
+    public init() {}
+
     static func create() -> WeaponRepositoryInterface {
         return WeaponRepository()
     }

@@ -23,21 +23,25 @@ public protocol WeaponActionExecuteUseCaseInterface {
 }
 
 public final class WeaponReloadCanceller {
-    var isCancelled = false
+    public var isCancelled = false
+    
+    public init(isCancelled: Bool = false) {
+        self.isCancelled = isCancelled
+    }
 }
 
 public struct WeaponFireCompletedResponse {
-    let bulletsCount: Int
-    let needsAutoReload: Bool
+    public let bulletsCount: Int
+    public let needsAutoReload: Bool
 }
 
 public struct WeaponReloadStartedResponse {
-    let isReloading: Bool
+    public let isReloading: Bool
 }
 
 public struct WeaponReloadEndedResponse {
-    let bulletsCount: Int
-    let isReloading: Bool
+    public let bulletsCount: Int
+    public let isReloading: Bool
 }
 
 public final class WeaponActionExecuteUseCase {

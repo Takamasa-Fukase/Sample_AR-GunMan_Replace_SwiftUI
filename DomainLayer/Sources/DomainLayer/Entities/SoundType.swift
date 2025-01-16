@@ -23,7 +23,7 @@ public enum SoundType: String, CaseIterable {
     case targetAppearanceChange = "target_appearance_change"
     case westernPistolFire = "western_pistol_fire"
     
-    var needsPlayVibration: Bool {
+    public var needsPlayVibration: Bool {
         return self == .pistolFire || self == .bazookaFire
     }
 }

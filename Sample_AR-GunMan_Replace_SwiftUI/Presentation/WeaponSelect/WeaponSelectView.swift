@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 struct WeaponSelectView: View {
     @State var viewModel: WeaponSelectViewModel

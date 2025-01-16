@@ -9,24 +9,38 @@ import Foundation
 
 public struct GameTimerCreateRequest {
     public final class PauseController {
-        var isPaused = false
+        public var isPaused = false
+        
+        public init(isPaused: Bool = false) {
+            self.isPaused = isPaused
+        }
     }
     let initialTimeCount: Double
     let updateInterval: TimeInterval
     let pauseController: PauseController
+    
+    public init(
+        initialTimeCount: Double, 
+        updateInterval: TimeInterval,
+        pauseController: PauseController
+    ) {
+        self.initialTimeCount = initialTimeCount
+        self.updateInterval = updateInterval
+        self.pauseController = pauseController
+    }
 }
 
 public struct TimerStartedResponse {
-    let startWhistleSound: SoundType
+    public let startWhistleSound: SoundType
 }
 
 public struct TimerUpdatedResponse {
-    let timeCount: Double
+    public let timeCount: Double
 }
 
 public struct TimerEndedResponse {
-    let endWhistleSound: SoundType
-    let rankingAppearSound: SoundType
+    public let endWhistleSound: SoundType
+    public let rankingAppearSound: SoundType
 }
 
 public protocol GameTimerCreateUseCaseInterface {

@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import DomainLayer
 
 @Observable
 final class WeaponSelectViewModel {

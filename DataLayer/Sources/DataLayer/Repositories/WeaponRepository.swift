@@ -11,6 +11,8 @@ import DomainLayer
 public final class WeaponRepository: WeaponRepositoryInterface {
     private let weapons: [Weapon] = WeaponDataSource.weapons
     
+    public init() {}
+    
     public func get(by id: Int) throws -> Weapon {
         guard let weapon = weapons.first(where: { $0.id == id }) else {
             //　エラーをthrowする
