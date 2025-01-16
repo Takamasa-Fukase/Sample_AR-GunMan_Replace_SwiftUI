@@ -79,10 +79,7 @@ struct RankingView: View {
 }
 
 #Preview {
-    RankingView(
-        viewModel: RankingViewModel(
-            rankingRepository: RepositoryFactory.create()
-        ),
+    RankingViewFactory.create(
         dismissRequestReceiver: DismissRequestReceiver()
     )
     .background(.black)

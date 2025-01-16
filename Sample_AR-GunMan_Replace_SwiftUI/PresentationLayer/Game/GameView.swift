@@ -132,7 +132,7 @@ struct GameView: View {
             ZStack(alignment: .center) {
                 Color.black.opacity(0.7)
                 UIBlurEffectViewRepresentable()
-                TutorialView(viewModel: TutorialViewModel())
+                TutorialViewFactory.create()
             }
             .ignoresSafeArea()
             // sheetの背景を透過
@@ -149,11 +149,8 @@ struct GameView: View {
         }
         // 結果画面に遷移
         .sheet(isPresented: $viewModel.isResultViewPresented) {
-            ResultView(
-                viewModel: ResultViewModel(
-                    rankingRepository: RepositoryFactory.create(),
-                    score: viewModel.score
-                ),
+            ResultViewFactory.create(
+                score: viewModel.score,
                 replayButtonTapped: {
                     resetAllAndRestartGame()
                 },

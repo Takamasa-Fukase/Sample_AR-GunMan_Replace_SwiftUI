@@ -165,12 +165,9 @@ struct NameRegisterView: View {
 
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
-        NameRegisterView(
-            viewModel: NameRegisterViewModel(
-                rankingRepository: RepositoryFactory.create(),
-                score: 0.0,
-                temporaryRankTextSubject: CurrentValueSubject<String, Never>("")
-            ),
+        NameRegisterViewFactory.create(
+            score: 0.0,
+            temporaryRankTextSubject: CurrentValueSubject<String, Never>(""),
             dismissRequestReceiver: DismissRequestReceiver(),
             onRegistered: { _ in }
         )

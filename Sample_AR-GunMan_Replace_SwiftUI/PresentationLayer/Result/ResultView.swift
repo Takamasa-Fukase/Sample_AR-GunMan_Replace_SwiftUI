@@ -179,12 +179,9 @@ struct ResultView: View {
                 viewModel.nameRegisterViewClosed()
             }
         ) { dismissRequestReceiver in
-            NameRegisterView(
-                viewModel: NameRegisterViewModel(
-                    rankingRepository: RepositoryFactory.create(),
-                    score: viewModel.score,
-                    temporaryRankTextSubject: viewModel.temporaryRankTextSubject
-                ),
+            NameRegisterViewFactory.create(
+                score: viewModel.score,
+                temporaryRankTextSubject: viewModel.temporaryRankTextSubject,
                 dismissRequestReceiver: dismissRequestReceiver,
                 onRegistered: { ranking in
                     viewModel.rankingRegistered(ranking)
@@ -220,11 +217,8 @@ struct ResultView: View {
 
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
-        ResultView(
-            viewModel: ResultViewModel(
-                rankingRepository: RepositoryFactory.create(),
-                score: 98.765
-            ),
+        ResultViewFactory.create(
+            score: 98.765,
             replayButtonTapped: {},
             toHomeButtonTapped: {}
         )

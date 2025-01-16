@@ -21,6 +21,10 @@
 		BC39094A2D1057AF001AF829 /* TopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3909492D1057AF001AF829 /* TopViewModel.swift */; };
 		BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094D2D10F42B001AF829 /* SettingsView.swift */; };
 		BC3909502D10FBA4001AF829 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */; };
+		BC41B0C72D390F00005F19BB /* TutorialViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B0C62D390F00005F19BB /* TutorialViewFactory.swift */; };
+		BC41B0C92D390F90005F19BB /* ResultViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B0C82D390F90005F19BB /* ResultViewFactory.swift */; };
+		BC41B0CB2D3910AE005F19BB /* NameRegisterViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B0CA2D3910AE005F19BB /* NameRegisterViewFactory.swift */; };
+		BC41B0CD2D3911F4005F19BB /* RankingViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC41B0CC2D3911F4005F19BB /* RankingViewFactory.swift */; };
 		BC469FB72D185DFE00DFA407 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FB62D185DFE00DFA407 /* ResultView.swift */; };
 		BC469FB92D19A4C800DFA407 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FB82D19A4C800DFA407 /* RankingView.swift */; };
 		BC469FBB2D19A5D000DFA407 /* RankingListeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */; };
@@ -112,6 +116,10 @@
 		BC3909492D1057AF001AF829 /* TopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewModel.swift; sourceTree = "<group>"; };
 		BC39094D2D10F42B001AF829 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BC39094F2D10FBA4001AF829 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		BC41B0C62D390F00005F19BB /* TutorialViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewFactory.swift; sourceTree = "<group>"; };
+		BC41B0C82D390F90005F19BB /* ResultViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewFactory.swift; sourceTree = "<group>"; };
+		BC41B0CA2D3910AE005F19BB /* NameRegisterViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameRegisterViewFactory.swift; sourceTree = "<group>"; };
+		BC41B0CC2D3911F4005F19BB /* RankingViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewFactory.swift; sourceTree = "<group>"; };
 		BC469FB62D185DFE00DFA407 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		BC469FB82D19A4C800DFA407 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListeItem.swift; sourceTree = "<group>"; };
@@ -250,6 +258,7 @@
 				BCEA72012D16E28D006BEA65 /* TutorialView.swift */,
 				BCEA72052D16EEF9006BEA65 /* TutorialScrollViewItem.swift */,
 				BCEA720A2D16F834006BEA65 /* TutorialConst.swift */,
+				BC41B0C62D390F00005F19BB /* TutorialViewFactory.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -269,6 +278,7 @@
 			children = (
 				BC469FC62D2FA61200DFA407 /* ResultViewModel.swift */,
 				BC469FB62D185DFE00DFA407 /* ResultView.swift */,
+				BC41B0C82D390F90005F19BB /* ResultViewFactory.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -280,6 +290,7 @@
 				BC469FB82D19A4C800DFA407 /* RankingView.swift */,
 				BC469FBA2D19A5D000DFA407 /* RankingListeItem.swift */,
 				BC469FBC2D19A5DB00DFA407 /* RankingListView.swift */,
+				BC41B0CC2D3911F4005F19BB /* RankingViewFactory.swift */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 			children = (
 				BCB765EC2D2FC6E900BF7CDD /* NameRegisterViewModel.swift */,
 				BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */,
+				BC41B0CA2D3910AE005F19BB /* NameRegisterViewFactory.swift */,
 			);
 			path = NameRegister;
 			sourceTree = "<group>";
@@ -739,14 +751,17 @@
 				BC79D4802D142ED9008D4D8B /* TopViewFactory.swift in Sources */,
 				BCB765ED2D2FC6E900BF7CDD /* NameRegisterViewModel.swift in Sources */,
 				BCEA72042D16E32E006BEA65 /* ContentFrameTrackableScrollView.swift in Sources */,
+				BC41B0C92D390F90005F19BB /* ResultViewFactory.swift in Sources */,
 				BCFB7AB12CFA04D20018649D /* GameViewModel.swift in Sources */,
 				BC469FC32D1B064000DFA407 /* RankingViewModel.swift in Sources */,
 				BCB765EB2D2FC6CA00BF7CDD /* NameRegisterView.swift in Sources */,
 				BCEA72082D16F710006BEA65 /* CenterPreviewView.swift in Sources */,
 				BC79D4822D142F74008D4D8B /* GameViewFactory.swift in Sources */,
+				BC41B0CD2D3911F4005F19BB /* RankingViewFactory.swift in Sources */,
 				BC39094E2D10F42B001AF829 /* SettingsView.swift in Sources */,
 				BCFB7AF82CFA09130018649D /* UseCaseFactory.swift in Sources */,
 				BCEA72062D16EEF9006BEA65 /* TutorialScrollViewItem.swift in Sources */,
+				BC41B0C72D390F00005F19BB /* TutorialViewFactory.swift in Sources */,
 				BC469FC52D1B105A00DFA407 /* SafariViewControllerRepresentable.swift in Sources */,
 				BCEA720D2D1708F2006BEA65 /* TutorialViewModel.swift in Sources */,
 				BCFB7A8A2CF9F70E0018649D /* TopView.swift in Sources */,
@@ -760,6 +775,7 @@
 				BC7CAC962D17C938009E6D31 /* CustomModalPresenter.swift in Sources */,
 				BC469FB92D19A4C800DFA407 /* RankingView.swift in Sources */,
 				BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */,
+				BC41B0CB2D3910AE005F19BB /* NameRegisterViewFactory.swift in Sources */,
 				BC8935B02D17983000E59C78 /* StopMotionAnimationView.swift in Sources */,
 				BC469FB72D185DFE00DFA407 /* ResultView.swift in Sources */,
 				BC79D4882D143867008D4D8B /* WeaponSelectViewFactory.swift in Sources */,

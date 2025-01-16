@@ -96,5 +96,5 @@ struct TutorialView: View {
 }
 
 #Preview {
-    TutorialView(viewModel: TutorialViewModel())
+    TutorialViewFactory.create()
 }

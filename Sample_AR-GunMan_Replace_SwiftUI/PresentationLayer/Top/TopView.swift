@@ -90,8 +90,7 @@ struct TopView: View {
         .showCustomModal(
             isPresented: $viewModel.isTutorialViewPresented
         ) { dismissRequestReceiver in
-            TutorialView(
-                viewModel: TutorialViewModel(),
+            TutorialViewFactory.create(
                 // 内部からのdismissリクエストをレシーバーに送信できる様に受け渡し
                 dismissRequestReceiver: dismissRequestReceiver
             )

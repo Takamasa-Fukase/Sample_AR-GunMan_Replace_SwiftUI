@@ -9,6 +9,7 @@ import Foundation
 
 final class SettingsViewFactory {
     static func create() -> SettingsView {
-        return SettingsView(viewModel: SettingsViewModel())
+        let viewModel = SettingsViewModel()
+        return SettingsView(viewModel: viewModel)
     }
 }
