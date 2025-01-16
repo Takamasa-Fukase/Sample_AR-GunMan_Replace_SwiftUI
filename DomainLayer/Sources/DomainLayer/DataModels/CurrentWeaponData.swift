@@ -1,36 +1,26 @@
 //
-//  Weapon.swift
+//  CurrentWeaponData.swift
 //  WeaponFiringSimulator
 //
-//  Created by ウルトラ深瀬 on 5/11/24.
+//  Created by ウルトラ深瀬 on 14/11/24.
 //
 
 import Foundation
 
-enum ColorType {
-    case red
-    case green
-}
-
-enum ReloadType {
-    case manual
-    case auto
-}
-
-struct Weapon {
+public struct CurrentWeaponData {
     let id: Int
-    let isDefault: Bool
     let spec: Spec
     let resources: Resources
+    var state: State
     
-    struct Spec {
+    public struct Spec {
         let capacity: Int
         let reloadWaitingTime: TimeInterval
         let reloadType: ReloadType
         let targetHitPoint: Int
     }
     
-    struct Resources {
+    public struct Resources {
         let weaponImageName: String
         let sightImageName: String
         let sightImageColorType: ColorType
@@ -40,5 +30,14 @@ struct Weapon {
         let reloadingSound: SoundType
         let outOfBulletsSound: SoundType?
         let bulletHitSound: SoundType?
+    }
+    
+    public struct State {
+        var bulletsCount: Int
+        var isReloading: Bool
+    }
+    
+    func bulletsCountImageName() -> String {
+        return resources.bulletsCountImageBaseName + String(state.bulletsCount)
     }
 }

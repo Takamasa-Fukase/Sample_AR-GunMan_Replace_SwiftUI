@@ -7,13 +7,14 @@
 
 import Foundation
 import AVFoundation
+import DomainLayer
 
-final class PermissionRepository: PermissionRepositoryInterface {
-    func getCameraUsagePermissionGrantedFlag() -> Bool {
+public final class PermissionRepository: PermissionRepositoryInterface {
+    public func getCameraUsagePermissionGrantedFlag() -> Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
     
-    func requestCameraUsagePermission() {
+    public func requestCameraUsagePermission() {
         AVCaptureDevice.requestAccess(for: .video) { _ in }
     }
 }

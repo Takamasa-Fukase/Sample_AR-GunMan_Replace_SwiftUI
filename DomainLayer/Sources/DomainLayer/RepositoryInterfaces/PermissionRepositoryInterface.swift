@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol PermissionRepositoryInterface {
+public protocol PermissionRepositoryInterface {
     func getCameraUsagePermissionGrantedFlag() -> Bool
     func requestCameraUsagePermission()
 }

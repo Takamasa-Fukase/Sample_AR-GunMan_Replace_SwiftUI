@@ -7,22 +7,22 @@
 
 import Foundation
 
-protocol WeaponResourceGetUseCaseInterface {
+public protocol WeaponResourceGetUseCaseInterface {
     func getWeaponListItems() -> [WeaponListItem]
     func getDefaultWeaponDetail() throws -> CurrentWeaponData
     func getWeaponDetail(of weaponId: Int) throws -> CurrentWeaponData
 }
 
-final class WeaponResourceGetUseCase {
+public final class WeaponResourceGetUseCase {
     let weaponRepository: WeaponRepositoryInterface
     
-    init(weaponRepository: WeaponRepositoryInterface) {
+    public init(weaponRepository: WeaponRepositoryInterface) {
         self.weaponRepository = weaponRepository
     }
 }
 
 extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
-    func getWeaponListItems() -> [WeaponListItem] {
+    public  func getWeaponListItems() -> [WeaponListItem] {
         let weapons = weaponRepository.getAll()
         return weapons.map { weapon in
             return WeaponListItem(weaponId: weapon.id,
@@ -30,7 +30,7 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
         }
     }
     
-    func getDefaultWeaponDetail() throws -> CurrentWeaponData {
+    public  func getDefaultWeaponDetail() throws -> CurrentWeaponData {
         let weapon = try weaponRepository.getDefault()
         return CurrentWeaponData(
             id: weapon.id,
@@ -58,7 +58,7 @@ extension WeaponResourceGetUseCase: WeaponResourceGetUseCaseInterface {
         )
     }
     
-    func getWeaponDetail(of weaponId: Int) throws -> CurrentWeaponData {
+    public func getWeaponDetail(of weaponId: Int) throws -> CurrentWeaponData {
         let weapon = try weaponRepository.get(by: weaponId)
         return CurrentWeaponData(
             id: weapon.id,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SoundType: String, CaseIterable {
+public enum SoundType: String, CaseIterable {
     case pistolAppear = "pistol_appear"
     case pistolFire = "pistol_fire"
     case pistolOutOfBullets = "pistol_out_of_bullets"

@@ -7,23 +7,23 @@
 
 import Foundation
 
-protocol CameraUsagePermissionHandlingUseCaseInterface {
+public protocol CameraUsagePermissionHandlingUseCaseInterface {
     func checkGrantedFlag() -> Bool
     func requestPermission()
 }
 
-final class CameraUsagePermissionHandlingUseCase: CameraUsagePermissionHandlingUseCaseInterface {
+public final class CameraUsagePermissionHandlingUseCase: CameraUsagePermissionHandlingUseCaseInterface {
     private let permissionRepository: PermissionRepositoryInterface
     
-    init(permissionRepository: PermissionRepositoryInterface) {
+    public init(permissionRepository: PermissionRepositoryInterface) {
         self.permissionRepository = permissionRepository
     }
     
-    func checkGrantedFlag() -> Bool {
+    public func checkGrantedFlag() -> Bool {
         return permissionRepository.getCameraUsagePermissionGrantedFlag()
     }
     
-    func requestPermission() {
+    public func requestPermission() {
         permissionRepository.requestCameraUsagePermission()
     }
 }

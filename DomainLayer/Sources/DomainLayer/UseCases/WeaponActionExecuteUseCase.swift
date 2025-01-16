@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WeaponActionExecuteUseCaseInterface {
+public protocol WeaponActionExecuteUseCaseInterface {
     func fireWeapon(bulletsCount: Int,
                     isReloading: Bool,
                     reloadType: ReloadType,
@@ -22,34 +22,34 @@ protocol WeaponActionExecuteUseCaseInterface {
                       onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void))
 }
 
-final class WeaponReloadCanceller {
+public final class WeaponReloadCanceller {
     var isCancelled = false
 }
 
-struct WeaponFireCompletedResponse {
+public struct WeaponFireCompletedResponse {
     let bulletsCount: Int
     let needsAutoReload: Bool
 }
 
-struct WeaponReloadStartedResponse {
+public struct WeaponReloadStartedResponse {
     let isReloading: Bool
 }
 
-struct WeaponReloadEndedResponse {
+public struct WeaponReloadEndedResponse {
     let bulletsCount: Int
     let isReloading: Bool
 }
 
-final class WeaponActionExecuteUseCase {
+public final class WeaponActionExecuteUseCase {
     private let weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface
     
-    init(weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface) {
+    public init(weaponStatusCheckUseCase: WeaponStatusCheckUseCaseInterface) {
         self.weaponStatusCheckUseCase = weaponStatusCheckUseCase
     }
 }
 
 extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
-    func fireWeapon(bulletsCount: Int, isReloading: Bool, reloadType: ReloadType, onFired: ((WeaponFireCompletedResponse) -> Void), onOutOfBullets: (() -> Void)) {
+    public func fireWeapon(bulletsCount: Int, isReloading: Bool, reloadType: ReloadType, onFired: ((WeaponFireCompletedResponse) -> Void), onOutOfBullets: (() -> Void)) {
         let canFire = weaponStatusCheckUseCase.checkCanFire(bulletsCount: bulletsCount, isReloading: isReloading)
         
         let decrementedBulletsCount = bulletsCount - 1
@@ -65,7 +65,7 @@ extension WeaponActionExecuteUseCase: WeaponActionExecuteUseCaseInterface {
         }
     }
     
-    func reloadWeapon(bulletsCount: Int, isReloading: Bool, capacity: Int, reloadWaitingTime: TimeInterval, reloadCanceller: WeaponReloadCanceller, onReloadStarted: ((WeaponReloadStartedResponse) -> Void), onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void)) {
+    public func reloadWeapon(bulletsCount: Int, isReloading: Bool, capacity: Int, reloadWaitingTime: TimeInterval, reloadCanceller: WeaponReloadCanceller, onReloadStarted: ((WeaponReloadStartedResponse) -> Void), onReloadEnded: @escaping ((WeaponReloadEndedResponse) -> Void)) {
         let canReload = weaponStatusCheckUseCase.checkCanReload(bulletsCount: bulletsCount, isReloading: isReloading)
         
         let refilledBulletsCount = capacity

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import DomainLayer
 
-final class RankingRepositoryStub: RankingRepositoryInterface {
-    func getRanking() async throws -> [Ranking] {
+public final class RankingRepositoryStub: RankingRepositoryInterface {
+    public func getRanking() async throws -> [Ranking] {
         try await Task.sleep(nanoseconds: 1500000000)
         
         return Array<Int>(1...100).map({
@@ -16,7 +17,7 @@ final class RankingRepositoryStub: RankingRepositoryInterface {
         })
     }
     
-    func registerRanking(_ ranking: Ranking) async throws {
+    public func registerRanking(_ ranking: Ranking) async throws {
         try await Task.sleep(nanoseconds: 1500000000)
     }
 }

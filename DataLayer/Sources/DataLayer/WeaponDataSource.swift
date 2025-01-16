@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DomainLayer
 
 final class WeaponDataSource {
     static let weapons: [Weapon] = [

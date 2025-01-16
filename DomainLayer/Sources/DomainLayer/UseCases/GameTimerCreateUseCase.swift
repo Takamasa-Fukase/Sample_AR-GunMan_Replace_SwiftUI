@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct GameTimerCreateRequest {
-    final class PauseController {
+public struct GameTimerCreateRequest {
+    public final class PauseController {
         var isPaused = false
     }
     let initialTimeCount: Double
@@ -16,20 +16,20 @@ struct GameTimerCreateRequest {
     let pauseController: PauseController
 }
 
-struct TimerStartedResponse {
+public struct TimerStartedResponse {
     let startWhistleSound: SoundType
 }
 
-struct TimerUpdatedResponse {
+public struct TimerUpdatedResponse {
     let timeCount: Double
 }
 
-struct TimerEndedResponse {
+public struct TimerEndedResponse {
     let endWhistleSound: SoundType
     let rankingAppearSound: SoundType
 }
 
-protocol GameTimerCreateUseCaseInterface {
+public protocol GameTimerCreateUseCaseInterface {
     func execute(
         request: GameTimerCreateRequest,
         onTimerStarted: @escaping ((TimerStartedResponse) -> Void),
@@ -38,8 +38,10 @@ protocol GameTimerCreateUseCaseInterface {
     )
 }
 
-final class GameTimerCreateUseCase: GameTimerCreateUseCaseInterface {
-    func execute(
+public final class GameTimerCreateUseCase: GameTimerCreateUseCaseInterface {
+    public init() {}
+
+    public func execute(
         request: GameTimerCreateRequest,
         onTimerStarted: @escaping ((TimerStartedResponse) -> Void),
         onTimerUpdated: @escaping ((TimerUpdatedResponse) -> Void),

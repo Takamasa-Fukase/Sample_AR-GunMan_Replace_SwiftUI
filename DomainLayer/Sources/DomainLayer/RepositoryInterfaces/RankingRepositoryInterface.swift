@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RankingRepositoryInterface {
+public protocol RankingRepositoryInterface {
     func getRanking() async throws -> [Ranking]
     func registerRanking(_ ranking: Ranking) async throws
 }

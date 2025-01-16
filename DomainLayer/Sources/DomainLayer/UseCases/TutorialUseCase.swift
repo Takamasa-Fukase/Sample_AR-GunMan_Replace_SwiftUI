@@ -7,25 +7,25 @@
 
 import Foundation
 
-protocol TutorialUseCaseInterface {
+public protocol TutorialUseCaseInterface {
     func checkCompletedFlag() -> Bool
     func updateCompletedFlag(isCompleted: Bool)
 }
 
-final class TutorialUseCase {
+public final class TutorialUseCase {
     private let tutorialRepository: TutorialRepositoryInterface
     
-    init(tutorialRepository: TutorialRepositoryInterface) {
+    public init(tutorialRepository: TutorialRepositoryInterface) {
         self.tutorialRepository = tutorialRepository
     }
 }
 
 extension TutorialUseCase: TutorialUseCaseInterface {
-    func checkCompletedFlag() -> Bool {
+    public func checkCompletedFlag() -> Bool {
         return tutorialRepository.getTutorialCompletedFlag()
     }
     
-    func updateCompletedFlag(isCompleted: Bool) {
+    public func updateCompletedFlag(isCompleted: Bool) {
         tutorialRepository.updateTutorialCompletedFlag(isCompleted: isCompleted)
     }
 }

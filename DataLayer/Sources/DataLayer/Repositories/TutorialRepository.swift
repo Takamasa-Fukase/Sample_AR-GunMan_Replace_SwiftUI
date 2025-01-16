@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import DomainLayer
 
-final class TutorialRepository: TutorialRepositoryInterface {
-    func getTutorialCompletedFlag() -> Bool {
+public final class TutorialRepository: TutorialRepositoryInterface {
+    public func getTutorialCompletedFlag() -> Bool {
         return UserDefaults.isTutorialCompleted
     }
     
-    func updateTutorialCompletedFlag(isCompleted: Bool) {
+    public func updateTutorialCompletedFlag(isCompleted: Bool) {
         UserDefaults.isTutorialCompleted = isCompleted
     }
 }

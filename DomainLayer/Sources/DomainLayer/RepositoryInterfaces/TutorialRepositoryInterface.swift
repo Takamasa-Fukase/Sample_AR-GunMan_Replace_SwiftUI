@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol TutorialRepositoryInterface {
+public protocol TutorialRepositoryInterface {
     func getTutorialCompletedFlag() -> Bool
     func updateTutorialCompletedFlag(isCompleted: Bool)
 }

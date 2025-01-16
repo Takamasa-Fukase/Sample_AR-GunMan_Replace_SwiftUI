@@ -7,13 +7,21 @@
 
 import Foundation
 
-struct Ranking: Codable, Identifiable {
-    let id = UUID()
+public struct Ranking: Codable, Identifiable {
+    public let id = UUID()
     let score: Double
     let userName: String
     
     enum CodingKeys: String, CodingKey {
         case score
         case userName = "user_name"
+    }
+    
+    public init(
+        score: Double,
+        userName: String
+    ) {
+        self.score = score
+        self.userName = userName
     }
 }
