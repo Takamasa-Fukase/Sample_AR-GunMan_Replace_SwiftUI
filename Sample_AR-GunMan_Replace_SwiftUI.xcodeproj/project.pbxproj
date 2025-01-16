@@ -141,6 +141,8 @@
 		BC469FC22D1B064000DFA407 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		BC469FC42D1B105A00DFA407 /* SafariViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		BC469FC62D2FA61200DFA407 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		BC5AFC5A2D38F252002FE07B /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
+		BC5AFC5B2D38F267002FE07B /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
 		BC79D47F2D142ED9008D4D8B /* TopViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4812D142F74008D4D8B /* GameViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewFactory.swift; sourceTree = "<group>"; };
 		BC79D4832D142FBB008D4D8B /* SettingsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewFactory.swift; sourceTree = "<group>"; };
@@ -371,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				BCACEDD32D11D26E009F9D18 /* ARShooting */,
+				BC5AFC5A2D38F252002FE07B /* DataLayer */,
+				BC5AFC5B2D38F267002FE07B /* DomainLayer */,
 				BCB2B01F2D124344001EE755 /* WeaponControlMotion */,
 				BCFB7A5E2CF9F6240018649D /* Sample_AR-GunMan_Replace_SwiftUI */,
 				BCFB7A6F2CF9F6260018649D /* Sample_AR-GunMan_Replace_SwiftUITests */,
