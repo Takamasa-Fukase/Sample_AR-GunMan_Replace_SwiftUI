@@ -358,7 +358,7 @@
 			children = (
 				BCFB7A5F2CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift */,
 				BCFB7AF52CFA09120018649D /* Factories */,
-				BCFB7AFD2CFAC17D0018649D /* Presentation */,
+				BCFB7AFD2CFAC17D0018649D /* PresentationLayer */,
 				BCFB7AAD2CF9FD360018649D /* Extensions */,
 				BCFB7AE22CFA068B0018649D /* Utilities */,
 				BCFB7A632CF9F6250018649D /* Assets.xcassets */,
@@ -449,7 +449,7 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
-		BCFB7AFD2CFAC17D0018649D /* Presentation */ = {
+		BCFB7AFD2CFAC17D0018649D /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				BCE325542D0F15B0001B3955 /* Top */,
@@ -462,7 +462,7 @@
 				BC469FB52D185DED00DFA407 /* Ranking */,
 				BC3908C52D0FA03B001AF829 /* Common */,
 			);
-			path = Presentation;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
