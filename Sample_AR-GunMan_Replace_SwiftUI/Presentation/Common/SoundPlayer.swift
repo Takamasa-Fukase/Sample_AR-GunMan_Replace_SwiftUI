@@ -17,11 +17,10 @@ final class SoundPlayer {
     private var audioPlayers: [SoundType: AVAudioPlayer] = [:]
     
     private init() {
-        initAudioPlayers()
         forceSoundOn()
     }
     
-    private func initAudioPlayers() {
+    func initAudioPlayers() {
         SoundType.allCases.forEach({ sound in
             guard let path = Bundle.main.path(forResource: sound.rawValue, ofType: "mp3") else {
                 print("音源\(sound.rawValue)が見つかりません")

@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import FSPagerView
 
 class WeaponSelectViewController: UIViewController {
     var weaponSelected: ((Int) -> Void)?
     private var weaponListItems = [WeaponListItem]()
     
-    @IBOutlet private weak var pagerView: FSPagerView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     init() {
         super.init(nibName: WeaponSelectViewController.className, bundle: nil)
@@ -25,52 +24,40 @@ class WeaponSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupFSPagerView()                
-    }
-    
-    override func viewIsAppearing(_ animated: Bool) {
-        super.viewIsAppearing(animated)
-        
-        pagerView.itemSize = CGSize(width: view.frame.width * 0.5, height: view.frame.height * 0.8)
+        setupCollectionView()
     }
     
     func updateWeaponListItems(_ items: [WeaponListItem]) {
         weaponListItems = items
-        pagerView.reloadData()
+        collectionView.reloadData()
     }
 
-    private func setupFSPagerView() {
-        pagerView.delegate = self
-        pagerView.dataSource = self
-        pagerView.automaticSlidingInterval = 0
-        pagerView.isInfinite = true
-        pagerView.decelerationDistance = 1
-        pagerView.interitemSpacing = 8
-        pagerView.transformer = FSPagerViewTransformer(type: .ferrisWheel)
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
         let nib = UINib(nibName: WeaponSelectCell.className, bundle: nil)
-        pagerView.register(nib, forCellWithReuseIdentifier: WeaponSelectCell.className)
+        collectionView.register(nib, forCellWithReuseIdentifier: WeaponSelectCell.className)
+        collectionView.reloadData()
     }
 }
 
-extension WeaponSelectViewController: FSPagerViewDelegate {
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        let weaponId = weaponListItems[index].weaponId
-        weaponSelected?(weaponId)
-    }
-}
-
-extension WeaponSelectViewController: FSPagerViewDataSource {
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
+extension WeaponSelectViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weaponListItems.count
     }
     
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: WeaponSelectCell.className, at: index) as! WeaponSelectCell
-        let item = weaponListItems[index]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeaponSelectCell.className, for: indexPath) as! WeaponSelectCell
+        let item = weaponListItems[indexPath.row]
         cell.configure(
             weaponImage: UIImage(named: item.weaponImageName),
             isHiddenCommingSoonLabel: true
         )
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let weaponId = weaponListItems[indexPath.row].weaponId
+        weaponSelected?(weaponId)
     }
 }

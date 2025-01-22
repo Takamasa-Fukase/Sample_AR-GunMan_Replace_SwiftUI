@@ -74,7 +74,7 @@ final class GameViewModel {
             
             let isTutorialCompleted = tutorialUseCase.checkCompletedFlag()
             if isTutorialCompleted {
-                waitAndCreateTimer()
+//                waitAndCreateTimer()
             }else {
                 isTutorialViewPresented = true
             }

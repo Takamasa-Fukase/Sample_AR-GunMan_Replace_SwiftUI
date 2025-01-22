@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import FSPagerView
 
-final class WeaponSelectCell: FSPagerViewCell {
+final class WeaponSelectCell: UICollectionViewCell {
     @IBOutlet private weak var weaponImageView: UIImageView!
     @IBOutlet private weak var commingSoonLabel: UILabel!
     

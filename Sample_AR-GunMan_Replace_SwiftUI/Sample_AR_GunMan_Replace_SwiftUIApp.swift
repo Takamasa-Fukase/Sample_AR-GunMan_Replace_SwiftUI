@@ -12,6 +12,9 @@ struct Sample_AR_GunMan_Replace_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             TopViewFactory.create()
+                .onAppear {
+                    SoundPlayer.shared.initAudioPlayers()
+                }
         }
     }
 }
