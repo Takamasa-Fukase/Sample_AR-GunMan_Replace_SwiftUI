@@ -18,6 +18,7 @@ final class WeaponSelectViewModel {
     }
     
     func onViewAppear() {
-        weaponListItems = weaponResourceGetUseCase.getWeaponListItems()
+        let items = weaponResourceGetUseCase.getWeaponListItems()
+        weaponListItems = Array(repeating: items, count: 8).flatMap({ $0 })
     }
 }
