@@ -79,9 +79,7 @@ public final class GameTimerCreateUseCase_MillisecVer: GameTimerCreateUseCaseInt
             if (timeCountMillisec == initialTimeCountMillisec) {
                 
                 // タイマーが開始されたことをコールバックで通知
-                onTimerStarted(
-                    .init(startWhistleSound: .startWhistle)
-                )
+                onTimerStarted(TimerStartedResponse(startWhistleSound: .startWhistle))
             }
             
             // ポーズ中ではない場合
@@ -94,21 +92,17 @@ public final class GameTimerCreateUseCase_MillisecVer: GameTimerCreateUseCaseInt
                 let timeCountDouble = Double(timeCountMillisec) / Double(1000)
                 
                 // タイマーが更新されたことをコールバックで通知
-                onTimerUpdated(
-                    .init(timeCount: timeCountDouble)
-                )
+                onTimerUpdated(TimerUpdatedResponse(timeCount: timeCountDouble))
             }
             
             // タイマーが0の場合
             if timeCountMillisec <= 0 {
                 
                 // タイマーが終了したことをコールバックで通知
-                onTimerEnded(
-                    .init(
-                        endWhistleSound: .endWhistle,
-                        rankingAppearSound: .rankingAppear
-                    )
-                )
+                onTimerEnded(TimerEndedResponse(
+                    endWhistleSound: .endWhistle,
+                    rankingAppearSound: .rankingAppear
+                ))
                 
                 // タイマーを破棄する
                 timer.invalidate()
