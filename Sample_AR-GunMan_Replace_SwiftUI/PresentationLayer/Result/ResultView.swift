@@ -93,7 +93,7 @@ struct ResultView: View {
                                         HStack(spacing: 0) {
                                             if isButtonsBaseViewVisible {
                                                 Spacer()
-                                                    .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
+                                                    .frame(width: actionButtonsAreaGeometry.size.width * 0.6)
                                             }
                                             
                                             VStack(spacing: 0) {
@@ -102,7 +102,7 @@ struct ResultView: View {
                                                 } label: {
                                                     Text("REPLAY")
                                                         .font(.custom("Copperplate Bold", size: 25))
-                                                        .frame(maxHeight: .infinity)
+                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                                                         .opacity(buttonsOpacity)
                                                 }
                                                 
@@ -111,7 +111,7 @@ struct ResultView: View {
                                                 } label: {
                                                     Text("HOME")
                                                         .font(.custom("Copperplate Bold", size: 25))
-                                                        .frame(maxHeight: .infinity)
+                                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                                                         .opacity(buttonsOpacity)
                                                 }
                                             }
@@ -121,7 +121,7 @@ struct ResultView: View {
                                             Image("pistol")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
-                                                .frame(width: actionButtonsAreaGeometry.size.width * 0.62)
+                                                .frame(width: actionButtonsAreaGeometry.size.width * 0.6)
                                             
                                             if isButtonsBaseViewVisible {
                                                 Spacer()
@@ -218,7 +218,7 @@ struct ResultView: View {
 #Preview {
     CenterPreviewView(backgroundColor: .black) {
         ResultViewFactory.create(
-            score: 98.765,
+            score: 100.00,
             replayButtonTapped: {},
             toHomeButtonTapped: {}
         )
