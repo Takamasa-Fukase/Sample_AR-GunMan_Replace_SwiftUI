@@ -41,6 +41,7 @@
 		BC7CAC982D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7CAC972D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift */; };
 		BC8935B02D17983000E59C78 /* StopMotionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */; };
 		BC90ECE22D48666F00B34E4B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90ECE12D48666F00B34E4B /* TimerView.swift */; };
+		BC90ECE42D48744700B34E4B /* TimerUseCase_MillisecVer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90ECE32D48744700B34E4B /* TimerUseCase_MillisecVer.swift */; };
 		BCB2B0212D1247DA001EE755 /* WeaponControlMotion in Frameworks */ = {isa = PBXBuildFile; productRef = BCB2B0202D1247DA001EE755 /* WeaponControlMotion */; };
 		BCB765EB2D2FC6CA00BF7CDD /* NameRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */; };
 		BCB765ED2D2FC6E900BF7CDD /* NameRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB765EC2D2FC6E900BF7CDD /* NameRegisterViewModel.swift */; };
@@ -139,6 +140,7 @@
 		BC7CAC972D1827A5009E6D31 /* UIBlurEffectViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffectViewRepresentable.swift; sourceTree = "<group>"; };
 		BC8935AF2D17983000E59C78 /* StopMotionAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopMotionAnimationView.swift; sourceTree = "<group>"; };
 		BC90ECE12D48666F00B34E4B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		BC90ECE32D48744700B34E4B /* TimerUseCase_MillisecVer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUseCase_MillisecVer.swift; sourceTree = "<group>"; };
 		BCACEDD32D11D26E009F9D18 /* ARShooting */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ARShooting; sourceTree = "<group>"; };
 		BCB2B01F2D124344001EE755 /* WeaponControlMotion */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeaponControlMotion; sourceTree = "<group>"; };
 		BCB765EA2D2FC6CA00BF7CDD /* NameRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameRegisterView.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				BC469FB52D185DED00DFA407 /* Ranking */,
 				BC3908C52D0FA03B001AF829 /* Common */,
 				BC90ECE12D48666F00B34E4B /* TimerView.swift */,
+				BC90ECE32D48744700B34E4B /* TimerUseCase_MillisecVer.swift */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				BC79D4842D142FBB008D4D8B /* SettingsViewFactory.swift in Sources */,
 				BCFB7A602CF9F6240018649D /* Sample_AR_GunMan_Replace_SwiftUIApp.swift in Sources */,
 				BC7CAC962D17C938009E6D31 /* CustomModalPresenter.swift in Sources */,
+				BC90ECE42D48744700B34E4B /* TimerUseCase_MillisecVer.swift in Sources */,
 				BC469FB92D19A4C800DFA407 /* RankingView.swift in Sources */,
 				BC3908C02D0F272A001AF829 /* WeaponSelectView.swift in Sources */,
 				BC41B0CB2D3910AE005F19BB /* NameRegisterViewFactory.swift in Sources */,

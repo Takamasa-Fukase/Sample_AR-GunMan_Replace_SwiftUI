@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import DomainLayer
 
 struct TimerView: View {
-    let useCase = GameTimerCreateUseCase()
+    let useCase = GameTimerCreateUseCase_MillisecVer()
     @State var isStarted = false
-    @State var timeCount: Double = 30.00
+    @State var timeCount: Double = 0.1
     
     var body: some View {
         VStack {
@@ -29,14 +28,16 @@ struct TimerView: View {
                 
             }
             useCase.execute(
-                request: .init(initialTimeCount: timeCount, updateInterval: 0.01, pauseController: GameTimerCreateRequest.PauseController(isPaused: false)))
-            { res in
+                request: .init(
+                    initialTimeCount: timeCount,
+                    updateInterval: 0.01,
+                    pauseController: .init(isPaused: false)
+                )
+            ) { _ in } onTimerUpdated: { res in
                 
-            } onTimerUpdated: { res in
                 timeCount = res.timeCount
-            } onTimerEnded: { res in
                 
-            }
+            } onTimerEnded: { res in }
             
         }
     }
