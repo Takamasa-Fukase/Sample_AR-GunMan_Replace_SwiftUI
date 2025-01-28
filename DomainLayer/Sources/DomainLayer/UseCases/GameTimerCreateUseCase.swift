@@ -65,21 +65,31 @@ public final class GameTimerCreateUseCase: GameTimerCreateUseCaseInterface {
         
         _ = Timer.scheduledTimer(withTimeInterval: request.updateInterval,
                                  repeats: true) { timer in
+            print("timerのクロージャー最初 この時点のcount: \(timeCount), updateInterval: \(request.updateInterval), updateIntervalを引いたら0と同じかそれより小さい : \(timeCount - request.updateInterval <= 0)")
+            
             if (timeCount == request.initialTimeCount) {
                 onTimerStarted(TimerStartedResponse(startWhistleSound: .startWhistle))
             }
-            if (timeCount - request.updateInterval) <= 0 {
+            
+            if !request.pauseController.isPaused {
+                print("🟦pauseじゃないif文に入った")
+                timeCount -= request.updateInterval
+                print("🟦timeCountに代入した: \(timeCount)")
+                onTimerUpdated(TimerUpdatedResponse(timeCount: timeCount))
+                print("🟦onTimerUpdatedを呼んだ")
+            }
+            
+//            if (timeCount - request.updateInterval) <= 0 {
+            if timeCount <= 0 {
+                print("🟥endのif文に入った")
                 onTimerEnded(TimerEndedResponse(
                     endWhistleSound: .endWhistle,
                     rankingAppearSound: .rankingAppear
                 ))
+                print("🟥onTimerEndedを呼んだ")
                 timer.invalidate()
-                return
-            }
-            
-            if !request.pauseController.isPaused {
-                timeCount -= request.updateInterval
-                onTimerUpdated(TimerUpdatedResponse(timeCount: timeCount))
+                print("🟥timer.invalidateをした returnします")
+//                return
             }
         }
     }
