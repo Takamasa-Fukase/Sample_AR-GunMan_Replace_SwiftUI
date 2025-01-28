@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 struct TimerView: View {
-    let useCase = GameTimerCreateUseCase_MillisecVer()
+    let useCase = GameTimerCreateUseCase()
     @State var isStarted = false
     @State var timeCount: Double = 30.00
     
