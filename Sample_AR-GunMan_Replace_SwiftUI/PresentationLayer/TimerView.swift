@@ -10,7 +10,7 @@ import SwiftUI
 struct TimerView: View {
     let useCase = GameTimerCreateUseCase_MillisecVer()
     @State var isStarted = false
-    @State var timeCount: Double = 0.1
+    @State var timeCount: Double = 30.00
     
     var body: some View {
         VStack {

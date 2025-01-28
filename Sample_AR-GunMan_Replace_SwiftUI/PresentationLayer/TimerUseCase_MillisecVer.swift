@@ -55,37 +55,51 @@ public protocol GameTimerCreateUseCaseInterface_MillisecVer {
 
 public final class GameTimerCreateUseCase_MillisecVer: GameTimerCreateUseCaseInterface_MillisecVer {
     public init() {}
-
+    
     public func execute(
         request: GameTimerCreateRequest_MillisecVer,
         onTimerStarted: @escaping ((TimerStartedResponse) -> Void),
         onTimerUpdated: @escaping ((TimerUpdatedResponse) -> Void),
         onTimerEnded: @escaping ((TimerEndedResponse) -> Void)
     ) {
-        var timeCount: Double = request.initialTimeCount
+        let initialTimeCountMillisec = Int(request.initialTimeCount * 1000)
+        let updateIntervalMillisec: Int = Int(request.updateInterval * 1000)
+        var timeCountMillisec: Int = initialTimeCountMillisec
         
         _ = Timer.scheduledTimer(withTimeInterval: request.updateInterval,
                                  repeats: true) { timer in
-            print("timerのクロージャー最初 この時点のcount: \(timeCount), updateInterval: \(request.updateInterval), updateIntervalを引いたら0と同じかそれより小さい : \(timeCount - request.updateInterval <= 0)")
+            print("timerのクロージャー最初 この時点のcount: \(timeCountMillisec), updateInterval: \(updateIntervalMillisec), updateIntervalを引いたら0と同じかそれより小さい : \((timeCountMillisec - updateIntervalMillisec) <= 0)")
             
-            if (timeCount == request.initialTimeCount) {
-                onTimerStarted(TimerStartedResponse(startWhistleSound: .startWhistle))
+            if (timeCountMillisec == initialTimeCountMillisec) {
+                onTimerStarted(
+                    .init(startWhistleSound: .startWhistle)
+                )
             }
             
             if !request.pauseController.isPaused {
                 print("🟦pauseじゃないif文に入った")
-                timeCount -= request.updateInterval
-                print("🟦timeCountに代入した: \(timeCount)")
-                onTimerUpdated(TimerUpdatedResponse(timeCount: timeCount))
+                timeCountMillisec -= updateIntervalMillisec
+                print("🟦timeCountに代入した: \(timeCountMillisec)")
+                
+                let timeCountDouble = Double(timeCountMillisec) / Double(1000)
+
+//                let timeCountDouble = Double(timeCountMillisec / 1000)
+                print("🟦timeCountDouble: \(timeCountDouble)")
+                
+                onTimerUpdated(
+                    .init(timeCount: timeCountDouble)
+                )
                 print("🟦onTimerUpdatedを呼んだ")
             }
             
-            if timeCount <= 0 {
+            if timeCountMillisec <= 0 {
                 print("🟥endのif文に入った")
-                onTimerEnded(TimerEndedResponse(
-                    endWhistleSound: .endWhistle,
-                    rankingAppearSound: .rankingAppear
-                ))
+                onTimerEnded(
+                    .init(
+                        endWhistleSound: .endWhistle,
+                        rankingAppearSound: .rankingAppear
+                    )
+                )
                 print("🟥onTimerEndedを呼んだ")
                 timer.invalidate()
                 print("🟥timer.invalidateをした")
